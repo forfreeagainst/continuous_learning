@@ -2,13 +2,17 @@
 
 ## 手写call
 
+定义：使用一个指定的 this 值和若干个指定的参数值的前提下调用某个函数
+
 ```js
+// context是基本类型，不能用呀，必须是对象呀，跟真实的call不一样呀
 Function.prototype.call2 = function(context, ...args) {
   // 判断是否是undefined和null
   if (typeof context === 'undefined' || context === null) {
     context = window
   }
   let fnSymbol = Symbol()
+  console.log(this, 'this');
   context[fnSymbol] = this
   let fn = context[fnSymbol](...args)
   delete context[fnSymbol] 
@@ -24,9 +28,16 @@ const obj = {
   sleepDuration: "12 到 16 小时",
 };
 greet.call2(obj); // 猫 的睡眠时间一般在 12 到 16 小时 之间
+
+function testPrimary() {
+  console.log(this)
+}
+testPrimary.call(16);
 ```
 
 ## 手写apply
+
+定义：使用一个指定的 this 值和单个数组的前提下调用某个函数
 
 ```js
 Function.prototype.apply2 = function(context, args) {
@@ -52,15 +63,20 @@ Function.prototype.myBind = function(context) {
     if (typeof context === "undefined" || context === null) {
         context = window;
     }
-    self = this;
+    var _this = this;//记录调用myBind的函数，重要语句
     return function(...args) {
-        return self.apply(context, args);
+        return _this.apply(context, args);//不能直接用this,因为this指向window
     }
 }
 ```
 
-总结： call,apply都是将this赋值给对象的某个属性，对象调用后，this就会指向对象。
-bind可以被new, 是把this赋值给self函数本身。
+总结：
+
+| | 改变this指向| 参数| 立即调用 |
+| --- | --- | --- | --- |
+| call | 改变 | 多个参数，一次传递 | 立即调用 |
+| apply | 改变 | 一个数组，一次传递 | 立即调用 |
+| bind | 改变 | 多个参数，多次传递 | 不立即调用 |
 
 ## 手写new
 
