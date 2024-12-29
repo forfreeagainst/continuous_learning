@@ -1,0 +1,5 @@
+Turbo Console Log: 选中内容，ctrl+alt+L，快速打印
+
+Import Cost：计算导入和压缩后的文件大小
+
+Version Lens: package.json安装的依赖版本可选择那个版本，需要手动打开，才会提示

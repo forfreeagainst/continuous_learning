@@ -1,6 +1,8 @@
+# 手写题
+
 ## 手写call
 
-```
+```js
 Function.prototype.call2 = function(context, ...args) {
   // 判断是否是undefined和null
   if (typeof context === 'undefined' || context === null) {
@@ -26,7 +28,7 @@ greet.call2(obj); // 猫 的睡眠时间一般在 12 到 16 小时 之间
 
 ## 手写apply
 
-```
+```js
 Function.prototype.apply2 = function(context, args) {
   // 判断是否是undefined和null
   if (typeof context === 'undefined' || context === null) {
@@ -44,7 +46,7 @@ Function.prototype.apply2 = function(context, args) {
 
 一个绑定函数也能使用new操作符创建对象：这种行为就像把原函数当成构造器。提供的 this 值被忽略，同时调用时的参数被提供给模拟函数。
 
-```
+```js
 Function.prototype.myBind = function(context) {
 // 判断是否是undefined 和 null
     if (typeof context === "undefined" || context === null) {
@@ -62,7 +64,7 @@ bind可以被new, 是把this赋值给self函数本身。
 
 ## 手写new
 
-```
+```js
 function objectFactory() {
     var obj = new Object(),
     Constructor = [].shift.call(arguments);
@@ -74,7 +76,7 @@ function objectFactory() {
 
 ## 手写Promise
 
-```
+```js
 class MyPromise {
     // 构造方法
     constructor(executor) {
@@ -191,7 +193,7 @@ class MyPromise {
 
 ## 手写调度器
 
-```
+```js
 class Scheduler {
   constructor(max) {
     this.max = max;
@@ -242,4 +244,58 @@ const addTask = (time, order) => {
 
 ## 手写防抖
 
+```js
+// 定义：一段时间不操作，才执行。每次操作，都清空定时器，再开启定时器
+function debounce(fn, delay) {
+  let timer = null;
+  return function () {
+    if (timer) clearTimeout(timer);
+    let args = arguments;
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+    }, delay);
+  }
+}
+```
+
 ## 手写节流
+
+```js
+// 定义：在一段时间内，只能执行一次
+//防抖和节流都是返回一个函数，都和时间有关。
+function throttle(fn, time) {
+  let start = 0;
+  return function () {
+    const nowTime = new Date();
+    if (nowTime - start > time) {
+      fn.apply(this, arguments);
+      start = nowTime;
+    }
+  }
+}
+```
+
+## 手写深拷贝
+
+```js
+function cloneDeep(temp) {
+  if (Array.isArray(temp)) {
+    var arr = [];
+    for (var i = 0; i < temp.length; i++) {
+      arr[i] = deepClone(temp[i]);
+    }
+    return arr;
+  }
+  if (typeof temp === 'object' && temp !== null) {
+    var obj = {};
+    for (var key in temp) {
+      obj[key] = deepClone(temp[key]);
+    }
+    return obj;
+  }
+  return temp;
+}
+// console.log(deepClone([{ a: 333, b: { d: 3 } }, { dd: [33] }]));
+// console.log(deepClone(22));
+// console.log(deepClone({ d: [3], b: 333 }));
+```
