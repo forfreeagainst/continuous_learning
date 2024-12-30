@@ -16,7 +16,7 @@ Function.prototype.call2 = function(context, ...args) {
   context[fnSymbol] = this
   let fn = context[fnSymbol](...args)
   delete context[fnSymbol] 
-  return fn
+  return fn;//调用这个call2方法的函数的返回值
 }
 
 //测试
@@ -58,15 +58,15 @@ Function.prototype.apply2 = function(context, args) {
 一个绑定函数也能使用new操作符创建对象：这种行为就像把原函数当成构造器。提供的 this 值被忽略，同时调用时的参数被提供给模拟函数。
 
 ```js
-Function.prototype.myBind = function(context) {
-// 判断是否是undefined 和 null
-    if (typeof context === "undefined" || context === null) {
-        context = window;
+Function.prototype.finalBind = function (context, ...args) {
+  var fn = this;
+  return function construtor(...returnArgs) {
+    if (Object.getPrototypeOf(this) === construtor.prototype) {
+      return new fn(...args,...returnArgs);
+    } else {
+      return fn.apply(context, [...args, ...returnArgs]);
     }
-    var _this = this;//记录调用myBind的函数，重要语句
-    return function(...args) {
-        return _this.apply(context, args);//不能直接用this,因为this指向window
-    }
+  }
 }
 ```
 
@@ -80,12 +80,42 @@ Function.prototype.myBind = function(context) {
 
 ## 手写new
 
+* 创建一个对象
+* 实例化对象的__proto__指向构造函数的属性prototype
+* 将构造函数中的this绑定到创建的对象，并调用该构造函数
+* 返回：如果返回的值是引用类型，就取该返回值，否则就返回该实例化对象。
+
 ```js
-function objectFactory() {
+function myNew(contructor, ...args) {
+  var obj = new Object();
+  obj.__proto__ = contructor.prototype;
+  let res = contructor.apply(obj,args);
+  //返回结果是对象，那就返回对象，否则就返回实例
+  return res instanceof Object ? res: obj;//判断引用类型，不要使用typeof，eg: null;
+  //typeof null为Object,这是js本身的bug。
+  // null instanceof Object为false;null不是Object的实例
+}
+
+//测试代码
+function fn(name,age) {
+  this.name = name;
+  this.age = age;
+  return null;
+}
+const p2 = new fn('durant', 25);
+console.log(p2)
+const p = myNew(fn, 'druant',35);
+console.log(p);
+```
+
+```js
+function myNew() {
     var obj = new Object(),
-    Constructor = [].shift.call(arguments);
+    //不懂[].shift.call(arguments)怎么理解
+    // 补充：Array.prototype.slice.call(arguments, 1);
+    Constructor = [].shift.call(arguments);//第一个参数
     obj.__proto__ = Constructor.prototype;
-    var ret = Constructor.apply(obj, arguments);
+    var ret = Constructor.apply(obj, arguments);//除去第一个参数，剩余的参数
     return typeof ret === 'object' ? ret : obj;
 };
 ```
