@@ -86,6 +86,7 @@ Function.prototype.finalBind = function (context, ...args) {
 * 返回：如果返回的值是引用类型，就取该返回值，否则就返回该实例化对象。
 
 ```js
+//new是关键字，我们用函数
 function myNew(contructor, ...args) {
   var obj = new Object();
   obj.__proto__ = contructor.prototype;
@@ -121,6 +122,113 @@ function myNew() {
 ```
 
 ## 手写Promise
+
+* promise有三个状态，分别为pending,fulfilled,rejected。
+* 初始状态为pending,一旦变为fulfilled或rejected，就不会再发生变化了。（状态不可逆）
+* throw也是触发reject方法
+
+* then方法接受的参数：1.不是函数 2.是函数 3.返回结果是promise
+* .then方法接受两个参数，结果要返回promise,后面才能继续.then，进行链式操作
+* Promise有个A+规范，函数或对象中有属性then，并且then是个函数，就能成为Promise
+
+```js
+const PENDING = 'pending';
+const FULFILLED = 'fulfilled';
+const REJECTED = "rejected";
+class MyPromise {
+  constructor(executor) {
+    this.promiseState = PENDING;
+    this.promiseResult = null;
+    this.handlerList = [];
+
+    this.resolve = this.resolve.bind(this);
+    this.reject = this.reject.bind(this);
+
+    try {
+      executor(this.resolve, this.reject)
+    } catch(e) {
+      this.reject(e);
+    }
+  }
+  changeState(state, result) {
+    if (this.promiseState !== PENDING) return;//状态不可逆
+    this.promiseResult = result;
+    this.promiseState = state;
+    this.runTask();
+  }
+  resolve(success) {
+    this.changeState(FULFILLED, success);
+  }
+  reject(fail) {
+    this.changeState(REJECTED, fail);
+  }
+  //* Promise有个A+规范，函数或对象中有属性then，并且then是个函数，就能成为Promise
+  isPromise(obj) {
+    if(obj !== null && (typeof obj === 'object' || typeof obj === 'function')) {
+      return typeof obj.then === 'function';
+    }
+    return false;
+  }
+  runMicroTask(func) {
+    //Node环境
+    if (typeof process === 'object' && typeof process.nextTick === 'function') {
+      process.nextTick(func)
+      //浏览器环境
+    } else if (typeof MutationObserver === 'function') {
+      const ob = new MutationObserver(func);
+      const textNode = document.createTextNode('1');
+      ob.observe(textNode, {
+        characterData: true
+      })
+      textNode.data = '2';
+    } else {
+      setTimeout(func, 0);
+    }
+  }
+  runOne(callback, resolve, reject) {
+    this.runMicroTask(() => {
+      if (typeof callback !== 'function') {
+        const settled = this.promiseState === FULFILLED ? resolve : reject;
+        settled(this.promiseResult);
+        return;
+      }
+      try {
+        const data = callback(this.promiseResult);
+        if (this.isPromise(data)) {
+          data.then(resolve, reject);
+        } else {
+          resolve(data);
+        }
+      } catch (err) {
+        reject(err);
+      }
+    })
+  }
+  runTask() {
+    if (this.promiseState === PENDING) return;
+    while(this.handlerList.length) {
+      const {onFulfilled, onRejected, resolve, reject} = this.handlerList.shift();
+      if (this.promiseState === FULFILLED) {
+        this.runOne(onFulfilled, resolve, reject);
+      } else {
+        this.runOne(onRejected, resolve, reject);
+      }
+    }
+  }
+    
+  then(onFulfilled, onRejected) {
+    return new MyPromise((resolve, reject) => {
+      this.handlerList.push({
+        onFulfilled,
+        onRejected,
+        resolve,
+        reject
+      });
+      this.runTask();
+    })
+  }
+}
+```
 
 ```js
 class MyPromise {
@@ -234,6 +342,127 @@ class MyPromise {
         return thenPromise
 
     }
+}
+```
+
+Promise.all
+
+全部成功 -> 返回成功数组
+如果有一个失败 -> 返回失败结果
+
+```js
+const all = (promiseList) => {
+  const result = [];
+  let count = 0;
+
+  return new MyPromise((resolve,reject) => {
+    const addData = (value, index) => {
+      result[index] = value;
+      count++;
+      if (count === promiseList.length) {
+        resolve(result);
+      }
+    }
+
+    promiseList.forEach((promise,index) => {
+      if (promise instanceof MyPromise) {
+        promise.then(res => {
+          addData(res, index);
+        }, err=> {
+          reject(err);
+        })
+      } else {
+        addData(promise, index);
+      }
+    })
+  })
+}
+```
+
+Promise.race(竞赛)
+
+先执行完，无论成功还是失败，就可以返回结果。
+
+```js
+const race = (promiseList) => {
+  return new MyPromise((resolve,reject) => {
+    promiseList.forEach(promise => {
+      if (promise instanceof MyPromise) {
+        promise.then(res => {
+          reoslve(res);//其他.then不会紧跟其后吗
+        }, err => {
+          reject(err);
+        })
+      } else {
+        resolve(promise);
+      }
+    })
+  })
+}
+```
+
+Promise.allSettled
+
+等所有promise的状态都不再是pending，执行
+
+```js
+const allSettled = (promiseList) => {
+  let resultList = [];
+  let count = 0;
+
+  const addData = (result, index, status) {
+    resultList[index] = {
+      status,
+      result
+    }
+    count ++;
+    if (count === promiseList.length) {
+      resolve(resultList)
+    }
+  }
+
+  return new MyPromise((resolve, reject) => {
+    promiseList.forEach((promise,index) => {
+      if (promise instanceof MyPromise) {
+        promise.then(res= > {
+          resolve(res, 'fullfilled');
+        }, err => {
+          reject(err, 'rejected');
+        })
+      } else {
+        resolve(promise, 'fullfilled')
+      }
+    })
+  })
+}
+```
+
+Promise.any
+
+等有一个成功或者全部失败，就结束
+
+```js
+const any = (promiseList) => {
+  let errResultList = [];
+  let count = 0;
+
+  return new MyPromise((resolve,reject) => {
+    promiseList.forEach((promise,index) => {
+      if (promise instanceof MyPromise) {
+        promise.then(res => {
+          resolve(res);
+        }, err=> {
+          errResultList[index] = err;
+          count ++;
+          if (count === promiseList.length) {
+            reject(errResultList);
+          }
+        })
+      } else {
+        resolve(promise);
+      }
+    })
+  })
 }
 ```
 
