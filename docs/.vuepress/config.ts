@@ -28,6 +28,18 @@ export default defineConfig4CustomTheme({
           { text: "算法题", link: "/exam/algorithm.md" }
         ],
       },
+      {
+        text: '构建工具',
+        items: [
+          {text: "esbuild", link: "/pack/esbuild.md"}
+        ]
+      },
+      {
+        text: '扩展/爱好',
+        items: [
+          {text: "node.js", link: "/hobby/node.js.md"}
+        ]
+      }
     ],
     sidebar: [
       {
@@ -45,6 +57,18 @@ export default defineConfig4CustomTheme({
           { title: "算法题", path: "/exam/algorithm.md" },
         ],
       },
+      {
+        title: "构建工具",
+        children: [
+          {title: "esbuild", path: "/pack/esbuild.md"}
+        ]
+      },
+      {
+        title: "扩展/爱好",
+        children: [
+          {title: "node.js", path: "/hobby/node.js.md"}
+        ]
+      }
     ],
     logo: "/img/logo.png",
     repo: "forfreeagainst/continuous_learning",
