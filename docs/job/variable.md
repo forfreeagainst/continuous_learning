@@ -1,5 +1,7 @@
 # 变量命名规范
 
+* noop空操作
+* mutable可变的，会变的
 * constructor构造器
 * laptop笔记本电脑
 * suit套装；适合
