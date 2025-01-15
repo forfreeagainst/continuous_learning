@@ -5,5 +5,5 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "docs: js基础强化"
+git commit -m "docs: 算法题"
 git push origin main
