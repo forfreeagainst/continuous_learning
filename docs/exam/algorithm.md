@@ -598,3 +598,597 @@ var maxSubArray = function(nums) {
     return maxAns;
 };
 ```
+
+## :bulb: 合并区间
+
+以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所
+
+有重叠的区间，并返回 一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间 。
+
+输入：intervals = [[1,3],[2,6],[8,10],[15,18]]
+
+输出：[[1,6],[8,10],[15,18]]
+
+解释：区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].
+
+```js
+/**
+ * @param {number[][]} intervals
+ * @return {number[][]}
+ */
+var merge = function(intervals) {
+    intervals.sort((a, b) => a[0] - b[0]);
+    let prev = intervals[0]
+    let result = []
+    for(let i =0; i<intervals.length; i++){
+        let cur = intervals[i]
+        if(cur[0] > prev[1]){
+            result.push(prev)
+            prev = cur
+        }else{
+            prev[1] = Math.max(cur[1],prev[1])
+        }
+    }
+    result.push(prev)
+    return result
+};
+```
+
+## :bulb: 轮转数组
+
+给定一个整数数组 nums，将数组中的元素向右轮转 k 个位置，其中 k 是非负数。
+
+输入: nums = [1,2,3,4,5,6,7], k = 3
+
+输出: [5,6,7,1,2,3,4]
+
+尽可能想出更多的解决方案，至少有 三种 不同的方法可以解决这个问题。
+
+你可以使用空间复杂度为 O(1) 的 原地 算法解决这个问题吗？
+
+### 时间复杂度O(n), 空间复杂度O(n)
+
+```js
+  var rotate = function (nums, k) {
+    const arr = [];
+    for (let i = 0; i < nums.length; i++) {
+      const sub = (i +k) % nums.length;
+      arr[sub] = nums[i];
+    }
+    for(let j = 0; j< nums.length; j++ ) {
+      nums[j] = arr[j]
+    }
+};
+```
+
+### 时间复杂度O(Nk), 空间复杂度O(k)
+
+```js
+var rotate = function(nums, k) {
+    const k1 = k % nums.length;
+    const popArr = [];
+    for(let i =0; i<k1;i++) {
+        popArr.push(nums.pop());
+    }
+    for(let i = 0; i < popArr.length;i++) {
+        nums.unshift(popArr[i])
+    }
+    return nums;
+};
+```
+
+## :bulb: 除自身以外数组的乘积
+
+给你一个整数数组 nums，返回 数组 answer ，其中 answer[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积 。
+
+题目数据 保证 数组 nums之中任意元素的全部前缀元素和后缀的乘积都在  32 位 整数范围内。
+
+请 不要使用除法，且在 O(n) 时间复杂度内完成此题。
+
+输入: nums = [1,2,3,4]
+
+输出: [24,12,8,6]
+
+### 前缀积 * 后缀积
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var productExceptSelf = function(nums) {
+    const answer = [1];
+    let mul = 1;
+    //前缀和
+    for(let i = 1; i< nums.length; i++) {
+        mul = mul * nums[i -1]
+        answer[i] = mul;
+    }
+    mul = 1;
+    const arr = [];
+    arr[nums.length -1] = 1;
+    // 后缀和
+    for (let i =nums.length - 2; i >= 0; i--) {
+        mul = mul * nums[i+1];
+        arr[i] = mul;     
+    }
+    for (let i = 0; i< nums.length; i++) {
+        answer[i] = answer[i] * arr[i]
+    }
+    return answer;
+};
+```
+
+## :bulb: 缺失的第一个正数（困难）
+
+给你一个未排序的整数数组 nums ，请你找出其中没有出现的最小的正整数。
+
+请你实现时间复杂度为 O(n) 并且只使用常数级别额外空间的解决方案。
+
+输入: nums = [1,2,0]
+
+输出: 3
+
+解释: 范围 [1,2] 中的数字都在数组中。
+
+```js
+```
+
+## :bulb: 矩阵置零
+
+给定一个 m x n 的矩阵，如果一个元素为 0 ，则将其所在行和列的所有元素都设为 0 。请使用 原地 算法。
+
+一个直观的解决方案是使用  O(mn) 的额外空间，但这并不是一个好的解决方案。
+
+一个简单的改进方案是使用 O(m + n) 的额外空间，但这仍然不是最好的解决方案。
+
+你能想出一个仅使用常量空间的解决方案吗？
+
+### 空间复杂度：O(Min(M,N))
+
+```js
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var setZeroes = function(matrix) {
+    const mArr = new Set();
+    const nArr = new Set();
+    const m = matrix.length;
+    const n = matrix[0].length;
+    for(let row = 0; row < m; row ++ ) {
+        for(let col = 0; col < n; col ++) {
+            if (matrix[row][col] === 0) {
+                mArr.add(row);
+                nArr.add(col);
+            }
+        }
+    }
+    for(let row = 0; row < m; row ++ ) {
+        for(let col = 0; col < n; col ++) {
+            if (mArr.has(row)) {
+                matrix[row][col] = 0;
+            }
+            if (nArr.has(col)) {
+                matrix[row][col] = 0;
+            }
+        }
+    }
+};
+```
+
+## :bulb: 螺旋矩阵
+
+给你一个 m 行 n 列的矩阵 matrix ，请按照 顺时针螺旋顺序 ，返回矩阵中的所有元素。
+
+输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]
+
+输出：[1,2,3,6,9,8,7,4,5]
+
+```js
+var spiralOrder = function(matrix) {
+    const order = [];
+    const rows = matrix.length, columns = matrix[0].length;
+    let left = 0, right = columns - 1, top = 0, bottom = rows - 1;
+    while (left <= right && top <= bottom) {
+        for (let column = left; column <= right; column++) {
+            order.push(matrix[top][column]);
+        }
+        for (let row = top + 1; row <= bottom; row++) {
+            order.push(matrix[row][right]);
+        }
+        if (left < right && top < bottom) {
+            for (let column = right - 1; column > left; column--) {
+                order.push(matrix[bottom][column]);
+            }
+            for (let row = bottom; row > top; row--) {
+                order.push(matrix[row][left]);
+            }
+        }
+        [left, right, top, bottom] = [left + 1, right - 1, top + 1, bottom - 1];
+    }
+    return order;
+};
+```
+
+## :bulb: 旋转图像
+
+给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。
+
+你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。
+
+输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]
+
+输出：[[7,4,1],[8,5,2],[9,6,3]]
+
+### 每四个点，进行位置迁移
+
+```js
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var rotate = function(matrix) {
+     const n = matrix.length;
+    for (let i = 0; i < Math.floor(n / 2); i++) {
+        for (let j = 0; j < Math.floor((n + 1) / 2); j++) {
+            const temp = matrix[i][j];
+            matrix[i][j] = matrix[n - j - 1][i];
+            matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
+            matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1];
+            matrix[j][n - i - 1] = temp;
+        }
+    }
+};
+```
+
+### 暴力解法：用一个新的矩阵。规律：行变成列，列变成行
+
+略
+
+## :bulb: 搜索二维矩阵 II
+
+编写一个高效的算法来搜索 m x n 矩阵 matrix 中的一个目标值 target 。该矩阵具有以下特性：
+
+每行的元素从左到右升序排列。
+
+每列的元素从上到下升序排列。
+
+输入: matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22]] , target = 5
+
+输出: true
+
+### 时间复杂度O(M+N)
+
+```js
+/**
+ * @param {number[][]} matrix
+ * @param {number} target
+ * @return {boolean}
+ */
+var searchMatrix = function(matrix, target) {
+    let x = 0;
+    let y = matrix[0].length - 1;
+    while (x < matrix.length && y >= 0) {
+        if (matrix[x][y] === target) {
+            return true;
+        }
+        if (matrix[x][y] > target) {
+            --y;
+        } else {
+            ++x;
+        }
+    }
+    return false;
+};
+```
+
+## :bulb: 相交链表
+
+给你两个单链表的头节点 headA 和 headB ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 null 。
+
+图示两个链表在节点 c1 开始相交：
+
+题目数据 保证 整个链式结构中不存在环。
+
+注意，函数返回结果后，链表必须 保持其原始结构 。
+
+### 双指针（时间复杂度O(m+n)，空间复杂度：O(1)）
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} headA
+ * @param {ListNode} headB
+ * @return {ListNode}
+ */
+var getIntersectionNode = function(headA, headB) {
+    if (headA === null || headB === null) {
+        return null;
+    }
+    let pA = headA, pB = headB;
+    while (pA !== pB) {
+        pA = pA === null ? headB : pA.next;
+        pB = pB === null ? headA : pB.next;
+    }
+    return pA;
+};
+```
+
+### 哈希集合（时间复杂度O(m+n)，空间复杂度：O(m)）
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} headA
+ * @param {ListNode} headB
+ * @return {ListNode}
+ */
+var getIntersectionNode = function(headA, headB) {
+    const visited = new Set();
+    let temp = headA;
+    while (temp !== null) {
+        visited.add(temp);
+        temp = temp.next;
+    }
+    temp = headB;
+    while (temp !== null) {
+        if (visited.has(temp)) {
+            return temp;
+        }
+        temp = temp.next;
+    }
+    return null;
+};
+```
+
+## :bulb: 反转链表
+
+给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
+
+输入：head = [1,2,3,4,5]
+
+输出：[5,4,3,2,1]
+
+### 迭代的方式
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var reverseList = function(head) {
+     let prev = null;
+    let curr = head;
+    while (curr) {
+        const next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+    }
+    return prev;
+};
+```
+
+## 回文链表
+
+给你一个单链表的头节点 head ，请你判断该链表是否为回文链表。
+
+如果是，返回 true ；否则，返回 false 。
+
+### 使用数组的方式
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+var isPalindrome = function(head) {
+    const arr = [];
+    while (head !== null) {
+        arr.push(head.val);
+        head = head.next;
+    }
+    for (let i = 0, j = arr.length - 1; i < j; ++i, --j) {
+        if (arr[i] !== arr[j]) {
+            return false;
+        }
+    }
+    return true;
+};
+```
+
+### 递归
+
+```js
+
+```
+
+## :bulb: 环形链表
+
+给你一个链表的头节点 head ，判断链表中是否有环。
+
+如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。
+
+为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。
+
+注意：pos 不作为参数进行传递 。仅仅是为了标识链表的实际情况。
+
+如果链表中存在环 ，则返回 true 。 否则，返回 false 。
+
+### 快慢指针
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+var hasCycle = function(head) {
+    if(!head || !head.next) return false;
+    //建立双指针
+    var p = head;
+    //快指针P下一个结点或下下结点不存在跳出循环，返回false
+    while(p.next && p.next.next){
+        p = p.next.next    //快指针一次走两步
+        head = head.next    //慢指针一次走一步
+        if(p == head){    //快慢指针指向同一位置时存在环
+            return true    
+        }
+    }
+    return false
+}
+```
+
+## :bulb: 环形链表 II
+
+给定一个链表的头节点  head ，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。
+
+如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。
+
+为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。
+
+如果 pos 是 -1，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。
+
+不允许修改 链表。
+
+输入：head = [3,2,0,-4], pos = 1
+
+输出：返回索引为 1 的链表节点
+
+解释：链表中有一个环，其尾部连接到第二个节点。
+
+### 快慢指针（空间复杂度O(1)）
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var detectCycle = function(head) {
+    if (head === null) {
+        return null;
+    }
+    let slow = head, fast = head;
+    while (fast !== null) {
+        slow = slow.next;
+        if (fast.next !== null) {
+            fast = fast.next.next;
+        } else {
+            return null;
+        }
+        if (fast === slow) {
+            let ptr = head;
+            while (ptr !== slow) {
+                ptr = ptr.next;
+                slow = slow.next;
+            }
+            return ptr;
+        }
+    }
+    return null;
+};
+```
+
+### 哈希表+链表
+
+```js
+var detectCycle = function(head) {
+    const visited = new Set();
+    while (head !== null) {
+        if (visited.has(head)) {
+            return head;
+        }
+        visited.add(head);
+        head = head.next;
+    }
+    return null;
+};
+```
+
+## :bulb: 合并两个有序链表
+
+将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+
+输入：l1 = [1,2,4], l2 = [1,3,4]
+
+输出：[1,1,2,3,4,4]
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} list1
+ * @param {ListNode} list2
+ * @return {ListNode}
+ */
+var mergeTwoLists = function(list1, list2) {
+    let newList = new ListNode(-1);
+    let p = newList;
+    while(list1 !== null && list2 !== null) {
+        if (list1.val <= list2.val) {
+            p.next = list1;
+            list1 = list1.next;
+        } else {
+            p.next = list2;
+            list2 = list2.next;
+        }
+        p = p.next;
+    }
+    p.next = list1 === null ? list2: list1;
+    return newList.next;
+};
+```
+
+## :bulb: 两数相加
+
+```js
+```
