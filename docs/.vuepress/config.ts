@@ -4,7 +4,7 @@ export default defineConfig4CustomTheme({
   locales: {
     "/": {
       lang: "zh-CN",
-      title: "修炼心得",
+      title: "修炼心得(短目标:2年到武皇癫疯)",
       description: "修炼心得",
     },
   },
@@ -18,11 +18,12 @@ export default defineConfig4CustomTheme({
         items: [
           { text: "HTML", link: "/base/html.md" },
           { text: "Css", link: "/base/css.md" },
-          { text: "JavaScript", link: "/base/javascript.md" }
+          { text: "JavaScript", link: "/base/javascript.md" },
+          { text: "js的超集ts", link : "/base/typescript.md"}
         ],
       },
       {
-        text: "框架",
+        text: "前端框架",
         items: [
           { text: 'vue', link: "/frame/vue.md" },
           { text: 'react', link: "/frame/react.md" },
@@ -61,11 +62,12 @@ export default defineConfig4CustomTheme({
         children: [
           { title: "HTML", path: "/base/html.md" },
           { title: "Css", path: "/base/css.md" },
-          { title: "JavaScript", path: "/base/javascript.md" }
+          { title: "JavaScript", path: "/base/javascript.md" },
+          { title: "js的超集ts", path : "/base/typescript.md"}
         ],
       },
       {
-        title: "框架",
+        title: "前端框架",
         children: [
           { title: 'vue', path: "/frame/vue.md" },
           { title: 'react', path: "/frame/react.md" },
