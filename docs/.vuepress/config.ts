@@ -22,6 +22,14 @@ export default defineConfig4CustomTheme({
         ],
       },
       {
+        text: "框架",
+        items: [
+          { text: 'vue', link: "/frame/vue.md" },
+          { text: 'react', link: "/frame/react.md" },
+          { text: 'vue2项目', link: "/frame/vue2_project.md"}
+        ]
+      },
+      {
         text: "笔试",
         items: [
           { text: "手写题", link: "/exam/handwriting.md" },
@@ -35,9 +43,15 @@ export default defineConfig4CustomTheme({
         ]
       },
       {
-        text: '扩展/爱好',
+        text: '扩展',
         items: [
-          {text: "node.js", link: "/hobby/node.js.md"}
+          {text: "node.js", link: "/extend/node.js.md"}
+        ]
+      },
+      {
+        text: '爱好',
+        items: [
+          {text: "English", link: "/hobby/English.md"}
         ]
       }
     ],
@@ -49,6 +63,14 @@ export default defineConfig4CustomTheme({
           { title: "Css", path: "/base/css.md" },
           { title: "JavaScript", path: "/base/javascript.md" }
         ],
+      },
+      {
+        title: "框架",
+        children: [
+          { title: 'vue', path: "/frame/vue.md" },
+          { title: 'react', path: "/frame/react.md" },
+          { title: 'vue2项目', path: "/frame/vue2_project.md"}
+        ]
       },
       {
         title: "笔试",
@@ -64,9 +86,15 @@ export default defineConfig4CustomTheme({
         ]
       },
       {
-        title: "扩展/爱好",
+        title: "扩展",
         children: [
-          {title: "node.js", path: "/hobby/node.js.md"}
+          {title: "node.js", path: "/extend/node.js.md"}
+        ]
+      },
+      {
+        title: "爱好",
+        children: [
+          {title: "English", path: "/hobby/English.md"}
         ]
       }
     ],
