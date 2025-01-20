@@ -1,5 +1,6 @@
 # 变量命名规范
 
+* Integration整合/集成
 * noop空操作
 * mutable可变的，会变的
 * constructor构造器

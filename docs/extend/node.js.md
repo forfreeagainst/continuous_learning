@@ -16,7 +16,7 @@
 
 * createRequire: esModule不能使用require
 
-```md  
+```md
 require: 一个json，或者commonjs模块（esModule不能使用require,commonJs才可以）
 解决办法：
 import { createRequire} from "module";
@@ -40,7 +40,29 @@ const __dirname = dirname(__filename);
 
 ## npm包
 
-### git-clone
+### command-exists：检查命令（命令行的）是否存在
+
+### commander：构建命令行界面
+
+### inquirer:构建交互式命令行界面
+
+### ora：输出时的loading效果，和显示各种状态的图标等
+
+### fs-extra：强大的文件操作功能
+
+### ejs(embedded 嵌入...之中**)：将ejs模板语法编译成js
+
+```md
+<%_ if (enableStylelint) {  _%>
+<%_ stylelintIgnores.forEach((txt) => { _%>
+<%= txt %>
+<% }) %>
+<%_ } _%>
+```
+
+### chalk：对控制台输出添加样式（console.log打印不明显）
+
+### git-clone：克隆git上的文件
 
 ```js
 const clone = require('git-clone/promise');
@@ -154,6 +176,37 @@ program.parse(process.argv);
 
 ## package.json字段详解
 
+### 字段说明
+
+* 必备属性：包名称name，包版本version
+* 目录&文件相关：程序入口main，命令行工具入口bin，发布文件配制files
+* 协议：license(MIT、ISC)
+* 脚本配制： script，config
+* 依赖：dependencies生产依赖，devDependencies开发环境依赖，peerDependencies兼容依赖
+* 描述信息（项目）：项目描述description，项目关键字keywords
+* 描述信息（作者）：作者author,贡献者contributors
+* 描述信息（地址）：首页homepage，仓库repository，提交bug地址bugs
+* 发布配制： private限制发布，限制发布仓库+限制发布版本publishConfig，os限制安装系统
+`private: true; 不会发布到npm市场，只是一个仓库，一个基建罢了。`
+
+### package.json常见脚本命令
+
+* `npm install --no-frozen-lockfile`：不冻结锁文件版本
+
+1.确保版本一致性：在持续集成环境中，`--frozen-lockfile` 可以防止由于`package.json`和锁文件版本
+不匹配而导致的依赖更新，从而确保每次安装的依赖版本一致。
+
+2.避免意外更新：如果锁文件不存在或不满足`package.json`中的所有依赖项，Yarn或npm会查找
+最新的满足约束并更新锁文件。使用`--frozen-lockfile`可以避免这种情况。
+
+* 大事发生的
+
+### 切换npm的镜像源
+
+* `npm install -g nrm`
+* `nrm ls`
+* `nrm use npm(切换npm的镜像源)`
+
 ### package.json中unpkg用途？
 
 在`package.json`中并不存在`unpkg`这样一个直接的标准字段或配置项，但`unpkg`与`package.json`
@@ -191,7 +244,7 @@ npm script是有生命周期的，主要包括以下几个常见阶段
 
 * 在`npm install`开始安装依赖之前触发。可用于执行一些准备工作，如检查环境、下载额外资源等。
 
-eg: `"preinstall": "npx only-allow pnpm"`
+eg: `"preinstall": "npx only-allow pnpm"` 指定pnpm作为包管理工具
 
 #### 安装阶段（install）
 
@@ -202,7 +255,7 @@ eg: `"preinstall": "npx only-allow pnpm"`
 * 在所有依赖安装完成后执行，在生成`package.json`或`npm-shrinkwrap.json`前执行。与会在
 `npm publish`之前执行，用于在发布前进行一些准备工作。
 
-eg: `"prepare": "husky install "`
+eg: `"prepare": "husky install "`安装husky(git生命周期)
 
 #### 预发布阶段（prepublish）
 
@@ -220,4 +273,3 @@ eg: `"prepare": "husky install "`
 #### 启动阶段（start）
 
 * 执行`npm start` 命令时触发，通常用于启动项目的主要服务或应用程序。
-

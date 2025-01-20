@@ -46,7 +46,8 @@ export default defineConfig4CustomTheme({
       {
         text: '扩展',
         items: [
-          {text: "node.js", link: "/extend/node.js.md"}
+          { text: "node.js", link: "/extend/node.js.md" },
+          { text: "脚手架", link: "/extend/cli.md"}
         ]
       },
       {
@@ -90,7 +91,8 @@ export default defineConfig4CustomTheme({
       {
         title: "扩展",
         children: [
-          {title: "node.js", path: "/extend/node.js.md"}
+          { title: "node.js", path: "/extend/node.js.md" },
+          { title: "脚手架", path: "/extend/cli.md"}
         ]
       },
       {
