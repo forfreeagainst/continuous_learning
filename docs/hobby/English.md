@@ -1,8 +1,5 @@
-# 常用口语
+# 阅读英文文档的能力
 
-[参考网址](https://www.doc88.com/p-78347422009831.html?s=rel&id=1)
+* Automatically fix, where possible, problems reported by rules. More info.
 
-```English
-A: Do you have a date for the party yet?
-B: 
-```
+在可能的情况下，自动修复规则报告的问题。更多信息。

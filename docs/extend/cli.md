@@ -56,6 +56,10 @@ lerna publish 运行的是lerna.json的command的配制。registry也可以选�
 * 编写lerna.json
 * 书写LICENSE，发布时需要协议证书
 
+#### lerna和pnpm一起使用，详见官网
+
+[lerna秘诀](https://lerna.nodejs.cn/docs/recipes/using-pnpm-with-lerna)
+
 ## 本地开发子包
 
 * pnpm init 或者npm init -y
@@ -67,9 +71,21 @@ lerna publish 运行的是lerna.json的command的配制。registry也可以选�
 * pre-commit：在`git commit` 之前触发，常用于对提交的代码文件进行规范校验
 * commit-msg：在`git commit`后触发，用于提交消息的格式校验
 
-### husky
+### husky：更好使用git钩子管理项目
 
 * `npx husky install`或`husky install`
+
+### changelog：维护Git更新日志
+
+参考vue源码等
+
+脚本命令changelog：`conventional-changelog -p angular -i CHANGELOG.md -s`
+
+```json
+"dependencies": {
+  "conventional-changelog-conventionalcommits": "^4.5.0"
+}
+```
 
 ## lint工具
 
@@ -104,11 +120,104 @@ rules: {规则...}
 
 ### eslint
 
+#### 子包的脚本命令
+
+```json
+"scripts": {
+  "lint": "eslint ./",
+  "test": "mocha ./__tests__/*.test.js --timeout 5000",
+  "print-config": "eslint --print-config ./index.js > ./print-config.json"
+}
+```
+
 ### prettier
 
 ### markdownlint
 
+#### 参考
+
+* [markdownlint](https://github.com/DavidAnson/markdownlint)
+* [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli)
+
+`MarkdownLint CLI 是一个用于检查 Markdown 文档语法错误的命令行工具`
+
+#### pre-commit可校验markdown文件
+
+```sh
+# !/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+pnpm run mdlint
+```
+
+脚本命令`"mdlint": "markdownlint **/*.md --ignore node_modules"`
+
 ### stylelint
+
+#### 平时项目开发，不用脚手架的能力，如何使用
+
+* 配制规则
+* 安装所需依赖stylelint和配制规则用到的依赖
+* 配制脚本命令`"lint": "stylelint \"**/*.scss\"""`
+
+#### 配制规则参考官网
+
+[用户指南的规则](https://stylelint.nodejs.cn/user-guide/rules)
+
+#### 开发子包需注意
+
+* scss,less写测试用例，
+
+## 测试工具
+
+### jest
+
+#### 官方使用指南
+
+```js
+// ES6 Class Mocks
+// Using with puppeteer操作木偶的人
+// 写法类似，有什么区别
+describe('Google', () => {
+  beforeAll(async () => {
+    await page.goto('https://google.com');
+  });
+
+  it('should be titled "Google"', async () => {
+    await expect(page.title()).resolves.toMatch('Google');
+  });
+});
+```
+
+#### 项目案例
+
+```js
+const assert = require('assert');
+const stylelint = require('stylelint');
+const path = require('path');
+
+describe('test/rules-validate.test.js', () => {
+  it('Validate default', async () => {
+    const filePaths = [path.join(__dirname, './fixtures/index.css')];
+
+    const result = await stylelint.lint({
+      configFile: path.join(__dirname, '../index.js'),
+      files: filePaths,
+      fix: false,
+    });
+
+    if (result && result.errored) {
+      const filesResult = JSON.parse(result.output || '[]') || [];
+      filesResult.forEach((fileResult) => {
+        console.log(`========= ${filePaths} ==========`);
+        console.log(fileResult.warnings);
+      });
+
+      assert.ok(filesResult.length !== 0);
+    }
+  });
+});
+```
 
 ## 静态资源站点
 

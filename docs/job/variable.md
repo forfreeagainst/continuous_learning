@@ -1,13 +1,23 @@
 # 变量命名规范
 
-* Integration整合/集成
-* noop空操作
-* mutable可变的，会变的
-* constructor构造器
-* laptop笔记本电脑
-* suit套装；适合
-* material材料
-* orientation方向
+* assertion 断言
+* explicit 明确的
+* improve performance 提高性能
+* format result 格式化结果
+* specify 指定/明确规定
+* formatter 格式器/格式化程序
+* severity 严重
+* annotation 注解
+* foundation 基础
+* overview 概述
+* Integration 整合/集成
+* noop 空操作
+* mutable 可变的，会变的
+* constructor 构造器
+* laptop 笔记本电脑
+* suit 套装；适合
+* material 材料
+* orientation 方向
 * axis 轴
 * internal 内部的
 * external 外部的

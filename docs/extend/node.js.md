@@ -176,6 +176,10 @@ program.parse(process.argv);
 
 ## package.json字段详解
 
+### 参考
+
+[npm的packages.json处理细节](https://npm.nodejs.cn/cli/v8/configuring-npm/package-json#google_vignette)
+
 ### 字段说明
 
 * 必备属性：包名称name，包版本version
