@@ -1,5 +1,7 @@
 # 变量命名规范
 
+* emit 发出 （易没扯）
+* omit 省略 （饿无没扯）
 * assertion 断言
 * explicit 明确的
 * improve performance 提高性能
