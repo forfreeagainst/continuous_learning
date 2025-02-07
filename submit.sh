@@ -5,6 +5,6 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "docs: 完善脚手架文档"
+git commit -m "docs: 算法杨辉三角"
 git push origin main
   
