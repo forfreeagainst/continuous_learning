@@ -11,6 +11,7 @@
 ### path
 
 * resolve: 解析文件，比require强大。eg:path.resolve(__dirname, '../index.ts');
+* join:
 
 ### module
 
@@ -50,6 +51,8 @@ const __dirname = dirname(__filename);
 
 ### fs-extra：强大的文件操作功能
 
+readFileSync、
+
 ### ejs(embedded 嵌入...之中**)：将ejs模板语法编译成js
 
 ```md
@@ -81,6 +84,8 @@ clone(repo, targetPath, [options]).then(() => {
   removeSync(removePath);
 })
 ```
+
+### terminalLink: 终端链接
 
 ### 脚手架入门: commander、ora、inquirer、chalk、fs-extra
 

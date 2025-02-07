@@ -60,6 +60,27 @@ lerna publish 运行的是lerna.json的command的配制。registry也可以选�
 
 [lerna秘诀](https://lerna.nodejs.cn/docs/recipes/using-pnpm-with-lerna)
 
+#### :star: lerna发包精要
+
+```md
+npm config get registry
+npm config set registry=https://registry.npmjs.org
+npm login 
+用户名：durant123
+密码：SJQ******.(******是手机密码)
+
+npm config set proxy null
+npm cache clean --force
+npm config set registry=https://registry.npmjs.org
+提完代码，lerna publish
+```
+
+* 代理问题，多次使用被视为翻墙。npm config set proxy null && npm cache clean --force
+* lerna发包，一定要有改动并提交的代码
+* 如果要one-time-password, 手机设备的软件AUthenticator，有一次性验证码
+* ECONNRESET可能网络问题，稍后重试。解决代理问题，继续重试lerna发布。eg: lerna ERR! lerna The "code" argument must be of type number. Received type string ('ECONNRESET')
+* 书写LICENSE，发布时需要协议证书
+
 ## 本地开发子包
 
 * pnpm init 或者npm init -y
@@ -167,6 +188,87 @@ pnpm run mdlint
 #### 开发子包需注意
 
 * scss,less写测试用例，
+
+## cli
+
+### init
+
+1. 检查cli包版本更新
+2. 是否使用对应的lint工具（默认使用eslint,只要选择eslint类型）
+3. 检测到项目中存在可能与 cli包 冲突的依赖和配置
+4. 注入script（包名-scan: 包名 scan, 包名-fix: 包名 fix），添加git hooks。（pre-commit:包名 commit-file-scan, commit-msg:包名 commit-msg-scan）。触发的都是bin目录下的脚本命令。
+5. 更新package.json文件，生成所有的配制文件
+
+关键代码：
+
+```ts
+pkg.husky.hooks['pre-commit'] = `${PKG_NAME} commit-file-scan`;
+pkg.husky.hooks['commit-msg'] = `${PKG_NAME} commit-msg-scan`;
+
+program
+  .command('commit-file-scan')
+  .description('代码提交检查: git commit 时对提交代码进行规范问题扫描')
+  .option('-s, --strict', '严格模式，对 warn 和 error 问题都卡口，默认仅对 error 问题卡口')
+  .action(async (cmd) => {
+    //...
+  });
+
+program
+  .command('commit-msg-scan')
+  .description('commit message 检查: git commit 时对 commit message 进行检查')
+  .action(() => {
+    //...
+  });
+```
+
+### scan
+
+1. 使用lint工具，却没有安装依赖。
+2. 比较package.json和包名.config.js的区别，通过脚本命令的可选参数，调用lint工具的API能力，
+获取对应的scan信息。
+3. 在控制台打印扫描报告
+
+### fix
+
+1. 使用lint工具，却没有安装依赖。
+2. 使用prettier格式化代码
+3. 比较package.json和包名.config.js的区别，通过脚本命令的可选参数，调用lint工具的API能力，
+获取对应的scan信息。
+4. 在控制台打印扫描报告
+
+### commit-file-scan
+
+1. 使用lint工具，却没有安装依赖。
+2. 获取未 add 的修改文件数量，比较工作区与暂存区的代码，提示是否有暂存的代码想要提交。
+3. 获取此次 commit 修改的文件列表
+4. 比较package.json和包名.config.js的区别，通过脚本命令的可选参数，调用lint工具的API能力，
+获取对应的scan信息。
+5. 在控制台打印扫描报告
+
+### commit-msg-scan
+
+1. 使用commitlint 对 git commit 的 commit message 进行检查
+
+### update
+
+1. 检查当前版本与最新版本，看是否安装最新的脚手架的包。
+
+### package.json
+
+```md
+  // ???
+  "dev": "npm run copyfiles && tsc -w",
+  // tsc编译src下的源代码
+  "build": "rm -rf lib && npm run copyfiles && tsc",
+  // 拷贝config下的ejs文件到lib目录下。
+  "copyfiles": "copyfiles -a -u 1 \"src/config/**\" lib",
+  // 编译后，检测代码
+  "test": "npm run build && jest",
+  // 测试代码覆盖率
+  "coverage": "nyc jest --silent --forceExit",
+  // prepublishOnly: 在npm publish命令前执行
+  "prepublishOnly": "npm run test"
+```
 
 ## 测试工具
 
