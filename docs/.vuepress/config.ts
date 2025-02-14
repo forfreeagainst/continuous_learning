@@ -40,14 +40,17 @@ export default defineConfig4CustomTheme({
       {
         text: '构建工具',
         items: [
-          {text: "esbuild", link: "/pack/esbuild.md"}
+          {text: "esbuild", link: "/pack/esbuild.md"},
+          {text: "webpack", link: "/pack/webpack.md"},
+          {text: "vite", link: "/pack/vite.md"}
         ]
       },
       {
         text: '扩展',
         items: [
           { text: "node.js", link: "/extend/node.js.md" },
-          { text: "脚手架", link: "/extend/cli.md"}
+          { text: "脚手架", link: "/extend/cli.md" },
+          { text: "面试题目", link: "/extend/interview.md"}
         ]
       },
       {
@@ -85,14 +88,17 @@ export default defineConfig4CustomTheme({
       {
         title: "构建工具",
         children: [
-          {title: "esbuild", path: "/pack/esbuild.md"}
+          { title: "esbuild", path: "/pack/esbuild.md" },
+          { title: "webpack", path: "/pack/webpack.md" },
+          {title: "vite", path: "/pack/vite.md"}
         ]
       },
       {
         title: "扩展",
         children: [
           { title: "node.js", path: "/extend/node.js.md" },
-          { title: "脚手架", path: "/extend/cli.md"}
+          { title: "脚手架", path: "/extend/cli.md" },
+          { title: "面试题", path: "/extend/interview.md" },
         ]
       },
       {

@@ -1,6 +1,6 @@
 # node.js
 
-## node.js本身能力
+## node.js的API
 
 ### process
 
