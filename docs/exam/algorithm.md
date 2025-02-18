@@ -1195,6 +1195,40 @@ var mergeTwoLists = function(list1, list2) {
 
 ## TODO省略
 
+## :bulb: 爬楼梯
+
+假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
+
+每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
+
+输入：n = 3
+
+输出：3
+
+解释：有三种方法可以爬到楼顶。
+
+1. 1 阶 + 1 阶 + 1 阶
+
+2. 1 阶 + 2 阶
+
+3. 2 阶 + 1 阶
+
+### 动态规划简单题
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var climbStairs = function(n) {
+    const arr = [1, 1];
+    for(let i = 2;i<= n;i++) {
+        arr[i] = arr[i-1] + arr[i -2];
+    }
+    return arr[n];
+};
+```
+
 ## :bulb: 杨辉三角
 
 给定一个非负整数 numRows，生成「杨辉三角」的前 numRows 行
@@ -1216,5 +1250,192 @@ var generate = function(numRows) {
         nums.push(row);
     }
     return nums;
+};
+```
+
+## :bulb: 打家劫舍冲冲冲
+
+给定一个代表每个房屋存放金额的非负整数数组，不能偷相邻两个房间的情况下 ，一夜之内能够偷窃到的最高金额。
+
+### 先寻找递归规律，再动态规划
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var rob = function(nums) {
+    const len = nums.length;
+    if (len === 0) return 0;
+    if (len === 1) return nums[0];
+    const arr = [];
+    arr[0] = nums[0];
+    arr[1] = Math.max(nums[0], nums[1]);
+    for(let i = 2; i < len;i ++) {
+        arr[i] = Math.max(arr[i -1], arr[i - 2] + nums[i]);
+    }
+    return arr[len -1];
+};
+```
+
+### 同上思路，优化空间复杂度
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var rob = function(nums) {
+    const len = nums.length;
+    if (len === 0) return 0;
+    if (len === 1) return nums[0];
+    let first = nums[0];
+    let second = Math.max(nums[0], nums[1]);
+    for(let i = 2; i < len; i++) {
+        let temp = second;
+        second = Math.max(second, first + nums[i]);
+        first = temp;
+    }
+    return second;
+};
+```
+
+## :bulb: 完全平方数
+
+给你一个整数 n ，返回 和为 n 的完全平方数的最少数量 。
+
+完全平方数 是一个整数，其值等于另一个整数的平方；换句话说，其值等于一个整数自乘的积。例如，1、4、9 和 16 都是完全平方数，而 3 和 11 不是。
+
+输入：n = 13
+
+输出：2
+
+解释：13 = 4 + 9
+
+### 动态规划（时间复杂度：O(n * 根号n), 空间复杂度：O(n) ）
+
+最大值： Number.MAX_VALUE
+
+```js
+var numSquares = function(n) {
+    const f = new Array(n + 1).fill(0);
+    for (let i = 1; i <= n; i++) {
+        let minn = Number.MAX_VALUE;
+        for (let j = 1; j * j <= i; j++) {
+            minn = Math.min(minn, f[i - j * j]);
+        }
+        f[i] = minn + 1;
+    }
+    return f[n];
+};
+```
+
+### 巧用数学公式（四平方和定理）
+
+「四平方和定理」: n = 4 ^ k × (8m + 7) 时，n 只能被表示为四个正整数的平方和。此时我们可以直接返回 4。
+
+```js
+var numSquares = function(n) {
+    if (isPerfectSquare(n)) {
+        return 1;
+    }
+    for (let i = 1; i * i <= n; i++) {
+        let j = n - i * i;
+        if (isPerfectSquare(j)) {
+            return 2;
+        }
+    }
+    if (checkAnswer4(n)) {
+        return 4;
+    }
+    return 3;
+}
+
+// 判断是否为完全平方数
+const isPerfectSquare = (x) => {
+    const y = Math.floor(Math.sqrt(x));
+    return y * y == x;
+}
+
+// 判断是否能表示为 4^k*(8m+7)
+const checkAnswer4 = (x) => {
+    while (x % 4 == 0) {
+        x /= 4;
+    }
+    return x % 8 == 7;
+}
+```
+
+## :bulb: 零钱兑换
+
+给你一个整数数组 coins ，表示不同面额的硬币；以及一个整数 amount ，表示总金额。
+
+计算并返回可以凑成总金额所需的 最少的硬币个数 。如果没有任何一种硬币组合能组成总金额，返回 -1 。
+
+你可以认为每种硬币的数量是无限的。
+
+### 动态规划中等题
+
+```js
+/**
+ * @param {number[]} coins
+ * @param {number} amount
+ * @return {number}
+ */
+var coinChange = function(coins, amount) {
+    //初始化一个长度为12，用来存储状态的数组，默认值填充为amount+1,也可以填充为最大值，用来后续比较。
+    let dp = new Array(amount + 1).fill(amount + 1)
+    //设置初始0的最少硬币为0
+    dp[0] = 0
+    //分别处理标记0-amount的状态值
+    for (let i = 0; i < dp.length; i++) { 
+        //用不同的硬币种类去判断各种情况
+        for (let j = 0; j < coins.length; j++) { 
+            //如果当前金额大于当前判断的硬币
+            if (i - coins[j] >= 0) {
+                //dp[i-coins[j]]获得该价格下的最优数量
+                dp[i] = Math.min(dp[i], 1 + dp[i - coins[j]]) 
+            }
+        }
+    }
+    //是否初始化的值，如果是初始值说明没有兑换成功
+    return (dp[amount] === amount + 1) ? -1 : dp[amount]
+};
+```
+
+## :bulb: 单词拆分
+
+给你一个字符串 s 和一个字符串列表 wordDict 作为字典。如果可以利用字典中出现的一个或多个单词拼接出 s 则返回 true。
+
+注意：不要求字典中出现的单词全部都使用，并且字典中的单词可以重复使用。
+
+输入: s = "leetcode", wordDict = ["leet", "code"]
+
+输出: true
+
+解释: 返回 true 因为 "leetcode" 可以由 "leet" 和 "code" 拼接成。
+
+### DP，时间复杂度O(n的平方)，空间复杂度O(n)
+
+```js
+/**
+ * @param {string} s
+ * @param {string[]} wordDict
+ * @return {boolean}
+ */
+var wordBreak = function(s, wordDict) {
+    const n = s.length;
+    const wordDictSet = new Set(wordDict);
+    const dp = new Array(n + 1).fill(false);
+    dp[0] = true;
+    for(let i = 0; i <= n; i++) {
+        for(let j = 0; j < i; j++) {
+            if (dp[j] && wordDictSet.has(s.substr(j, i - j))) {
+                dp[i] = true;
+                break;
+            }
+        }
+    }
+    return dp[n];
 };
 ```
