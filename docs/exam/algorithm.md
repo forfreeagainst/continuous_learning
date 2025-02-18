@@ -1229,6 +1229,61 @@ var climbStairs = function(n) {
 };
 ```
 
+## :bulb: 全排列
+
+给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
+
+输入：nums = [1,2,3]
+
+输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+
+### 回溯算法
+
+回溯法：一种通过探索所有可能的候选解来找出所有的解的算法。如果候选解被确认不是一个解（或者至少不是最后一个解），回溯算法会通过在
+上一步进行一些变化抛弃该解，即回溯并且再次尝试。
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permute = function(nums) {
+    const result = [];
+    const used = new Array(nums.length).fill(false);
+
+    // 回溯函数
+    function backtrack(path) {
+        // 当路径的长度等于数组的长度时，说明已经找到了一个全排列
+        if (path.length === nums.length) {
+            result.push([...path]);
+            return;
+        }
+        for (let i = 0; i < nums.length; i++) {
+            // 如果当前数字已经被使用过，则跳过
+            if (used[i]) continue;
+
+            // 选择当前数字
+            path.push(nums[i]);
+            used[i] = true;
+
+            // 递归调用回溯函数
+            backtrack(path);
+
+            // 撤销选择
+            path.pop();
+            used[i] = false;
+        }
+    }
+    
+    // 从空路径开始回溯
+    backtrack([]);
+
+    return result;
+};
+```
+
+## TODO省略
+
 ## :bulb: 杨辉三角
 
 给定一个非负整数 numRows，生成「杨辉三角」的前 numRows 行
