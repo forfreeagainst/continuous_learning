@@ -59,3 +59,8 @@ git branch
 
 比较两个分支差异
 git diff 分支1 分支2
+
+github的git clone失败：SSL peer certificate or SSH remote key was not OK
+git config --global user.name "用户名"
+git config --global user.email "邮箱"
+git config --global http.sslVerify false
