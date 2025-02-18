@@ -34,7 +34,8 @@ export default defineConfig4CustomTheme({
         text: "笔试",
         items: [
           { text: "手写题", link: "/exam/handwriting.md" },
-          { text: "算法题", link: "/exam/algorithm.md" }
+          { text: "算法题1", link: "/exam/algorithmOne.md" },
+          { text: "算法题2", link: "/exam/algorithmTwo.md" }
         ],
       },
       {
@@ -82,7 +83,8 @@ export default defineConfig4CustomTheme({
         title: "笔试",
         children: [
           { title: "手写题", path: "/exam/handwriting.md" },
-          { title: "算法题", path: "/exam/algorithm.md" },
+          { title: "算法题1", path: "/exam/algorithmOne.md" },
+          { title: "算法题2", path: "/exam/algorithmTwo.md" },
         ],
       },
       {

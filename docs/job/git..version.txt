@@ -46,6 +46,15 @@ git revert -n 版本号：本地回退到某个版本
 git commit -m '提交信息'：提交更改
 git push：推送到远程仓库
 
+在同一个文件操作，同事先提交代码，自己仍要提交。
+git stash  暂存一下
+(git stash用于保存当前工作目录的修改，以便稍后恢复，而git commit用于将当前工作目录的修改提交到本地仓库。)
+git pull origin 所选分支
+git stash pop 撤销暂存
+解决下冲突
+git add .
+git commit -m ''
+git push origin 所选分支
 
 //拉取项目
 git init
