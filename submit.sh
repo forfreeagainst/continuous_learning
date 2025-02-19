@@ -5,6 +5,5 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "docs: 完善文档"
+git commit -m "docs: 完善webpack文档"
 git push origin main
-  

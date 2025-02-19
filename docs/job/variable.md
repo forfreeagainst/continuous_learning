@@ -1,5 +1,6 @@
 # 变量命名规范
 
+* compatibility 兼容性（肯佩特备了提）
 * emit 发出 （易没扯）
 * omit 省略 （饿无没扯）
 * assertion 断言
@@ -30,7 +31,7 @@
 * pluggable可插拔的
 * consistent一致的
 * compatible兼容的
-* optimization优化
+* optimization优化 (up忒么贼师恩)
 * parallel并行的（编程：多线程）
 * extract提取
 * extends扩展/继承
