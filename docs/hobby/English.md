@@ -9,3 +9,4 @@
 ## 日常口语
 
 * I have a question for you. 我有个问题问你。
+* let bygones be bygones. 过去的就让它过去吧。
