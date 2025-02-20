@@ -1,5 +1,11 @@
 # 变量命名规范
 
+* experiments 实验特性
+* experience 经验
+* concat 联系我们
+* alias 别名
+* solution 解决方案
+* vendor 小贩，卖主
 * compatibility 兼容性（肯佩特备了提）
 * emit 发出 （易没扯）
 * omit 省略 （饿无没扯）

@@ -2,6 +2,10 @@
 
 ## 英文文档
 
+* Which of the following JS solutions do you want to use?
+
+您想要使用以下哪种JS解决方案？// the following 以下的
+
 * Automatically fix, where possible, problems reported by rules. More info.
 
 在可能的情况下，自动修复规则报告的问题。更多信息。
