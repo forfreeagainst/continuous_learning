@@ -58,7 +58,8 @@ export default defineConfig4CustomTheme({
         text: '爱好',
         items: [
           {text: "English", link: "/hobby/English.md"},
-          {text: "诗词", link: "/hobby/poem.md"}
+          {text: "诗词", link: "/hobby/poem.md"},
+          {text: "phychology和书籍", link: "/hobby/psychologyAndReading.md"}
         ]
       }
     ],
@@ -108,7 +109,8 @@ export default defineConfig4CustomTheme({
         title: "爱好",
         children: [
           {title: "English", path: "/hobby/English.md"},
-          {title: "诗词", path: "/hobby/poem.md"}
+          {title: "诗词", path: "/hobby/poem.md"},
+          {title: "phychology和书籍", path: "/hobby/psychologyAndReading.md"}
         ]
       }
     ],

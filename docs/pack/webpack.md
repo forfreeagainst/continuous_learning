@@ -626,3 +626,137 @@ module.exports = {
 
 ### 其他选项
 
+## webpack指南页（部分摘录）
+
+### 起步
+
+创建package.json文件 `npm init -y`
+
+安装依赖 `npm install webpack webpack-cli --save-dev`
+
+<!-- 安装开发环境依赖 `npm install -D webpack-dev-server` -->
+
+webpack本身只能处理js和json文件。
+
+运行cli 或者 编写 npm script（npm run dev, npm run build）
+
+* webpack开发环境的打包 `npx webpack --config ./config/webpack.dev.config.js`
+* webpack生产环境的打包 `npx webpack --config ./config/webpack.prod.config.js`
+
+```json
+{
+  "scripts": {
+    "dev": "webpack --config ./config/webpack.dev.config.js",
+    "build": "webpack --config ./config/webpack.prod.config.js"
+  }
+}
+```
+
+### 管理资源
+
+安装css-loader的相关依赖 `npm install --save-dev style-loader css-loader`
+
+```js
+ module: {
+    rules: [
+        {
+            test: /\.css$/i,
+            use: ['style-loader', 'css-loader'],
+        }
+    ],
+},
+```
+
+其他资源：`npm uninstall css-loader csv-loader json5 style-loader toml xml-loader yamljs`
+
+### 开发环境
+
+#### 使用 source map
+
+`devtool: 'inline-source-map'`
+
+#### 选择一个开发工具
+
+* 使用观察模式
+* 使用webpack-dev-server
+* 使用webpack-dev-middleware
+
+### 代码分离
+
+#### 分析bundle
+
+* webpack-chart：webpack stats 可交互饼图。
+* webpack-visualizer：分析并可视化 bundle，检查哪些模块占用空间，哪些可能是重复使用的。
+* webpack-bundle-analyzer：一个 plugin 和 CLI 工具，它将 bundle 内容展示为一个便捷的、交互式、可缩放的树状图形式。
+* webpack bundle optimize helper：这个工具会分析 bundle，并提供可操作的改进措施，以减少 bundle 的大小。
+* bundle-stats：生成一个 bundle 报告（bundle 大小、资源、模块），并比较不同构建之间的结果。
+
+### 创建库
+
+#### 暴露库
+
+webpack.config.js
+
+````js
+ const path = require('path');
+
+  module.exports = {
+    entry: './src/index.js',
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'webpack-numbers.js',
+     library: "webpackNumbers", // 暴露的库名
+    },
+  };
+```
+
+#### 外部化 lodash
+
+```
+module.exports = {
+  // ...
+  externals: {
+    lodash: {
+      commonjs: 'lodash',
+      commonjs2: 'lodash',
+      amd: 'lodash',
+      root: '_',
+    },
+  },
+}
+```
+
+### 构建性能
+
+#### 通用环境
+
+#### 开发环境
+
+###### 避免使用在生产环境下才会用到的工具
+
+某些工具、插件与 loader 都只用于生产环境。例如，在开发环境下使用 TerserPlugin 压缩和破坏代码是没有意义的。通常应该在开发环境下排除以下工具：
+
+* TerserPlugin
+* [fullhash]/[chunkhash]/[contenthash]
+* AggressiveSplittingPlugin
+* AggressiveMergingPlugin
+* ModuleConcatenationPlugin
+
+### 生产环境
+
+#### 源码映射（Source Mapping）
+
+对于本指南，我们将在 生产环境 中使用 source-map 选项，而不是我们在开发环境中用到的 inline-source-map
+
+### ECMAScript 模块
+
+ECMAScript 模块（ESM）是在 Web 中使用模块的规范。 所有现代浏览器均支持此功能，同时也是在 Web 中编写模块化代码的推荐方式。
+
+webpack 支持处理 ECMAScript 模块以优化它们。
+
+### :star: Web Workers
+
+从 webpack 5 开始，你可以使用 Web Workers 代替 worker-loader。
+
+语法 `new Worker(new URL('./worker.js', import.meta.url));`
+

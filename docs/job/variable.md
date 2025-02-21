@@ -1,5 +1,6 @@
 # 变量命名规范
 
+* (progressive web application - PWA) 渐进式网络应用程序
 * experiments 实验特性
 * experience 经验
 * concat 联系我们
