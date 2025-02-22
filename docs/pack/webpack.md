@@ -697,7 +697,7 @@ webpack本身只能处理js和json文件。
 
 webpack.config.js
 
-````js
+```js
  const path = require('path');
 
   module.exports = {
@@ -760,3 +760,19 @@ webpack 支持处理 ECMAScript 模块以优化它们。
 
 语法 `new Worker(new URL('./worker.js', import.meta.url));`
 
+## webpack迁移页
+
+### 从v4升级到v5
+
+#### 准备工作
+
+#### 升级webpack4 及其相关的plugin/loader
+
+#### 升级至wepback5
+
+##### 清理配置
+
+* 请考虑将 optimization.moduleIds 和 optimization.chunkIds 从你 webpack 配置中移除。使用默认值会更合适，因为它们会在 production 模式 下支持长效缓存且可以在 development 模式下进行调试。
+* 当 webpack 配置中使用了 [hash] 占位符时，请考虑将它改为 [contenthash]。效果一致，但事实证明会更为有效。
+* 如果你在 webpack 的 Node.js API 中使用了 watch: true，请移除它。无需按编译器的提示设置它，当执行 watch() 时为 true，当执行 run() 的时候为 false。
+* 如果你定义了 rules，以使用 raw-loader，url-loader 或 file-loader 来加载资源，请使用 资源模块 替代，因为它们可能在不久的将来被淘汰。

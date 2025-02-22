@@ -2,24 +2,40 @@
 
 ## 工程化
 
-### :star: webpack的常用的loader和plugin,如何自定义loader和plugin?如babel
+### :star: webpack常用的loader?
 
-css-loader,style-loader
+以前有资源loader，现在改为了资源模块 （type: "asset"等）。资源模块(asset module)是一种模块类型，它允许使用
+资源文件（字体，图标等）而无需配置额外 loader。(file-loader,raw-loader,url-loader, webpack5官网将在不久
+的将来被淘汰)。
+
+语法转化
+
+* babel-loader:  将ES2015+ 代码并将其转换为 ES5
+* ts-loader: 将typescript转换为javascript
+
+样式
+
+* style-loader 将模块导出的内容作为样式并添加到 DOM 中
+* css-loader 加载 CSS 文件并解析 import 的 CSS 文件，最终返回 CSS 代码
+* less-loader 加载并编译 LESS 文件
+* sass-loader 加载并编译 SASS/SCSS 文件
+* postcss-loader 使用 PostCSS 加载并转换 CSS/SSS 文件，处理css兼容性问题
+* stylus-loader 加载并编译 Stylus 文件
+
+框架
+
+vue-loader 加载并编译 Vue 组件
+
+
+### :star: webpack常用的plugin?
+
+
+### :star: loader和plugin的区别？
+
 
 HtmlWebpackPlugin, 
-
 thread-loader多线程打包, webpackBundleAnalyzer打包后的块分析
-
 ```md
-常用的loader:
-样式资源：css-loader,style-loader,(less-loader)(sass-loader)(stylus-loader)
-资源：file-loader(图片),url-loader(将小于某个大小的图片做优化，转为base64,一般为10kb)
-//webpack5，可能把file-loader,url-loader弄为内置功能了。
-//资源有哪些：图片，字体图标，音频/视频，asset/resource原封不动，asset做处理
-js资源：eslint-loader
-babel-loader:可以将ES6+代码转换为向后兼容的JavaScript语法，以便在当前和旧版本的浏览器和环境中运行‌
-//eslint(Js和jsx检查工具)，
-postcss-loader:处理css兼容性问题
 常用的plugin:
 eslintWebpackPlugin(注：webpack4使用eslint-loader,webpack使用eslintWebpackPlugin，
 //loader和plugin区别)
@@ -30,11 +46,7 @@ CssMinimizerWebpackPlugin:压缩css代码
 TerserWebpackPlugin:自定义js压缩方式，比如可以结合多线程。
 ImageMinimizerWebpackPlugin:压缩本地的静态图片
 BundlerAnalyzerPlugin:打包后可视化分析
-loader和plugin的区别？
 ```
-
-
-
 
 ### package.json中dependencies和devDependencies的区别？
 
