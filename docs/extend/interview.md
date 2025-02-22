@@ -7,6 +7,12 @@
 以前有资源loader，现在改为了资源模块 （type: "asset"等）。资源模块(asset module)是一种模块类型，它允许使用
 资源文件（字体，图标等）而无需配置额外 loader。(file-loader,raw-loader,url-loader, webpack5官网将在不久
 的将来被淘汰)。
+<!-- 
+曾经的用法，没啥用，别看
+raw-loader: 加载文件原始内容
+file-loader: 把文件输出到文件夹中，在代码中通过相对url去引用输出的文件（图片 字体）
+url-loader: 与file-loader类似，区别，可以设置阈值，大于多少kb, 交给file-loader
+ -->
 
 语法转化
 

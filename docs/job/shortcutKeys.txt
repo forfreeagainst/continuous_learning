@@ -4,6 +4,7 @@ shift + shift 打开某文件
 alt + tab 切换窗口 
 window + L 锁屏
 window + M 关闭所有窗口
+window + X 快速访问菜单（任务管理器等）
 ctrl + A 全选中, ctrl(某些不选)
 ctrl + X 剪切
 ctrl + C 复制
