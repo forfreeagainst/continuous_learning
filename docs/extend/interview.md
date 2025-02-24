@@ -5,7 +5,7 @@
 ### :star: webpack常用的loader?
 
 以前有资源loader，现在改为了资源模块 （type: "asset"等）。资源模块(asset module)是一种模块类型，它允许使用
-资源文件（字体，图标等）而无需配置额外 loader。(file-loader,raw-loader,url-loader, webpack5官网将在不久
+资源文件（字体，图标等）而无需配置额外 loader。(file-loader,raw-loader,url-loader, webpack5官网说它们将在不久
 的将来被淘汰)。
 <!-- 
 曾经的用法，没啥用，别看
@@ -32,26 +32,181 @@ url-loader: 与file-loader类似，区别，可以设置阈值，大于多少kb,
 
 vue-loader 加载并编译 Vue 组件
 
+构建速度
+
+thread-loader: 多线程打包
 
 ### :star: webpack常用的plugin?
 
+* DefinePlugin: 允许创建一个在编译时可配置的全局常量。定义环境变量。
+* HtmlWebpackPlugin: 快速创建 HTML 文件来服务 bundles。能够自动生成一个或多个HTML文件，自动帮我们引用打包后的JavaScript和CSS文件‌
+* MiniCssExtractPlugin：为每一个包含了 CSS 的 JS 文件创建一个 CSS 文件。把含有css的js文件，创建单独的css文件，通过link标签进行加载。js会堵塞页面渲染，css在js时加载，用户进来，会出现闪屏现象，用户体验不好。
+* TerserWebpackPlugin:自定义js压缩方式，比如可以结合多线程。
+* webpack-bundle-analyzer: 可视化 webpack 输出文件的体积。它将 bundle 内容展示为一个便捷的、交互式、可缩放的树状图形式
+* eslint-webpack-plugin: 该插件使用 eslint 来查找和修复 JavaScript 代码中的问题。
+* speed-measure-webpack-plugin（Asome-webpack）: 看到每个loader、plugin的执行耗时
+* CssMinimizerWebpackPlugin（node >= 18.12.0）:压缩css代码
+* ImageMinimizerWebpackPlugin（node >= 18.12.0）:压缩本地的静态图片
 
 ### :star: loader和plugin的区别？
 
+* 定义和作用
 
-HtmlWebpackPlugin, 
-thread-loader多线程打包, webpackBundleAnalyzer打包后的块分析
-```md
-常用的plugin:
-eslintWebpackPlugin(注：webpack4使用eslint-loader,webpack使用eslintWebpackPlugin，
-//loader和plugin区别)
-HtmlWebpackPlugin:能够自动生成一个或多个HTML文件，自动帮我们引用打包后的JavaScript和CSS文件‌
-MiniCssExtractPlugin：把含有css的js文件，创建单独的css文件，通过link标签进行加载。js会堵塞页面
-渲染，css在js时加载，用户进来，会出现闪屏现象，用户体验不好。
-CssMinimizerWebpackPlugin:压缩css代码
-TerserWebpackPlugin:自定义js压缩方式，比如可以结合多线程。
-ImageMinimizerWebpackPlugin:压缩本地的静态图片
-BundlerAnalyzerPlugin:打包后可视化分析
+定义：Loader 是一个转换器，用于对模块的源代码进行转换。它本质上是一个函数，接收源文件内容作为参数，返回转换后的内容。
+
+作用：Webpack 本身只能处理 JavaScript 和 JSON 文件，对于其他类型的文件（如 CSS、图片、TypeScript 等），就需要使用 Loader 来将这些文件转换为 Webpack 能够处理的模块。
+
+定义：Plugin 是一个扩展器，它可以在 Webpack 构建流程的特定生命周期钩子中插入自定义的构建行为。
+
+作用：Plugin 可以实现范围更广的任务，比如代码压缩、资源优化、生成 HTML 文件、分割代码等，它可以作用于整个构建过程。
+
+综上所述，Loader 主要负责模块的转换，而 Plugin 则用于扩展 Webpack 的功能，在整个构建过程中执行各种自定义任务。
+
+### webpack 构建流程简单说一下
+
+### 使用webpack 开发时，你用过哪些可以提高效率的插件？
+
+### 文件指纹是什么？ 怎么用？
+
+文件指纹：打包后输出的文件名的后缀。它可以用来。
+
+* 缓存优化：通过文件指纹，浏览器可以缓存文件，同时确保文件内容变化时，文件名也会变化，从而加载新文件。
+* 版本控制：文件指纹可以用于标识文件版本，确保用户总是加载最新的文件。
+* 避免冲突：生成唯一的文件名，避免多个文件重名的问题。
+
+Webpack 提供了以下几种文件指纹占位符：
+
+* [hash]：基于整个项目构建生成的哈希值，所有文件共享同一个哈希值。
+* [chunkhash]：基于每个 chunk 内容生成的哈希值，适用于 JavaScript 文件。
+* [contenthash]：基于文件内容生成的哈希值，通常用于 CSS 或提取的文件（如通过 mini-css-extract-plugin 提取的 CSS 文件）。
+
+文件指纹的生成规则
+
+* [hash]：每次构建都会生成一个新的哈希值，所有文件共享。
+* [chunkhash]：基于每个 chunk 的内容生成，适用于 JavaScript 文件。
+* [contenthash]：基于文件内容生成，适用于 CSS 或提取的文件。
+
+js 的文件指纹设置
+
+```javascript
+module.exports = {
+    entry: {app: "./src/app.js", jquery: "./src/jquery.js"},
+    output: { filename: '[name][chunkhash:8].js', path: __dirname + '/dist' },
+}
+```
+
+css的文件指纹设置
+
+```javascript
+module.exports = {
+    plugins: [
+        new MiniCssExtractPlugin({ filename: `[name][contenthash:8].css`})
+    ]
+}
+```
+
+图片、字体的文件指纹设置
+
+```javascript
+module.exports = {
+    output: {
+        // 所有文件的输出路径
+        // 开发模式没有输出
+        path: undefined,
+        // 入口文件打包输出文件名
+        filename: "static/js/[name].js",
+        // 给打包输出的其他文件命名
+        chunkFilename: "static/js/[name].chunk.js",
+        // 图片、字体等通过type:asset处理资源命名方式
+        assetModuleFilename: "static/media/[hash:10][ext][query]",
+    },
+}
+```
+
+### star: 如何优化webpack 的构建速度？
+
+* 多进程进程并行压缩。eg: TerserWebpackPlugin的配置parallel。
+* 使用高版本的webpack和node.js，性能通常会有显著提升。
+* 多线程处理耗时的loader或plugin, 提升构建速度。eg: babel-loader, eslintWebpackPlugin
+<!-- 开发环境, 多线程处理语法转化thread-loader+babel-loader, eslint代码检查 -->
+* 充分利用缓存提升二次构建速度。eg: babel-loader
+* 通过esModule进行 tree shaking， 把没有用过的模块进行标记，最终从 bundle 中去掉。eg: lodash-es
+* 使用 include、exclude, resolve配置（eg:resolve.extensions,resolve.modules）缩小打包作用域。
+* 使用speed-measure-webpack-plugin分析每个loader、plugin的执行耗时，使用webpack-bundle-analyzer分析
+打包结果，看是否还可以进行优化。
+* One of,每个文件只能被其中一个loader配制处理。eg: css不走less配制，sass配制
+<!-- include:只处理某些文件
+exclude:排除某些文件，其他文件都处理
+注意：node_modules已经被构建结束
+eslint不需要检查node_modules,
+babel不需要编译node_modules
+引入的外部样式，也不需要处理 -->
+
+#### ES Module 的代码可以被 Tree Shaking?
+
+静态结构：
+
+* ES Module 的 import 和 export 语句必须在顶层作用域，不能动态加载。
+* 这种静态特性使得打包工具在编译时就能确定模块的依赖关系，无需运行代码。
+
+确定依赖：
+
+* 打包工具通过静态分析，可以准确识别哪些模块和函数被使用，哪些未被使用。
+* 未使用的代码会被标记为“死代码”，并在最终打包时移除。
+
+补充：
+
+工具支持：
+
+* Webpack、Rollup 等工具利用 ES Module 的静态特性，结合作用域分析和副作用检测，实现 Tree Shaking。
+
+#### for example
+
+通过 resolve 配置减少模块查找时间
+
+```js
+module.exports = {
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'), // 设置别名
+    },
+    extensions: ['.js', '.json'], // 减少文件扩展名搜索
+    modules: [path.resolve(__dirname, 'node_modules')], // 指定模块搜索目录
+  },
+};
+```
+
+#### for example
+
+开发环境，多线程处理语法转换
+
+```js
+module: {
+  rules: [
+    {
+      test: /\.js$/,
+      // exclude: /node_modules/, // 排除node_modules下的文件，其他文件都处理
+      include: path.resolve(__dirname, "../src"), // 只处理src下的文件，其他文件不处理
+      use: [
+        {
+          loader: "thread-loader", // 开启多进程
+          options: {
+            works: threads, // 进程数量
+          },
+        },
+        {
+          loader: "babel-loader",
+          options: {
+            // presets: ["@babel/preset-env"],
+            cacheDirectory: true, // 开启babel缓存
+            cacheCompression: false, // 关闭缓存文件压缩
+            plugins: ["@babel/plugin-transform-runtime"], // 减少代码体积
+          },
+        },
+      ],
+    },
+  ],
+}
 ```
 
 ### package.json中dependencies和devDependencies的区别？

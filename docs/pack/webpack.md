@@ -634,7 +634,8 @@ module.exports = {
 
 安装依赖 `npm install webpack webpack-cli --save-dev`
 
-<!-- 安装开发环境依赖 `npm install -D webpack-dev-server` -->
+安装开发环境依赖 `npm install -D webpack-dev-server`
+(npm script中：webpack直接打包输出，webpack serve 启动开发服务器，内存编译打包，没有输出)
 
 webpack本身只能处理js和json文件。
 
@@ -776,3 +777,72 @@ webpack 支持处理 ECMAScript 模块以优化它们。
 * 当 webpack 配置中使用了 [hash] 占位符时，请考虑将它改为 [contenthash]。效果一致，但事实证明会更为有效。
 * 如果你在 webpack 的 Node.js API 中使用了 watch: true，请移除它。无需按编译器的提示设置它，当执行 watch() 时为 true，当执行 run() 的时候为 false。
 * 如果你定义了 rules，以使用 raw-loader，url-loader 或 file-loader 来加载资源，请使用 资源模块 替代，因为它们可能在不久的将来被淘汰。
+
+## 开发注意
+
+### 生产环境使用缓存，存在一些风险。
+
+### 不要在生产环境之外使用 TerserPlugin 或 CSS 压缩插件。
+
+### 同时使用 style-loader 与 mini-css-extract-plugin
+
+推荐 production 环境的构建将 CSS 从你的 bundle 中分离出来，这样可以使用 CSS/JS 文件的并行加载。 这可以通过使用 mini-css-extract-plugin 来实现，因为它可以创建单独的 CSS 文件。 对于 development 模式（包括 webpack-dev-server），你可以使用 style-loader，因为它可以使用多个 标签将 CSS 插入到 DOM 中，并且反应会更快。
+
+```js
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.env.NODE_ENV !== "production";
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          "sass-loader",
+        ],
+      },
+    ],
+  },
+  plugins: [].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
+};
+```
+
+## 延伸
+
+### webpack为什么生产模式才需要压缩体积？
+
+#### 开发环境的目标是快速构建
+
+在开发环境中，主要目标是快速构建和调试代码，而不是优化代码体积。压缩代码会增加构建时间，影响开发效率。
+
+开发环境：需要快速反馈，支持热更新（HMR）和源码映射（Source Map），方便调试。
+
+生产环境：需要优化代码体积和性能，减少用户加载时间。
+
+#### 压缩代码会丢失可读性
+
+压缩工具（如 Terser）会移除空格、注释、缩短变量名等，导致代码难以阅读和调试。
+
+* 开发环境：需要可读性强的代码，方便调试和定位问题。
+* 生产环境：不需要可读性，更关注运行效率和加载速度。
+
+#### 生产环境需要优化用户体验
+
+在生产环境中，代码体积直接影响用户体验：
+
+* 更小的体积：减少网络传输时间，提升页面加载速度。
+
+* 更少的请求：通过代码分割和压缩，减少 HTTP 请求数量。
+
+* 更低的带宽成本：减少服务器和用户的流量消耗。
+
+#### for example
+
+* 压缩图片，压缩js，压缩css
+
+### Vue-cli如何使用webpack??????????
+
+### 开发属于自己的loader和plugin??????????

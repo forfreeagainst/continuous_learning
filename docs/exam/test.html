@@ -7,45 +7,10 @@
 </head>
 <body>
     <script>
-        /**
- * @param {number[]} nums
- * @return {number[][]}
- */
- var permute = function(nums) {
-    debugger
-    const result = [];
-    const used = new Array(nums.length).fill(false);
-
-    // 回溯函数
-    function backtrack(path) {
-        // 当路径的长度等于数组的长度时，说明已经找到了一个全排列
-        if (path.length === nums.length) {
-            result.push([...path]);
-            return;
+        const str = "2323";
+        for(let i =0;  i< str.length; i++) {
+            console.log(str.charAt(i));
         }
-        for (let i = 0; i < nums.length; i++) {
-            // 如果当前数字已经被使用过，则跳过
-            if (used[i]) continue;
-
-            // 选择当前数字
-            path.push(nums[i]);
-            used[i] = true;
-
-            // 递归调用回溯函数
-            backtrack(path);
-
-            // 撤销选择
-            path.pop();
-            used[i] = false;
-        }
-    }
-    
-    // 从空路径开始回溯
-    backtrack([]);
-
-    return result;
-};
-console.log(permute([1,2,3]));
     </script>
 </body>
 </html>

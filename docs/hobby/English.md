@@ -10,6 +10,13 @@
 
 在可能的情况下，自动修复规则报告的问题。更多信息。
 
+## TED
+
+### 如何解决焦虑？
+
+Image that you're getting ready to go to a party. You feel excited, but also nervous.
+想象一下，你正准备去参加一个派对。 你感到兴奋，但也很紧张。
+
 ## 英文歌
 
 ### shots
@@ -30,6 +37,7 @@ I can't have you and I'm only gonna do you wrong.
 
 * I have a question for you. 我有个问题问你。
 * let bygones be bygones. 过去的就让它过去吧。
+* what do you know? 你知道什么
 
 ## 短语
 
@@ -37,6 +45,11 @@ I can't have you and I'm only gonna do you wrong.
 * out of my place 偏离位置
 * look for 寻找
 * do sb. wrong 委屈、伤害某人
+* be ready to do sth 更侧重于准备好的状态
+* be getting ready to do sth 更强调准备的动作和过程
+ <!-- 例如，“I'm ready to go to work.”（我准备好去上班了。）更强调已经完成了准备工作，可以随时出发的状态；而 “I'm getting ready to go to work.” 则突出正在进行准备工作的这个过程。 -->
+
+
 
 ## 缩写
 

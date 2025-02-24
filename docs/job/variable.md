@@ -1,5 +1,6 @@
 # 变量命名规范
 
+* measure 测量
 * raw 未加工的，原始的
 * asset 资源
 * (progressive web application - PWA) 渐进式网络应用程序
