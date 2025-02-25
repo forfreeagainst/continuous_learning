@@ -1,5 +1,7 @@
 # 变量命名规范
 
+* Vision 愿景（/ˈvɪʒn/ v日n）
+* compress 压缩
 * measure 测量
 * raw 未加工的，原始的
 * asset 资源
@@ -7,7 +9,8 @@
 * experiments 实验特性
 * experience 经验
 * concat 联系我们
-* alias 别名
+* alias 别名 (/ˈeɪliəs/)
+* situation 情况 （/ˌsɪtʃuˈeɪʃn  say秋***）
 * solution 解决方案
 * vendor 小贩，卖主
 * compatibility 兼容性（肯佩特备了提）
