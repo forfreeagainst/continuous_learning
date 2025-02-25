@@ -1,5 +1,6 @@
 # 变量命名规范
 
+* favicon 网站图标，图标
 * Vision 愿景（/ˈvɪʒn/ v日n）
 * compress 压缩
 * measure 测量

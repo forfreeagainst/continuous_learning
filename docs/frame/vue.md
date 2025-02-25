@@ -164,3 +164,60 @@ module.exports = {
 ### 访问项目
 
 在浏览器中访问 http://localhost:9000，你应该会看到 "Hello Vue 3 with Webpack!" 的页面。
+
+### 强化webpack.config.js配置
+
+#### 思考
+
+##### Vue警告: VUE_OPTIONS_API__, __VUE_PROD_DEVTOOLS__,
+
+```js
+const { DefinePlugin } = require("webpack");
+
+new DefinePlugin({
+  __VUE_OPTIONS_API__: true,
+  __VUE_PROD_DEVTOOLS__: false,
+}),
+```
+
+##### style-loader还是vue-style-loader
+
+vue-style-loader：专门为 Vue 项目设计，主要用于处理 Vue 单文件组件（SFC）中的样式。Vue 单文件组件有 style 标签，这些样式可能会有 scoped 属性，用于实现局部样式，vue-style-loader 能够很好地处理这些特性。
+style-loader：是一个通用的 Webpack loader，可用于任何 Webpack 项目，不局限于 Vue 项目。它可以将 CSS 代码以 style 标签的形式插入到 HTML 文档的 head 中，适用于处理普通的 CSS 文件。
+
+##### 按需加载elementUiPlus（待测）
+
+```js
+const AutoImport = require("unplugin-auto-import/webpack");
+const Components = require("unplugin-vue-components/webpack");
+const { ElementPlusResolver } = require("unplugin-vue-components/resolvers");
+```
+
+plugin放置
+
+```js
+// 按需加载element-plus
+AutoImport({
+  resolvers: [ElementPlusResolver()],
+}),
+Components({
+  resolvers: [
+    ElementPlusResolver({
+      // 自定义主题，引入sass
+      importStyle: "sass",
+    }),
+  ],
+}),
+```
+
+##### 其他看官网配置
+
+* npm install --save-dev mini-css-extract-plugin
+* npm install css-minimizer-webpack-plugin --save-dev
+* npm install terser-webpack-plugin --save-dev
+* ImageMinimizerWebpackPlugin可用tinyPng替代吧，感觉没啥必要
+* npm install copy-webpack-plugin --save-dev
+* 处理图片（png等）和其他资源（ttf等）
+* 处理js（babel-loader、@babel/core）,babel.config.js
+* vue-loader开启缓存
+* 优化：codeSplit, runtimeChunk等

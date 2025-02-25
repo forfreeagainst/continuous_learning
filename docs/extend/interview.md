@@ -92,6 +92,7 @@ thread-loader: 多线程打包
 * speed-measure-webpack-plugin（Asome-webpack）: 看到每个loader、plugin的执行耗时
 * CssMinimizerWebpackPlugin（node >= 18.12.0）:压缩css代码
 * ImageMinimizerWebpackPlugin（node >= 18.12.0）:压缩本地的静态图片
+* CopyWebpackPlugin: 将已存在的单个文件或整个目录复制到构建目录。
 
 ### :star: loader和plugin的区别？
 

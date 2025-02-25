@@ -33,6 +33,12 @@ Oh, I'm wishing you're here.But I'm wishing you're gone.
 I can't have you and I'm only gonna do you wrong.
 我无法将你拥入怀里，因我只会不断做出伤害你的事情。
 
+## 写文章
+
+题材：被什么锁住了，推行到以前。即便一无所有，也要拼命逃离。your vision, not mine.
+you thought, not me.解决办法：找到共赢的方式，
+归隐逃离and I have a lot of empty space.偏执梦境
+
 ## 日常口语
 
 * I have a question for you. 我有个问题问你。
