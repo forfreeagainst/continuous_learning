@@ -221,3 +221,18 @@ Components({
 * 处理js（babel-loader、@babel/core）,babel.config.js
 * vue-loader开启缓存
 * 优化：codeSplit, runtimeChunk等
+
+## Vue项目如何进行首屏加载优化
+
+### 代码分割与路由懒加载
+
+* 路由懒加载：使用Vue Router的 import() 语法 动态加载路由组件，减少首屏加载的代码量。
+* 组件懒加载：对于非首屏的组件，可以使用import() 语法进行懒加载。
+
+### 减少 HTTP 请求
+
+* 合并CSS和JavaScript文件，减少HTTP请求数量。（跟自定义插件InlineChunkWebpackPlugin）
+
+### 性能监控与分析
+
+使用工具（如Lighthouse、WebPageTest）分析应用性能，找出瓶颈并进行针对性优化。

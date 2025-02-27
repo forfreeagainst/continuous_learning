@@ -841,6 +841,44 @@ module.exports = {
 
 #### for example
 
-* 压缩图片，压缩js，压缩css
+* 压缩图片，压缩js，压缩css， treeshaking（组件库按需加载、lodash-es等）
 
-### 开发属于自己的loader和plugin??????????
+### 多线程和多进程的差异
+
+多线程：在同一进程内，多个线程共享进程的资源（如内存），线程之间的通信相对简单，但由于共享资源，可能会出现竞争条件等问题。thread-loader 就是利用多线程来并行处理模块。
+多进程：每个进程都有自己独立的内存空间和系统资源，进程之间的通信相对复杂，但可以更好地利用多核 CPU 的资源，避免线程之间的竞争问题。terser-webpack-plugin 开启多进程压缩就是利用了多个独立的进程来并行处理代码压缩。
+
+### 书写loader
+
+详见官网的API(网址/api/loaders)
+
+#### 分类
+
+* 同步Loaders（同步代码存放地）
+* 异步Loaders（异步代码存放地）
+* “Raw” Loader （loader 可以接收原始的 Buffer，eg: 字体，图标）
+* Pitching Loader (需要提前终止程序)
+
+关键词：参数content、map、meta，this.callback()，this.async()，module.exports.raw = true，
+module.exports.pitch
+
+#### 常见loader的API
+
+* this.getOptions: 提取给定的 loader 选项
+* this.emitFile 产生一个文件
+* this.utils.contextify 返回一个相对路径
+* this.utils.absolutify 返回一个绝对路径
+
+#### 开发loader
+
+* 清空文件内容中的console.log(xxx)
+
+```js
+module.exports = function(content) {
+  // ? 可能有， /g 是全集
+  return content.replace(/console\.log\(.*\);?/g, "");
+}
+```
+
+### 书写plugin
+

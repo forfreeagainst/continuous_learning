@@ -33,6 +33,14 @@ Oh, I'm wishing you're here.But I'm wishing you're gone.
 I can't have you and I'm only gonna do you wrong.
 我无法将你拥入怀里，因我只会不断做出伤害你的事情。
 
+### empty love
+
+All my friends are faded, one of them's half naked.
+我的朋友都醉了, 其中有一个还是半裸着。
+
+That's when I really start to hate it， Can't make it' til three.
+我突然有点厌倦这一切了, 没法撑到凌晨三点了。
+
 ## 写文章
 
 题材：被什么锁住了，推行到以前。即便一无所有，也要拼命逃离。your vision, not mine.
@@ -60,3 +68,4 @@ you thought, not me.解决办法：找到共赢的方式，
 ## 缩写
 
 * gonna === going to
+* 'til === until 直到

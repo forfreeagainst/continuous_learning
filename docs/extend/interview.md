@@ -169,11 +169,11 @@ module.exports = {
 }
 ```
 
-### star: 如何优化webpack 的构建速度？
+### :star: 如何优化webpack 的构建速度？
 
-* 多进程进程并行压缩。eg: TerserWebpackPlugin的配置parallel。
+* 多进程并行压缩。eg: TerserWebpackPlugin的配置parallel,EslintWebpackPlugin的配置parallel
 * 使用高版本的webpack和node.js，性能通常会有显著提升。
-* 多线程处理耗时的loader或plugin, 提升构建速度。eg: babel-loader, eslintWebpackPlugin
+* 借助 thread-loader 实现多线程打包，处理耗时的loader。如babel-loader,
 <!-- 开发环境, 多线程处理语法转化thread-loader+babel-loader, eslint代码检查 -->
 * 充分利用缓存提升二次构建速度。eg: babel-loader
 * 通过esModule进行 tree shaking， 把没有用过的模块进行标记，最终从 bundle 中去掉。eg: lodash-es

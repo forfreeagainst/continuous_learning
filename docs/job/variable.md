@@ -46,7 +46,7 @@
 * consistent一致的
 * compatible兼容的
 * optimization优化 (up忒么贼师恩)
-* parallel并行的（编程：多线程）
+* parallel并行的 (/ˈpærəlel/)
 * extract提取
 * extends扩展/继承
 * exclude排除
