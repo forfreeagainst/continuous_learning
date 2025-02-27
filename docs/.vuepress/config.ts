@@ -53,14 +53,6 @@ export default defineConfig4CustomTheme({
           { text: "脚手架", link: "/extend/cli.md" },
           { text: "面试题目", link: "/extend/interview.md"}
         ]
-      },
-      {
-        text: '爱好',
-        items: [
-          {text: "English", link: "/hobby/English.md"},
-          {text: "诗词", link: "/hobby/poem.md"},
-          {text: "phychology和书籍", link: "/hobby/psychologyAndReading.md"}
-        ]
       }
     ],
     sidebar: [
@@ -103,14 +95,6 @@ export default defineConfig4CustomTheme({
           { title: "node.js", path: "/extend/node.js.md" },
           { title: "脚手架", path: "/extend/cli.md" },
           { title: "面试题", path: "/extend/interview.md" },
-        ]
-      },
-      {
-        title: "爱好",
-        children: [
-          {title: "English", path: "/hobby/English.md"},
-          {title: "诗词", path: "/hobby/poem.md"},
-          {title: "phychology和书籍", path: "/hobby/psychologyAndReading.md"}
         ]
       }
     ],

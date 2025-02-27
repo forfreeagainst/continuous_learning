@@ -5,5 +5,5 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "docs: webpack开发自己的loader"
+git commit -m "docs: 更新目录结构"
 git push origin main

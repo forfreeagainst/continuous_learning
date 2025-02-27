@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: 每天进步一点点
-tagline: 磨练心智，提高灵魂
+tagline: 你的痛苦，是因为你的不自律
 actionText: 立刻进入 →
 actionLink: /base/javascript.md
 
