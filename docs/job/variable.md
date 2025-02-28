@@ -1,5 +1,8 @@
 # 变量命名规范
 
+* compiler 编译程序（/kəmˈpaɪlər/）
+* hand over 移交
+* compilation 收集、汇编 （/ˌkɑːmpɪˈleɪʃn/）
 * favicon 网站图标，图标
 * Vision 愿景（/ˈvɪʒn/ v日n）
 * compress 压缩

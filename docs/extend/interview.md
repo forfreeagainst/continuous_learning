@@ -110,6 +110,24 @@ thread-loader: 多线程打包
 
 ### webpack 构建流程简单说一下
 
+Webpack的运行流程是一个串行的过程。它可以分为以下三个阶段
+
+* 初始化：启动构建，读取并合并配置参数，加载Plugin,实例化Compiler
+* 编译：从Entry 触发，针对每个Module 串行调用对应的Loader取翻译文件内容，再找到该 Module 依赖的Module,递归
+地进行编译处理
+* 输出：对编译后的Module 组合成Chunk,把Chunk转换成文件，输出到文件系统。
+
+### webpack中，Compiler和Compilation如何理解？
+
+* Compiler: 全局唯一的Webpack实例，代表整个生命周期，适合处理全局任务。
+* Compilation: 单次编译的实例，代表一个构建过程，适合处理模块和资源级别的任务。
+* 插件通过监听Compiler和Compilation的钩子，可以介入Webpack的构建过程，实现自定义功能。
+
+### Webpack 事件机制了解吗？
+
+webpack的事件流机制，它是基于Tapable库实现，它提供一种发布-订阅模式，允许Webpack在特定时机广播事件，
+插件则可以监听这些时间并执行相应的逻辑。
+
 ### 使用webpack 开发时，你用过哪些可以提高效率的插件？
 
 ### 文件指纹是什么？ 怎么用？
@@ -188,27 +206,7 @@ eslint不需要检查node_modules,
 babel不需要编译node_modules
 引入的外部样式，也不需要处理 -->
 
-#### ES Module 的代码可以被 Tree Shaking?
-
-静态结构：
-
-* ES Module 的 import 和 export 语句必须在顶层作用域，不能动态加载。
-* 这种静态特性使得打包工具在编译时就能确定模块的依赖关系，无需运行代码。
-
-确定依赖：
-
-* 打包工具通过静态分析，可以准确识别哪些模块和函数被使用，哪些未被使用。
-* 未使用的代码会被标记为“死代码”，并在最终打包时移除。
-
-补充：
-
-工具支持：
-
-* Webpack、Rollup 等工具利用 ES Module 的静态特性，结合作用域分析和副作用检测，实现 Tree Shaking。
-
-#### for example
-
-通过 resolve 配置减少模块查找时间
+#### for example：通过 resolve 配置减少模块查找时间
 
 ```js
 module.exports = {
@@ -222,9 +220,7 @@ module.exports = {
 };
 ```
 
-#### for example
-
-开发环境，多线程处理语法转换
+#### for example：开发环境，多线程处理语法转换
 
 ```js
 module: {
@@ -255,6 +251,24 @@ module: {
 }
 ```
 
+### ES Module 的代码为什么可以被 Tree Shaking?
+
+静态结构：
+
+* ES Module 的 import 和 export 语句必须在顶层作用域，不能动态加载。
+* 这种静态特性使得打包工具在编译时就能确定模块的依赖关系，无需运行代码。
+
+确定依赖：
+
+* 打包工具通过静态分析，可以准确识别哪些模块和函数被使用，哪些未被使用。
+* 未使用的代码会被标记为“死代码”，并在最终打包时移除。
+
+补充：
+
+工具支持：
+
+* Webpack、Rollup 等工具利用 ES Module 的静态特性，结合作用域分析和副作用检测，实现 Tree Shaking。
+
 ### package.json中dependencies和devDependencies的区别？
 
 * dependencies是项目在生产环境中运行所需要的依赖，devDependencies开发中所需要的依赖。
@@ -265,3 +279,44 @@ module: {
 
 ### webpack5升级点有哪些？
 
+### 聊一聊Babel原理吧
+
+Babel是一个JavaScript编译器，可以把Es6+ 转换为向后兼容的ES5，以便在旧版浏览器或环境中运行。
+它的核心流程包括：
+
+* 1.解析，将源代码转化为抽象语法树。Babel使用@babel/parser来完成解析。
+* 2.转换，对AST进行遍历和修改。Babel 使用 @babel/traverse 来遍历 AST，并使用 @babel/types 来创建或修改 AST 节点。eg: 把箭头函数转换为普通函数，把const 和 let 转换为 var。
+* 3.生成，将修改后的AST转换为代码。Babel使用@babel/generator来完成生成。
+
+### :star: 聊聊AST
+
+定义：抽象语法树用来表达源代码的一种树形结构。AST 的生成通常分为两个步骤
+* 词法分析（Lexical Analysis）：扫描源代码，识别出关键字、标识符、运算符、分隔符等，生成一个令牌流（Token Stream）
+* 语法分析（Syntax Analysis）：根据语言的语法规则，将token流转换为树形结构，每个节点代表一个语法单元（如变量声明、表达式、语句等）。
+
+#### AST 的结构
+
+AST 是一个树形结构，每个节点都有以下属性：
+
+* type：节点的类型（如 VariableDeclaration、Identifier、BinaryExpression 等）。
+* loc：节点在源代码中的位置（行号、列号等）。
+* 其他属性：根据节点类型不同，可能包含其他属性（如 name、value、operator 等）。
+
+常见的节点类型
+
+* Program：代表整个程序。
+* VariableDeclaration：变量声明。
+* FunctionDeclaration：函数声明。
+* ExpressionStatement：表达式语句。
+* Identifier：标识符（如变量名、函数名）。
+* Literal：字面量（如字符串、数字）。
+* BinaryExpression：二元表达式（如 1 + 2）。
+* CallExpression：函数调用表达式（如 fn()）。
+
+#### Ast的应用场景
+
+* 代码转换，eg:Babel、TypeScript编译器
+* 代码格式化，eg:Prettier
+* 静态代码分析，eg:ESLint
+* 代码压缩, eg: Terser、UglifgyJS
+* 代码生成：eg:Babel、TypeScript编译器
