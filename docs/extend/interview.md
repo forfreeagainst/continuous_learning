@@ -108,6 +108,70 @@ thread-loader: 多线程打包
 
 综上所述，Loader 主要负责模块的转换，而 Plugin 则用于扩展 Webpack 的功能，在整个构建过程中执行各种自定义任务。
 
+### :star: 是否写过Loader? 简单描述一下编写Loader的思路？
+
+1.理解Loader的作用
+
+* loader是一个函数，它接受模块的源代码作为输入，并返回处理后的结果。
+* loader可以是同步，也可以是异步的。（有同步Loaders,异步Loaders,Raw Loader, Pitching Loading）
+
+2.Loader的基本结构
+
+* Loader是一个导出函数的模块
+* 函数接收一个参数source, 表示模块的源代码
+* 函数可以返回处理后的代码，或者调用this.callback 返回更多信息（如SourceMap）
+
+3. 处理源代码
+
+* 在Loader函数中，你可以对 source 进行任意处理。eg: 转换语法-sass-css, 修改内容-替换字符串等。
+
+4. 支持链式调用
+
+* Loader通常是链式调用的，前一个Loader 的输出会作为下一个Loader的输入。
+* 因此，Loader的返回值必须是字符串或者 Buffer.
+
+5. 异步Loader
+
+* 如果Loader 需要执行异步操作（如读取文件），可以使用this.async 来返回一个回调函数。
+
+6. 在Loader应用到Webpack配置中
+
+* 在webpack.config.js 中，通过module.rules 配置Loader。
+
+### :star: 是否写过plugin, 简单描述一下编写Plugin的思路？
+
+1.理解webpack的生命周期钩子
+
+* Webpack在构建过程会触发一系列生命周期钩子。如complilation（在compilation 创建之后执行。）
+emit（输出 asset 到 output 目录之前执行）
+* Plugin通过监听这些钩子，在特定的时机执行自定义逻辑。
+
+2.创建一个JavaScript类
+
+* Plugin 是一个 JavaScript 类，需要实现一个 apply 方法。
+* apply 方法接收一个 compiler 参数，compiler 是 Webpack 的核心对象，提供了访问钩子的能力。
+
+3.监听钩子
+
+* 在 apply 方法中，通过 compiler.hooks.\<hookName\>.tap 方法监听特定的钩子。
+hookName钩子名，eg:compilation, emit等，有很多生命周期钩子
+
+4.实现自定义逻辑
+
+* 在钩子回调函数中编写自定义逻辑，例如修改资源、生成文件、打印日志等。
+
+5.将 Plugin 应用到 Webpack 配置中：
+
+* 在 webpack.config.js 中，通过 plugins 数组将自定义 Plugin 实例化并添加到配置中。
+
+举例
+
+在此，写过一个inline-chunk-webpack-plugin。webpack打包生成的runtime文件太小了，额外发送请求性能不好，
+所以需要将其内联到js中，从而减少请求数量。开发思路: 我们需要借助html-webpack-plugin来实现，其次在
+html-webpack-plugin 输出 index.html前将内联runtime 注入进去，最后删除多余的runtime。
+
+其他应用：添加注释，删除console等
+
 ### webpack 构建流程简单说一下
 
 Webpack的运行流程是一个串行的过程。它可以分为以下三个阶段

@@ -880,5 +880,96 @@ module.exports = function(content) {
 }
 ```
 
-### 书写plugin
+### webpack是用commonjs开发，而不是基于ES模块开发，对吧
+
+是的，Webpack 主要是基于 CommonJS 模块系统开发的，而不是基于 ES 模块（ESM）。这一点在 Webpack 的设计和实现中体现得非常明显。以下是一些关键点来解释为什么 Webpack 主要使用 CommonJS，而不是 ES 模块
+
+1.历史背景
+
+Webpack的诞生时间：
+
+* Webpack 最早发布于 2012 年，而 ES 模块（ESM）是在 2015 年随着 ES6（ES2015）的发布才正式成为 JavaScript 的标准。
+* 在 Webpack 诞生时，CommonJS 是 Node.js 生态中主流的模块系统，因此 Webpack 选择了 CommonJS 作为其核心模块系统。
+
+浏览器对 ES 模块的支持：
+
+* 浏览器对原生 ES 模块的支持是在 2017 年之后才逐渐普及的（通过 script type="module"），而 Webpack 的设计早于这一时间。
+
+2.CommonJS 的特性
+
+动态加载：
+
+* CommonJS 的 require() 是动态的，可以在代码的任何地方使用，甚至可以在条件语句中动态加载模块。
+* 这种特性使得 Webpack 能够在构建时分析代码的依赖关系，并生成一个依赖图。
+
+同步加载：
+
+* CommonJS 是同步加载模块的，适合 Node.js 的服务器端环境。
+* Webpack 在构建时模拟了这种同步加载的行为，将所有模块打包到一个或多个 bundle 中。
+
+3.Webpack 的核心设计
+
+模块化依赖图：
+
+* Webpack 的核心是一个模块化依赖图，它通过递归分析 require() 或 import 语句来构建这个图。
+* 虽然 Webpack 支持 ES 模块的语法（import/export），但在内部，Webpack 会将 ES 模块转换为类似 CommonJS 的形式进行处理。
+
+模块包装：
+
+* Webpack 会将每个模块包装到一个函数中，模拟 CommonJS 的作用域和模块导出机制。例如：
+
+```js
+(function(module, exports, __webpack_require__) {
+  // 模块代码
+});
+```
+
+兼容性：
+
+Webpack 需要兼容多种模块系统（CommonJS、AMD、ES 模块等），而 CommonJS 的设计使得它能够更容易地处理这些不同的模块系统。
+
+4.Webpack 对 ES 模块的支持
+
+ES 模块语法支持：
+
+* Webpack 从 2.0 版本开始支持 ES 模块语法（import/export），但在内部仍然会将其转换为类似 CommonJS 的形式。
+
+Tree Shaking：
+
+* Webpack 支持基于 ES 模块的 Tree Shaking（摇树优化），这是因为 ES 模块的静态结构使得 Webpack 可以在构建时分析出未使用的代码并移除它们。
+
+动态导入：
+
+* Webpack 支持 ES 模块的动态导入（import()），用于实现代码分割和懒加载。
+
+5.为什么 Webpack 没有完全基于 ES 模块
+
+兼容性：
+
+* Webpack 需要支持大量的历史代码和第三方库，这些代码大多是基于 CommonJS 的。
+
+动态加载的需求：
+
+* CommonJS 的动态加载特性（require()）在某些场景下非常有用，而 ES 模块的静态加载特性无法完全替代。
+
+Node.js 生态：
+
+* Webpack 最初是为 Node.js 生态设计的，而 Node.js 长期以来主要使用 CommonJS。
+
+6. Vite 的对比
+
+Vite 基于 ES 模块：
+
+* Vite 是新一代构建工具，完全基于 ES 模块设计，利用现代浏览器的原生 ES 模块支持，避免了打包的开销。
+
+Webpack 的局限性：
+
+* Webpack 的核心设计决定了它在开发环境下需要打包所有模块，而 Vite 则可以直接利用浏览器的 ES 模块加载能力，实现更快的启动和热更新。
+
+总结
+
+* Webpack 主要是基于 CommonJS 开发的，这是因为它的设计早于 ES 模块的普及，并且 CommonJS 的动态加载特性更适合 Webpack 的模块化依赖图设计。
+* 虽然 Webpack 支持 ES 模块语法，但在内部仍然会将其转换为类似 CommonJS 的形式进行处理。
+* 随着 ES 模块的普及和新一代工具（如 Vite）的出现，Webpack 也在逐步增强对 ES 模块的支持，但其核心仍然是基于 CommonJS 的。
+
 
