@@ -5,5 +5,5 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "docs: 前端构建工具的选择"
+git commit -m "docs: 前端缓存"
 git push origin main

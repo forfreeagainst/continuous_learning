@@ -32,6 +32,15 @@ Webpack较早出现，插件生态丰富，处理多种资源类型和复杂构�
 如果你追求极致的开发体验和现代特性支持，Vite 是更好的选择。
 如果你需要处理复杂的构建任务或维护老项目，Webpack 仍然是更成熟的选择。
 
+Vite为什么比Webpack快？
+1. Vite 不需要全量打包
+2. 解析模块依赖使用esbuild
+3. 充分利用缓存 源码模块-协商缓存304，依赖模块-强缓存Cache-Control
+
+Parcel零配置，构建速度较快（比webpack快，比vite慢），插件生态较弱，适合小型项目、原型开发
+
+SWC（Speedy Web Compiler）是一个基于 Rust 编写的高性能 JavaScript 和 TypeScript 编译工具。它的目标是替代 Babel 和 Terser，提供更快的编译速度和更低的资源消耗。SWC 的核心功能包括代码转换（Transformation）、压缩（Minification）和打包（Bundling）。缺点：1.相比 Babel，SWC 的插件生态还不够丰富。2.swcpack 仍处于实验阶段，功能不如 Webpack 强大。
+
 Vite 适合现代前端项目，提供极致的开发体验。
 Webpack 适合大型复杂项目，功能强大但配置复杂。
 Rollup 适合库开发，输出高效的代码。
@@ -375,3 +384,6 @@ AST 是一个树形结构，每个节点都有以下属性：
 * 静态代码分析，eg:ESLint
 * 代码压缩, eg: Terser、UglifgyJS
 * 代码生成：eg:Babel、TypeScript编译器
+
+## 场景题
+
