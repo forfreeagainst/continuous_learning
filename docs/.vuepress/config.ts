@@ -51,7 +51,13 @@ export default defineConfig4CustomTheme({
         items: [
           { text: "node.js", link: "/extend/node.js.md" },
           { text: "脚手架", link: "/extend/cli.md" },
-          { text: "面试题目", link: "/extend/interview.md"}
+        ]
+      },
+      {
+        text: "面试",
+        items: [
+          {text: "技术类", link: "/interview/technology.md"},
+          {text: "闲谈", link: "/interview/chat.md"}
         ]
       }
     ],
@@ -94,7 +100,13 @@ export default defineConfig4CustomTheme({
         children: [
           { title: "node.js", path: "/extend/node.js.md" },
           { title: "脚手架", path: "/extend/cli.md" },
-          { title: "面试题", path: "/extend/interview.md" },
+        ]
+      },
+      {
+        title: "面试",
+        children: [
+          {title: "技术类", path: "/interview/technology.md"},
+          {title: "闲谈", path: "/interview/chat.md"}
         ]
       }
     ],

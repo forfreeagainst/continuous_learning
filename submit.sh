@@ -5,5 +5,5 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "docs: 私有项目，还能提交？"
+git commit -m "fix: 优化项目结构"
 git push origin main

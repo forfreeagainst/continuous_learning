@@ -384,6 +384,3 @@ AST 是一个树形结构，每个节点都有以下属性：
 * 静态代码分析，eg:ESLint
 * 代码压缩, eg: Terser、UglifgyJS
 * 代码生成：eg:Babel、TypeScript编译器
-
-## 场景题
-

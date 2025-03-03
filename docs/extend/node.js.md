@@ -213,8 +213,8 @@ program.parse(process.argv);
 ### 切换npm的镜像源
 
 * `npm install -g nrm`
-* `nrm ls`
-* `nrm use npm(切换npm的镜像源)`
+* `nrm ls` 或 `npm config get registry`
+* `nrm use npm(切换npm的镜像源)` 或 `npm config set registry=***`
 
 ### package.json中unpkg用途？
 
