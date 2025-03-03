@@ -343,3 +343,48 @@ package.json
         "docs:build": "vuepress build docs",
         "deploy": "bash deploy.sh",
 ```
+
+## lint扩展
+
+### lint-staged
+
+`lint-staged` 是一个用于在 Git 暂存区（staged files）上运行指定工具的工具。它通常用于在提交代码前自动对修改的文件进行代码格式化、静态检查等操作，确保代码质量
+
+主要功能：
+
+* 仅处理暂存区文件：只对即将提交的文件运行指定的命令，避免处理整个项目。
+* 支持多种工具：可与 ESLint、Prettier、Stylelint 等工具结合使用。
+* 自动化流程：在提交代码前自动执行格式化或检查，确保代码符合规范。
+
+使用场景：
+
+* 代码格式化：在提交前使用 Prettier 自动格式化代码。
+* 静态检查：使用 ESLint 检查 JavaScript/TypeScript 代码，确保符合规范。
+* 样式检查：使用 Stylelint 检查 CSS/SCSS 文件。
+* 单元测试：对修改的代码运行相关单元测试。
+
+总结：lint-staged 是一个高效的工具，帮助开发者在提交代码前自动执行代码检查和格式化，提升代码质量和一致性。
+
+1.安装依赖（详见官网）
+
+2.packjson.json 配置（详见官网，待测）
+
+```json
+"lint-staged": {
+  "*": "prettier --write",
+  "*.{vue,ts}": "eslint --fix",
+  "*.{html,vue,css,sass,scss}": "stylelint --fix"
+},
+```
+
+3.结合 husky 在提交前自动运行（详见官网，待测）
+
+```json
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
+```
