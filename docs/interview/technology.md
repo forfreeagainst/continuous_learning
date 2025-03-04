@@ -39,7 +39,10 @@ Vite为什么比Webpack快？
 
 Parcel零配置，构建速度较快（比webpack快，比vite慢），插件生态较弱，适合小型项目、原型开发
 
-SWC（Speedy Web Compiler）是一个基于 Rust 编写的高性能 JavaScript 和 TypeScript 编译工具。它的目标是替代 Babel 和 Terser，提供更快的编译速度和更低的资源消耗。SWC 的核心功能包括代码转换（Transformation）、压缩（Minification）和打包（Bundling）。缺点：1.相比 Babel，SWC 的插件生态还不够丰富。2.swcpack 仍处于实验阶段，功能不如 Webpack 强大。
+SWC（Speedy Web Compiler）是一个基于 Rust 编写的高性能 JavaScript 和 TypeScript 编译工具。
+它的目标是替代 Babel 和 Terser，提供更快的编译速度和更低的资源消耗。SWC 的核心功能包括代码转换
+（Transformation）、压缩（Minification）和打包（Bundling）。缺点：1.相比 Babel，SWC 的插件
+生态还不够丰富。2.swcpack 仍处于实验阶段，功能不如 Webpack 强大。
 
 Vite 适合现代前端项目，提供极致的开发体验。
 Webpack 适合大型复杂项目，功能强大但配置复杂。
@@ -384,3 +387,13 @@ AST 是一个树形结构，每个节点都有以下属性：
 * 静态代码分析，eg:ESLint
 * 代码压缩, eg: Terser、UglifgyJS
 * 代码生成：eg:Babel、TypeScript编译器
+
+## Vue
+
+### :star: Vue3新特性?
+
+1.响应式系统的升级，Vue3使用的是Proxy,Vue2使用的defineProperty
+2.性能优化：更快的渲染速度和更小的包体积。eg: diff算法，tree shaking
+3.Composition API:
+4.更好地支持ts
+5.新特性：Fragment,Teleport, Suspense等。

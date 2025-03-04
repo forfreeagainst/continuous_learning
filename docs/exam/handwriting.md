@@ -553,7 +553,7 @@ function throttle(fn, time) {
 ## 手写深拷贝
 
 ```js
-function cloneDeep(temp) {
+function deepClone(temp) {
   if (Array.isArray(temp)) {
     var arr = [];
     for (var i = 0; i < temp.length; i++) {

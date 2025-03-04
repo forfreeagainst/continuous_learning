@@ -87,6 +87,20 @@ clone(repo, targetPath, [options]).then(() => {
 
 ### terminalLink: 终端链接
 
+### cross-env
+
+改变的是当前执行命令的进程环境
+
+### cross-spawn
+
+会创建新的子进程来执行指定的命令
+
+### vue-tsc
+
+vue3+typescript的类型检查
+
+常用命令：`vue-tsc --noEmit`
+
 ### 脚手架入门: commander、ora、inquirer、chalk、fs-extra
 
 ```js
