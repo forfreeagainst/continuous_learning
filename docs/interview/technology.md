@@ -318,6 +318,8 @@ module: {
 }
 ```
 
+### :star: 如何优化webpack 的打包体积？
+
 ### ES Module 的代码为什么可以被 Tree Shaking?
 
 静态结构：
@@ -392,8 +394,11 @@ AST 是一个树形结构，每个节点都有以下属性：
 
 ### :star: Vue3新特性?
 
-1.响应式系统的升级，Vue3使用的是Proxy,Vue2使用的defineProperty
-2.性能优化：更快的渲染速度和更小的包体积。eg: diff算法，tree shaking
-3.Composition API:
-4.更好地支持ts
-5.新特性：Fragment,Teleport, Suspense等。
+* 响应式系统的升级，Vue3使用的是Proxy,Vue2使用的defineProperty
+* 性能优化：更快的渲染速度和更小的包体积。eg: diff算法，tree shaking
+* Composition API：Vue3是组合式API, Vue2是选项式API
+* 更好地支持ts
+* 新特性：Fragment,Teleport, Suspense等。
+* 生命周期也不一样
+* vue2组件模板是单一根节点，vue3可以是多节点。（背后原理能讲，冷门陌生）
+* v-for和v-if，优先级不一样。（背后原理能讲，冷门陌生）

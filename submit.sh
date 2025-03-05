@@ -5,5 +5,5 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "docs: 调整目录结构"
+git commit -m "docs: 优化文档"
 git push origin main

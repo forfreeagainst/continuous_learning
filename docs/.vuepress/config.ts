@@ -4,8 +4,8 @@ export default defineConfig4CustomTheme({
   locales: {
     "/": {
       lang: "zh-CN",
-      title: "修炼心得(短目标:2年到武皇癫疯)",
-      description: "修炼心得",
+      title: "时空随笔",
+      description: "用时间换空间，用空间换时间",
     },
   },
   base: "/continuous_learning/",
