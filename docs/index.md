@@ -43,3 +43,11 @@ features:
 * 阅读英文文档的能力 `看英文文档`
 * 阅读框架源码的能力
 * 手写插件、轮子
+
+## :star: 分类
+
+* 开发：HTML,CSS,JavaScript,TypeScript,Node.js
+* 轮子：Vue,React,脚手架，
+* 构建工具：webpack,vite,esbuild,roolup,swc,parcel
+* 面试：手写题，算法题，闲谈，技术类
+* AI：
