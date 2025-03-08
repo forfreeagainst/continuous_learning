@@ -5,5 +5,5 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "docs: 优化文档"
+git commit -m "feat: 千分符金额文本框组件"
 git push origin main

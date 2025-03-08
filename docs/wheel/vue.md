@@ -6,7 +6,18 @@
 
 ### 生态
 
+#### 脚手架
+
 * [脚手架](https://github.com/vuejs/create-vue.git)
+
+#### 国际化
+
+* Vue I18n
+
+#### 静态站点生成
+
+* VuePress
+* VitePress
 
 ### 常用API
 

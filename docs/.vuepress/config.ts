@@ -56,6 +56,12 @@ export default defineConfig4CustomTheme({
           {text: "问答", link: "/AI/QA.md"},
         ]
       },
+      {
+        text: "工作经历",
+        items: [
+          {text: "千分符金额文本框组件", link: "/job_experience/ThousandSeparatorAmoutInput.md"}
+        ]
+      }
     ],
     sidebar: [
       {
@@ -101,6 +107,12 @@ export default defineConfig4CustomTheme({
           {title: "问答", path: "/AI/QA.md"},
         ]
       },
+      {
+        title: "工作经历",
+        children: [
+          {title: "千分符金额文本框组件", path: "/job_experience/ThousandSeparatorAmoutInput.md"}
+        ]
+      }
     ],
     logo: "/img/logo.png",
     repo: "forfreeagainst/continuous_learning",

@@ -76,7 +76,7 @@ Function.prototype.finalBind = function (context, ...args) {
 | --- | --- | --- | --- |
 | call | 改变 | 多个参数，一次传递 | 立即调用 |
 | apply | 改变 | 一个数组，一次传递 | 立即调用 |
-| bind | 改变 | 多个参数，多次传递 | 不立即调用 |
+| bind | 改变 | 多个参数，多次传递 | 不立即调用，返回绑定this之后的函数 |
 
 ## 手写new
 

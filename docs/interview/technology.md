@@ -177,7 +177,9 @@ html-webpack-plugin 输出 index.html前将内联runtime 注入进去，最后�
 
 ### webpack 构建流程简单说一下
 
-Webpack的运行流程是一个串行的过程。它可以分为以下三个阶段
+Webpack的运行流程是一个串行的过程。
+
+它可以分为以下三个阶段
 
 * 初始化：启动构建，读取并合并配置参数，加载Plugin,实例化Compiler
 * 编译：从Entry 触发，针对每个Module 串行调用对应的Loader取翻译文件内容，再找到该 Module 依赖的Module,递归
