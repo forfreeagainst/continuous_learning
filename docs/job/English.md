@@ -46,6 +46,10 @@
 
 在可能的情况下，自动修复规则报告的问题。更多信息。
 
+* The main purpose of Karma is to make your test-driven development easy, fast, and fun.
+
+Karma的主要目的是让你的测试驱动开发变得简单、快速和有趣。/ˈpɜːrpəs/ purpose
+
 ## TED
 
 ### 阿诺德.施瓦辛格关于success的演讲

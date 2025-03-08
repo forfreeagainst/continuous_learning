@@ -21,6 +21,7 @@ export default defineConfig4CustomTheme({
           { text: "JavaScript", link: "/develop/javascript.md" },
           { text: "js的超集ts", link : "/develop/typescript.md"},
           { text: "node.js", link: "/develop/node.js.md" },
+          { text: "bash脚本", link: "/develop/bash.md" },
         ],
       },
       {
@@ -30,6 +31,7 @@ export default defineConfig4CustomTheme({
           { text: 'react', link: "/wheel/react.md" },
           { text: 'vue2项目', link: "/wheel/vue2_project.md"},
           { text: "脚手架", link: "/wheel/cli.md" },
+          { text: "测试工具", link: "/wheel/test_tool.md" },
         ]
       },
       {
@@ -37,7 +39,8 @@ export default defineConfig4CustomTheme({
         items: [
           {text: "esbuild", link: "/pack/esbuild.md"},
           {text: "webpack", link: "/pack/webpack.md"},
-          {text: "vite", link: "/pack/vite.md"}
+          {text: "vite", link: "/pack/vite.md"},
+          {text: "rollup", link: "/pack/rollup.md"},
         ]
       },
       {
@@ -72,6 +75,7 @@ export default defineConfig4CustomTheme({
           { title: "JavaScript", path: "/develop/javascript.md" },
           { title: "js的超集ts", path : "/develop/typescript.md"},
           { title: "node.js", path: "/develop/node.js.md" },
+          { title: "bash脚本", path: "/develop/bash.md" },
         ],
       },
       {
@@ -81,6 +85,7 @@ export default defineConfig4CustomTheme({
           { title: 'react', path: "/wheel/react.md" },
           { title: 'vue2项目', path: "/wheel/vue2_project.md"},
           { title: "脚手架", path: "/wheel/cli.md" },
+          { title: "测试工具", path: "/wheel/test_tool.md" },
         ]
       },
       {
@@ -88,7 +93,8 @@ export default defineConfig4CustomTheme({
         children: [
           { title: "esbuild", path: "/pack/esbuild.md" },
           { title: "webpack", path: "/pack/webpack.md" },
-          {title: "vite", path: "/pack/vite.md"}
+          { title: "vite", path: "/pack/vite.md"},
+          { title: "rollup", path: "/pack/rollup.md"},
         ]
       },
       {

@@ -5,5 +5,5 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "feat: 千分符金额文本框组件"
+git commit -m "feat: bash脚本"
 git push origin main

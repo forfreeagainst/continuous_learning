@@ -1,5 +1,6 @@
 # 变量命名规范
 
+* banner 横幅
 * scaffolding 是 scaffold 的现在分词形式，意思为“给...搭建脚手架”
 * corresponding 相应的
 * declarations 声明

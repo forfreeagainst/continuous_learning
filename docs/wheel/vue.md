@@ -28,6 +28,15 @@
 
 ### Vue2源码，自己理解，并不一定对
 
+new Vue() 做了啥？
+1.调用_init方法
+2. 合并选项
+
+Observer类，Dep类，
+渲染完真实DOM,
+再开启监听者模式，Object.defineProperty.
+get: dep.depend(); set: dep.notify();
+
 ## Vue3项目如何使用Webpack?
 
 区别于vite创建vue3项目，区别于vue-cli创建vue3项目并把webpack.config.js给隐藏了

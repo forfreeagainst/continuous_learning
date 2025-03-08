@@ -35,6 +35,24 @@ const __dirname = dirname(__filename);
 //D:\soul-ocean\vue3_monorepo\scripts
 ```
 
+### API使用场景分析
+
+##### require和fs.readFileSync区别？
+
+* require: 可用于JSON文件，JavaScript模块。加载JSON文件时，会将JSON文件解析为JavaScript对象并返回。
+* fs.readFileSync,读取JSON文件时，它只是读取文件的原始内容，需要额外步骤将其解析为JavaScript对象。
+
+```js
+const fs = require('fs-extra');
+
+const res1 = fs.readFileSync('./package1.json');
+const res2 = fs.readFileSync('./package1.json', 'utf8');
+const res3 = JSON.parse(fs.readFileSync('./package1.json', 'utf8'));
+console.log(res1); //得到一个Buffer
+console.log(res2, typeof res2, res2.name);//得到字符串
+console.log(res3, res3.name);//得到一个js对象
+```
+
 ### 命令
 
 * node  *** -f esm
@@ -51,7 +69,12 @@ const __dirname = dirname(__filename);
 
 ### fs-extra：强大的文件操作功能
 
-readFileSync、
+* readFileSync
+* writeFileSync
+* existsSync
+* mkdirSync
+
+JSON.stringify(res1, null, 2)  格式化输出 JSON 数据。
 
 ### ejs(embedded 嵌入...之中**)：将ejs模板语法编译成js
 
