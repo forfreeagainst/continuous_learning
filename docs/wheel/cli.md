@@ -1,5 +1,34 @@
 # 自定义脚手架
 
+## bin的使用
+
+### 创建package.json
+
+`npm init -y`
+
+### 配置package.json的bin字段
+
+```json
+"bin": {
+  "kdvip": "./bin/index.js"
+},
+```
+
+### 在bin文件夹下，书写index.js
+
+```js
+#!/usr/bin/env node
+console.log('hello world')
+```
+
+### 上传包到本地
+
+`npm link`
+
+### 执行bin脚本命令
+
+`kdvip`
+
 ## monorepo工具
 
 ### pnpm

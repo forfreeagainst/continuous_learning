@@ -1,7 +1,7 @@
 ---
 home: true
-heroText: 每天进步一点点
-tagline: 你的痛苦，是因为你的不自律
+heroText: 知行合一
+tagline: 马上去做，需求第一，开发第二
 actionText: 立刻进入 →
 actionLink: /base/javascript.md
 

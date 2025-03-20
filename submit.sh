@@ -5,5 +5,5 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "feat: bash脚本"
+git commit -m "feat: package.json的bin字段"
 git push origin main

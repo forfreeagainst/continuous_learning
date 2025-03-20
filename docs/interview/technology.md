@@ -20,9 +20,12 @@ esbuild 为什么快？
 Vite生产环境为什么不使用 esbuild?
 1.esbuild的功能限制，插件生态不足。生产环境通常需要更复杂的资源处理（如CSS提取、代码拆分等），
 来获得更好的功能支持和优化能力，而esbuild在这方面的支持不如Roolup成熟。
-2.esbuild虽然速度快，但其稳定性和兼容性不如Roolup,生产环境更注重稳定性和可靠性，所以Vite选择
+2.esbuild虽然速度快，但其稳定性和兼容性不如Rollup,生产环境更注重稳定性和可靠性，所以Vite选择
 Roolup作为默认的生产打包工具。因为Roolup是一个经过多年验证的打包工具，广泛用于库和应用的打包
 场景，具有更好的稳定性和兼容性。
+
+Vite生产环境为什么不适用webpack,而使用rollup?
+rollup专注于 ES 模块打包的场景，打包速度更快，生成的代码更小、更高效。
 
 webpack对比 Vite?
 webpack的兼容性强，支持多种模块化规范（CommonJS、AMD、ES Module），对老项目和老浏览器的兼容性较好。

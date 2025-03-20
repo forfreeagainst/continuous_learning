@@ -63,6 +63,8 @@ console.log(res3, res3.name);//得到一个js对象
 
 ### commander：构建命令行界面
 
+相同用途、但复杂取参：minimist
+
 ### inquirer:构建交互式命令行界面
 
 ### ora：输出时的loading效果，和显示各种状态的图标等

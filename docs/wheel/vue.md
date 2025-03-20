@@ -37,6 +37,10 @@ Observer类，Dep类，
 再开启监听者模式，Object.defineProperty.
 get: dep.depend(); set: dep.notify();
 
+### 开发vue2源码
+
+
+
 ## Vue3项目如何使用Webpack?
 
 区别于vite创建vue3项目，区别于vue-cli创建vue3项目并把webpack.config.js给隐藏了
