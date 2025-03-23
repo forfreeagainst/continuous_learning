@@ -28,6 +28,7 @@ export default defineConfig4CustomTheme({
         text: "轮子",
         items: [
           { text: 'vue', link: "/wheel/vue.md" },
+          {text: "Vue生态", link:"/wheel/vue_ecology"},
           { text: 'react', link: "/wheel/react.md" },
           { text: 'vue2项目', link: "/wheel/vue2_project.md"},
           { text: "脚手架", link: "/wheel/cli.md" },
@@ -82,6 +83,7 @@ export default defineConfig4CustomTheme({
         title: "轮子",
         children: [
           { title: 'vue', path: "/wheel/vue.md" },
+          {title: "Vue生态", path:"/wheel/vue_ecology"},
           { title: 'react', path: "/wheel/react.md" },
           { title: 'vue2项目', path: "/wheel/vue2_project.md"},
           { title: "脚手架", path: "/wheel/cli.md" },

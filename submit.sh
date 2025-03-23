@@ -5,5 +5,5 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "feat: package.json的bin字段"
+git commit -m "feat: Vue权限控制思路"
 git push origin main

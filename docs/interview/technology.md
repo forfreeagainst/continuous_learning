@@ -415,3 +415,143 @@ AST 是一个树形结构，每个节点都有以下属性：
 资源太大
 
 * 分包
+
+打包工具分析：
+
+* 使用create-vue创建的vue3项目（内部使用vite进行打包）：roolup-plugin-visualizer
+
+
+### 性能优化
+
+背景与收益：反馈卡顿明显
+
+怎么做
+
+性能优化的标准
+
+* 谷歌团队建议
+* 2-5-8
+* RAIL
+
+如何得到这些标准？监控工具
+
+* Permance
+* lighthouse
+
+FCP, FP
+FPS
+CPU/ GPU
+LCP
+TTI
+Speed Index
+
+html,css,js,vue,react,静态资源，打包，白屏，
+加载速度：首屏/切换页面， 缓存：CDN, 协商/强缓存， 网络， 动画，web worker
+
+### 说说Vue Router History的几种模式，有什么用途？(Vue Router有几种路由模式)？
+
+* Hash 模式
+* HTML5模式
+* Memory模式
+
+Hash: url有"#"号，不美观，兼容性最好，支持所有浏览器，但不利于SEO优化。
+HTML5: url没有"#"号，更美观，不兼容一些旧的浏览器项目，适合现代浏览器和 SEO 优化。
+Memory: 路由状态保存在内存中，不会改变浏览器的URL, 适合Node环境和SSR。
+
+浏览器的前进后退如何监听？
+popstate, hashchange。
+window.history 中的replaceState， pushState
+
+### 说说Vue的插件机制？
+
+
+### Vue项目如何进行权限控制？
+
+后端权限：控制数据和用户是否能够操作
+前端权限：视图权限。
+
+前端权限控制的好处：
+1. 减少没必要的操作或请求
+2. 提高用户体验，避免在页面给用户产生困扰。同时减少页面内容的渲染，提高性能。
+3. 降低非法操作的可能性
+
+#### 前端权限控制的思路
+
+* 菜单的控制（菜单权限）：用户登录后，后端返回该用户的权限数据。前端根据权限数据，展示有权限的菜单。
+* 界面的控制（路由权限）：用户没有登录，输入非登录的url, 则需要跳转到登录页面；用户已经登录，输入没有非权限内的url,跳转到404
+* 按钮的控制（按钮权限）：在某个菜单的页面中，展示可进行操作的按钮，比如删除，修改，增加
+* 请求和响应的控制（接口权限）：用户通过非常规操作，通过F12调试工具，把禁用的按钮变成启用，进行发送请求，应被前端所拦截
+
+菜单的控制 使用Vuex+sessionStorage 
+通过vue-router的路由规则后端返回的权限数据， 进行嵌套路由，渲染菜单列表。
+
+界面的控制： 使用token和全局导航守卫, 动态路由规则
+登录的时候：根据用户所具备的权限，动态添加路由规则。防止用户输入没有非权限内的url,进行访问
+
+按钮的控制：通过自定义指令和路由规则的元数据，对dom进行样式禁用或移除
+
+```js
+// v-permission = "{action: 'add'}"
+import Vue from 'vue';
+import router from '@/router.js';
+Vue.direactive('permission', {
+  inserted: function(el, binding) {
+    const action = binding.value.action;
+    const currentRight = router.currentRoute.meta;
+    if (currentRight) {
+      if (currentRight.indexOf(action) === -1) {
+        // 不具备权限
+        const type = binding.value.effect;
+        if (type === 'disabled') {
+          el.disabled = true;
+          el.classList.add('is-disabled');
+        } else {
+          el.parentNode.removeChild(el);
+        }
+      }
+    }
+  }
+})
+```
+
+请求和响应的控制： 通过axios的请求拦截器实现
+
+请求控制：1.除了登录请求都带上token,这样服务器才能鉴别你的身份。2.如果发出非权限内的请求，
+可以在axios的请求拦截器进行阻止（判断路由规则的meta元信息的权限信息）
+
+响应控制
+
+```js
+axios.interceptors.reponse.use(function(res) {
+  if (res.data.meta.status === 401) {
+    router.push('/login');
+    sessionStorage.clear();
+    window.location.reload();
+  }
+  return res;
+})
+```
+
+权限控制：
+
+* 权限控制流程
+* 动态渲染菜单
+* 细颗粒度权限控制，自定义全局指令的方式（组件级 细颗粒度，一个页面的元素有哪些，eg:删除按钮）
+* 路由守卫的方式实现
+
+
+1. 后台管理系统使用 RBAC
+用户 角色 权限
+首先给用户给用户选择一个或多个已存在的角色，每个角色可以控制自己拥有哪些任务的权限。
+角色：管理员，经办人员，中心端人员   给角色配置相应的权限
+
+方案一（项目方案）：
+
+获取用户的permissionId列表和显示的菜单列表，同时在路由的配置，给每个菜单配置相应的permissionId,
+在显示的菜单列表，通过路由守卫的方式，如果发现，该用户无对应的菜单权限，则提示用户需要获取权限。
+meta: permissionId, hidden
+
+缺点：
+
+* 全局路由守卫，每次路由跳转，都要进行权限判断。
+* 菜单信息写死在前端，要改显示文字或权限信息，需要重新编译。

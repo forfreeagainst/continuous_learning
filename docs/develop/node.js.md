@@ -63,7 +63,11 @@ console.log(res3, res3.name);//得到一个js对象
 
 ### commander：构建命令行界面
 
-相同用途、但复杂取参：minimist
+相同用途、但复杂取参：minimist(parse argument options)
+
+#### :star: 注意
+
+* 使用commander, 要记得加 `program.parse(process.argv);`
 
 ### inquirer:构建交互式命令行界面
 
