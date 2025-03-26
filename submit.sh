@@ -5,5 +5,5 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "feat: Vue权限控制思路"
+git commit -m "feat: 文档优化"
 git push origin main

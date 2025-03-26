@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: 知行合一
-tagline: 马上去做，需求第一，开发第二
+tagline: 碎片化的时间如果为正向的爱好
 actionText: 立刻进入 →
 actionLink: /base/javascript.md
 

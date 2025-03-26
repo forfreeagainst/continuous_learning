@@ -1,5 +1,7 @@
 # 变量命名规范
 
+* virtual /ˈvɜːrtʃuəl/ 虚拟的
+* GPU (Graphics Processing Unit) 图片处理单元
 * banner 横幅
 * scaffolding 是 scaffold 的现在分词形式，意思为“给...搭建脚手架”
 * corresponding 相应的

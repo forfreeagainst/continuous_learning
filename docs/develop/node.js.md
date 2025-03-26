@@ -10,7 +10,12 @@
 
 ### path
 
-* resolve: 解析文件，比require强大。eg:path.resolve(__dirname, '../index.ts');
+* resolve: 解析为一个绝对路径
+
+`const dir = resolve(__dirname, `../packages/${target}/package.json`);`
+
+打印结果：D:\git-database\no-less-than-anyones-effort\vue3.4.0\packages\reactivity\package.json
+
 * join:
 
 ### module
@@ -63,7 +68,8 @@ console.log(res3, res3.name);//得到一个js对象
 
 ### commander：构建命令行界面
 
-相同用途、但复杂取参：minimist(parse argument options)
+区别于minimist: minimist 用来解析命令行参数
+minimist 常见语法 `const args = require('minimist')(process.argv.slice(2))`
 
 #### :star: 注意
 

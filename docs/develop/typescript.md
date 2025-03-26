@@ -23,6 +23,12 @@ let gg: bigint;
 const func: Function = () => undefined;
 ```
 
+### 常见类型
+
+```ts
+const arr: number[] = [23,2323];
+```
+
 ### 特殊类型
 
 * any 相当于js

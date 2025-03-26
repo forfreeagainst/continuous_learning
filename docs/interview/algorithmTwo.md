@@ -514,6 +514,95 @@ var permute = function(nums) {
 };
 ```
 
+## 二分查找：题号704
+
+给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。
+
+输入: nums = [-1,0,3,5,9,12], target = 9
+
+输出: 4
+
+解释: 9 出现在 nums 中并且下标为 4
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var search = function(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+    // 只有一个元素，判断要不要while循环。显然要，所以是等于
+    while(left <= right) {
+        const middle = (left + right) // 2;
+        if (nums[middle] > target) {
+            right = middle - 1;
+        } else if (nums[middle] < target) {
+            left = middle + 1;
+        } else {
+            return middle;
+        }
+    }
+    return -1;
+};
+```
+
+## 有序数组的平方: 题号977
+
+给你一个按 非递减顺序 排序的整数数组 nums，返回 每个数字的平方 组成的新数组，要求也按 非递减顺序 排序。
+
+输入：nums = [-4,-1,0,3,10]
+
+输出：[0,1,9,16,100]
+
+解释：平方后，数组变为 [16,1,0,9,100]
+
+排序后，数组变为 [0,1,9,16,100]
+
+###  非递减顺序 排序的整数数组 nums：最大值一定是在左端/右端
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var sortedSquares = function(nums) {
+    let left = 0;
+    let right = nums.length - 1;
+    let len = nums.length - 1;
+    const res = [];
+    // 题目中的数组比较特殊，非递减顺序排序
+    while(left <= right) {
+        const l = nums[left] * nums[left];
+        const r = nums[right] * nums[right];
+        if (l > r) {
+            res[len --] = l;
+            left ++;                      
+        } else {
+            res[len --] = r;
+            right --;
+        }        
+    }
+    return res;
+};
+```
+
+### 时间复杂度nlogn
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var sortedSquares = function(nums) {
+    for(let i = 0 ;i < nums.length; i++) {
+        nums[i] = nums[i] * nums[i];
+    }
+    return nums.sort((a, b) => a - b);
+};
+```
+
 ## TODO省略
 
 ## :bulb: 爬楼梯

@@ -2,8 +2,6 @@
 
 ## Vue3
 
-### Vue3源码，自己理解，并不一定对
-
 ### 生态
 
 #### 脚手架
@@ -21,8 +19,15 @@
 
 ### 常用API
 
-* storeToRefs: store里的数据解构不失去响应式。
-* toRaw: 变成未加工的
+* reactivity
+* shallowReactivity
+* readonly
+* shallowReadonly
+
+* storeToRefs：store里的数据解构不失去响应式。
+* toRaw：变成未加工的
+* markRaw：
+* shallowRef：
 
 ## Vue2
 
