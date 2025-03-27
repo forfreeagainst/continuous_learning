@@ -208,13 +208,39 @@ If-None-Match。/nʌn/ /mætʃ/
 
 :star: Vite 同时利用 HTTP 头来加速整个页面的重新加载（再次让浏览器为我们做更多事情）：源码模块的请求会根据 304 Not Modified 进行协商缓存，而依赖模块请求则会通过 Cache-Control: max-age=31536000,immutable 进行强缓存，因此一旦被缓存它们将不需要再次请求。如果出于某些原因你想要强制 Vite 重新构建依赖项，你可以在启动开发服务器时指定 --force 选项，或手动删除 node_modules/.vite 缓存目录。
 
-## js八股文
+## html,css,js八股文
 
 ### js为什么是单线程的？
 
 ### 如何理解js的异步？
 
 ### 事件循环
+
+### requestAnimationFrame 和IntersectionObserver 用途，兼容性怎么样？
+
+
+特性	requestAnimationFrame	IntersectionObserver
+用途	动画帧调度（高频更新）	元素可见性检测（低频事件）
+触发频率	每帧一次（60Hz≈16.7ms）	仅在元素可见性变化时触发
+性能影响	需手动管理，避免过度绘制	原生优化，对性能影响极小
+兼容性	IE10+	现代浏览器 + Polyfill（IE 需额外处理）
+替代方案	setTimeout/setInterval	手动监听 scroll + getBoundingClientRect
+
+IntersectionObserver Polyfill 方案
+
+`npm install intersection-observer`
+
+然后在入口文件导入：`import 'intersection-observer';`
+
+requestAnimationFrame Polyfill（通常不需要，但极端情况下）：
+
+```js
+window.requestAnimationFrame = window.requestAnimationFrame || 
+                             window.webkitRequestAnimationFrame || 
+                             window.mozRequestAnimationFrame || 
+                             (cb => setTimeout(cb, 16));
+```
+
 
 ## 闲聊Vue
 

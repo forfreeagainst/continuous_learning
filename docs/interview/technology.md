@@ -584,6 +584,23 @@ top值达到可见区域 动态渲染数据不会卡顿的效果
 监听滚动事件，根据滚动位置动态改变可视列表，同时动态改变空白填充。
 
 
+#### vue-virtual-scroller
+
+* mitt：一个极简的 事件发射器/订阅库（Event Emitter），用于组件或模块间的通信。
+* vue-observe-visibility： 检测 Vue 组件是否在视口中可见（基于 IntersectionObserver API）
+* vue-resize： 用途: 监听 DOM 元素的尺寸变化（基于 ResizeObserver API）。
+
+IntersectionObserver：动画帧调度（高频更新）
+requestAnimationFrame：元素可见性检测（低频事件）
+Element.getBoundingClientRect() 方法返回一个 DOMRect 对象，其提供了元素的大小及其相对于视口的位置。
+
+
+使用pnpm + monorepo
+使用rollup进行打包
+
+import { h } from 'vue'
+this.$watch(() => this.sizeDependencies[k], this.onDataUpdate)
+
 ## HTML/CSS/JavaScript
 
 ### 怎么理解回流和重绘？什么场景下会触发？

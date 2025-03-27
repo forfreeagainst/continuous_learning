@@ -1,5 +1,64 @@
 # 手写题
 
+## 最长递增子序列
+
+### 个人思路
+
+贪心算法 + 二分查找 ，为啥，就能得到最长递增子序列的个数
+
+首先最长递增子序列的个数是对的，但顺序不对，不是子序列。通过索引的方式
+
+1. 默认追加 （找到比它大的，就添加）
+2. 替换 （当前比它小，就往前二分查找，找到比它小的，然后替换掉。）
+3. 记录每个人的前驱节点
+4. 通过最后一项进行回溯
+
+### 官方源码
+
+```js
+function getSequence(arr: number[]): number[] {
+  const p = arr.slice()
+  const result = [0]
+  let i, j, u, v, c
+  const len = arr.length
+  for (i = 0; i < len; i++) {
+    const arrI = arr[i]
+    if (arrI !== 0) {
+      j = result[result.length - 1]
+      if (arr[j] < arrI) {
+        p[i] = j
+        result.push(i)
+        continue
+      }
+      u = 0
+      v = result.length - 1
+      while (u < v) {
+        c = (u + v) >> 1; // 除2，然后取整的效果
+        // 类似: (u + v) | 0 或者 ~((u+v) /2) ？？
+        if (arr[result[c]] < arrI) {
+          u = c + 1
+        } else {
+          v = c
+        }
+      }
+      if (arrI < arr[result[u]]) {
+        if (u > 0) {
+          p[i] = result[u - 1]
+        }
+        result[u] = i
+      }
+    }
+  }
+  u = result.length
+  v = result[u - 1]
+  while (u-- > 0) {
+    result[u] = v
+    v = p[v]
+  }
+  return result
+}
+```
+
 ## 手写call
 
 定义：使用一个指定的 this 值和若干个指定的参数值的前提下调用某个函数
