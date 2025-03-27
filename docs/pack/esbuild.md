@@ -1,6 +1,6 @@
-# esbuild
+# esbuild(开发环境)
 
-```md（开发环境）
+```md
 esbuild.context({
   entryPoints: [entry], //入口
   outfile: resolve(__dirname, `../packages/${target}/dist/${target}.js`), //出口
