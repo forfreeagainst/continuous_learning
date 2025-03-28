@@ -22,6 +22,7 @@ export default defineConfig4CustomTheme({
           { text: "js的超集ts", link : "/develop/typescript.md"},
           { text: "node.js", link: "/develop/node.js.md" },
           { text: "bash脚本", link: "/develop/bash.md" },
+          { text: "设计模式与数据结构", link: "/develop/solid.md" }
         ],
       },
       {
@@ -77,6 +78,7 @@ export default defineConfig4CustomTheme({
           { title: "js的超集ts", path : "/develop/typescript.md"},
           { title: "node.js", path: "/develop/node.js.md" },
           { title: "bash脚本", path: "/develop/bash.md" },
+          { title: "设计模式与数据结构", path: "/develop/solid.md" }
         ],
       },
       {

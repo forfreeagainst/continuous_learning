@@ -76,8 +76,9 @@ eg: 几天刷完一大堆视频。换成：花一天的时间学会Vue3的最长
 * vue-virtual-scroller (vue的h用途，mitt、vue-observe-visibility、vue-resize配合使用，) 
 退而求其次，把b站那个虚拟滚动的代码摘录了。
 * vue-draggable-plus 拖拽monorepo（vite打包，vue2+vue3+vue-demi兼容处理，vue3 + TypeScript）
-* 设计模式的了解
 * 数据结构的了解
+
+* 完成设计模式的了解（单例模式，策略模式）
 
 ## :sunflower: 目标
 

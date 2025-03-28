@@ -212,12 +212,77 @@ If-None-Match。/nʌn/ /mætʃ/
 
 ### js为什么是单线程的？
 
+#### 最初的设计目的
+
+JavaScript 最初被设计为一种浏览器脚本语言，主要用于：
+
+* 操作 DOM（文档对象模型）
+* 处理用户交互（点击、输入等）
+* 执行简单的页面动画和表单验证
+
+这些任务不需要多线程，反而多线程会带来复杂的同步问题。
+
+#### DOM 操作的复杂性
+
+* 如果允许多线程同时操作 DOM，会导致竞态条件（race condition）
+* 需要复杂的锁机制来保证线程安全
+* 这会大大增加开发复杂度和出错概率
+
+单线程模型避免了这些问题，使 DOM 操作变得简单可靠。
+
+#### 总结
+
+虽然它是单线程的，但通过事件循环和异步编程模型，以及后来引入的 Web Workers，它仍然能够高效处理各种任务，
+包括复杂的现代Web应用。
+
 ### 如何理解js的异步？
+
+JavaScript是单线程的，这意味着它一次只能执行一个任务。如果没有异步机制，
+
+* 长时间运行的任务会堵塞主线程
+* 用户界面会冻结，无法响应用户操作
+* 网络请求 等 I/O 操作会导致极差的用户体验
 
 ### 事件循环
 
-### requestAnimationFrame 和IntersectionObserver 用途，兼容性怎么样？
+JavaScript 的事件循环是其异步编程的核心机制，它使得单线程的 JavaScript 能够处理非阻塞 I/O 操作，实现高效的并发执行。
 
+#### 宏任务
+
+不是微任务
+
+* setTimeout / setInterval
+* I/O 操作 (文件读取、网络请求)
+* UI 渲染
+* DOM 事件回调
+* setImmediate (Node.js)
+
+#### 微任务
+
+* Promise.then / catch / finally
+* MutationObserver
+* process.nextTick（Node.js）
+* queueMicrotask
+
+#### 执行顺序
+
+宏任务->当前产生的所有微任务->GUI渲染->宏任务
+
+<!-- allow pasting 允许粘贴 -->
+
+console.log('Script start'); // 1. 同步代码立即执行
+
+setTimeout(() => {          // 2. 异步API，回调进入队列
+  console.log('setTimeout');
+}, 0);
+
+Promise.resolve().then(() => { // 3. 微任务
+  console.log('Promise');
+});
+
+console.log('Script end');   // 4. 同步代码
+
+### requestAnimationFrame 和IntersectionObserver 用途，兼容性怎么样？
 
 特性	requestAnimationFrame	IntersectionObserver
 用途	动画帧调度（高频更新）	元素可见性检测（低频事件）
