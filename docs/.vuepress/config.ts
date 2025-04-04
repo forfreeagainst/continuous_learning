@@ -29,6 +29,7 @@ export default defineConfig4CustomTheme({
         text: "轮子",
         items: [
           { text: 'vue', link: "/wheel/vue.md" },
+          { text: 'vue源码', link: "/wheel/vue_source.md" },
           {text: "Vue生态", link:"/wheel/vue_ecology"},
           { text: 'react', link: "/wheel/react.md" },
           { text: 'vue2项目', link: "/wheel/vue2_project.md"},
@@ -64,7 +65,10 @@ export default defineConfig4CustomTheme({
       {
         text: "工作经历",
         items: [
-          {text: "千分符金额文本框组件", link: "/job_experience/ThousandSeparatorAmoutInput.md"}
+          {text: "千分符金额文本框组件", link: "/job_experience/ThousandSeparatorAmoutInput.md"},
+          {text: "websocket", link: "/job_experience/websocket.md"},
+          {text: "视频合成", link: "/job_experience/video_merger.md"},
+          {text: "音乐软件", link: "/job_experience/music_soft.md"},
         ]
       }
     ],
@@ -85,6 +89,7 @@ export default defineConfig4CustomTheme({
         title: "轮子",
         children: [
           { title: 'vue', path: "/wheel/vue.md" },
+          { title: "vue源码", path: "/wheel/vue_source.md"},
           {title: "Vue生态", path:"/wheel/vue_ecology"},
           { title: 'react', path: "/wheel/react.md" },
           { title: 'vue2项目', path: "/wheel/vue2_project.md"},
@@ -120,7 +125,10 @@ export default defineConfig4CustomTheme({
       {
         title: "工作经历",
         children: [
-          {title: "千分符金额文本框组件", path: "/job_experience/ThousandSeparatorAmoutInput.md"}
+          {title: "千分符金额文本框组件", path: "/job_experience/ThousandSeparatorAmoutInput.md"},
+          {title: "websocket", path: "/job_experience/websocket.md"},
+          {title: "视频合成", path: "/job_experience/video_merger.md"},
+          {title: "音乐软件", path: "/job_experience/music_soft.md"},
         ]
       }
     ],
