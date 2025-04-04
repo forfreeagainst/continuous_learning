@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vue源码 | 时空随笔</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/continuous_learning/img/logo.png">
+    <meta name="description" content="用时间换空间，用空间换时间">
+    <meta name="keywords" content="修炼笔记静态资源站点">
+    
+    <link rel="preload" href="/continuous_learning/assets/css/0.styles.6479703d.css" as="style"><link rel="preload" href="/continuous_learning/assets/js/app.4d9b7e99.js" as="script"><link rel="preload" href="/continuous_learning/assets/js/2.37a86b2d.js" as="script"><link rel="preload" href="/continuous_learning/assets/js/1.f80ffb5b.js" as="script"><link rel="preload" href="/continuous_learning/assets/js/54.12413c06.js" as="script"><link rel="prefetch" href="/continuous_learning/assets/js/10.c7f0ff39.js"><link rel="prefetch" href="/continuous_learning/assets/js/11.b9626a80.js"><link rel="prefetch" href="/continuous_learning/assets/js/12.3c9cf08f.js"><link rel="prefetch" href="/continuous_learning/assets/js/13.e652a34a.js"><link rel="prefetch" href="/continuous_learning/assets/js/14.35d86c22.js"><link rel="prefetch" href="/continuous_learning/assets/js/15.2a05c459.js"><link rel="prefetch" href="/continuous_learning/assets/js/16.eac0ba20.js"><link rel="prefetch" href="/continuous_learning/assets/js/17.5e08e882.js"><link rel="prefetch" href="/continuous_learning/assets/js/18.72fa03b1.js"><link rel="prefetch" href="/continuous_learning/assets/js/19.2dc1dc0c.js"><link rel="prefetch" href="/continuous_learning/assets/js/20.4294c7a5.js"><link rel="prefetch" href="/continuous_learning/assets/js/21.819cdda0.js"><link rel="prefetch" href="/continuous_learning/assets/js/22.a174f387.js"><link rel="prefetch" href="/continuous_learning/assets/js/23.b8300a53.js"><link rel="prefetch" href="/continuous_learning/assets/js/24.47f55dfa.js"><link rel="prefetch" href="/continuous_learning/assets/js/25.18f4fe7c.js"><link rel="prefetch" href="/continuous_learning/assets/js/26.797c2311.js"><link rel="prefetch" href="/continuous_learning/assets/js/27.1a39df4b.js"><link rel="prefetch" href="/continuous_learning/assets/js/28.ad621811.js"><link rel="prefetch" href="/continuous_learning/assets/js/29.1a1bf22c.js"><link rel="prefetch" href="/continuous_learning/assets/js/3.9d2c09c2.js"><link rel="prefetch" href="/continuous_learning/assets/js/30.70b96b81.js"><link rel="prefetch" href="/continuous_learning/assets/js/31.0d5a80f6.js"><link rel="prefetch" href="/continuous_learning/assets/js/32.f273e04f.js"><link rel="prefetch" href="/continuous_learning/assets/js/33.bff67733.js"><link rel="prefetch" href="/continuous_learning/assets/js/34.b4e0b56b.js"><link rel="prefetch" href="/continuous_learning/assets/js/35.645a1677.js"><link rel="prefetch" href="/continuous_learning/assets/js/36.b6bed756.js"><link rel="prefetch" href="/continuous_learning/assets/js/37.c2fb2c58.js"><link rel="prefetch" href="/continuous_learning/assets/js/38.1bc1d35d.js"><link rel="prefetch" href="/continuous_learning/assets/js/39.25537144.js"><link rel="prefetch" href="/continuous_learning/assets/js/4.80d1ecbf.js"><link rel="prefetch" href="/continuous_learning/assets/js/40.994017a4.js"><link rel="prefetch" href="/continuous_learning/assets/js/41.42e4e72b.js"><link rel="prefetch" href="/continuous_learning/assets/js/42.5e75bb73.js"><link rel="prefetch" href="/continuous_learning/assets/js/43.3edd8372.js"><link rel="prefetch" href="/continuous_learning/assets/js/44.822db622.js"><link rel="prefetch" href="/continuous_learning/assets/js/45.148874ed.js"><link rel="prefetch" href="/continuous_learning/assets/js/46.c1863c2b.js"><link rel="prefetch" href="/continuous_learning/assets/js/47.7e5daf98.js"><link rel="prefetch" href="/continuous_learning/assets/js/48.2fddb5e9.js"><link rel="prefetch" href="/continuous_learning/assets/js/49.c3c03584.js"><link rel="prefetch" href="/continuous_learning/assets/js/5.10d702a2.js"><link rel="prefetch" href="/continuous_learning/assets/js/50.56df104d.js"><link rel="prefetch" href="/continuous_learning/assets/js/51.08be2147.js"><link rel="prefetch" href="/continuous_learning/assets/js/52.c3bc3680.js"><link rel="prefetch" href="/continuous_learning/assets/js/53.30667488.js"><link rel="prefetch" href="/continuous_learning/assets/js/6.4e1b404c.js"><link rel="prefetch" href="/continuous_learning/assets/js/7.c4b094c5.js"><link rel="prefetch" href="/continuous_learning/assets/js/vendors~docsearch.bd0b093a.js">
+    <link rel="stylesheet" href="/continuous_learning/assets/css/0.styles.6479703d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/continuous_learning/" class="home-link router-link-active"><img src="/continuous_learning/img/logo.png" alt="时空随笔" class="logo"> <span class="site-name can-hide">时空随笔</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/continuous_learning/index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/html.html" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/css.html" class="nav-link">
+  Css
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/javascript.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/typescript.html" class="nav-link">
+  js的超集ts
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/node.js.html" class="nav-link">
+  node.js
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/bash.html" class="nav-link">
+  bash脚本
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/solid.html" class="nav-link">
+  设计模式与数据结构
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="轮子" class="dropdown-title"><span class="title">轮子</span> <span class="arrow down"></span></button> <button type="button" aria-label="轮子" class="mobile-dropdown-title"><span class="title">轮子</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue.html" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_source.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  vue源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_ecology.html" class="nav-link">
+  Vue生态
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/react.html" class="nav-link">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue2_project.html" class="nav-link">
+  vue2项目
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/cli.html" class="nav-link">
+  脚手架
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/test_tool.html" class="nav-link">
+  测试工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="构建工具" class="dropdown-title"><span class="title">构建工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="构建工具" class="mobile-dropdown-title"><span class="title">构建工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/pack/esbuild.html" class="nav-link">
+  esbuild
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/pack/webpack.html" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/pack/vite.html" class="nav-link">
+  vite
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/pack/rollup.html" class="nav-link">
+  rollup
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow down"></span></button> <button type="button" aria-label="面试" class="mobile-dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/technology.html" class="nav-link">
+  技术类
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/chat.html" class="nav-link">
+  闲谈
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/handwriting.html" class="nav-link">
+  手写题
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmOne.html" class="nav-link">
+  算法题1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmTwo.html" class="nav-link">
+  算法题2
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="AI" class="dropdown-title"><span class="title">AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="AI" class="mobile-dropdown-title"><span class="title">AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/AI/QA.html" class="nav-link">
+  问答
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工作经历" class="dropdown-title"><span class="title">工作经历</span> <span class="arrow down"></span></button> <button type="button" aria-label="工作经历" class="mobile-dropdown-title"><span class="title">工作经历</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ThousandSeparatorAmoutInput.html" class="nav-link">
+  千分符金额文本框组件
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/websocket.html" class="nav-link">
+  websocket
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/video_merger.html" class="nav-link">
+  视频合成
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/music_soft.html" class="nav-link">
+  音乐软件
+</a></li></ul></div></div> <a href="https://github.com/forfreeagainst/continuous_learning" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/continuous_learning/index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/html.html" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/css.html" class="nav-link">
+  Css
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/javascript.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/typescript.html" class="nav-link">
+  js的超集ts
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/node.js.html" class="nav-link">
+  node.js
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/bash.html" class="nav-link">
+  bash脚本
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/solid.html" class="nav-link">
+  设计模式与数据结构
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="轮子" class="dropdown-title"><span class="title">轮子</span> <span class="arrow down"></span></button> <button type="button" aria-label="轮子" class="mobile-dropdown-title"><span class="title">轮子</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue.html" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_source.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  vue源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_ecology.html" class="nav-link">
+  Vue生态
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/react.html" class="nav-link">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue2_project.html" class="nav-link">
+  vue2项目
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/cli.html" class="nav-link">
+  脚手架
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/test_tool.html" class="nav-link">
+  测试工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="构建工具" class="dropdown-title"><span class="title">构建工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="构建工具" class="mobile-dropdown-title"><span class="title">构建工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/pack/esbuild.html" class="nav-link">
+  esbuild
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/pack/webpack.html" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/pack/vite.html" class="nav-link">
+  vite
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/pack/rollup.html" class="nav-link">
+  rollup
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow down"></span></button> <button type="button" aria-label="面试" class="mobile-dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/technology.html" class="nav-link">
+  技术类
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/chat.html" class="nav-link">
+  闲谈
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/handwriting.html" class="nav-link">
+  手写题
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmOne.html" class="nav-link">
+  算法题1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmTwo.html" class="nav-link">
+  算法题2
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="AI" class="dropdown-title"><span class="title">AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="AI" class="mobile-dropdown-title"><span class="title">AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/AI/QA.html" class="nav-link">
+  问答
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工作经历" class="dropdown-title"><span class="title">工作经历</span> <span class="arrow down"></span></button> <button type="button" aria-label="工作经历" class="mobile-dropdown-title"><span class="title">工作经历</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ThousandSeparatorAmoutInput.html" class="nav-link">
+  千分符金额文本框组件
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/websocket.html" class="nav-link">
+  websocket
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/video_merger.html" class="nav-link">
+  视频合成
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/music_soft.html" class="nav-link">
+  音乐软件
+</a></li></ul></div></div> <a href="https://github.com/forfreeagainst/continuous_learning" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>轮子</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/continuous_learning/wheel/vue.html" class="sidebar-link">vue</a></li><li><a href="/continuous_learning/wheel/vue_source.html" aria-current="page" class="active sidebar-link">vue源码</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/continuous_learning/wheel/vue_source.html#vue3源码" class="sidebar-link">Vue3源码</a></li></ul></li><li><a href="/continuous_learning/wheel/vue_ecology.html" class="sidebar-link">Vue生态</a></li><li><a href="/continuous_learning/wheel/react.html" class="sidebar-link">react</a></li><li><a href="/continuous_learning/wheel/vue2_project.html" class="sidebar-link">vue2项目</a></li><li><a href="/continuous_learning/wheel/cli.html" class="sidebar-link">脚手架</a></li><li><a href="/continuous_learning/wheel/test_tool.html" class="sidebar-link">测试工具</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>构建工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>面试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>AI</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>工作经历</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vue源码"><a href="#vue源码" class="header-anchor">#</a> Vue源码</h1> <h2 id="vue3源码"><a href="#vue3源码" class="header-anchor">#</a> Vue3源码</h2> <h3 id="vue3新特性"><a href="#vue3新特性" class="header-anchor">#</a> Vue3新特性</h3> <p>Vue3更注重模块上的拆分。Vue2无法单独使用部分模块，需要引入完整的Vue.js。
+Vue3中的模块之间耦合度低，模块可以独立使用。</p> <p>Vue2中很多方法挂载到了实例上，即便没有使用也会被打包。
+Vue3通过构建工具Tree-shaking机制实现按需加载，减少用户打包后体积。</p> <p>Vue3允许自定义渲染器，扩展能力强。</p> <p>依然保留Vue2的特色如下</p> <ul><li>声明式框架</li> <li>虚拟Dom
+传统更新页面，拼接一个完整的字符串innerHTML全部重新渲染。</li></ul> <p>编译时，把template变成虚拟节点，运行时，把虚拟dom变成真实Dom.</p> <h3 id="set、map、weakset、weakmap区别"><a href="#set、map、weakset、weakmap区别" class="header-anchor">#</a> Set、Map、WeakSet、WeakMap区别？</h3> <h4 id="set-集合"><a href="#set-集合" class="header-anchor">#</a> Set（集合）</h4> <ul><li>存储结构：[值, 值]，存储唯一的值（不允许重复）。</li> <li>键类型：任意类型的值（包括对象、原始值）。</li> <li>可遍历：是（支持 forEach、keys()、values()、entries() 等方法）。</li> <li>引用类型：强引用（即使对象不再使用，也不会被垃圾回收）。</li></ul> <p>常用方法：</p> <ul><li>add(value)：添加值。</li> <li>delete(value)：删除值。</li> <li>has(value)：检查是否存在某值。</li> <li>clear()：清空集合。</li></ul> <p>使用场景：数组去重、集合运算（并集、交集等）。</p> <h4 id="weakset-弱集合"><a href="#weakset-弱集合" class="header-anchor">#</a> WeakSet（弱集合）</h4> <ul><li>存储结构：[值, 值]，但仅能存储对象（不能是原始值）。</li> <li>键类型：仅对象（如 {}、new Object()）。</li> <li>可遍历：否（没有 size 属性，也不能用 forEach 或迭代方法）。</li> <li>引用类型：弱引用（如果对象在其他地方没有被引用，会被垃圾回收自动清除）。</li></ul> <p>常用方法：</p> <ul><li>add(obj)：添加对象。</li> <li>delete(obj)：删除对象。</li> <li>has(obj)：检查是否存在某对象。</li></ul> <p>使用场景：临时存储对象（如 DOM 节点是否已被处理）。</p> <h4 id="map-字典"><a href="#map-字典" class="header-anchor">#</a> Map（字典）</h4> <ul><li>存储结构：[键, 值]，键值对集合。</li> <li>键类型：任意类型（对象、原始值均可）。</li> <li>可遍历：是（支持 forEach、keys()、values()、entries() 等方法）。</li> <li>引用类型：强引用（键和值都不会被垃圾回收）。</li></ul> <p>常用方法：</p> <ul><li>set(key, value)：设置键值对。</li> <li>get(key)：获取值。</li> <li>delete(key)：删除键值对。</li> <li>has(key)：检查是否存在某键。</li> <li>clear()：清空字典。</li></ul> <p>使用场景：需要复杂键（如对象）的映射、缓存、数据关联。</p> <h4 id="weakmap-弱字典"><a href="#weakmap-弱字典" class="header-anchor">#</a> WeakMap（弱字典）</h4> <ul><li>存储结构：[键, 值]，但键必须是对象（值可以是任意类型）。</li> <li>键类型：仅对象（不能是原始值）。</li> <li>可遍历：否（没有 size 属性，也不能用 forEach 或迭代方法）。</li> <li>引用类型：弱引用（仅对键弱引用，如果键对象在其他地方没有被引用，会被垃圾回收，对应的值也会被释放）。</li></ul> <p>常用方法：</p> <ul><li>set(key, value)：设置键值对（key 必须是对象）。</li> <li>get(key)：获取值。</li> <li>delete(key)：删除键值对。</li> <li>has(key)：检查是否存在某键。</li></ul> <p>使用场景：存储对象的私有数据或元数据（避免内存泄漏）。</p> <table><thead><tr><th>特性</th> <th>Set</th> <th>WeakSet</th> <th>Map</th> <th>WeakMap</th></tr></thead> <tbody><tr><td>存储结构</td> <td>[值，值]</td> <td>[对象，对象]</td> <td>[键，值]</td> <td>[对象键，值]</td></tr> <tr><td>键类型</td> <td>任意值</td> <td>仅对象</td> <td>任意值</td> <td>仅对象</td></tr> <tr><td>可遍历性</td> <td>可</td> <td>不可</td> <td>可</td> <td>不可</td></tr> <tr><td>引用类型</td> <td>强引用</td> <td>弱引用</td> <td>强引用</td> <td>弱引用（仅键）</td></tr> <tr><td>垃圾回收影响</td> <td>不回收</td> <td>自动回收</td> <td>不回收</td> <td>自动回收</td></tr> <tr><td>典型用途</td> <td>去重、集合运算</td> <td>临时对象管理</td> <td>复杂键映射</td> <td>对象私有数据</td></tr></tbody></table> <h4 id="关键性总结"><a href="#关键性总结" class="header-anchor">#</a> 关键性总结</h4> <ul><li>Set vs WeakSet</li></ul> <p>Set 可以存储任意值，WeakSet 只能存储对象。</p> <p>Set 可遍历，WeakSet 不可遍历。</p> <p>WeakSet 对对象是弱引用，适合临时存储（如 DOM 节点管理）。</p> <ul><li>Map vs WeakMap</li></ul> <p>Map 的键可以是任意类型，WeakMap 的键必须是对象。</p> <p>Map 可遍历，WeakMap 不可遍历。</p> <p>WeakMap 对键是弱引用，适合存储对象的私有数据（避免内存泄漏）。</p> <ul><li>强引用 vs 弱引用</li></ul> <p>Set 和 Map 会阻止垃圾回收，可能导致内存泄漏。</p> <p>WeakSet 和 WeakMap 不会阻止垃圾回收，适合临时存储。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/continuous_learning/wheel/vue.html" class="prev">
+        vue
+      </a></span> <span class="next"><a href="/continuous_learning/wheel/vue_ecology.html">
+        Vue生态
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/continuous_learning/assets/js/app.4d9b7e99.js" defer></script><script src="/continuous_learning/assets/js/2.37a86b2d.js" defer></script><script src="/continuous_learning/assets/js/1.f80ffb5b.js" defer></script><script src="/continuous_learning/assets/js/54.12413c06.js" defer></script>
+  </body>
+</html>
