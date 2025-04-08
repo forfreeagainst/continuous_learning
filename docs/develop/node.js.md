@@ -64,6 +64,15 @@ console.log(res3, res3.name);//得到一个js对象
 
 ## npm包
 
+### fast-glob: 返回符合条件的文件路径列表。
+
+是的，fast-glob 的主要功能是 快速匹配文件路径，它可以根据指定的 通配符模式（Glob Patterns） 扫描文件系统，返回符合条件的文件路径列表。
+
+```js
+const files = fg.sync('**/*.m4s', { ignore: ['package-lock.json'], cwd: __dirname});
+console.log(files);
+```
+
 ### command-exists：检查命令（命令行的）是否存在
 
 ### commander：构建命令行界面
@@ -80,6 +89,19 @@ minimist 常见语法 `const args = require('minimist')(process.argv.slice(2))`
 ### ora：输出时的loading效果，和显示各种状态的图标等
 
 ### fs-extra：强大的文件操作功能
+
+* moveSync: 可以移动文件，还可以改文件名
+
+```js
+// 配合fast-glob，挺好用的
+fs.moveSync('./old/file.md', './new/renamed.txt');
+```
+
+* remove: 删除文件
+
+```js
+fs.remove(`./${name}.mp3`);
+```
 
 * readFileSync
 * writeFileSync

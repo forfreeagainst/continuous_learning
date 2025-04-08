@@ -32,6 +32,7 @@ export default defineConfig4CustomTheme({
           { text: 'vue源码', link: "/wheel/vue_source.md" },
           {text: "Vue生态", link:"/wheel/vue_ecology"},
           { text: 'react', link: "/wheel/react.md" },
+          { text: 'React源码', link: "/wheel/React_source.md" },
           { text: 'vue2项目', link: "/wheel/vue2_project.md"},
           { text: "脚手架", link: "/wheel/cli.md" },
           { text: "测试工具", link: "/wheel/test_tool.md" },
@@ -49,7 +50,8 @@ export default defineConfig4CustomTheme({
       {
         text: "面试",
         items: [
-          {text: "技术类", link: "/interview/technology.md"},
+          {text: "技术类1", link: "/interview/technologyOne.md"},
+          {text: "技术类2", link: "/interview/technologyTwo.md"},
           {text: "闲谈", link: "/interview/chat.md"},
           { text: "手写题", link: "/interview/handwriting.md" },
           { text: "算法题1", link: "/interview/algorithmOne.md" },
@@ -65,6 +67,7 @@ export default defineConfig4CustomTheme({
       {
         text: "工作经历",
         items: [
+          {text: "可排序的", link: "/job_experience/sortable.md"},
           {text: "千分符金额文本框组件", link: "/job_experience/ThousandSeparatorAmoutInput.md"},
           {text: "websocket", link: "/job_experience/websocket.md"},
           {text: "视频合成", link: "/job_experience/video_merger.md"},
@@ -92,6 +95,7 @@ export default defineConfig4CustomTheme({
           { title: "vue源码", path: "/wheel/vue_source.md"},
           {title: "Vue生态", path:"/wheel/vue_ecology"},
           { title: 'react', path: "/wheel/react.md" },
+          { title: 'React源码', path: "/wheel/React_source.md" },
           { title: 'vue2项目', path: "/wheel/vue2_project.md"},
           { title: "脚手架", path: "/wheel/cli.md" },
           { title: "测试工具", path: "/wheel/test_tool.md" },
@@ -109,7 +113,8 @@ export default defineConfig4CustomTheme({
       {
         title: "面试",
         children: [
-          {title: "技术类", path: "/interview/technology.md"},
+          {title: "技术类1", path: "/interview/technologyOne.md"},
+          {title: "技术类2", path: "/interview/technologyTwo.md"},
           {title: "闲谈", path: "/interview/chat.md"},
           { title: "手写题", path: "/interview/handwriting.md" },
           { title: "算法题1", path: "/interview/algorithmOne.md" },
@@ -125,6 +130,7 @@ export default defineConfig4CustomTheme({
       {
         title: "工作经历",
         children: [
+          {title: "可排序的", path: "/job_experience/sortable.md"},
           {title: "千分符金额文本框组件", path: "/job_experience/ThousandSeparatorAmoutInput.md"},
           {title: "websocket", path: "/job_experience/websocket.md"},
           {title: "视频合成", path: "/job_experience/video_merger.md"},
