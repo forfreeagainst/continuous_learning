@@ -5,5 +5,5 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "docs: 完善文档"
+git commit -m "docs: Vue源码阅读笔记"
 git push origin main

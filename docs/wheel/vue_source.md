@@ -118,3 +118,58 @@ WeakMap 对键是弱引用，适合存储对象的私有数据（避免内存泄
 Set 和 Map 会阻止垃圾回收，可能导致内存泄漏。
 
 WeakSet 和 WeakMap 不会阻止垃圾回收，适合临时存储。
+
+## Vue讲述
+
+```md
+effect是个副作用，数据发生改变，立即执行effect。我们通过数据代理，在get和set方法进行切面编程，
+get里面进行依赖收集，把effect中 使用到的变量 和 effect 进行关联，形成一个映射表。
+get里面进行触发更新，数据发生改变，调用映射表的effect方法，进行页面数据的渲染(innerHTML)。
+
+effect: 数据发生改变立即执行effect
+watch, computed 都是基于 effect ，
+effect(() => {
+    document.innerHTML = `hello${name}`;
+}, {}); // 执行函数，选项
+写在effect里面的变量，才具有响应式。
+父子组件，就是嵌套的effect;
+
+设计响应式的effect
+effect访问 对象的属性进行 依赖收集， 书写innerHTML = 啥 进行触发更新。
+trackEffect, triggerEffect
+1. 在proxy 的get 进行 依赖收集，
+
+收集这个对象上的这个属性和 effect关联在一起。
+收集依赖的数据格式 
+ Map:  obj:  {属性 ： Map:  effect, effect, effect   }
+嵌套Map ,
+第一层： 对象，  Map
+第二层： 属性， Map 
+
+
+// 将当前的effect放入到dep （映射表）中，后续可以根据值得变化触发此dep中存放的 effect 。
+
+2. 触发更新
+
+
+3. 解决effect 的遗留问题
+effect 有条件（前后的依赖不一样的各种情况） state.flag ? state.name : state.age;
+（effect在进行第二次依赖收集，有个简单的diff算法））
+effect 有重复的，映射表要去重  state.name + state.name
+
+4. effect调度实现 （effect第二个参数scheduler, 数据更新了，不重新渲染，走自己的逻辑。
+还可以赋值给变量即函数名，然后在scheduler中调用）。
+
+5. 解决 innerHTML = state.name; state.name = 22; 陷入死循环
+  当取的值也是对象的时候，我需要对这个对象 再进行代理，递归代理
+
+
+reactive只能针对对象， proxy就是针对对象呀
+
+ref 实现原理， 可以是基础类型，可以是对象
+包了一层，成为对象。拥有三个属性：_v,  get方法 ，set方法
+contructor：判断是不是对象 ,是的话，包一层reactive
+
+其他API:
+
+```

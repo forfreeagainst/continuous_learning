@@ -19,15 +19,66 @@
 
 ### 常用API
 
-* reactivity
+* reactivity：传入的是对象
 * shallowReactivity
+* ref: 可传入基本类型和 对象
+* shallowRef：
+
+
+* toRef: 把reactive变成ref去使用，意义是解构的时候，丧失响应式。同时模板上使用方便，模板自动补充.value;
+
+```js
+// 中转了一下 name.value ===> state.name
+let state = reactive({name: 'durant', age: 35});
+// toRef: 两个参数, 代码书写，又是一个类，有set value, 和get value;
+let name = toRef(state, 'name');
+let age = toRef(state, 'age');
+console.log(name.value, age.value);
+```
+
+* toRefs: 可多个一起
+* proxyRef: 工具函数，接收带有ref的对象，主要用于处理 ref 对象的自动解包(unwrap)问题。
+
+```js
+import { ref, proxyRefs } from 'vue'
+
+const foo = ref('hello')
+const bar = ref('world')
+
+const proxy = proxyRefs({ foo, bar })
+
+console.log(proxy.foo) // 直接输出 'hello'，而不是 ref 对象
+console.log(proxy.bar) // 直接输出 'world'
+```
+
+* proxyRefs: Vue3 响应式系统中一个相对底层的 API，在大多数应用开发中可能不会直接使用，但在编写库或复杂组合式函数时会很有用
+
+```js
+function proxyRefs(objectWithRef) {
+  return new Proxy(objectWithRef, {
+    get(target, key, receiver) {
+      let r = Reflect.get(target, key, receiver);
+      return r.__v_isRef ? r.value : r;
+    },
+    set(target, key, value, receiver) {
+      const oldValue = target[key];
+      if (oldValue.__v_isRef) {
+        oldValue.value = value;
+        return true;
+      } else {
+        return Reflect.set(target, key, value, receiver);
+      }
+    }
+  });
+}
+```
+
 * readonly
 * shallowReadonly
 
 * storeToRefs：store里的数据解构不失去响应式。
 * toRaw：变成未加工的
 * markRaw：
-* shallowRef：
 
 ## Vue2
 
