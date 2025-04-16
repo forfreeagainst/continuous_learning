@@ -1,3 +1,5 @@
+# git 版本管理
+
 git config --global user.name "尘少"
 git config --global user.email "1982******@qq.com"
 
@@ -31,13 +33,14 @@ git checkout <your-branch-name>
 git pull origin <remote-branch-name> --rebase
 git push origin <your-branch-name>
 
-将开发分支合并到主分支
+将开发分支合并到主分支，目标分支为master,切换到master
 git pull origin dev
 git checkout master
 git pull origin master
 git merge dev
 git status(查看冲突)
 git push origin master
+<!-- git push -u origin master（首次推送，建立长期关系，只需git pull,git push） -->
 
 // 回退版本：git reset会影响到本地仓库、暂存区和工作区的状态
 // git revert则不会影响暂存区和工作区，只会在提交历史中添加一个新的提交来撤销之前的更改。

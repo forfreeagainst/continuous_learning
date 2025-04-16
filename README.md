@@ -1,2 +1,4 @@
 # continuous_learning
-What can bring me happiness? Besides money, it's still money.Really? 天星学院，九霄学府，无私分享，毫无保留，无私奉献，不求回报的宗旨呢
+
+幻魔卡特兰，他是极限武馆和雷电武馆竞相拉拢的绝对强者，他代表了人类的极限与巅峰，
+连超越战神在他面前都失去了光彩，简直宛若神明。

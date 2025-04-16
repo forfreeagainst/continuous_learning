@@ -45,6 +45,13 @@ Vite为什么比Webpack快？
 1. Vite 不需要全量打包
 2. 解析模块依赖使用esbuild
 3. 充分利用缓存 源码模块-协商缓存304，依赖模块-强缓存Cache-Control
+开发服务器启动， 从依赖打包和 源码打包这两个方面提升性能
+依赖：使用esbuild 进行依赖预打包，esbuild使用Go 编写，回避 Javascript-based的打包工具快 10-100倍
+<!-- 源码：使用浏览器原生 es module提供源码，让浏览器接管 打包工具的部分工作。 -->
+Vite 在文件热更新上做了优化
+使用 ESM 不需要重新编译：一些打包工具的开发服务器在文件更改时，需要重新构建整个项目，
+来获取新的模块依赖关系
+使用浏览器缓存加速：Vite使用HTTP头 来加速整个页面的 重新加载
 
 Parcel零配置，构建速度较快（比webpack快，比vite慢），插件生态较弱，适合小型项目、原型开发
 
@@ -453,20 +460,6 @@ Speed Index
 
 html,css,js,vue,react,静态资源，打包，白屏，
 加载速度：首屏/切换页面， 缓存：CDN, 协商/强缓存， 网络， 动画，web worker
-
-### 说说Vue Router History的几种模式，有什么用途？(Vue Router有几种路由模式)？
-
-* Hash 模式
-* HTML5模式
-* Memory模式
-
-Hash: url有"#"号，不美观，兼容性最好，支持所有浏览器，但不利于SEO优化。
-HTML5: url没有"#"号，更美观，不兼容一些旧的浏览器项目，适合现代浏览器和 SEO 优化。
-Memory: 路由状态保存在内存中，不会改变浏览器的URL, 适合Node环境和SSR。
-
-浏览器的前进后退如何监听？
-popstate, hashchange。
-window.history 中的replaceState， pushState
 
 ### 说说Vue的插件机制？
 

@@ -1,5 +1,7 @@
 # sortable可排序的
 
+vue-draggable-plus 拖拽monorepo（vite打包，vue2+vue3+vue-demi兼容处理，vue3 + TypeScript）
+
 ## sortable.js介绍
 
 ## 学习封装一个拖拽插件

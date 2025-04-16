@@ -21,7 +21,6 @@ export default defineConfig4CustomTheme({
           { text: "JavaScript", link: "/develop/javascript.md" },
           { text: "js的超集ts", link : "/develop/typescript.md"},
           { text: "node.js", link: "/develop/node.js.md" },
-          { text: "bash脚本", link: "/develop/bash.md" },
           { text: "设计模式与数据结构", link: "/develop/solid.md" }
         ],
       },
@@ -50,6 +49,7 @@ export default defineConfig4CustomTheme({
       {
         text: "面试",
         items: [
+          {text: "精华", link: "/interview/EssenceSummary.md"},
           {text: "技术类1", link: "/interview/technologyOne.md"},
           {text: "技术类2", link: "/interview/technologyTwo.md"},
           {text: "闲谈", link: "/interview/chat.md"},
@@ -84,7 +84,6 @@ export default defineConfig4CustomTheme({
           { title: "JavaScript", path: "/develop/javascript.md" },
           { title: "js的超集ts", path : "/develop/typescript.md"},
           { title: "node.js", path: "/develop/node.js.md" },
-          { title: "bash脚本", path: "/develop/bash.md" },
           { title: "设计模式与数据结构", path: "/develop/solid.md" }
         ],
       },
@@ -113,6 +112,7 @@ export default defineConfig4CustomTheme({
       {
         title: "面试",
         children: [
+          {title: "精华", path: "/interview/EssenceSummary.md"},
           {title: "技术类1", path: "/interview/technologyOne.md"},
           {title: "技术类2", path: "/interview/technologyTwo.md"},
           {title: "闲谈", path: "/interview/chat.md"},

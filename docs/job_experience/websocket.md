@@ -1,5 +1,11 @@
 # websocket
 
+hooks useWebsocket connect reconnect heartBeat
+
+websocket如何进行心跳检测？定时发送消息
+
+异常重连怎么监听到的
+
 ## 介绍
 
 * HTTP协议：通信只能由客户端发起。

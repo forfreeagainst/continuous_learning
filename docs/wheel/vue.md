@@ -73,6 +73,10 @@ function proxyRefs(objectWithRef) {
 }
 ```
 
+* computed: 接收参数 getter函数，或者 选项（对象有get方法和set方法） 
+* watch: 接收参数 1 监测数据  2 回调函数  3选项可选 (监测数据 ：ref 或reactive 或 函数)
+* watchEffect: 监控多个数据
+
 * readonly
 * shallowReadonly
 
