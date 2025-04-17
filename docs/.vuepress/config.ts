@@ -62,12 +62,17 @@ export default defineConfig4CustomTheme({
         text: 'AI',
         items: [
           {text: "问答", link: "/AI/QA.md"},
+          {text: "随便问问", link: "/AI/other.md"}
         ]
       },
       {
         text: "工作经历",
         items: [
           {text: "可排序的", link: "/job_experience/sortable.md"},
+          {text: "sdk前端埋点", link: "/job_experience/sdk.md"},
+          {text: "持续集成持续部署", link: "/job_experience/CICD.md"},
+          {text: "配置式Provider", link: "/job_experience/ConfigProvider.md"},
+          {text: "虚拟滚动", link: "/job_experience/VirtualScrolling.md"},
           {text: "千分符金额文本框组件", link: "/job_experience/ThousandSeparatorAmoutInput.md"},
           {text: "websocket", link: "/job_experience/websocket.md"},
           {text: "视频合成", link: "/job_experience/video_merger.md"},
@@ -125,12 +130,17 @@ export default defineConfig4CustomTheme({
         title: 'AI',
         children: [
           {title: "问答", path: "/AI/QA.md"},
+          {title: "随便问问", path: "/AI/other.md"}
         ]
       },
       {
         title: "工作经历",
         children: [
           {title: "可排序的", path: "/job_experience/sortable.md"},
+          {title: "sdk前端埋点", path: "/job_experience/sdk.md"},
+          {title: "持续集成持续部署", path: "/job_experience/CICD.md"},
+          {title: "配置式Provider", path: "/job_experience/ConfigProvider.md"},
+          {title: "虚拟滚动", path: "/job_experience/VirtualScrolling.md"},
           {title: "千分符金额文本框组件", path: "/job_experience/ThousandSeparatorAmoutInput.md"},
           {title: "websocket", path: "/job_experience/websocket.md"},
           {title: "视频合成", path: "/job_experience/video_merger.md"},

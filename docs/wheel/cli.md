@@ -1,5 +1,7 @@
 # 自定义脚手架
 
+脚手架就是快速帮你搭建项目架构的工具
+
 ## bin的使用
 
 ### 创建package.json
@@ -32,6 +34,10 @@ console.log('hello world')
 ## monorepo工具
 
 ### pnpm
+
+#### 安装依赖
+
+在 bash 终端运行: `pnpm i`
 
 * :star: 节省磁盘空间场景
 

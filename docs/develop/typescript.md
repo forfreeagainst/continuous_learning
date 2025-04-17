@@ -27,6 +27,8 @@ const func: Function = () => undefined;
 
 ```ts
 const arr: number[] = [23,2323];
+// 对象（遍历对象中的每个属性，键不一定有，值为 replaceCallback的数组）
+{ [key in EventTypes]?: ReplaceCallback[] }
 ```
 
 ### 特殊类型
@@ -107,6 +109,28 @@ tsconfig.json
         "./node_modules", // 排除node_modules目录
         "./**/*.spec.ts" // 排除所有的spec文件
     ]
+}
+```
+
+```json
+{
+  "compilerOptions": {
+    "outDir": "dist", // 输出的目录
+    "sourceMap": true,
+    "target": "ES2016", // 目标语法
+    "module": "ESNext", // 模块格式
+    "moduleResolution": "node", // 模块解析方式
+    "strict": false, // 严格模式(eg: any会报红)
+    "resolveJsonModule": true, // 解析json 模块
+    "esModuleInterop": true, // 允许通过es6模块引入commonjs模块
+    "jsx": "preserve", // jsx 不转译
+    "lib": ["ESNext", "DOM"], // 支持的类库
+    // 配置别名
+    "baseUrl": ".",
+    "paths": {
+      "@vue/*": ["packages/*/src"]
+    }
+  }
 }
 ```
 

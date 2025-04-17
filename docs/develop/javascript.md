@@ -43,7 +43,7 @@ console.log(me.isHuman);//false
 // instanceof
 // 用于检测构造函数的prototype属性是否出现在某个实例对象的原型链上。
 const obj = {a:33};
-object instanceof obj;
+console.log(obj instanceof Object);
 // Object.prototype.toString.call(***)
 const isEmptyArr3 = (data) => {
   if (Object.prototype.toString.call(data) === "[object Array]" && !data.length) {
@@ -60,9 +60,8 @@ const isEmptyArr3 = (data) => {
 对象和函数都拥有原型（对象__proto__,函数prototype）
 (3)对象查找属性和方法的顺序：对象本身=》构造函数=》对象的原型(构造函数的原型)=》当前原型的原型
 (4)原型链就是把原型串联起来，原型链的顶端是null
-(5) prototype显式原型，_proto_隐式原型
 
-注：对象的隐式原型（__proto__）永远指向构造函数的显示原型(prototype)。
+注：对象的隐式原型（__proto__）永远指向构造函数的显式原型(prototype)。
 ```
 
 * ES3 (1999)：正式确立了原型继承模型。

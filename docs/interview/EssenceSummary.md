@@ -35,5 +35,27 @@ Star
 
 ### Vue Router原理?（浏览器的前进后退如何监听？）
 
-popstate, hashchange。
-window.history 中的replaceState， pushState
+* VueRouter底层原理实际上就是依赖于浏览器提供的 History API, 包括replaceState,pushState,popstate。
+* 从Vue Router 4开始，采用统一的 popstate 事件监听机制。
+* History 模式：pushState/replaceState + popstate
+* Hash 模式：location.hash 修改 + popstate（不再使用 hashchange）
+* 在这个过程中，router就维护了一个路由映射表，将路由与组件对应起来，并在路由变化时，动态渲染相应的组件。
+
+```md
+Vue Router 4 开始，Hash 模式也改为通过 popstate 事件监听路由变化
+
+Vue Router 4.2.5 的 Hash 模式：
+通过 history.pushState 修改 URL，并统一监听 popstate 事件，不再依赖 hashchange。
+
+动机：统一事件处理逻辑，减少代码分支，提升可维护性。
+开发者无感知：对外暴露的 API（如 router.push）和行为保持不变，仅内部实现优化。
+
+History 模式的"兼容性差"并非因为浏览器 API 支持，而是因为：
+
+需要服务器配合：必须配置回退到 index.html
+
+部署环境限制：某些环境无法修改服务器配置
+
+Hash 模式之所以兼容性好，是因为它完全规避了路径处理问题，所有路由变化都在 # 之后，
+服务器永远只看到 index.html 的请求。
+```
