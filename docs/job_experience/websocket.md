@@ -1,17 +1,197 @@
-# websocket
+# WebSocket
 
-hooks useWebsocket connect reconnect heartBeat
+使用WebSocket代替短轮询，实现牌价实时刷新。同时引入心跳机制和断线重连策略，保障WebSocket连接的稳定性，减少了因网络波动造成的连接中断问题。
 
-websocket如何进行心跳检测？定时发送消息
+WebSocket 和 短轮询（http） 有什么区别？
 
-异常重连怎么监听到的
+* 连接开销：WebSocket 1次握手，长期复用，http每次请求重新握手
+* 消息头部开销：WebSocket:2-10字节（二进制帧），http:500+字节（HTTP头）
+
+心跳机制工作原理-基本流程
+
+* 客户端：定期（如每30秒）向服务器发送 ping 消息
+* 服务器：收到 ping 后立即回复 pong 消息
+* 客户端：如果在预期时间内收到 pong，则认为连接正常
+* 超时处理：如果连续几次未收到 pong 响应，则判定连接已断开，触发重连机制
+
+断线重连-基本流程
+
+* 监听断开事件：通过WebSocket的onclose事件检测连接断开
+* 重连逻辑：在断开时启动重连机制
+* 重连策略：采用适当的重连间隔和尝试次数
+* 指数退避算法：每次重连间隔逐渐增加（如1s, 2s, 4s, 8s...）
+
+断开连接，如何提醒WebSocket服务断开？
+
+* 据新鲜度指示：显示最后更新时间
+
+为什么通过WebSocket的onclose事件可以检测连接断开，还要通过心跳模式来检测连接断开呢？
+
+* onclose 处理明确的断开事件（如手动关闭、服务器主动断开）
+* 心跳检测处理隐形断开（网络故障、进程崩溃等）
+* 两者互补形成完整检测体系
+
+开发注意
+
+* WebSocket、定时器清空时机：使用前清除、卸载页面清除。
+
+测试用例
+
+* 后端：关闭WebSocket服务
+* 测试定时器、WebSocket未清理导致的内存泄漏
+* 双重重连	心跳超时和onclose同时触发重连	重复创建连接导致资源泄漏。
+设置一个变量，0：开启重连，1：onclose检测出有问题的重连，2：心跳机制引起的重连
+
+<!-- WebSocket有哪些事件: onopen, onmessage, onclose, onerror -->
+
+## 代码
+
+```ts
+import {ref, onUnmounted} from 'vue';
+
+// 可以弄带有参数的url, send看是否要连接上就发送
+export function useWebsocket(url: string) {
+    let ws: WebSocket | null = null;
+    // 重连定时器
+    let reconnectTimer: number | null = null; 
+    // 心跳机制的定时器
+    let heartbeatTimer: number | null = null;
+    // 当前重连次数，最大重连次数，重连延迟
+    let currentReconnectCount = 0;
+    let maxReconnectCount = 5;
+    let reconnectDelay = 5000;
+    let heartbeatCycle = 30000; // 每30s发送一次心跳
+    // websocket是否连接（响应式状态）
+    let isConnected = ref(false);
+    // 最新的服务端数据
+    let message = ref<any[]>([]);
+    // 清空断线重连的定时器
+    const clearReconnectTimer = () => {
+        if (reconnectTimer) {
+            clearTimeout(reconnectTimer);
+            reconnectTimer = null;
+        }
+    }
+    // 停止心跳（清空心跳的定时器）
+    const stopHeartbeat = () => {
+        if (heartbeatTimer) {
+            clearInterval(heartbeatTimer);
+            heartbeatTimer = null;
+        }
+    }
+    // 开始心跳
+    const startHeartbeat = () => {
+        if (ws && isConnected.value) {
+            stopHeartbeat();
+            heartbeatTimer = setInterval(() => {
+                ws?.send(JSON.stringify({
+                    type: 'ping'
+                }))
+            }, heartbeatCycle)
+        }
+    }
+    // 尝试重连
+    const attemptReconnect = () => {
+        if (currentReconnectCount < maxReconnectCount) {
+            currentReconnectCount ++;
+            reconnectDelay = reconnectDelay * 2;
+            clearReconnectTimer();
+            reconnectTimer = setTimeout(() => {
+                connect();
+            }, reconnectDelay);
+        } else {
+            console.log("超出最大尝试重连数");
+        }
+    }
+    // 客户端向服务端请求资源
+    const send = () => {
+        ws?.send(JSON.stringify({
+            type: 'priceList',
+            content: 'Hello WebSocket!'
+        }))
+    }
+    const closeWs = () => {
+        ws = null;
+    }
+    // 连接WebSocket服务
+    const connect = () => {
+        closeWs();
+        ws = new WebSocket(url);
+        ws.onopen = () => {
+            isConnected.value = true;
+            currentReconnectCount = 0;
+            reconnectDelay = 5000;
+            console.log("WebSocket连接上了")
+            startHeartbeat();
+            send();
+        }
+
+        ws.onmessage = (event) => {
+            // 受到服务器发送的消息啦
+            const data = JSON.parse(event.data);
+            if (data.type === 'error') return;
+            // 因网络故障、进程崩溃等其他原因，无法检测WebSocket服务断开
+            // 我们通过心跳机制检测WebSocket是断开的
+            if (data.type === 'pong') {
+                console.log("收到服务端的pong", data);
+            }
+            // 数据正常，更新最新数据
+            message.value = data;
+        }
+
+        ws.onclose = () => {
+            isConnected.value = false;
+            console.log("WebSocket断开连接啦");
+            stopHeartbeat();
+            attemptReconnect();
+        }
+
+        ws.onerror = () => {
+            console.log("WebSocket服务异常");
+            isConnected.value = false;
+        }
+    }
+    // 主动断开WebSocket连接
+    const disconnect = () => {
+        stopHeartbeat();
+        clearReconnectTimer();
+        ws?.close();
+        ws = null;
+    }
+    onUnmounted(() => {
+        disconnect();
+    })
+    return {
+        message,
+        isConnected,
+        connect,
+        disconnect,
+        // send
+    }
+}
+```
+
+```vue
+<script setup lang="ts">
+import {onMounted} from 'vue';
+import {useWebsocket} from '@/hooks/useWebsocket.ts';
+const {connect, message} = useWebsocket("ws://localhost:8080")
+onMounted(() => {
+    connect();
+})
+</script>
+
+<template>
+    <div>开发环境{{ message }}</div>
+</template>
+```
 
 ## 介绍
 
-* HTTP协议：通信只能由客户端发起。
+* HTTP协议：通信只能由客户端发起。  
 * 背景：这种单向请求的特点，注定了如果服务器有连续的状态变化，客户端要获知就非常麻烦。我们只能使用“轮询”。每隔一段时间，就会发出一个询问，了解服务器有没有新的信息。最典型的场景就是聊天室。
 * 轮询的效率低，非常浪费资源。（因为必须不停连接，或者HTTP连接始终打开）。
-* Websocket:是一种在单个TCP连接上进行全双工通信的协议。
+* WebSocket:是一种在单个TCP连接上进行全双工通信的协议。
 
 特点：
 
@@ -22,102 +202,25 @@ websocket如何进行心跳检测？定时发送消息
 请求头信息
 
 * Connection: Upgrade 表示要升级协议
-* Sec-Websocket-Key: ********* 与后面服务端响应头部的Sec-Websocket-Accept是配套的，提供基本的防护，比如恶意的连接，或者无意的连接。
-* Sec-Websocket-version:13 表示websocket的版本。
-* Upgrade: websocket 表示要升级到websocket协议。
+* Sec-WebSocket-Key: ********* 与后面服务端响应头部的Sec-WebSocket-Accept是配套的，提供基本的防护，比如恶意的连接，或者无意的连接。
+* Sec-WebSocket-version:13 表示WebSocket的版本。
+* Upgrade: WebSocket 表示要升级到WebSocket协议。
 
 响应头信息
 
-* Upgrade: websocket
+* Upgrade: WebSocket
 * Connection: Upgrade
-* Sec-Websocket-Accept: 暗号的回应 
+* Sec-WebSocket-Accept: 暗号的回应 
 
-## 实践
+## 生产
 
-使用websocket渲染个列表，FCP 这么长。
+使用wss,url有参数
+
+## 性能
+
+使用WebSocket渲染个列表，FCP 这么长。
 FCP 21.4s,  39.3s, 26.9s, 250ms, 42.2s, 0
 
-## 面试
+## 扩展
 
-### websocket 和 短轮询（http） 有什么区别？
-
-http 需要 客户端 主动地向 服务端发送请求。
-
-### 心跳机制和断线重连
-
-## 传参方式
-
-* 连接时传参（通过 URL 查询字符串）
-* 通信时传参（通过消息协议）
-
-### 连接时传参
-
-```js
-// 前端连接时传参
-const userId = "123";
-const token = "abc";
-const socket = new WebSocket(`ws://example.com/chat?userId=${userId}&token=${token}`);
-
-// 后端获取参数（Node.js 示例）
-const WebSocket = require('ws');
-const wss = new WebSocket.Server({ port: 8080 });
-
-wss.on('connection', (ws, request) => {
-  const url = new URL(request.url, `ws://${request.headers.host}`);
-  const userId = url.searchParams.get('userId'); // "123"
-  const token = url.searchParams.get('token');   // "abc"
-});
-```
-
-注意事项：
-
-* 参数会明文暴露在 URL 中，敏感数据需加密或改用其他方式（如通信时传参）。
-* 适用于身份验证等一次性参数。
-
-### 通信时传参
-
-建立连接后，通过 send() 发送结构化数据（通常用 JSON 或 二进制数据）：
-
-```js
-// 前端发送消息
-const message = {
-  type: "join_room",
-  roomId: "room1",
-  data: { username: "Alice" }
-};
-socket.send(JSON.stringify(message));
-
-// 后端解析消息（Node.js 示例）
-ws.on('message', (data) => {
-  const msg = JSON.parse(data);
-  if (msg.type === "join_room") {
-    console.log(msg.roomId); // "room1"
-  }
-});
-```
-
-关键注意事项
-
-安全性：
-
-* 敏感参数避免通过 URL 传递，改用通信时加密传输。
-* 始终验证客户端传来的参数（防 XSS/注入）。
-
-协议设计：
-
-* 推荐使用 JSON 结构，包含 type/action 字段区分消息类型。
-* 二进制协议需前后端约定好数据格式。
-
-错误处理：
-
-* 消息解析时加 try-catch 处理非法数据。
-* 心跳机制检测连接状态。
-
-跨域问题：
-
-* WebSocket 本身支持跨域，但需服务端响应允许的 Origin。
-
-如果需要更复杂的场景（如文件传输、实时视频等），可以进一步设计分片协议或使用现成的库（如 Socket.IO）。
-
-ffmpeg -loglevel quiet -i vedio.mp4 -i audio.mp
-3 -c copy -y 3.mp420
+* socket.io的实现

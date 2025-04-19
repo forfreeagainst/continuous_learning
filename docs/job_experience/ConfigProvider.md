@@ -1,20 +1,11 @@
 # 配置式的Provider
 
-借助naive ui provider，实现了message,dialog,loadingBar等通用组件以hooks的方式植入子层级的context
+## 前沿
 
-ConfigProvider抽离成组件，要注意要添加slot
-
-参考naive ui provider的实现原理，实现了类似功能，这就能算是亮点。这和用hooks效果差不多。
-
-loading这是个组件，不是hooks,而message是hooks
-
-hooks代码逻辑的整合，组件是要在template写组件标签的。
-
-优点：
-
-* 统一管理：所有组件调用方式统一
-* 使用便捷：通过 hook 轻松调用
-* 可扩展性：易于添加新功能或修改现有行为
+* 借助naive ui provider，实现了message,dialog,loadingBar等通用组件以hooks的方式植入子层级的context
+* ConfigProvider抽离成组件，要注意要添加slot
+* Naive UI 的n-loading-bar-provider本质上是 通过Vue 的provide/inject 机制提供全局方法。
+但它的设计更专注于封装状态管理和生命周期控制，而不仅仅是简单地暴露一个方法。
 
 ## 参考
 
