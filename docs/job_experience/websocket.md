@@ -44,6 +44,13 @@ WebSocket 和 短轮询（http） 有什么区别？
 
 <!-- WebSocket有哪些事件: onopen, onmessage, onclose, onerror -->
 
+心跳模式代码补充：
+
+* 思路一：定义正常心跳为0，心跳为2，说明已经阵亡了。。我发送1个ping：心跳+1，服务端返回pong,心跳-1;
+当我发送2个ping,服务端都没有回pong给我，说明已经断联了。
+* 思路二：定义最后心跳时间lastHeartbeatTime（默认为开启心跳的时间）, 发送ping:比较当前时间和最后心跳时间，
+如果超过 2 * 心跳周期，就是断线。接收pong：更新心跳最后时间。（行业推荐，百度说的）
+
 ## 代码
 
 ```ts
@@ -56,6 +63,7 @@ export function useWebsocket(url: string) {
     let reconnectTimer: number | null = null; 
     // 心跳机制的定时器
     let heartbeatTimer: number | null = null;
+    let lastHeartbeatTime = 0;
     // 当前重连次数，最大重连次数，重连延迟
     let currentReconnectCount = 0;
     let maxReconnectCount = 5;
@@ -83,7 +91,12 @@ export function useWebsocket(url: string) {
     const startHeartbeat = () => {
         if (ws && isConnected.value) {
             stopHeartbeat();
+            lastHeartbeatTime = Date.now();
             heartbeatTimer = setInterval(() => {
+                if (Date.now() - lastHeartbeatTime > 2 * heartbeatCycle) {
+                    attemptReconnect();
+                    return;
+                }
                 ws?.send(JSON.stringify({
                     type: 'ping'
                 }))
@@ -133,7 +146,7 @@ export function useWebsocket(url: string) {
             // 因网络故障、进程崩溃等其他原因，无法检测WebSocket服务断开
             // 我们通过心跳机制检测WebSocket是断开的
             if (data.type === 'pong') {
-                console.log("收到服务端的pong", data);
+                lastHeartbeatTime = Date.now(); // 更新最后活跃时间
             }
             // 数据正常，更新最新数据
             message.value = data;
