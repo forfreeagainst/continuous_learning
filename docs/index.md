@@ -1,7 +1,7 @@
 ---
 home: true
-heroText: 知行合一
-tagline: 碎片化的时间如果为正向的爱好
+heroText: 热爱
+tagline: 热爱
 actionText: 立刻进入 →
 actionLink: /base/javascript.md
 

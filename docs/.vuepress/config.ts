@@ -69,6 +69,9 @@ export default defineConfig4CustomTheme({
         text: "工作经历",
         items: [
           {text: "基于Promise调用子组件弹窗", link: "/job_experience/PromiseDialog.md"},
+          {text: "权限控制", link: "/job_experience/permission.md"},
+          {text: "首屏加载", link: "/job_experience/FirstScreenLoading.md"},
+          {text: "Echarts图表", link: "/job_experience/EchartsHook.md"},
           {text: "可排序的", link: "/job_experience/sortable.md"},
           {text: "sdk前端埋点", link: "/job_experience/sdk.md"},
           {text: "持续集成持续部署", link: "/job_experience/CICD.md"},
@@ -138,6 +141,9 @@ export default defineConfig4CustomTheme({
         title: "工作经历",
         children: [
           {title: "基于Promise调用子组件弹窗", path: "/job_experience/PromiseDialog.md"},
+          {title: "权限控制", path: "/job_experience/permission.md"},
+          {title: "首屏加载", path: "/job_experience/FirstScreenLoading.md"},
+          {title: "Echarts图表", path: "/job_experience/EchartsHook.md"},
           {title: "可排序的", path: "/job_experience/sortable.md"},
           {title: "sdk前端埋点", path: "/job_experience/sdk.md"},
           {title: "持续集成持续部署", path: "/job_experience/CICD.md"},

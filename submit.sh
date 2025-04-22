@@ -5,5 +5,5 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "fix: 优化WebSocket心跳机制"
+git commit -m "fix: 权限管理的文档优化"
 git push origin main

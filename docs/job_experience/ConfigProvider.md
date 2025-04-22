@@ -1,5 +1,11 @@
 # 配置式的Provider
 
+已投降，vant项目感觉没啥可挖掘
+
+已投降，vant项目感觉没啥可挖掘
+
+已投降，vant项目感觉没啥可挖掘
+
 ## 前沿
 
 * 借助naive ui provider，实现了message,dialog,loadingBar等通用组件以hooks的方式植入子层级的context
