@@ -70,7 +70,9 @@ export default defineConfig4CustomTheme({
         items: [
           {text: "基于Promise调用子组件弹窗", link: "/job_experience/PromiseDialog.md"},
           {text: "权限控制", link: "/job_experience/permission.md"},
-          {text: "首屏加载", link: "/job_experience/FirstScreenLoading.md"},
+          {text: "性能优化", link: "/job_experience/PerformanceOptimization.md"},
+          {text: "国际化", link: "/job_experience/I18n.md"},
+          {text: "动态表单", link: "/job_experience/DynamicForm.md"},
           {text: "Echarts图表", link: "/job_experience/EchartsHook.md"},
           {text: "可排序的", link: "/job_experience/sortable.md"},
           {text: "sdk前端埋点", link: "/job_experience/sdk.md"},
@@ -142,7 +144,9 @@ export default defineConfig4CustomTheme({
         children: [
           {title: "基于Promise调用子组件弹窗", path: "/job_experience/PromiseDialog.md"},
           {title: "权限控制", path: "/job_experience/permission.md"},
-          {title: "首屏加载", path: "/job_experience/FirstScreenLoading.md"},
+          {title: "性能优化", path: "/job_experience/PerformanceOptimization.md"},
+          {title: "国际化", path: "/job_experience/I18n.md"},
+          {title: "动态表单", path: "/job_experience/DynamicForm.md"},
           {title: "Echarts图表", path: "/job_experience/EchartsHook.md"},
           {title: "可排序的", path: "/job_experience/sortable.md"},
           {title: "sdk前端埋点", path: "/job_experience/sdk.md"},

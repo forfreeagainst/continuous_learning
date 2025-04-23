@@ -5,5 +5,5 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "fix: 权限管理的文档优化"
+git commit -m "docs: 性能优化"
 git push origin main

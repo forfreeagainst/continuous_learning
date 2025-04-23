@@ -1,5 +1,7 @@
 # Vite
 
+AutoImport（）: 自动帮我们导入，useRouter,useI18n, 等
+
 ## 指引
 
 ### 构建生产版本

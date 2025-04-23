@@ -1,5 +1,10 @@
 # 自定义脚手架
 
+init 初始化Vue定制的模板工程
+补充更多功能
+upload image：上传图片到 cdn,base64（多少转base64）
+CICD脚本
+
 脚手架就是快速帮你搭建项目架构的工具
 
 ## bin的使用
