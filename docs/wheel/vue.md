@@ -121,6 +121,15 @@ import {inject} from 'vue';
 const formData = inject('formData');
 ```
 
+### watch
+
+```js
+watch(() => formData.value.username, ()=> {
+    formData.value.useCoupon = !!(formData.value.username)
+    console.log("🚀 ~ watch ~ formData.value.useCoupon:", formData.value.useCoupon)
+})
+```
+
 ## Vue2
 
 ### Vue2源码，自己理解，并不一定对

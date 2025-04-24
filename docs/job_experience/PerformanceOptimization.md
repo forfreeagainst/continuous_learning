@@ -20,7 +20,14 @@ p95
 
 其他性能优化手段：网络请求、资源预处理、资源压缩、资源的延后处理
 
+* dns 解析: `timing.domainLookupEnd - timing.domainLookupStart`
+* TTI 可交互时间：`timing.domInteractive - timing.navigationStart`
+
 ### 优化首屏加载
+
+#### 静态资源处理
+
+包体积优化 tree shaking，eg: lodash
 
 #### vue3的异步组件
 
@@ -60,10 +67,20 @@ unocss（原子化 css, 最小化 css 类为单位，实现高度可复用性，
 </div>
 ```
 
-#### 代码分割与路由懒加载
+#### 代码分割
+
+按需加载 或者 并行加载文件。（通过roolup-plugin-visualizer）
+
+```js
+function loadlazy() {
+    return import('./lazy.js');
+}
+```
+
+#### 路由懒加载与组件懒加载
 
 * 路由懒加载：使用Vue Router的 import() 语法 动态加载路由组件，减少首屏加载的代码量。
-* 组件懒加载：对于非首屏的组件，可以使用import() 语法进行懒加载。
+* 组件懒加载：对于非首屏的组件，可以使用import() 语法进行懒加载。（tab页面）
 
 ### 如何计算首屏加载时间/分析性能瓶颈
 
@@ -115,3 +132,22 @@ window.onload = function() {
 #### F12
 
 NetWork网络 右下角有个加载时间load：453毫秒，这就是首屏加载时间
+
+## 更新优化
+
+### 使用指令
+
+* v-once
+* v-memo
+
+### 通用的优化
+
+长列表 - 虚拟滚动
+
+### 减少大型不可变数据的响应性的开销
+
+* shallowRef
+
+### 避免不必要组件抽象
+
+无内容的template。
