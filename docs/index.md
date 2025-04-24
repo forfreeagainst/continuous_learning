@@ -11,7 +11,7 @@ features:
   - title: 金刚心
     details: 屡败屡战，石灰品质
   - title: 持续学习
-    details: 书籍、工作技能
+    details: 工作技能，拥抱变化
   - title: 走出舒适圈
     details: 增强自己
   - title: 敬畏平台
@@ -22,6 +22,8 @@ features:
     details: 超强体力，绝对力量
   - title: 成长性思维
     details: 持续积累的力量
+  - title: 空灵心境
+    details: 大量书籍带来的心境蜕变
 ---
 
 # 修炼笔记

@@ -5,5 +5,5 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "docs: 性能优化"
+git commit -m "docs: vue3的一些语法"
 git push origin main

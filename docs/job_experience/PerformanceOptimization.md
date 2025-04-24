@@ -44,6 +44,8 @@ const cropDialog = defineAsyncComponent(() => {
 
 #### css治理
 
+unocss（原子化 css, 最小化 css 类为单位，实现高度可复用性，css文件尽可能小）
+
 #### 减少HTTP请求
 
 * 合并CSS和JavaScript文件，减少HTTP请求数量。（跟自定义插件InlineChunkWebpackPlugin）

@@ -73,6 +73,54 @@ function proxyRefs(objectWithRef) {
 * toRaw：变成未加工的
 * markRaw：
 
+## Vue3AndTypeScirpt
+
+### defineProps、defineEmits
+
+```js
+<van-field
+    v-model="formData[fieldInfo.name]"
+    :name="fieldInfo.name"
+    :label="fieldInfo.label"
+    :type="fieldInfo.type"
+    :placeholder="fieldInfo.placeholder"
+    :rules="fieldInfo.rules"
+/>
+```
+
+```js
+// props非模板里面使用， fieldInfo可以在模板里面使用
+const props = defineProps<{
+    fieldInfo: object,
+}>()
+```
+
+```js
+const emit = defineEmits(['submit'])
+const onSubmit = (values) => {
+    emit('submit', values);
+};
+```
+
+
+### provide、inject
+
+```js
+import {ref, provide} from 'vue';
+const formData = ref({
+    username: 'durant',
+    useCoupon: true,
+})
+
+provide('formData', formData);
+```
+
+```js
+import {inject} from 'vue';
+
+const formData = inject('formData');
+```
+
 ## Vue2
 
 ### Vue2源码，自己理解，并不一定对
