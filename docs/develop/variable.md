@@ -1,5 +1,6 @@
 # 变量命名规范
 
+* Infrastructure/ˈɪnfrəstrʌktʃər/ 基建/基础建设
 * visualizer /ˈvɪʒwəˌlaɪzər/ 可视化工具
 * virtual /ˈvɜːrtʃuəl/ 虚拟的
 * GPU (Graphics Processing Unit) 图片处理单元

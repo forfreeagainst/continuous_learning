@@ -1,4 +1,6 @@
-# Vue2项目开发经验
+# Vue基建
+
+## Vue2项目开发经验
 
 ```md
 node_modules:项目依赖文件
@@ -14,14 +16,14 @@ package.json:项目依赖的版本号
 README.md:说明性文件
 ```
 
-## 选型
+### 选型
 
 ```md
 axios
 
 ```
 
-## 一些小处理
+### 一些小处理
 
 ```md
 去除默认样式reset.css

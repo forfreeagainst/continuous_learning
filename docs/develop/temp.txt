@@ -1,0 +1,44 @@
+window + R 打开cmd(command)命令行工具
+ctrl + alt + f 格式化代码
+shift + shift 打开某文件
+alt + tab 切换窗口 
+window + L 锁屏
+window + M 关闭所有窗口
+window + I 快速打开设置
+window + X 快速访问菜单（任务管理器等）
+ctrl + A 全选中, ctrl(某些不选)
+ctrl + X 剪切
+ctrl + C 复制
+ctrl + V 粘贴
+ctrl + D 复制该行代码(webstorm), 删除
+ctrl+shift+Esc(ctrl+alt+del)任务管理器
+Ctrl+A ctrl全选中,某些不选
+cd后，tab能选择想要到达的路径下
+alt+shift+鼠标左击， alt+鼠标左击，alt取消同时编辑多处@vsCode同时编辑多处
+鼠标点击开始位置，shift开始位置，shift结束位置@将很长的数据进行剪切
+
+Fn+Esc@thinkbook的快捷键使用不了，
+1. fn和ctrl互换
+* 重启时, f + f2.
+* 查询豆包或deepseek, thinkbook中ctrl和fn键盘互换。
+
+* 运动，早晨轻量的运动
+* 利用场的力量
+* 输出倒逼输入
+* 记录借口列表，而后消除借口，门锁充电（那就多充了），快递上门（放置快递点）
+* 减少手机信息的摄入、干扰（主动选择信息，对目标有影响的事情）
+* 隔绝干扰自己的因素 （越被控制，抵触的感觉越强烈。eg: 告诉你要学习的长辈。）
+* 设定期限，小目标，我可以是看10min源码讲解（eg: 史蒂芬金，每天规定时间创作出6页小说）
+* 寻找成就感(冥想，跑步，健身等。不管外面的事情我做得有多糟糕，我始终完成了一些事，我仍然是在进步的。)
+* 先不完美，随着改进，逐渐变好，戒拖延。
+* 睡觉把手机放在离床远的地方
+* 问责伙伴
+* 高级心智模式：对不良嗜好的妥协就是对讨厌的xx的妥协。
+* 减少内耗：忙碌
+* 成为价值发现者
+* 从大的维度去看，比如一周，一个月，半年，一年，两年，三年
+* Success isn't built by doing lavish, extraordinary things. like banging out an entire book overnight
+成功不需要你去做一些耗资巨大、非常了不起的事情。比如一夜之间读完一整本书
+* the key is to just do these things long egough
+关键在于把这些事情坚持得足够久。（the key is 关键在于）
+* 很明显，刷新闻、短视频，并不能让你真实地知识广阔。只是在被动地吸收，大数据根据喜好推送的辣鸡。并减少无效社交

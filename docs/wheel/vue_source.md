@@ -552,3 +552,16 @@ template ——> ast语法树
 ### Vue生命周期钩子是如何实现的
 
 内部利用了一个发布订阅模式，将用户写的钩子维护成了一个数组，后续一次调用callback.
+
+## Vue2源码
+
+`自己理解，并不一定对`
+
+new Vue() 做了啥？
+1.调用_init方法
+2. 合并选项
+
+Observer类，Dep类，
+渲染完真实DOM,
+再开启监听者模式，Object.defineProperty.
+get: dep.depend(); set: dep.notify();
