@@ -26,7 +26,52 @@ const func: Function = () => undefined;
 ### 常见类型
 
 ```ts
-const arr: number[] = [23,2323];
+// Object
+const obj: Record<string, any> = {string: 'any'}
+
+// Array
+const numArr: number[] = [32, 33];
+const numArr: Array<number> = [123, 456];
+
+// Promise
+//async 是异步函数，也适合用promise<string>
+function chooseColor = () : promise<string> {
+} 
+
+//interface的extends
+interface Person {
+    age: number
+}
+interface BaseInfo extends Person{
+    name: string,
+    gender?: string
+}
+
+//namespace:归类效果
+namespace Eslint {
+    interface ccc {
+        log: string,
+        isLog: boolean
+    }
+    interface animal {
+        nickname: string
+    }
+    type: number
+}
+Eslint.ccc
+
+
+interface Obj {
+  name: 'durant',
+  age: '18'
+}
+type PickUser = Pick<Obj, 'name'>;
+type OmitUser = Omit<Obj, 'name'>;
+// Omit: 忽略我们不需要关心的属性
+// Pick: 拣选我们需要关系的属性
+// Partial：全都变成可选属性
+// Required: 全都变成必选属性
+
 // 对象（遍历对象中的每个属性，键不一定有，值为 replaceCallback的数组）
 { [key in EventTypes]?: ReplaceCallback[] }
 ```

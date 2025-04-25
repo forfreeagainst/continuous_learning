@@ -16,6 +16,7 @@ CICD脚本
 ### 配置package.json的bin字段
 
 ```json
+// script的tsc等命令，也是到依赖的.bin去操作的
 "bin": {
   "kdvip": "./bin/index.js"
 },

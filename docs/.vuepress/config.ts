@@ -18,7 +18,7 @@ export default defineConfig4CustomTheme({
         items: [
           { text: "HTML和CSS", link: "/develop/HTMLAndCSS.md" },
           { text: "JavaScript", link: "/develop/javascript.md" },
-          { text: "js的超集ts", link : "/develop/typescript.md"},
+          { text: "TypeScript", link : "/develop/typescript.md"},
           { text: "node.js", link: "/develop/node.js.md" },
           { text: "设计模式与数据结构", link: "/develop/solid.md" },
           { text: "EnglishVariable", link: "/develop/variable.md" },
@@ -84,7 +84,7 @@ export default defineConfig4CustomTheme({
         children: [
           { title: "HTML和CSS", path: "/develop/HTMLAndCSS.md" },
           { title: "JavaScript", path: "/develop/javascript.md" },
-          { title: "js的超集ts", path : "/develop/typescript.md"},
+          { title: "TypeScript", path : "/develop/typescript.md"},
           { title: "node.js", path: "/develop/node.js.md" },
           { title: "设计模式与数据结构", path: "/develop/solid.md" },
           { title: "EnglishVariable", path: "/develop/variable.md" },

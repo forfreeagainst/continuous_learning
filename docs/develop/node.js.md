@@ -4,19 +4,27 @@
 
 ### process
 
-* argv:解析命令行参数
+* argv：解析命令行参数
 
 * cwd: 当前的工作目录
 
+* env:
+
+* exit(0)：指示 Node.js 以 code 的退出状态同步终止进程
+
 ### path
 
-* resolve: 解析为一个绝对路径
+* resolve: 解析为一个绝对路径，换言之，构造绝对路径,当前命令行的绝对路径(区别：__dirname是当前文件的绝对路径)
 
 `const dir = resolve(__dirname, `../packages/${target}/package.json`);`
 
 打印结果：D:\git-database\no-less-than-anyones-effort\vue3.4.0\packages\reactivity\package.json
 
 * join:
+
+### child_process
+
+* exexSync：同步执行shell命令(npm view 包名 version)
 
 ### module
 
@@ -74,6 +82,12 @@ console.log(files);
 ```
 
 ### command-exists：检查命令（命令行的）是否存在
+
+sync as commandExistsSync: commandExistsSync('pnpm')
+
+### copyfiles
+
+copyfiles -a -u 1 \"src/config/**\" lib：在script命令通过Node.js的fs模块完成I/O操作。
 
 ### commander：构建命令行界面
 

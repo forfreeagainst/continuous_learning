@@ -69,11 +69,32 @@ function proxyRefs(objectWithRef) {
 * readonly
 * shallowReadonly
 
-* storeToRefs：store里的数据解构不失去响应式。
-* toRaw：变成未加工的
-* markRaw：
+* storeToRefs：store里的数据解构不失去响应式。（可以让解构的东西不失去响应式,只可以对变量，方法不行）
+
+```js
+import { blocksEditor } from '@/stores/blocksEditor';
+const blocksStore = blocksEditor();
+const { blocks } = storeToRefs(blocksStore);
+```
+
+* toRaw：变成未加工的，可以返回由 reactive()、readonly()、shallowReactive() 或者 shallowReadonly() 创建的代理对应的原始对象。
+
+```js
+const foo = {};
+const reactiveFoo = reactive(foo);
+console.log(toRaw(reactiveFoo) === foo); // true
+```
+
+* markRaw：将一个对象标记为不可被转为代理。返回该对象本身。
 
 ## Vue3AndTypeScirpt
+
+### ref、reactive
+
+```js
+type blockType = 'a': 'b': null;
+const block = ref<blockType>('a')
+```
 
 ### defineProps、defineEmits
 
@@ -92,7 +113,12 @@ function proxyRefs(objectWithRef) {
 // props非模板里面使用， fieldInfo可以在模板里面使用
 const props = defineProps<{
     fieldInfo: object,
-}>()
+}>();
+
+// js写法
+const props = defineProps({
+  foo: String
+});
 ```
 
 ```js
@@ -101,7 +127,6 @@ const onSubmit = (values) => {
     emit('submit', values);
 };
 ```
-
 
 ### provide、inject
 
@@ -130,13 +155,24 @@ watch(() => formData.value.username, ()=> {
 })
 ```
 
-### 使用ref
+### 组件的ref
 
 ```js
 <div class="canvas" ref="containerRef"></div>
 
 // HTMLDivElement、HTMLElement
 var containerRef = ref<HTMLDivElement | null>(null)
+```
+
+注意ref，要在onMounted后使用。setup里是没有dom。
+
+### 定义类型
+
+```js
+import type { App } from 'vue'
+app: App<Element>
+
+
 ```
 
 ## Vue3项目如何使用Webpack?

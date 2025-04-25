@@ -19,3 +19,11 @@ export default defineConfig({
   },
 })
 ```
+
+## 部署
+
+```md
+npmjs.com的serve：可以把打包后的东西部署到本地，适用于开发环境。生产环境使用Vercel
+serve -s dist(打包后的路径)
+serve -s dist -p 10007 修改端口号，部署到本地
+```

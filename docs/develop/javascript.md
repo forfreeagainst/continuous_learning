@@ -487,5 +487,30 @@ V8引擎对垃圾回收进行了哪些优化？
 宏任务：I/O、setTimeout、setInterval、setImmediate、requestAnimationFrame
 微任务(时间不会很长，见缝插针)：process.nextTick、MutationObserver、Promise then/catchfinally
 宏任务->当前产生的所有微任务->GUI渲染->宏任务
+```
 
+### 题目
+
+```js
+document.body.style = "background:yellow";
+console.log(1);
+Promise.then(res => {
+  console.log(2);
+  document.body.style = "background:pink";
+})
+console.log(3);
+// result: 1,3,2, 直接变成粉色的。
+// 解析：微任务：promise.then
+// 除了微任务就是宏任务。
+// 宏任务->执行所有的微任务->GUI渲染->宏任务
+```
+
+## 框架的语法
+
+```js
+//Object.assign() 静态方法将一个或者多个源对象中所有可枚举的自有属性复制到目标对象，
+//并返回修改后的目标对象。
+Object.assign(target, source);//假如源对象是一个对象的引用，它仅仅会复制其引用值。
+
+Object.fromEntries() 静态方法将键值对列表转换为一个对象。
 ```

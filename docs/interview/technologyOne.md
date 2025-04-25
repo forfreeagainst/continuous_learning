@@ -526,12 +526,35 @@ this.$watch(() => this.sizeDependencies[k], this.onDataUpdate)
 
 rem 实现等比缩放效果
 
-## js
+## JavaScript
 
 ### 说说你的原型和原型链的理解？
 
+* 通过原型，对象可以共享属性和方法。对象和函数都拥有原型。
+* 对象的隐式原型__proto__会永远指向构造函数的显式原型prototype。
+* 原型链就是把原型串联起来，原型链的顶端是null。
+* 对象查找属性和方法的顺序：对象本身 => 构造函数 => 构造函数的原型 => 当前原型的原型
 
+### 普通函数和箭头函数的区别？
 
+总结：需要动态this或者构造函数时 用普通函数，否则优先箭头函数
+
+* 简洁，可省略return
+* this 指向，继承外部this(基于闭包)
+* this 绑定方法失效，比如：call apply bind
+* 不能 new，不支持定义构造函数
+* 没有prototype属性
+
+```js
+const obj = {
+  name: 'Tom',
+  age: 20,
+  say: function (){
+    console.log(`My name is ${this.name}, I'm ${this.age} years old`);
+  }
+};
+obj.say();
+```
 
 ### 设计模式有哪些？
 
