@@ -5,5 +5,5 @@ set -e
 
 git pull origin main
 git add .
-git commit -m "feat: 动态表单"
+git commit -m "docs: 变更文档"
 git push origin main

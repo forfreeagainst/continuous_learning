@@ -16,8 +16,7 @@ export default defineConfig4CustomTheme({
         //导航栏和侧边栏的字段属性不一样
         text: "开发",
         items: [
-          { text: "HTML", link: "/develop/html.md" },
-          { text: "Css", link: "/develop/css.md" },
+          { text: "HTML和CSS", link: "/develop/HTMLAndCSS.md" },
           { text: "JavaScript", link: "/develop/javascript.md" },
           { text: "js的超集ts", link : "/develop/typescript.md"},
           { text: "node.js", link: "/develop/node.js.md" },
@@ -33,17 +32,11 @@ export default defineConfig4CustomTheme({
           { text: 'react', link: "/wheel/react.md" },
           { text: 'React源码', link: "/wheel/React_source.md" },
           { text: 'vue2项目', link: "/wheel/vue2_project.md"},
-          { text: "脚手架", link: "/wheel/cli.md" },
+          { text: "esbuild", link: "/wheel/esbuild.md" },
+          { text: "webpack", link: "/wheel/webpack.md" },
+          { text: "vite", link: "/wheel/vite.md"},
+          { text: "rollup", link: "/wheel/rollup.md"},
           { text: "测试工具", link: "/wheel/test_tool.md" },
-        ]
-      },
-      {
-        text: '构建工具',
-        items: [
-          {text: "esbuild", link: "/pack/esbuild.md"},
-          {text: "webpack", link: "/pack/webpack.md"},
-          {text: "vite", link: "/pack/vite.md"},
-          {text: "rollup", link: "/pack/rollup.md"},
         ]
       },
       {
@@ -56,13 +49,8 @@ export default defineConfig4CustomTheme({
           { text: "手写题", link: "/interview/handwriting.md" },
           { text: "算法题1", link: "/interview/algorithmOne.md" },
           { text: "算法题2", link: "/interview/algorithmTwo.md" },
-        ]
-      },
-      {
-        text: 'AI',
-        items: [
-          {text: "问答", link: "/AI/QA.md"},
-          {text: "随便问问", link: "/AI/other.md"}
+          { text: "AI问答", link: "/interview/QA.md" },
+          { text: "AI随便问问", link: "/interview/other.md" },
         ]
       },
       {
@@ -73,6 +61,7 @@ export default defineConfig4CustomTheme({
           {text: "性能优化", link: "/job_experience/PerformanceOptimization.md"},
           {text: "国际化", link: "/job_experience/I18n.md"},
           {text: "动态表单", link: "/job_experience/DynamicForm.md"},
+          {text: "脚手架", link: "/job_experience/cli.md" },
           {text: "低代码", link: "/job_experience/LowCode.md"},
           {text: "Echarts图表", link: "/job_experience/EchartsHook.md"},
           {text: "可排序的", link: "/job_experience/sortable.md"},
@@ -91,8 +80,7 @@ export default defineConfig4CustomTheme({
       {
         title: "开发",
         children: [
-          { title: "HTML", path: "/develop/html.md" },
-          { title: "Css", path: "/develop/css.md" },
+          { title: "HTML和CSS", path: "/develop/HTMLAndCSS.md" },
           { title: "JavaScript", path: "/develop/javascript.md" },
           { title: "js的超集ts", path : "/develop/typescript.md"},
           { title: "node.js", path: "/develop/node.js.md" },
@@ -108,17 +96,11 @@ export default defineConfig4CustomTheme({
           { title: 'react', path: "/wheel/react.md" },
           { title: 'React源码', path: "/wheel/React_source.md" },
           { title: 'vue2项目', path: "/wheel/vue2_project.md"},
-          { title: "脚手架", path: "/wheel/cli.md" },
+          { title: "esbuild", path: "/wheel/esbuild.md" },
+          { title: "webpack", path: "/wheel/webpack.md" },
+          { title: "vite", path: "/wheel/vite.md"},
+          { title: "rollup", path: "/wheel/rollup.md"},
           { title: "测试工具", path: "/wheel/test_tool.md" },
-        ]
-      },
-      {
-        title: "构建工具",
-        children: [
-          { title: "esbuild", path: "/pack/esbuild.md" },
-          { title: "webpack", path: "/pack/webpack.md" },
-          { title: "vite", path: "/pack/vite.md"},
-          { title: "rollup", path: "/pack/rollup.md"},
         ]
       },
       {
@@ -131,13 +113,8 @@ export default defineConfig4CustomTheme({
           { title: "手写题", path: "/interview/handwriting.md" },
           { title: "算法题1", path: "/interview/algorithmOne.md" },
           { title: "算法题2", path: "/interview/algorithmTwo.md" },
-        ]
-      },
-      {
-        title: 'AI',
-        children: [
-          {title: "问答", path: "/AI/QA.md"},
-          {title: "随便问问", path: "/AI/other.md"}
+          { title: "AI问答", path: "/interview/QA.md" },
+          { title: "AI随便问问", path: "/interview/other.md" },
         ]
       },
       {
@@ -148,7 +125,8 @@ export default defineConfig4CustomTheme({
           {title: "性能优化", path: "/job_experience/PerformanceOptimization.md"},
           {title: "国际化", path: "/job_experience/I18n.md"},
           {title: "动态表单", path: "/job_experience/DynamicForm.md"},
-          {text: "低代码", link: "/job_experience/LowCode.md"},
+          {title: "脚手架", path: "/job_experience/cli.md" },
+          {title: "低代码", path: "/job_experience/LowCode.md"},
           {title: "Echarts图表", path: "/job_experience/EchartsHook.md"},
           {title: "可排序的", path: "/job_experience/sortable.md"},
           {title: "sdk前端埋点", path: "/job_experience/sdk.md"},

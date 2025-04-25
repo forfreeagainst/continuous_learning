@@ -2,6 +2,13 @@
 
 编写了自动化部署脚本，将人工操作步骤从7步减少到2步，显著降低了操作错误率和成本。
 
+## Git命令
+
+* git status --porcelain：# 检查是否有未提交的更改 （ M vant/packages/vant-use/src/useWindowSize/index.ts）
+* git branch --show-current：显示当前分支
+* git status -s：显示更改状态（M：修改，D：删除，??: 新增）
+* git branch: 显示所有分支，同时会严明当前在哪个分支
+
 ## linux命令
 
 * ls -a：ls列出当前目录下的文件和文件夹，-a,显示所有文件，包括隐藏文件

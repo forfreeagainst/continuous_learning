@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: 热爱
-tagline: 热爱
+tagline: 业务驱动技术
 actionText: 立刻进入 →
 actionLink: /base/javascript.md
 
@@ -9,19 +9,19 @@ features:
   - title: 热爱
     details: 因为热爱，所有优秀
   - title: 金刚心
-    details: 屡败屡战，石灰品质
+    details: 越挫越勇，石灰品质
   - title: 持续学习
-    details: 工作技能，拥抱变化
+    details: 绝不固步自封
   - title: 走出舒适圈
-    details: 增强自己
+    details: 绝不给自己设限
   - title: 敬畏平台
-    details: 抓取成长机会
+    details: 感恩平台，争取平台
   - title: 足够努力
-    details: 足够努力
+    details: 非人的努力
   - title: 身体素质炸裂
     details: 超强体力，绝对力量
   - title: 成长性思维
-    details: 持续积累的力量
+    details: 高级的心智模式
   - title: 空灵心境
     details: 大量书籍带来的心境蜕变
 ---
@@ -51,7 +51,7 @@ features:
 * 轮子：Vue,React,脚手架，
 * 构建工具：webpack,vite,esbuild,roolup,swc,parcel
 * 面试：手写题，算法题，闲谈，技术类
-* AI：
+* 工作经历：xxx
 
 | 源码 | Vue源码 | React源码 |
 | --- | --- | --- |

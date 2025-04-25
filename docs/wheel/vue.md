@@ -130,6 +130,15 @@ watch(() => formData.value.username, ()=> {
 })
 ```
 
+### 使用ref
+
+```js
+<div class="canvas" ref="containerRef"></div>
+
+// HTMLDivElement、HTMLElement
+var containerRef = ref<HTMLDivElement | null>(null)
+```
+
 ## Vue2
 
 ### Vue2源码，自己理解，并不一定对

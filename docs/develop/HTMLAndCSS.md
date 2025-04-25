@@ -1,12 +1,14 @@
-# HTML
+# HTML和CSS
 
-## canvas
+## HTML
 
-### 定义
+### canvas
+
+#### 定义
 
 canvas和img元素很像，但canvas只有两个属性，width和height。canvas默认初始宽度300像素，宽度150像素。该元素可以使用CSS来定义大小，但在绘制时图像会伸缩以适应它的框架尺寸：如果 CSS 的尺寸与初始画布的比例不一致，它会出现扭曲。
 
-### 常见API
+#### 常见API
 
 * getContext: 获取渲染上下文
 * fillStyle:画笔颜色
@@ -21,7 +23,7 @@ canvas和img元素很像，但canvas只有两个属性，width和height。canvas
 * stroke():描边绘制
 * closePath(): 关闭绘制路线
 
-### 例子
+#### 例子
 
 ```html
 <canvas id="cavnasArea"></canvas>
@@ -44,7 +46,40 @@ if (canvasBox.getContext) {
 }
 ```
 
-### 最佳实践
+#### 最佳实践
 
 ```js
 ```
+
+## CSS
+
+### 开发注意
+
+* 拒绝使用行块盒，问题很多。
+
+### 常见css属性
+
+* word-break: break-all; // 允许在单词内部进行换行。当文本内容宽度超过其容器的宽度，无论单词完整，都要换行。
+* text-align: justify; // 两端对齐
+
+### CSS预处理器
+
+#### Sass
+
+* 变量学习
+`$theme-color: orange;`
+* 原来没有值，才取这个加了!default的值。
+`!default`
+* 表示对象
+
+```scss
+$themes: (
+  default-theme: (
+    theme-color: orange,
+  )
+)
+```
+
+* 导入css文件
+
+`@import "./defaultStyle.scss";`
