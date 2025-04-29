@@ -14,6 +14,10 @@
 
 Karma的主要目的是让你的测试驱动开发变得简单、快速和有趣。/ˈpɜːrpəs/ purpose
 
+* Linters usually contain not only code quality rules, but also stylistic rules. Most stylistic rules are unnecessary when using Prettier, but worse – they might conflict with Prettier! Use Prettier for code formatting concerns, and linters for code-quality concerns, as outlined in Prettier vs. Linters.
+
+Linter通常不仅包含代码质量规则，还包含风格规则。使用Prettier时，大多数风格规则都是不必要的，但更糟糕的是——它们可能会与Prettier冲突！如Prettier与linters中所述，使用Prettier解决代码格式问题，使用linters解决代码质量问题。
+
 ## TED
 
 ### 阿诺德.施瓦辛格关于success的演讲
@@ -142,9 +146,11 @@ you thought, not me.解决办法：找到共赢的方式，
 * I have a question for you. 我有个问题问你。
 * let bygones be bygones. 过去的就让它过去吧。
 * what do you know? 你知道什么
+* Thanks Batman and Team, excluding Buddy.蝙蝠侠Batman
 
 ## 短语
 
+* as if 像...一样
 * out of touch 失去联系，难以接近
 * out of my place 偏离位置
 * look for 寻找
@@ -155,5 +161,6 @@ you thought, not me.解决办法：找到共赢的方式，
 
 ## 缩写
 
+* EOL = End of Life
 * gonna === going to
 * 'til === until 直到

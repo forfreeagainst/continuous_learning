@@ -13,7 +13,8 @@
 * ref: 可传入基本类型和 对象
 * shallowRef：
 
-
+* isRef: 检查某个值是否为 ref。
+* unref: 如果参数是 ref，则返回内部值，否则返回参数本身。这是 val = isRef(val) ? val.value : val 计算的一个语法糖。
 * toRef: 把reactive变成ref去使用，意义是解构的时候，丧失响应式。同时模板上使用方便，模板自动补充.value;
 
 ```js
@@ -113,6 +114,12 @@ const block = ref<blockType>('a')
 // props非模板里面使用， fieldInfo可以在模板里面使用
 const props = defineProps<{
     fieldInfo: object,
+}>();
+const props = defineProps<{
+  preview: {
+    type: Boolean,
+    default: false
+  }
 }>();
 
 // js写法

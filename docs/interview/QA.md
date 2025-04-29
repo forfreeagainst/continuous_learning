@@ -1,6 +1,6 @@
 # QA问答
 
-## CDN
+## 性能优化
 
 ### 聊聊CDN
 
@@ -155,6 +155,33 @@ app.mount('#app');
 6.在项目中使用 CDN 资源
 
 在 HTML 文件中通过 `script` 或 `link` 标签引入 CDN 资源。
+
+### 聊聊 UnoCSS
+
+命名冲突？UnoCSS 通过 原子化哈希类名 和 作用域隔离 天然避免冲突，只需注意：
+
+* 避免自定义同名规则。
+* 使用 prefix 隔离第三方类名。
+* 优先通过 @apply 或动态类名对象（而非字符串拼接）引用样式
+
+为什么它的打包体积会小？
+
+* 按需生成 CSS
+* 原子化 CSS 的共享复用（相同的 CSS 属性值会被复用，仅生成一次。）
+* 智能合并样式规则（eg: border-1 border-solid border-red）
+* 极简的类名生成策略(短哈希类名、可配置前缀)
+* 无运行时开销（UnoCSS 在构建阶段完成所有工作，不注入任何运行时 JavaScript）
+* 与构建工具深度集成（Vite/Rollup 插件优化、Tree-shaking友好）
+
+如何验证效果？
+
+* npx vite build --mode production（查看生成的 dist/assets 下 CSS 文件大小）
+* 在相同项目下分别使用 Tailwind 和 UnoCSS，观察打包体积差异。
+
+何时不推荐使用？
+
+* 极度简单的页面：纯静态 HTML 无需原子化 CSS。
+* 传统项目迁移成本高：已有复杂 CSS 架构的项目需谨慎评估。
 
 ## 浏览器与网络相关
 

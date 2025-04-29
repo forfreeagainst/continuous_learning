@@ -82,6 +82,13 @@ function loadlazy() {
 * 路由懒加载：使用Vue Router的 import() 语法 动态加载路由组件，减少首屏加载的代码量。
 * 组件懒加载：对于非首屏的组件，可以使用import() 语法进行懒加载。（tab页面）
 
+#### 按需引入UI组件库
+
+##### 推荐使用按需引入 + 自动导入
+
+1. pnpm add -D unplugin-vue-components unplugin-auto-import
+2. 结合构建工具，进行打包配置
+
 ### 如何计算首屏加载时间/分析性能瓶颈
 
 #### 性能监控与分析

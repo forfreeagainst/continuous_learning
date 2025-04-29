@@ -6,6 +6,10 @@
 
 已投降，vant项目感觉没啥可挖掘
 
+## ElementPlus的ConfigProvider
+
+message: 最多三个消息提示
+
 ## 前沿
 
 * 借助naive ui provider，实现了message,dialog,loadingBar等通用组件以hooks的方式植入子层级的context

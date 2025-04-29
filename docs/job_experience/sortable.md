@@ -1,10 +1,44 @@
 # sortable可排序的
 
-vue-draggable-plus 拖拽monorepo（vite打包，vue2+vue3+vue-demi兼容处理，vue3 + TypeScript）
+vue-draggable-plus 拖拽Multirepo（vite打包，vue2+vue3+vue-demi兼容处理，vue3 + TypeScript）
 
-## sortable.js介绍
+vue-draggable-next: Vue3
 
-## 学习封装一个拖拽插件
+https://form.making.link/docs/guide/v3/getting-started.html
+
+https://lowcode-engine.cn/index
+
+https://github.com/alibaba/lowcode-engine
+
+## 技术选型考量
+
+* 原生Drag API痛点：需手动实现排序逻辑、跨容器交互复杂、无动画支持。现代浏览器支持，但移动端兼容性较差	
+* vue-draggable-next：下载量 341k+， Github Stars 52k+， Unpacked Size 585 kB
+* vue-draggable-plus：下载量 328k+， Github Stars 3.5k+， Unpacked Size 213 kB
+
+## sortablejs
+
+```md
+
+构建工具：vite
+```
+
+## Vue-dragable-plus
+
+| 功能 | Sortable.js原生实现 | vue-draggable-plus封装增强 |
+| --- | --- | --- |
+| 数据绑定 | 需手动监听事件更新数据 | 自动同步拖拽后的数据到v-model |
+| 虚拟 DOM 兼容 | 直接操作真实 DOM, 可能和 Vue 渲染冲突 | 适配 Vue 的虚拟 DOM diff 机制，避免渲染问题 |
+
+* useDraggable: 基于sortablejs，那我就先研究这个
+* directive: 基于useDraggable
+* components: 基于useDraggable
+
+### 如何理解源码手动操作DOM
+
+* insertNodeAt/removeNode 的作用：在拖拽过程中提供即时视觉反馈，属于必要的性能优化手段。
+* Vue 的协作方式：通过最终同步到响应式数据，保证 UI 与数据的长期一致性。
+* 设计哲学：在特定性能敏感场景下，合理的手动 DOM 操作是 Vue 官方允许的模式（参考 Transition 组件的实现）。
 
 ### package.json
 

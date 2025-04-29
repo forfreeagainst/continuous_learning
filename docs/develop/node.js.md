@@ -1,5 +1,21 @@
 # node.js
 
+## 安装依赖失败
+
+* Node版本的问题，eg：查看package.json，README.md，issue等可能出现node版本号
+
+## nvm管理node版本
+
+下载 nvm-setup.exe 并安装
+
+* nvm version: 查看nvm版本
+* nvm list available：查看node的所有可用版本
+* nvm install 12.22.12
+* nvm use 12.22.12
+* nvm uninstall 12.22.12
+* nvm list: 查看已安装的所有版本
+* nvm current: 查看当前使用的版本
+
 ## node.js的API
 
 ### process

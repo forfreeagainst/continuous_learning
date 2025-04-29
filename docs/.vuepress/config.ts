@@ -58,6 +58,7 @@ export default defineConfig4CustomTheme({
       {
         text: "工作经历",
         items: [
+          {text: "从Vue2迁移到Vue3", link: "/job_experience/MigratingFromVue2ToVue3.md"},
           {text: "基于Promise调用子组件弹窗", link: "/job_experience/PromiseDialog.md"},
           {text: "权限控制", link: "/job_experience/permission.md"},
           {text: "性能优化", link: "/job_experience/PerformanceOptimization.md"},
@@ -124,6 +125,7 @@ export default defineConfig4CustomTheme({
       {
         title: "工作经历",
         children: [
+          {title: "从Vue2迁移到Vue3", path: "/job_experience/MigratingFromVue2ToVue3.md"},
           {title: "基于Promise调用子组件弹窗", path: "/job_experience/PromiseDialog.md"},
           {title: "权限控制", path: "/job_experience/permission.md"},
           {title: "性能优化", path: "/job_experience/PerformanceOptimization.md"},

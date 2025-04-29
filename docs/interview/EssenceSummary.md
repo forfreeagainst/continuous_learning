@@ -52,3 +52,11 @@ History 模式的"兼容性差"并非因为浏览器 API 支持，而是因为�
 Hash 模式之所以兼容性好，是因为它完全规避了路径处理问题，所有路由变化都在 # 之后，
 服务器永远只看到 index.html 的请求。
 ```
+
+## 工程化
+
+### Monorepo和Multirepo区别？
+
+* Monerepo包与包之间引用方便，Multirepo需要发布依赖后，才能引用
+* Monorepo可以统一流水线，易于管理，Multirepo需要每个仓库单独配置CI / CD
+* 但如果想要独立代码权限和发布节奏，或者构建方式差异大，选择Multirepo也是个不错的选择。

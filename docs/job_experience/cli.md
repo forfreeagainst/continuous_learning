@@ -95,7 +95,7 @@ lerna publish 运行的是lerna.json的command的配制。registry也可以选�
 
 * 安装指定版本的lerna
 * 编写lerna.json
-* 书写LICENSE，发布时需要协议证书
+* 书写LICENSE，发布时需要协议证书（github新建仓库的时候，可以选择证书）
 
 #### lerna和pnpm一起使用，详见官网
 
@@ -120,7 +120,7 @@ npm config set registry=https://registry.npmjs.org
 * lerna发包，一定要有改动并提交的代码
 * 如果要one-time-password, 手机设备的软件AUthenticator，有一次性验证码
 * ECONNRESET可能网络问题，稍后重试。解决代理问题，继续重试lerna发布。eg: lerna ERR! lerna The "code" argument must be of type number. Received type string ('ECONNRESET')
-* 书写LICENSE，发布时需要协议证书
+* 书写LICENSE，发布时需要协议证书（github新建仓库的时候，可以选择证书）
 
 ## 本地开发子包
 
@@ -480,3 +480,28 @@ lint-staged + Git Hooks 的强制约束：
   }
 }
 ```
+
+## 最佳实践
+
+脚手架有什么难以实现的？网银平台（iframe），中台，手机端辅助项目（查询），统一代码规范。
+开辟新项目的时候，要复制一套lint规范，就很费劲。修改lint规则，不好同步到每个项目。
+* commit-msg: feat: 需求号-需求名，通过自动化脚本，进行代码提交。
+* pre-commit: prettier(代码格式化问题)
+* list-stage: 只针对提交代码，如果整个项目，不好回溯
+
+
+
+* list-stage, husky, prettier,
+* 暂时用sass, sass-loader过渡， 想使用 UnoCss
+
+<!-- prettier：提交前必须prettier -->
+
+```bash
+pnpm add --save-dev husky lint-staged
+pnpm exec husky init
+npm pkg set scripts.prepare="husky install"
+echo "pnpm lint-staged" > .husky/pre-commit
+```
+
+* 配置Prettier规则和忽略文件
+* 配置 添加脚本命令："format": "prettier . --write"
