@@ -578,6 +578,8 @@ const addTask = (time, order) => {
 
 ## 手写防抖
 
+防抖是回城，节流是技能CD。
+
 ```js
 // 定义：一段时间不操作，才执行。每次操作，都清空定时器，再开启定时器
 function debounce(fn, delay) {

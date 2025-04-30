@@ -169,3 +169,7 @@ else
   exit 1
 fi
 ```
+
+## Github Actions
+
+手机下载Authenticator，里面有验证码，登录/确认身份用的。

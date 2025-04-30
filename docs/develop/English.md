@@ -18,6 +18,12 @@ Karma的主要目的是让你的测试驱动开发变得简单、快速和有趣
 
 Linter通常不仅包含代码质量规则，还包含风格规则。使用Prettier时，大多数风格规则都是不必要的，但更糟糕的是——它们可能会与Prettier冲突！如Prettier与linters中所述，使用Prettier解决代码格式问题，使用linters解决代码质量问题。
 
+* Creating a global application with Vue + Vue I18n is dead simple.
+With Vue.js, we are already composing our application with components. When adding Vue I18n to the mix, all we need to do is ready resource messages and simply use the localization API that are offered with Vue I18n.
+
+使用Vue+Vue I18n创建全局应用程序非常简单。
+使用Vue.js，我们已经在用组件组合我们的应用程序。当将Vue I18n添加到混合中时，我们所需要做的就是准备好资源消息，并简单地使用Vue I118n提供的本地化API。
+
 ## TED
 
 ### 阿诺德.施瓦辛格关于success的演讲

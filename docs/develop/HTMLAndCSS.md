@@ -59,6 +59,8 @@ if (canvasBox.getContext) {
 
 ### 常见css属性
 
+* background: linear-gradient(to left, cyan 50%, palegoldenrod 50%); // 使用渐变，形成样式的1/2
+* transform: scale(0.5); // 使用缩（小）放（大） 实现 1px
 * word-break: break-all; // 允许在单词内部进行换行。当文本内容宽度超过其容器的宽度，无论单词完整，都要换行。
 * text-align: justify; // 两端对齐
 

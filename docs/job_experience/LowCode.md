@@ -90,9 +90,9 @@ ElementPlus（生态、更稳定）、Naive UI、Ant Design（结合React更佳�
 
 ### 能力
 
-* vue-i18n
+* [vue-i18n](https://vue-i18n.intlify.dev/)
 * vue-draggable-next?
-
+* vue-use
 
 
 编排引擎：

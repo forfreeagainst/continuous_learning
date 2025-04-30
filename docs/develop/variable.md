@@ -1,5 +1,9 @@
 # 变量命名规范
 
+* legacy /ˈleɡəsi/ 遗留
+* expert /ˈekspɜːrt/ 专家
+* Essentials /ɛˈsɛntʃəlz/ 要素
+* maintenance /ˈmeɪntənəns/ 维护
 * Infrastructure/ˈɪnfrəstrʌktʃər/ 基建/基础建设
 * visualizer /ˈvɪʒwəˌlaɪzər/ 可视化工具
 * virtual /ˈvɜːrtʃuəl/ 虚拟的
