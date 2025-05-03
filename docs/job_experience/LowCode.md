@@ -82,17 +82,31 @@ declare module '@vue/runtime-core' {
 
 webpack, vite, 直接排除 esbuild, roolup, parcel, swc
 
-* Vite 内置了对 Sass 的支持，不需要像 webpack 使用sass-loader 
+* Vite 内置了对 Sass 的支持，不需要像 webpack 使用sass-loader
 
 ### UI框架ElementPlus
 
 ElementPlus（生态、更稳定）、Naive UI、Ant Design（结合React更佳）
+
+### lint校验
+
+* list-stage + prettier 阻止我的代码提交
 
 ### 能力
 
 * [vue-i18n](https://vue-i18n.intlify.dev/)
 * vue-draggable-next?
 * vue-use
+* @element-plus/icons-vue图标
+* vite-plugin-inspect: Vite调式插件
+<!-- Vite 调试插件，主要用于 可视化检查 Vite 构建和转换过程，帮助开发者分析模块的编译结果、插件中间状态、依赖关系等。 -->
 
+其他库：
+
+* viewer: 图片查看器
+* qiqiu：七牛云
+* clipboard：剪切板
 
 编排引擎：
+
+* Vue-grid-layout: 可适应大屏

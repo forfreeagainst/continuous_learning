@@ -22,16 +22,21 @@
 #### 注意
 
 * 不要乱删方法！！！，有可能跨组件调用。（构建工具，会消除死代码）
+* 不要乱删导入的组件，可大驼峰或者中划线命名法。
 
 #### 常规
 
 * 选项式 API => 组合式 API，没有this
 
-* 动态类型语言 => 静态类型语言
+* 动态类型语言 JavaScript => 静态类型语言 TypeScript
 
 * 生命周期beforeCreate, created, destoryed, ... => unMounted, setup, onMounted, ...
 
 * 数组的 $set 和 $delete => 
+
+* watch => 语法变更
+
+ A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types.
 
 * 组件ref => const xxx =ref(null);
 
@@ -46,6 +51,11 @@
 `<ChildComponent v-model:title="pageTitle" v-model:content="pageContent"/>`
 `<ChildComponent v-model="dialogVisible"/>`
 
+```js    
+const emit = defineEmits(['update:select']);
+emit('update:select', val);
+```
+
 * vue-router3.0 => vue-router4.0
 
 ```js
@@ -59,6 +69,10 @@ const route = useRoute();
 
 router.push();
 ```
+
+* UI框架，需要注意的是遗弃的属性等 => 替换类似效果
+
+* 不规范的代码：组件名和响应式对象的变量 一致，在没有this的情况下 => 人工肉眼替换
 
 ## 阅读文档
 

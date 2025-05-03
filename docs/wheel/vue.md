@@ -126,6 +126,13 @@ const props = defineProps<{
 const props = defineProps({
   foo: String
 });
+const props = defineProps({
+  upload: {
+    type: Boolean,
+    default: false,
+  },
+});
+// :upload="true" 这样不会报错
 ```
 
 ```js

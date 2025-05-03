@@ -72,6 +72,10 @@ type OmitUser = Omit<Obj, 'name'>;
 // Partial：全都变成可选属性
 // Required: 全都变成必选属性
 
+import type { langType } from "@/I18n/index.ts";  // ✅ 正确：显式声明仅导入类型
+
+["zh-cn", "en"] as const; // 固定常量，用于类型安全。
+
 // 对象（遍历对象中的每个属性，键不一定有，值为 replaceCallback的数组）
 { [key in EventTypes]?: ReplaceCallback[] }
 ```
