@@ -62,3 +62,6 @@ React.createElement和vue的h很相似吧，React.createElement 和 Vue 的 h �
 
 ## Thinking in React（React哲学）
 
+## 其他
+
+jsx => react/jsx-runtime

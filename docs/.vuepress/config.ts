@@ -75,6 +75,7 @@ export default defineConfig4CustomTheme({
           {text: "虚拟滚动", link: "/job_experience/VirtualScrolling.md"},
           {text: "千分符金额文本框组件", link: "/job_experience/ThousandSeparatorAmoutInput.md"},
           {text: "WebSocket", link: "/job_experience/WebSocket.md"},
+          {text: "SEO", link: "/job_experience/seo.md"},
           {text: "视频合成", link: "/job_experience/video_merger.md"},
           {text: "音乐软件", link: "/job_experience/music_soft.md"},
         ]
@@ -143,6 +144,7 @@ export default defineConfig4CustomTheme({
           {title: "虚拟滚动", path: "/job_experience/VirtualScrolling.md"},
           {title: "千分符金额文本框组件", path: "/job_experience/ThousandSeparatorAmoutInput.md"},
           {title: "WebSocket", path: "/job_experience/WebSocket.md"},
+          {title: "SEO", path: "/job_experience/seo.md"},
           {title: "视频合成", path: "/job_experience/video_merger.md"},
           {title: "音乐软件", path: "/job_experience/music_soft.md"},
         ]

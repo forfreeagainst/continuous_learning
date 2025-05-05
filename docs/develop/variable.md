@@ -1,5 +1,6 @@
 # 变量命名规范
 
+* derived /dɪˈraɪvd/ 衍生的
 * legacy /ˈleɡəsi/ 遗留
 * expert /ˈekspɜːrt/ 专家
 * Essentials /ɛˈsɛntʃəlz/ 要素
@@ -55,58 +56,58 @@
 * internal 内部的
 * external 外部的
 * idle 空闲的
-* intereactive交互式
-* potential潜在的
-* functionality功能
-* pluggable可插拔的
-* consistent一致的
-* compatible兼容的
-* optimization优化 (up忒么贼师恩)
+* intereactive 交互式
+* potential 潜在的
+* functionality 功能
+* pluggable 可插拔的
+* consistent 一致的
+* compatible 兼容的
+* optimization 优化 (up忒么贼师恩)
 * parallel并行的 (/ˈpærəlel/)
-* extract提取
-* extends扩展/继承
-* exclude排除
-* boundary边界
+* extract 提取
+* extends 扩展/继承
+* exclude 排除
+* boundary 边界
 * client客户（克莱恩扯）
-* minimizer极小的（迷你买这）
-* terser简要的（编程中：压缩）
-* reflect反射
-* urlencoded(url编码)
-* garbage垃圾
-* collection收集
-* execution执行
-* context上下文
-* stack堆栈
-* lexical词汇的
-* domain领域
-* algorithm算法（阿哥瑞诊）
-* usage使用
-* subscribe订阅
-* transform转换
-* transport运输（这里指上传）
-* navbar导航栏
-* sidebar侧边栏
-* prev上一个
-* next下一个
-* below在下面
+* minimizer 极小的（迷你买这）
+* terser 简要的（编程中：压缩）
+* reflect 反射
+* urlencoded (url编码)
+* garbag 垃圾
+* collection 收集
+* execution 执行
+* context 上下文
+* stack 堆栈
+* lexical 词汇的
+* domain 领域
+* algorithm 算法（阿哥瑞诊）
+* usage 使用
+* subscribe 订阅
+* transform 转换
+* transport 运输（这里指上传）
+* navbar 导航栏
+* sidebar 侧边栏
+* prev 上一个
+* next 下一个
+* below 在下面
 * type（用计算机）打字
-* variable变量
-* delicated精致
-* implementation实现、工具（因p每审）
-* IIFE Immediately Invoked Function Expression立即执行函数表达式
-* access control allow origin访问控制允许来源
-* interceptors拦截器
-* teleport传送门
-* portal入口
-* lighthouse灯塔
-* multiple数量多的
-* babel嘈杂声，尤指多种语言
-* polyfill垫片/补丁
-* debounce去抖动
-* throttle节流杆
+* variable 变量
+* delicated 精致
+* implementation 实现、工具（因p每审）
+* IIFE Immediately Invoked Function Expression 立即执行函数表达式
+* access control allow origin 访问控制允许来源
+* interceptors 拦截器
+* teleport 传送门
+* portal 入口
+* lighthouse 灯塔
+* multiple 数量多的
+* babel 嘈杂声，尤指多种语言
+* polyfill 垫片/补丁
+* debounce 去抖动
+* throttle 节流杆
 
-* resume简历
-* primeNumber质数
+* resume 简历
+* primeNumber 质数
 
 * abbr缩写
 * acc/account账号
