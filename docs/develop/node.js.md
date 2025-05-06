@@ -13,8 +13,10 @@
 * nvm install 12.22.12
 * nvm use 12.22.12
 * nvm uninstall 12.22.12
-* nvm list: 查看已安装的所有版本
+* nvm list / nvm ls: 查看已安装的所有版本
 * nvm current: 查看当前使用的版本
+
+低版本的node，会导致npm 和pnpm 使用不了。eg: node14,node12。
 
 ## node.js的API
 

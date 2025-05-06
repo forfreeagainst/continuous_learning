@@ -1,5 +1,9 @@
 # 变量命名规范
 
+## 单词记忆
+
+* Traversal 遍历
+* inorder 中序
 * derived /dɪˈraɪvd/ 衍生的
 * legacy /ˈleɡəsi/ 遗留
 * expert /ˈekspɜːrt/ 专家
@@ -187,3 +191,9 @@
 
 * character
 * soldier
+
+## 中文
+
+
+
+## 英文

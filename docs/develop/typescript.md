@@ -78,6 +78,28 @@ import type { langType } from "@/I18n/index.ts";  // ✅ 正确：显式声明�
 
 // 对象（遍历对象中的每个属性，键不一定有，值为 replaceCallback的数组）
 { [key in EventTypes]?: ReplaceCallback[] }
+
+
+
+declare module '@vue/runtime-core' {
+  export interface ComponentCustomProperties {
+    $blocksMap: string
+  }
+}
+// 同样用法
+import {
+  DefineNumberFormat
+} from 'vue-i18n'
+declare module 'vue-i18n' {
+  // define the number format schema
+  export interface DefineNumberFormat {
+    currency: {
+      style: 'currency'
+      currencyDisplay: 'symbol'
+      currency: string
+    }
+  }
+}
 ```
 
 ### 特殊类型
