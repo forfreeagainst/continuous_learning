@@ -8,5 +8,6 @@
 * draw.io: 文件后缀名为dio, 可以在vscode画图
 * live Server: 是一个开源的本地服务器，可以在本地计算机上运行网站或应用程序
 * Chinese (Simplified) (简体中文) Language Pack for Visual Studio Code：汉化vscode
+* es6-string-html: 模板字符串的内容，没有办法高亮。在模板字符串前添加/*html*/就可以了
 
 ## 开发自己vscode插件

@@ -112,3 +112,19 @@ ElementPlus（生态、更稳定）、Naive UI、Ant Design（结合React更佳�
 编排引擎：
 
 * Vue-grid-layout: 可适应大屏
+
+## 难点
+
+### 编排引擎
+
+```md
+sortable.js -> VueDraggableNext、VueDraggablePlus
+
+选择 ref (逐层Proxy) 还是 reactive(最外层不能被赋值)
+图标i => 
+物料 => 合适物料 + 亮点物料
+.ghost , .handle, cursor: move;
+多层v-model =>  跨组件通信(pinia)
+新增的物料字段名变化下，不能看不清
+```
+

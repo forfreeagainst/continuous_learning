@@ -40,13 +40,11 @@
 
 * 组件ref => const xxx =ref(null);
 
+命名冲突：组件名(一会中划线，一会大驼峰)，组件ref，响应式对象ref
+
 * setTimeout、 $nextTick => nextTick
 
 * 响应式对象data => ref 或 reactive
-
-* 作用域插槽(Scoped Slots)允许子组件向父组件传递数据，使父组件可以控制如何渲染这些数据 => 
-
-
 
 * v-model(value、input, 1个) + .sync(多个) => v-model(modelValue、update:modelValue，多个)
 
@@ -75,6 +73,29 @@ router.push();
 * UI框架，需要注意的是遗弃的属性等 => 替换类似效果
 
 * 不规范的代码：组件名和响应式对象的变量 一致，在没有this的情况下 => 人工肉眼替换
+
+##### 插槽
+
+* 作用域插槽(Scoped Slots)允许子组件向父组件传递数据，使父组件可以控制如何渲染这些数据 => 
+
+###### Vue3写法
+
+具名插槽
+
+```md
+<!--父组件-->
+<BaseLayout>
+  <template v-slot:header>
+    <!-- header 插槽的内容放这里 -->
+  </template>
+</BaseLayout>
+
+<!--子组件-->
+<div class="container">
+  <slot name="header"></slot>
+</div>
+```
+
 
 ##### Vue2模板只允许一个根节点 => Vue3的 Fragment(片段) 允许组件模板拥有 多个根节点。
 

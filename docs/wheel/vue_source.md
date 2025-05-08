@@ -565,3 +565,9 @@ Observer类，Dep类，
 渲染完真实DOM,
 再开启监听者模式，Object.defineProperty.
 get: dep.depend(); set: dep.notify();
+
+### API的实现
+
+#### ref的实现
+
+包了一层对象，{_v, get, set} 里面的_v如果是 引用类型，也是个proxy

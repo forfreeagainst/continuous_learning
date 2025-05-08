@@ -50,3 +50,8 @@ LCP、FID、CLS、FP、FCP
 ## :star: 数据展示
 
 * 
+
+## Vue项目的最佳实践
+
+app.config.errorHandler
+
