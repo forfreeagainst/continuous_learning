@@ -72,7 +72,85 @@ reactive() 返回的是一个原始对象的 Proxy
 * 同名简写`<div :id></div> => <div v-bind:id></div>`
 * 如果需要，可以通过访问计算属性的 getter 的第一个参数来获取计算属性返回的上一个值
 
-看到表单输入绑定。。。
+### 3.5+使用
+
+#### 模板引用的useTemplateRef
+
+```js
+<script lang="ts" setup>
+
+// 第一个参数必须与模板中的 ref 值匹配
+const input = useTemplateRef('my-input')
+// const input = ref('my-input')
+
+onMounted(() => {
+  input.value.focus()
+})
+</script>
+
+<template>
+  <input ref="my-input" />
+</template>
+```
+
+### 侦听器
+
+#### watch
+
+侦听数据源类型:它可以是一个 ref (包括计算属性)、一个响应式对象、一个 getter 函数、或多个数据源组成的数组：
+
+```js
+const count = ref(1);
+const book = ref({
+  bookName: '被讨厌的勇气',
+  author: '岸见一郎'
+})
+const person = reactive({
+  name: 'durant',
+  age: 35
+})
+const song = reactive({
+  songName: '进阶',
+  author: 'JJ'
+})
+watch([() => book.value.author, count, () => person.name, song],() => {
+  console.log("🚀 ~ watch ~ book.value:", book.value)
+  console.log("🚀 ~ watch ~ song:", song)
+  console.log("🚀 ~ watch ~ person:", person)
+  console.log("🚀 ~ watch ~ count.value:", count.value)
+})
+
+setTimeout(()=> {
+  book.value.author = 'me';// ref定义的非原始类型，需要（）=> book.value.author
+})
+setTimeout(() => {
+  person.name = 'Brunson';
+}, 2000);
+setTimeout(() => {
+  count.value += 1;
+}, 1000)
+setTimeout(() => {
+  song.songName = '江南';
+}, 3000)
+```
+
+#### watchEffect
+
+不用写侦听数据源，侦听数据源为回调的响应式依赖。immediate立即执行一次。
+
+```js
+const count = ref(1);
+watchEffect(async() => {
+  console.log(count.value);
+})
+setTimeout(() => {
+  count.value += 1;
+}, 1000);
+```
+
+#### 停止侦听器
+
+侦听器必须用同步语句创建：如果用异步回调创建一个侦听器，那么它不会绑定到当前组件上，你必须手动停止它，以防内存泄漏
 
 ## Vue3
 

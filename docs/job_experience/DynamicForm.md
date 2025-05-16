@@ -17,6 +17,8 @@ provide、promise）
 注意的是我爷组件的provide,提供的是响应式的ref,
 孙组件inject接收，v-model = 响应式的ref。
 
+v-model + computed(computed的get使用 props.xxx ,set使用update:modelValue)
+
 ```js
  {
     name: 'username',

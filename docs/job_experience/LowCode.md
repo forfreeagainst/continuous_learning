@@ -97,7 +97,6 @@ ElementPlus（生态、更稳定）、Naive UI、Ant Design（结合React更佳�
 ### 能力
 
 * [vue-i18n](https://vue-i18n.intlify.dev/)
-* vue-draggable-next?
 * vue-use
 * @element-plus/icons-vue图标
 * vite-plugin-inspect: Vite调式插件
@@ -109,8 +108,10 @@ ElementPlus（生态、更稳定）、Naive UI、Ant Design（结合React更佳�
 * qiqiu：七牛云
 * clipboard：剪切板
 
-编排引擎：
+#### 编排引擎
 
+* vue-draggable-next（不好用，文档不咋滴，一个文件中有选项式API风格、组合式API风格）
+* VueDraggablePlus: 有优秀的文档，支持组件、函数、指令三种编码风格。
 * Vue-grid-layout: 可适应大屏
 
 ## 难点
@@ -126,5 +127,10 @@ sortable.js -> VueDraggableNext、VueDraggablePlus
 .ghost , .handle, cursor: move;
 多层v-model =>  跨组件通信(pinia)
 新增的物料字段名变化下，不能看不清
+
+
+复制的时候：cursor:move;
+
+
 ```
 

@@ -1,7 +1,7 @@
 ---
 home: true
-heroText: 热爱
-tagline: 业务驱动技术，输出倒逼输入
+heroText: 习性
+tagline: 仲尼学琴
 actionText: 立刻进入 →
 actionLink: /base/javascript.md
 
@@ -46,3 +46,4 @@ features:
 | 应用 | 组件库 | 组件库 |
 | 进度 | ？ | ？ |
 
+* 业务驱动技术，输出倒逼输入
