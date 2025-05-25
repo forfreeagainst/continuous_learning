@@ -69,8 +69,47 @@ reactive() 返回的是一个原始对象的 Proxy
 
 ### 3.4+使用
 
+#### props
+
 * 同名简写`<div :id></div> => <div v-bind:id></div>`
 * 如果需要，可以通过访问计算属性的 getter 的第一个参数来获取计算属性返回的上一个值
+
+#### 组件 v-model
+
+v-model 可以在组件上使用以实现双向绑定。
+
+child.vue
+
+```js
+<!-- Child.vue -->
+<script setup>
+const model = defineModel()
+
+function update() {
+  model.value++
+}
+</script>
+
+<template>
+  <div>Parent bound v-model is: {{ model }}</div>
+  <button @click="update">Increment</button>
+</template>
+
+// 实例2
+<script setup>
+const model = defineModel()
+</script>
+
+<template>
+  <input v-model="model" />
+</template>
+```
+
+parent.vue
+
+```js
+<Child v-model="countModel" />
+```
 
 ### 3.5+使用
 
@@ -92,6 +131,10 @@ onMounted(() => {
   <input ref="my-input" />
 </template>
 ```
+
+#### 响应式 Props 解构
+
+* `const { foo } = defineProps(['foo'])`
 
 ### 侦听器
 
@@ -151,6 +194,28 @@ setTimeout(() => {
 #### 停止侦听器
 
 侦听器必须用同步语句创建：如果用异步回调创建一个侦听器，那么它不会绑定到当前组件上，你必须手动停止它，以防内存泄漏
+
+### 代码风格
+
+#### 组件命名
+
+`<MyComponent greeting-message="hello" />`
+
+对于组件名我们推荐使用 PascalCase，因为这提高了模板的可读性，能帮助我们区分 Vue 组件和原生 HTML 元素。然而对于传递 props 来说，使用 camelCase 并没有太多优势，因此我们推荐更贴近 HTML 的书写风格。(官网推荐而已)
+
+像组件与 prop 一样，事件的名字也提供了自动的格式转换。注意这里我们触发了一个以 camelCase 形式命名的事件，但在父组件中可以使用 kebab-case 形式来监听。与 prop 大小写格式一样，在模板中我们也推荐使用 kebab-case 形式来编写监听器。
+
+### 深入组件的props
+
+#### 更改对象 / 数组类型的 props​
+
+当对象或数组作为 props 被传入时，虽然子组件无法更改 props 绑定，但仍然可以更改对象或数组内部的值。这是因为 JavaScript 的对象和数组是按引用传递，对 Vue 来说，阻止这种更改需要付出的代价异常昂贵。
+
+这种更改的主要缺陷是它允许了子组件以某种不明显的方式影响父组件的状态，可能会使数据流在将来变得更难以理解。在最佳实践中，你应该尽可能避免这样的更改，除非父子组件在设计上本来就需要紧密耦合。在大多数场景下，子组件应该抛出一个事件来通知父组件做出改变。
+
+#### 深入组件的透传 Attributes
+
+
 
 ## Vue3
 

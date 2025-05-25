@@ -18,7 +18,27 @@
 
 低版本的node，会导致npm 和pnpm 使用不了。eg: node14,node12。
 
+## node.js工具库
+
+### EsModule的TypeScript工具库
+
+EsModule模式，不能使用__dirname、require
+
 ## node.js的API
+
+### fs
+
+* readdirSync
+* statSync
+* existsSync
+* mkdirSync
+* readFileSync
+* rmSync
+* writeFileSync
+
+### url
+
+* fileURLToPath
 
 ### process
 
@@ -65,6 +85,10 @@ const __filename = fileURLToPath(import.meta.url);//获取文件的绝对路径
 const __dirname = dirname(__filename);
 //D:\soul-ocean\vue3_monorepo\scripts
 ```
+
+### os
+
+* cpus
 
 ### API使用场景分析
 
