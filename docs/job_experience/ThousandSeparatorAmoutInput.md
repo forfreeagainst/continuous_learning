@@ -149,3 +149,19 @@
   };
 </script>
 ```
+
+### temp
+
+```js
+// 格式化金额
+function formatCurrency(number) {
+  // 将数字转换为字符串并去除小数点
+  const numberStr = number.toFixed(2).replace('.', '');
+  // 使用正则表达式每三个数字分隔
+  const formatted = numberStr.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // 将字符串重新加上小数点
+  return formatted.replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}
+// 使用示例
+console.log(formatCurrency(1234567.89)); // 输出: 1,234,567.89
+```

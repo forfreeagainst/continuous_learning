@@ -46,7 +46,6 @@ export default defineConfig4CustomTheme({
         items: [
           {text: "精华", link: "/interview/EssenceSummary.md"},
           {text: "技术类1", link: "/interview/technologyOne.md"},
-          {text: "技术类2", link: "/interview/technologyTwo.md"},
           {text: "闲谈", link: "/interview/chat.md"},
           { text: "手写题", link: "/interview/handwriting.md" },
           { text: "算法", link: "/interview/algorithm.md" },
@@ -66,6 +65,7 @@ export default defineConfig4CustomTheme({
           {text: "国际化", link: "/job_experience/I18n.md"},
           {text: "动态表单", link: "/job_experience/DynamicForm.md"},
           {text: "脚手架", link: "/job_experience/cli.md" },
+          {text: "大文件上传", link: "/job_experience/FileUpload.md" },
           {text: "低代码", link: "/job_experience/LowCode.md"},
           {text: "Echarts图表", link: "/job_experience/EchartsHook.md"},
           {text: "可排序的", link: "/job_experience/sortable.md"},
@@ -115,7 +115,6 @@ export default defineConfig4CustomTheme({
         children: [
           {title: "精华", path: "/interview/EssenceSummary.md"},
           {title: "技术类1", path: "/interview/technologyOne.md"},
-          {title: "技术类2", path: "/interview/technologyTwo.md"},
           {title: "闲谈", path: "/interview/chat.md"},
           { title: "手写题", path: "/interview/handwriting.md" },
           { title: "算法", path: "/interview/algorithm.md" },
@@ -135,6 +134,7 @@ export default defineConfig4CustomTheme({
           {title: "国际化", path: "/job_experience/I18n.md"},
           {title: "动态表单", path: "/job_experience/DynamicForm.md"},
           {title: "脚手架", path: "/job_experience/cli.md" },
+          {title: "大文件上传", path: "/job_experience/FileUpload.md" },
           {title: "低代码", path: "/job_experience/LowCode.md"},
           {title: "Echarts图表", path: "/job_experience/EchartsHook.md"},
           {title: "可排序的", path: "/job_experience/sortable.md"},
