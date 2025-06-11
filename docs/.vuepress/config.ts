@@ -76,6 +76,9 @@ export default defineConfig4CustomTheme({
           {text: "千分符金额文本框组件", link: "/job_experience/ThousandSeparatorAmoutInput.md"},
           {text: "WebSocket", link: "/job_experience/WebSocket.md"},
           {text: "SEO", link: "/job_experience/seo.md"},
+          { text: "大屏", link: "/job_experience/largeScreen.md"},
+          { text: "前端安全", link: "/job_experience/safe.md"},
+          { text: "单点登录", link: "/job_experience/singleSignOn.md"},
           {text: "视频合成", link: "/job_experience/video_merger.md"},
           {text: "音乐软件", link: "/job_experience/music_soft.md"},
         ]
@@ -145,6 +148,9 @@ export default defineConfig4CustomTheme({
           {title: "千分符金额文本框组件", path: "/job_experience/ThousandSeparatorAmoutInput.md"},
           {title: "WebSocket", path: "/job_experience/WebSocket.md"},
           {title: "SEO", path: "/job_experience/seo.md"},
+          { title: "大屏", path: "/job_experience/largeScreen.md"},
+          { title: "前端安全", path: "/job_experience/safe.md"},
+          { title: "单点登录", path: "/job_experience/singleSignOn.md"},
           {title: "视频合成", path: "/job_experience/video_merger.md"},
           {title: "音乐软件", path: "/job_experience/music_soft.md"},
         ]

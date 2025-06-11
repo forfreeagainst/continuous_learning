@@ -85,3 +85,8 @@ https://github.com/alibaba/lowcode-engine
     //（否则应该也放在 devDependencies）。
 }
 ```
+
+## 其他拖拽方案
+
+* mouseup
+* 
