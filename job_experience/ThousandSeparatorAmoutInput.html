@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>千分符金额文本框组件 | 时空随笔</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/continuous_learning/img/logo.png">
+    <meta name="description" content="用时间换空间，用空间换时间">
+    <meta name="keywords" content="修炼笔记静态资源站点">
+    
+    <link rel="preload" href="/continuous_learning/assets/css/0.styles.6479703d.css" as="style"><link rel="preload" href="/continuous_learning/assets/js/app.a36e4480.js" as="script"><link rel="preload" href="/continuous_learning/assets/js/2.37a86b2d.js" as="script"><link rel="preload" href="/continuous_learning/assets/js/1.f80ffb5b.js" as="script"><link rel="preload" href="/continuous_learning/assets/js/53.6c378e84.js" as="script"><link rel="prefetch" href="/continuous_learning/assets/js/10.c7f0ff39.js"><link rel="prefetch" href="/continuous_learning/assets/js/11.b9626a80.js"><link rel="prefetch" href="/continuous_learning/assets/js/12.3c9cf08f.js"><link rel="prefetch" href="/continuous_learning/assets/js/13.e652a34a.js"><link rel="prefetch" href="/continuous_learning/assets/js/14.35d86c22.js"><link rel="prefetch" href="/continuous_learning/assets/js/15.2a05c459.js"><link rel="prefetch" href="/continuous_learning/assets/js/16.eac0ba20.js"><link rel="prefetch" href="/continuous_learning/assets/js/17.5e08e882.js"><link rel="prefetch" href="/continuous_learning/assets/js/18.72fa03b1.js"><link rel="prefetch" href="/continuous_learning/assets/js/19.2dc1dc0c.js"><link rel="prefetch" href="/continuous_learning/assets/js/20.4294c7a5.js"><link rel="prefetch" href="/continuous_learning/assets/js/21.819cdda0.js"><link rel="prefetch" href="/continuous_learning/assets/js/22.5c21a410.js"><link rel="prefetch" href="/continuous_learning/assets/js/23.44f46fee.js"><link rel="prefetch" href="/continuous_learning/assets/js/24.8ee95c2d.js"><link rel="prefetch" href="/continuous_learning/assets/js/25.1f29eb41.js"><link rel="prefetch" href="/continuous_learning/assets/js/26.310db4f9.js"><link rel="prefetch" href="/continuous_learning/assets/js/27.8db0389d.js"><link rel="prefetch" href="/continuous_learning/assets/js/28.4ebae037.js"><link rel="prefetch" href="/continuous_learning/assets/js/29.b98a7475.js"><link rel="prefetch" href="/continuous_learning/assets/js/3.9d2c09c2.js"><link rel="prefetch" href="/continuous_learning/assets/js/30.054bb0af.js"><link rel="prefetch" href="/continuous_learning/assets/js/31.04abd7a6.js"><link rel="prefetch" href="/continuous_learning/assets/js/32.3af01b1a.js"><link rel="prefetch" href="/continuous_learning/assets/js/33.cc1c2b5e.js"><link rel="prefetch" href="/continuous_learning/assets/js/34.505c830d.js"><link rel="prefetch" href="/continuous_learning/assets/js/35.b13d6d1b.js"><link rel="prefetch" href="/continuous_learning/assets/js/36.5e26b1a9.js"><link rel="prefetch" href="/continuous_learning/assets/js/37.4d62416f.js"><link rel="prefetch" href="/continuous_learning/assets/js/38.798af47a.js"><link rel="prefetch" href="/continuous_learning/assets/js/39.e832d8f9.js"><link rel="prefetch" href="/continuous_learning/assets/js/4.80d1ecbf.js"><link rel="prefetch" href="/continuous_learning/assets/js/40.a116f5f6.js"><link rel="prefetch" href="/continuous_learning/assets/js/41.81f443ef.js"><link rel="prefetch" href="/continuous_learning/assets/js/42.dab33553.js"><link rel="prefetch" href="/continuous_learning/assets/js/43.f7aa12a1.js"><link rel="prefetch" href="/continuous_learning/assets/js/44.38ae6c2c.js"><link rel="prefetch" href="/continuous_learning/assets/js/45.18144b73.js"><link rel="prefetch" href="/continuous_learning/assets/js/46.a67e028e.js"><link rel="prefetch" href="/continuous_learning/assets/js/47.e7dff58c.js"><link rel="prefetch" href="/continuous_learning/assets/js/48.a28d7bbe.js"><link rel="prefetch" href="/continuous_learning/assets/js/49.e35e8fd8.js"><link rel="prefetch" href="/continuous_learning/assets/js/5.10d702a2.js"><link rel="prefetch" href="/continuous_learning/assets/js/50.be4ffec3.js"><link rel="prefetch" href="/continuous_learning/assets/js/51.401ca435.js"><link rel="prefetch" href="/continuous_learning/assets/js/52.991e3791.js"><link rel="prefetch" href="/continuous_learning/assets/js/54.afd3b835.js"><link rel="prefetch" href="/continuous_learning/assets/js/55.e6e8b14a.js"><link rel="prefetch" href="/continuous_learning/assets/js/56.6999b1e2.js"><link rel="prefetch" href="/continuous_learning/assets/js/57.906f930f.js"><link rel="prefetch" href="/continuous_learning/assets/js/58.17474ef6.js"><link rel="prefetch" href="/continuous_learning/assets/js/59.c4205278.js"><link rel="prefetch" href="/continuous_learning/assets/js/6.4e1b404c.js"><link rel="prefetch" href="/continuous_learning/assets/js/60.365fc4b1.js"><link rel="prefetch" href="/continuous_learning/assets/js/61.9199b6ad.js"><link rel="prefetch" href="/continuous_learning/assets/js/62.c2e31630.js"><link rel="prefetch" href="/continuous_learning/assets/js/63.fde82eaf.js"><link rel="prefetch" href="/continuous_learning/assets/js/64.b3167bde.js"><link rel="prefetch" href="/continuous_learning/assets/js/65.840325b4.js"><link rel="prefetch" href="/continuous_learning/assets/js/66.06121a45.js"><link rel="prefetch" href="/continuous_learning/assets/js/67.9e4fea73.js"><link rel="prefetch" href="/continuous_learning/assets/js/68.a7170c34.js"><link rel="prefetch" href="/continuous_learning/assets/js/69.3c0af0df.js"><link rel="prefetch" href="/continuous_learning/assets/js/7.c4b094c5.js"><link rel="prefetch" href="/continuous_learning/assets/js/70.a3292e1c.js"><link rel="prefetch" href="/continuous_learning/assets/js/71.648ff042.js"><link rel="prefetch" href="/continuous_learning/assets/js/72.f509ed4f.js"><link rel="prefetch" href="/continuous_learning/assets/js/73.94b10fa6.js"><link rel="prefetch" href="/continuous_learning/assets/js/74.a34a5838.js"><link rel="prefetch" href="/continuous_learning/assets/js/75.29cd3ddd.js"><link rel="prefetch" href="/continuous_learning/assets/js/76.80dfd8aa.js"><link rel="prefetch" href="/continuous_learning/assets/js/77.61272f4f.js"><link rel="prefetch" href="/continuous_learning/assets/js/78.18964c2c.js"><link rel="prefetch" href="/continuous_learning/assets/js/79.a9e33c5e.js"><link rel="prefetch" href="/continuous_learning/assets/js/80.e8ad302b.js"><link rel="prefetch" href="/continuous_learning/assets/js/vendors~docsearch.bd0b093a.js">
+    <link rel="stylesheet" href="/continuous_learning/assets/css/0.styles.6479703d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/continuous_learning/" class="home-link router-link-active"><img src="/continuous_learning/img/logo.png" alt="时空随笔" class="logo"> <span class="site-name can-hide">时空随笔</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/continuous_learning/index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/HTMLAndCSS.html" class="nav-link">
+  HTML和CSS
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/javascript.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/typescript.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/node.js.html" class="nav-link">
+  node.js
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/solid.html" class="nav-link">
+  设计模式与数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/variable.html" class="nav-link">
+  EnglishVariable
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/English.html" class="nav-link">
+  EnglishArticle
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="轮子" class="dropdown-title"><span class="title">轮子</span> <span class="arrow down"></span></button> <button type="button" aria-label="轮子" class="mobile-dropdown-title"><span class="title">轮子</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue.html" class="nav-link">
+  vue语法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_source.html" class="nav-link">
+  vue源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_ecology.html" class="nav-link">
+  Vue生态
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/react.html" class="nav-link">
+  react语法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/React_source.html" class="nav-link">
+  React源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vueInfrastructure.html" class="nav-link">
+  vue基建
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/esbuild.html" class="nav-link">
+  esbuild
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/webpack.html" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vite.html" class="nav-link">
+  vite
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/rollup.html" class="nav-link">
+  rollup
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/test_tool.html" class="nav-link">
+  测试工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow down"></span></button> <button type="button" aria-label="面试" class="mobile-dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/EssenceSummary.html" class="nav-link">
+  精华
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/technologyOne.html" class="nav-link">
+  技术类1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/chat.html" class="nav-link">
+  闲谈
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/handwriting.html" class="nav-link">
+  手写题
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithm.html" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmOne.html" class="nav-link">
+  算法题1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmTwo.html" class="nav-link">
+  算法题2
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/QA.html" class="nav-link">
+  AI问答
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/other.html" class="nav-link">
+  AI随便问问
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工作经历" class="dropdown-title"><span class="title">工作经历</span> <span class="arrow down"></span></button> <button type="button" aria-label="工作经历" class="mobile-dropdown-title"><span class="title">工作经历</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/MigratingFromVue2ToVue3.html" class="nav-link">
+  从Vue2迁移到Vue3
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/PromiseDialog.html" class="nav-link">
+  基于Promise调用子组件弹窗
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/permission.html" class="nav-link">
+  权限控制
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/PerformanceOptimization.html" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/I18n.html" class="nav-link">
+  国际化
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/DynamicForm.html" class="nav-link">
+  动态表单
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/cli.html" class="nav-link">
+  脚手架
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/FileUpload.html" class="nav-link">
+  大文件上传
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/LowCode.html" class="nav-link">
+  低代码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/EchartsHook.html" class="nav-link">
+  Echarts图表
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/sortable.html" class="nav-link">
+  可排序的
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/sdk.html" class="nav-link">
+  sdk前端埋点
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/CICD.html" class="nav-link">
+  持续集成持续部署
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ConfigProvider.html" class="nav-link">
+  配置式Provider
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/VirtualScrolling.html" class="nav-link">
+  虚拟滚动
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ThousandSeparatorAmoutInput.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  千分符金额文本框组件
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/WebSocket.html" class="nav-link">
+  WebSocket
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/seo.html" class="nav-link">
+  SEO
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/largeScreen.html" class="nav-link">
+  大屏
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/safe.html" class="nav-link">
+  前端安全
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/singleSignOn.html" class="nav-link">
+  单点登录
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/video_merger.html" class="nav-link">
+  视频合成
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/music_soft.html" class="nav-link">
+  音乐软件
+</a></li></ul></div></div> <a href="https://github.com/forfreeagainst/continuous_learning" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/continuous_learning/index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/HTMLAndCSS.html" class="nav-link">
+  HTML和CSS
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/javascript.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/typescript.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/node.js.html" class="nav-link">
+  node.js
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/solid.html" class="nav-link">
+  设计模式与数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/variable.html" class="nav-link">
+  EnglishVariable
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/English.html" class="nav-link">
+  EnglishArticle
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="轮子" class="dropdown-title"><span class="title">轮子</span> <span class="arrow down"></span></button> <button type="button" aria-label="轮子" class="mobile-dropdown-title"><span class="title">轮子</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue.html" class="nav-link">
+  vue语法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_source.html" class="nav-link">
+  vue源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_ecology.html" class="nav-link">
+  Vue生态
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/react.html" class="nav-link">
+  react语法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/React_source.html" class="nav-link">
+  React源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vueInfrastructure.html" class="nav-link">
+  vue基建
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/esbuild.html" class="nav-link">
+  esbuild
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/webpack.html" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vite.html" class="nav-link">
+  vite
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/rollup.html" class="nav-link">
+  rollup
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/test_tool.html" class="nav-link">
+  测试工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow down"></span></button> <button type="button" aria-label="面试" class="mobile-dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/EssenceSummary.html" class="nav-link">
+  精华
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/technologyOne.html" class="nav-link">
+  技术类1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/chat.html" class="nav-link">
+  闲谈
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/handwriting.html" class="nav-link">
+  手写题
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithm.html" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmOne.html" class="nav-link">
+  算法题1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmTwo.html" class="nav-link">
+  算法题2
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/QA.html" class="nav-link">
+  AI问答
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/other.html" class="nav-link">
+  AI随便问问
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工作经历" class="dropdown-title"><span class="title">工作经历</span> <span class="arrow down"></span></button> <button type="button" aria-label="工作经历" class="mobile-dropdown-title"><span class="title">工作经历</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/MigratingFromVue2ToVue3.html" class="nav-link">
+  从Vue2迁移到Vue3
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/PromiseDialog.html" class="nav-link">
+  基于Promise调用子组件弹窗
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/permission.html" class="nav-link">
+  权限控制
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/PerformanceOptimization.html" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/I18n.html" class="nav-link">
+  国际化
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/DynamicForm.html" class="nav-link">
+  动态表单
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/cli.html" class="nav-link">
+  脚手架
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/FileUpload.html" class="nav-link">
+  大文件上传
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/LowCode.html" class="nav-link">
+  低代码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/EchartsHook.html" class="nav-link">
+  Echarts图表
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/sortable.html" class="nav-link">
+  可排序的
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/sdk.html" class="nav-link">
+  sdk前端埋点
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/CICD.html" class="nav-link">
+  持续集成持续部署
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ConfigProvider.html" class="nav-link">
+  配置式Provider
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/VirtualScrolling.html" class="nav-link">
+  虚拟滚动
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ThousandSeparatorAmoutInput.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  千分符金额文本框组件
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/WebSocket.html" class="nav-link">
+  WebSocket
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/seo.html" class="nav-link">
+  SEO
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/largeScreen.html" class="nav-link">
+  大屏
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/safe.html" class="nav-link">
+  前端安全
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/singleSignOn.html" class="nav-link">
+  单点登录
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/video_merger.html" class="nav-link">
+  视频合成
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/music_soft.html" class="nav-link">
+  音乐软件
+</a></li></ul></div></div> <a href="https://github.com/forfreeagainst/continuous_learning" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>轮子</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>面试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>工作经历</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/continuous_learning/job_experience/MigratingFromVue2ToVue3.html" class="sidebar-link">从Vue2迁移到Vue3</a></li><li><a href="/continuous_learning/job_experience/PromiseDialog.html" class="sidebar-link">基于Promise调用子组件弹窗</a></li><li><a href="/continuous_learning/job_experience/permission.html" class="sidebar-link">权限控制</a></li><li><a href="/continuous_learning/job_experience/PerformanceOptimization.html" class="sidebar-link">性能优化</a></li><li><a href="/continuous_learning/job_experience/I18n.html" class="sidebar-link">国际化</a></li><li><a href="/continuous_learning/job_experience/DynamicForm.html" class="sidebar-link">动态表单</a></li><li><a href="/continuous_learning/job_experience/cli.html" class="sidebar-link">脚手架</a></li><li><a href="/continuous_learning/job_experience/FileUpload.html" class="sidebar-link">大文件上传</a></li><li><a href="/continuous_learning/job_experience/LowCode.html" class="sidebar-link">低代码</a></li><li><a href="/continuous_learning/job_experience/EchartsHook.html" class="sidebar-link">Echarts图表</a></li><li><a href="/continuous_learning/job_experience/sortable.html" class="sidebar-link">可排序的</a></li><li><a href="/continuous_learning/job_experience/sdk.html" class="sidebar-link">sdk前端埋点</a></li><li><a href="/continuous_learning/job_experience/CICD.html" class="sidebar-link">持续集成持续部署</a></li><li><a href="/continuous_learning/job_experience/ConfigProvider.html" class="sidebar-link">配置式Provider</a></li><li><a href="/continuous_learning/job_experience/VirtualScrolling.html" class="sidebar-link">虚拟滚动</a></li><li><a href="/continuous_learning/job_experience/ThousandSeparatorAmoutInput.html" aria-current="page" class="active sidebar-link">千分符金额文本框组件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/ThousandSeparatorAmoutInput.html#测试案例" class="sidebar-link">测试案例</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/ThousandSeparatorAmoutInput.html#开发思路" class="sidebar-link">开发思路</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/ThousandSeparatorAmoutInput.html#代码实现" class="sidebar-link">代码实现</a></li></ul></li><li><a href="/continuous_learning/job_experience/WebSocket.html" class="sidebar-link">WebSocket</a></li><li><a href="/continuous_learning/job_experience/seo.html" class="sidebar-link">SEO</a></li><li><a href="/continuous_learning/job_experience/largeScreen.html" class="sidebar-link">大屏</a></li><li><a href="/continuous_learning/job_experience/safe.html" class="sidebar-link">前端安全</a></li><li><a href="/continuous_learning/job_experience/singleSignOn.html" class="sidebar-link">单点登录</a></li><li><a href="/continuous_learning/job_experience/video_merger.html" class="sidebar-link">视频合成</a></li><li><a href="/continuous_learning/job_experience/music_soft.html" class="sidebar-link">音乐软件</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="千分符金额文本框组件"><a href="#千分符金额文本框组件" class="header-anchor">#</a> 千分符金额文本框组件</h1> <h2 id="测试案例"><a href="#测试案例" class="header-anchor">#</a> 测试案例</h2> <ul><li>用户所看千分符分割的金额，但表单数据为无千分符分割的金额。</li> <li>是文本输入框。</li> <li>不能输入字符串、错误的金额格式</li></ul> <h2 id="开发思路"><a href="#开发思路" class="header-anchor">#</a> 开发思路</h2> <ul><li>外部父组件值变化（初始值，驳回后一键复制数据），子组件也要更新。</li> <li>子组件的input，也要更新父组件的值。</li> <li>blur事件，修改文本框的值，但input事件不会再触发了。（h5也一样）</li> <li>v-model是 :value 和 @input 的语法糖。</li></ul> <h2 id="代码实现"><a href="#代码实现" class="header-anchor">#</a> 代码实现</h2> <h3 id="父组件"><a href="#父组件" class="header-anchor">#</a> 父组件</h3> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ThousandSeparatorInput</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>amount<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+      <span class="token comment">&lt;!--v-model其实是 :value和 @input的 语法糖--&gt;</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>实际值: {{ amount }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+  
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+    <span class="token keyword">import</span> <span class="token punctuation">{</span> ref <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> ThousandSeparatorInput <span class="token keyword">from</span> <span class="token string">'../components/FormatAmt.vue'</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">components</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        ThousandSeparatorInput
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> amount <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token keyword">undefined</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span>
+            amount
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="子组件"><a href="#子组件" class="header-anchor">#</a> 子组件</h3> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+      <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">@focus</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>handleFocus<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>displayValue<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">@input</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>handleInput<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">@blur</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>handleBlur<span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+  
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token comment">// 思路：父组件传值给子组件，子组件要变化。子组件input后，父组件的值也要变化。</span>
+  <span class="token comment">// 重点：blur事件修改文本框的值，文本框的值会变化，但input事件不再执行了。(h5也一样)</span>
+  <span class="token keyword">import</span> <span class="token punctuation">{</span> ref<span class="token punctuation">,</span> watch <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+  
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'ThousandSeparatorInput'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">modelValue</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token punctuation">[</span>String<span class="token punctuation">,</span> Number<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">''</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">emits</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'update:modelValue'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token function">setup</span><span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span> <span class="token punctuation">{</span> emit <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> displayValue <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token function">formatWithThousandSeparator</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>modelValue<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+      <span class="token comment">// 监听外部传入的 modelValue 变化</span>
+      <span class="token function">watch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> props<span class="token punctuation">.</span>modelValue<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">newValue</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        displayValue<span class="token punctuation">.</span>value <span class="token operator">=</span> newValue<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+      <span class="token comment">// 格式化金额，添加千分符</span>
+      <span class="token keyword">function</span> <span class="token function">formatWithThousandSeparator</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>value<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">''</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> num <span class="token operator">=</span> <span class="token function">parseFloat</span><span class="token punctuation">(</span>value<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">,</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">isNaN</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">''</span> <span class="token operator">:</span> num<span class="token punctuation">.</span><span class="token function">toLocaleString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token comment">// 去除千分符，返回纯数字</span>
+      <span class="token keyword">function</span> <span class="token function">removeThousandSeparator</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>value<span class="token punctuation">.</span><span class="token function">endsWith</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          value <span class="token operator">=</span> value<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> value<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">,</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token comment">// 处理焦点事件</span>
+      <span class="token keyword">function</span> <span class="token function">handleFocus</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        displayValue<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token function">removeThousandSeparator</span><span class="token punctuation">(</span>displayValue<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">// 处理输入事件</span>
+      <span class="token keyword">function</span> <span class="token function">handleInput</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> regex <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\d*(\.\d{0,2})?$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> value <span class="token operator">=</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>regex<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            value <span class="token operator">=</span> value<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">[^\d.]</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(\..*)\.</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">'$1'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^(\d+\.\d{2}).*$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token string">'$1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+  
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>value<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">'.'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          value <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">0</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>value<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+  
+        <span class="token comment">// 交互一：乱输入：直接变为0</span>
+        <span class="token comment">// value = !regex.test(value) ? '0': value;</span>
+        <span class="token comment">// 交互二：只允许数字和小数点</span>
+        <span class="token comment">// value = value.replace(/[^0-9.]/g, '');</span>
+  
+        <span class="token comment">// 限制小数点后最多两位</span>
+        <span class="token comment">// if (value.includes('.')) {</span>
+        <span class="token comment">//   const parts = value.split('.');</span>
+        <span class="token comment">//   if (parts[1].length &gt; 2) {</span>
+        <span class="token comment">//     value = parts[0] + '.' + parts[1].slice(0, 2);</span>
+        <span class="token comment">//   }</span>
+        <span class="token comment">// }</span>
+  
+        <span class="token comment">// 限制总长度不超过13位（包括小数点）</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>value<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">13</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          value <span class="token operator">=</span> value<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">13</span> <span class="token operator">+</span> <span class="token punctuation">(</span>value<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+  
+        displayValue<span class="token punctuation">.</span>value <span class="token operator">=</span> value<span class="token punctuation">;</span>
+        <span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'update:modelValue'</span><span class="token punctuation">,</span> <span class="token function">removeThousandSeparator</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token comment">// 处理失去焦点事件，确保显示的值是格式化后的</span>
+      <span class="token keyword">function</span> <span class="token function">handleBlur</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        displayValue<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token function">formatWithThousandSeparator</span><span class="token punctuation">(</span>displayValue<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        handleFocus<span class="token punctuation">,</span>
+        displayValue<span class="token punctuation">,</span>
+        handleInput<span class="token punctuation">,</span>
+        handleBlur
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="temp"><a href="#temp" class="header-anchor">#</a> temp</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 格式化金额</span>
+<span class="token keyword">function</span> <span class="token function">formatCurrency</span><span class="token punctuation">(</span><span class="token parameter">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 将数字转换为字符串并去除小数点</span>
+  <span class="token keyword">const</span> numberStr <span class="token operator">=</span> number<span class="token punctuation">.</span><span class="token function">toFixed</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// 使用正则表达式每三个数字分隔</span>
+  <span class="token keyword">const</span> formatted <span class="token operator">=</span> numberStr<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\B(?=(\d{3})+(?!\d))</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// 将字符串重新加上小数点</span>
+  <span class="token keyword">return</span> formatted<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(\d)(?=(\d{3})+\.)</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">'$1,'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 使用示例</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">formatCurrency</span><span class="token punctuation">(</span><span class="token number">1234567.89</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出: 1,234,567.89</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/continuous_learning/job_experience/VirtualScrolling.html" class="prev">
+        虚拟滚动
+      </a></span> <span class="next"><a href="/continuous_learning/job_experience/WebSocket.html">
+        WebSocket
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/continuous_learning/assets/js/app.a36e4480.js" defer></script><script src="/continuous_learning/assets/js/2.37a86b2d.js" defer></script><script src="/continuous_learning/assets/js/1.f80ffb5b.js" defer></script><script src="/continuous_learning/assets/js/53.6c378e84.js" defer></script>
+  </body>
+</html>

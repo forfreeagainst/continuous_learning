@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>性能优化 | 时空随笔</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/continuous_learning/img/logo.png">
+    <meta name="description" content="用时间换空间，用空间换时间">
+    <meta name="keywords" content="修炼笔记静态资源站点">
+    
+    <link rel="preload" href="/continuous_learning/assets/css/0.styles.6479703d.css" as="style"><link rel="preload" href="/continuous_learning/assets/js/app.a36e4480.js" as="script"><link rel="preload" href="/continuous_learning/assets/js/2.37a86b2d.js" as="script"><link rel="preload" href="/continuous_learning/assets/js/1.f80ffb5b.js" as="script"><link rel="preload" href="/continuous_learning/assets/js/50.be4ffec3.js" as="script"><link rel="prefetch" href="/continuous_learning/assets/js/10.c7f0ff39.js"><link rel="prefetch" href="/continuous_learning/assets/js/11.b9626a80.js"><link rel="prefetch" href="/continuous_learning/assets/js/12.3c9cf08f.js"><link rel="prefetch" href="/continuous_learning/assets/js/13.e652a34a.js"><link rel="prefetch" href="/continuous_learning/assets/js/14.35d86c22.js"><link rel="prefetch" href="/continuous_learning/assets/js/15.2a05c459.js"><link rel="prefetch" href="/continuous_learning/assets/js/16.eac0ba20.js"><link rel="prefetch" href="/continuous_learning/assets/js/17.5e08e882.js"><link rel="prefetch" href="/continuous_learning/assets/js/18.72fa03b1.js"><link rel="prefetch" href="/continuous_learning/assets/js/19.2dc1dc0c.js"><link rel="prefetch" href="/continuous_learning/assets/js/20.4294c7a5.js"><link rel="prefetch" href="/continuous_learning/assets/js/21.819cdda0.js"><link rel="prefetch" href="/continuous_learning/assets/js/22.5c21a410.js"><link rel="prefetch" href="/continuous_learning/assets/js/23.44f46fee.js"><link rel="prefetch" href="/continuous_learning/assets/js/24.8ee95c2d.js"><link rel="prefetch" href="/continuous_learning/assets/js/25.1f29eb41.js"><link rel="prefetch" href="/continuous_learning/assets/js/26.310db4f9.js"><link rel="prefetch" href="/continuous_learning/assets/js/27.8db0389d.js"><link rel="prefetch" href="/continuous_learning/assets/js/28.4ebae037.js"><link rel="prefetch" href="/continuous_learning/assets/js/29.b98a7475.js"><link rel="prefetch" href="/continuous_learning/assets/js/3.9d2c09c2.js"><link rel="prefetch" href="/continuous_learning/assets/js/30.054bb0af.js"><link rel="prefetch" href="/continuous_learning/assets/js/31.04abd7a6.js"><link rel="prefetch" href="/continuous_learning/assets/js/32.3af01b1a.js"><link rel="prefetch" href="/continuous_learning/assets/js/33.cc1c2b5e.js"><link rel="prefetch" href="/continuous_learning/assets/js/34.505c830d.js"><link rel="prefetch" href="/continuous_learning/assets/js/35.b13d6d1b.js"><link rel="prefetch" href="/continuous_learning/assets/js/36.5e26b1a9.js"><link rel="prefetch" href="/continuous_learning/assets/js/37.4d62416f.js"><link rel="prefetch" href="/continuous_learning/assets/js/38.798af47a.js"><link rel="prefetch" href="/continuous_learning/assets/js/39.e832d8f9.js"><link rel="prefetch" href="/continuous_learning/assets/js/4.80d1ecbf.js"><link rel="prefetch" href="/continuous_learning/assets/js/40.a116f5f6.js"><link rel="prefetch" href="/continuous_learning/assets/js/41.81f443ef.js"><link rel="prefetch" href="/continuous_learning/assets/js/42.dab33553.js"><link rel="prefetch" href="/continuous_learning/assets/js/43.f7aa12a1.js"><link rel="prefetch" href="/continuous_learning/assets/js/44.38ae6c2c.js"><link rel="prefetch" href="/continuous_learning/assets/js/45.18144b73.js"><link rel="prefetch" href="/continuous_learning/assets/js/46.a67e028e.js"><link rel="prefetch" href="/continuous_learning/assets/js/47.e7dff58c.js"><link rel="prefetch" href="/continuous_learning/assets/js/48.a28d7bbe.js"><link rel="prefetch" href="/continuous_learning/assets/js/49.e35e8fd8.js"><link rel="prefetch" href="/continuous_learning/assets/js/5.10d702a2.js"><link rel="prefetch" href="/continuous_learning/assets/js/51.401ca435.js"><link rel="prefetch" href="/continuous_learning/assets/js/52.991e3791.js"><link rel="prefetch" href="/continuous_learning/assets/js/53.6c378e84.js"><link rel="prefetch" href="/continuous_learning/assets/js/54.afd3b835.js"><link rel="prefetch" href="/continuous_learning/assets/js/55.e6e8b14a.js"><link rel="prefetch" href="/continuous_learning/assets/js/56.6999b1e2.js"><link rel="prefetch" href="/continuous_learning/assets/js/57.906f930f.js"><link rel="prefetch" href="/continuous_learning/assets/js/58.17474ef6.js"><link rel="prefetch" href="/continuous_learning/assets/js/59.c4205278.js"><link rel="prefetch" href="/continuous_learning/assets/js/6.4e1b404c.js"><link rel="prefetch" href="/continuous_learning/assets/js/60.365fc4b1.js"><link rel="prefetch" href="/continuous_learning/assets/js/61.9199b6ad.js"><link rel="prefetch" href="/continuous_learning/assets/js/62.c2e31630.js"><link rel="prefetch" href="/continuous_learning/assets/js/63.fde82eaf.js"><link rel="prefetch" href="/continuous_learning/assets/js/64.b3167bde.js"><link rel="prefetch" href="/continuous_learning/assets/js/65.840325b4.js"><link rel="prefetch" href="/continuous_learning/assets/js/66.06121a45.js"><link rel="prefetch" href="/continuous_learning/assets/js/67.9e4fea73.js"><link rel="prefetch" href="/continuous_learning/assets/js/68.a7170c34.js"><link rel="prefetch" href="/continuous_learning/assets/js/69.3c0af0df.js"><link rel="prefetch" href="/continuous_learning/assets/js/7.c4b094c5.js"><link rel="prefetch" href="/continuous_learning/assets/js/70.a3292e1c.js"><link rel="prefetch" href="/continuous_learning/assets/js/71.648ff042.js"><link rel="prefetch" href="/continuous_learning/assets/js/72.f509ed4f.js"><link rel="prefetch" href="/continuous_learning/assets/js/73.94b10fa6.js"><link rel="prefetch" href="/continuous_learning/assets/js/74.a34a5838.js"><link rel="prefetch" href="/continuous_learning/assets/js/75.29cd3ddd.js"><link rel="prefetch" href="/continuous_learning/assets/js/76.80dfd8aa.js"><link rel="prefetch" href="/continuous_learning/assets/js/77.61272f4f.js"><link rel="prefetch" href="/continuous_learning/assets/js/78.18964c2c.js"><link rel="prefetch" href="/continuous_learning/assets/js/79.a9e33c5e.js"><link rel="prefetch" href="/continuous_learning/assets/js/80.e8ad302b.js"><link rel="prefetch" href="/continuous_learning/assets/js/vendors~docsearch.bd0b093a.js">
+    <link rel="stylesheet" href="/continuous_learning/assets/css/0.styles.6479703d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/continuous_learning/" class="home-link router-link-active"><img src="/continuous_learning/img/logo.png" alt="时空随笔" class="logo"> <span class="site-name can-hide">时空随笔</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/continuous_learning/index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/HTMLAndCSS.html" class="nav-link">
+  HTML和CSS
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/javascript.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/typescript.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/node.js.html" class="nav-link">
+  node.js
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/solid.html" class="nav-link">
+  设计模式与数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/variable.html" class="nav-link">
+  EnglishVariable
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/English.html" class="nav-link">
+  EnglishArticle
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="轮子" class="dropdown-title"><span class="title">轮子</span> <span class="arrow down"></span></button> <button type="button" aria-label="轮子" class="mobile-dropdown-title"><span class="title">轮子</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue.html" class="nav-link">
+  vue语法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_source.html" class="nav-link">
+  vue源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_ecology.html" class="nav-link">
+  Vue生态
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/react.html" class="nav-link">
+  react语法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/React_source.html" class="nav-link">
+  React源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vueInfrastructure.html" class="nav-link">
+  vue基建
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/esbuild.html" class="nav-link">
+  esbuild
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/webpack.html" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vite.html" class="nav-link">
+  vite
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/rollup.html" class="nav-link">
+  rollup
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/test_tool.html" class="nav-link">
+  测试工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow down"></span></button> <button type="button" aria-label="面试" class="mobile-dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/EssenceSummary.html" class="nav-link">
+  精华
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/technologyOne.html" class="nav-link">
+  技术类1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/chat.html" class="nav-link">
+  闲谈
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/handwriting.html" class="nav-link">
+  手写题
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithm.html" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmOne.html" class="nav-link">
+  算法题1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmTwo.html" class="nav-link">
+  算法题2
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/QA.html" class="nav-link">
+  AI问答
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/other.html" class="nav-link">
+  AI随便问问
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工作经历" class="dropdown-title"><span class="title">工作经历</span> <span class="arrow down"></span></button> <button type="button" aria-label="工作经历" class="mobile-dropdown-title"><span class="title">工作经历</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/MigratingFromVue2ToVue3.html" class="nav-link">
+  从Vue2迁移到Vue3
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/PromiseDialog.html" class="nav-link">
+  基于Promise调用子组件弹窗
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/permission.html" class="nav-link">
+  权限控制
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/PerformanceOptimization.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/I18n.html" class="nav-link">
+  国际化
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/DynamicForm.html" class="nav-link">
+  动态表单
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/cli.html" class="nav-link">
+  脚手架
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/FileUpload.html" class="nav-link">
+  大文件上传
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/LowCode.html" class="nav-link">
+  低代码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/EchartsHook.html" class="nav-link">
+  Echarts图表
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/sortable.html" class="nav-link">
+  可排序的
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/sdk.html" class="nav-link">
+  sdk前端埋点
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/CICD.html" class="nav-link">
+  持续集成持续部署
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ConfigProvider.html" class="nav-link">
+  配置式Provider
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/VirtualScrolling.html" class="nav-link">
+  虚拟滚动
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ThousandSeparatorAmoutInput.html" class="nav-link">
+  千分符金额文本框组件
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/WebSocket.html" class="nav-link">
+  WebSocket
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/seo.html" class="nav-link">
+  SEO
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/largeScreen.html" class="nav-link">
+  大屏
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/safe.html" class="nav-link">
+  前端安全
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/singleSignOn.html" class="nav-link">
+  单点登录
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/video_merger.html" class="nav-link">
+  视频合成
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/music_soft.html" class="nav-link">
+  音乐软件
+</a></li></ul></div></div> <a href="https://github.com/forfreeagainst/continuous_learning" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/continuous_learning/index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/HTMLAndCSS.html" class="nav-link">
+  HTML和CSS
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/javascript.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/typescript.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/node.js.html" class="nav-link">
+  node.js
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/solid.html" class="nav-link">
+  设计模式与数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/variable.html" class="nav-link">
+  EnglishVariable
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/English.html" class="nav-link">
+  EnglishArticle
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="轮子" class="dropdown-title"><span class="title">轮子</span> <span class="arrow down"></span></button> <button type="button" aria-label="轮子" class="mobile-dropdown-title"><span class="title">轮子</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue.html" class="nav-link">
+  vue语法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_source.html" class="nav-link">
+  vue源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_ecology.html" class="nav-link">
+  Vue生态
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/react.html" class="nav-link">
+  react语法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/React_source.html" class="nav-link">
+  React源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vueInfrastructure.html" class="nav-link">
+  vue基建
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/esbuild.html" class="nav-link">
+  esbuild
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/webpack.html" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vite.html" class="nav-link">
+  vite
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/rollup.html" class="nav-link">
+  rollup
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/test_tool.html" class="nav-link">
+  测试工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow down"></span></button> <button type="button" aria-label="面试" class="mobile-dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/EssenceSummary.html" class="nav-link">
+  精华
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/technologyOne.html" class="nav-link">
+  技术类1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/chat.html" class="nav-link">
+  闲谈
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/handwriting.html" class="nav-link">
+  手写题
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithm.html" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmOne.html" class="nav-link">
+  算法题1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmTwo.html" class="nav-link">
+  算法题2
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/QA.html" class="nav-link">
+  AI问答
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/other.html" class="nav-link">
+  AI随便问问
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工作经历" class="dropdown-title"><span class="title">工作经历</span> <span class="arrow down"></span></button> <button type="button" aria-label="工作经历" class="mobile-dropdown-title"><span class="title">工作经历</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/MigratingFromVue2ToVue3.html" class="nav-link">
+  从Vue2迁移到Vue3
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/PromiseDialog.html" class="nav-link">
+  基于Promise调用子组件弹窗
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/permission.html" class="nav-link">
+  权限控制
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/PerformanceOptimization.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/I18n.html" class="nav-link">
+  国际化
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/DynamicForm.html" class="nav-link">
+  动态表单
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/cli.html" class="nav-link">
+  脚手架
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/FileUpload.html" class="nav-link">
+  大文件上传
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/LowCode.html" class="nav-link">
+  低代码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/EchartsHook.html" class="nav-link">
+  Echarts图表
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/sortable.html" class="nav-link">
+  可排序的
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/sdk.html" class="nav-link">
+  sdk前端埋点
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/CICD.html" class="nav-link">
+  持续集成持续部署
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ConfigProvider.html" class="nav-link">
+  配置式Provider
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/VirtualScrolling.html" class="nav-link">
+  虚拟滚动
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ThousandSeparatorAmoutInput.html" class="nav-link">
+  千分符金额文本框组件
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/WebSocket.html" class="nav-link">
+  WebSocket
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/seo.html" class="nav-link">
+  SEO
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/largeScreen.html" class="nav-link">
+  大屏
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/safe.html" class="nav-link">
+  前端安全
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/singleSignOn.html" class="nav-link">
+  单点登录
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/video_merger.html" class="nav-link">
+  视频合成
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/music_soft.html" class="nav-link">
+  音乐软件
+</a></li></ul></div></div> <a href="https://github.com/forfreeagainst/continuous_learning" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>轮子</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>面试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>工作经历</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/continuous_learning/job_experience/MigratingFromVue2ToVue3.html" class="sidebar-link">从Vue2迁移到Vue3</a></li><li><a href="/continuous_learning/job_experience/PromiseDialog.html" class="sidebar-link">基于Promise调用子组件弹窗</a></li><li><a href="/continuous_learning/job_experience/permission.html" class="sidebar-link">权限控制</a></li><li><a href="/continuous_learning/job_experience/PerformanceOptimization.html" aria-current="page" class="active sidebar-link">性能优化</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/PerformanceOptimization.html#q-a" class="sidebar-link">Q &amp; A</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/PerformanceOptimization.html#设备" class="sidebar-link">设备</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/PerformanceOptimization.html#性能需求" class="sidebar-link">性能需求</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/PerformanceOptimization.html#原理" class="sidebar-link">原理</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/PerformanceOptimization.html#首屏加载" class="sidebar-link">首屏加载</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/PerformanceOptimization.html#更新优化" class="sidebar-link">更新优化</a></li></ul></li><li><a href="/continuous_learning/job_experience/I18n.html" class="sidebar-link">国际化</a></li><li><a href="/continuous_learning/job_experience/DynamicForm.html" class="sidebar-link">动态表单</a></li><li><a href="/continuous_learning/job_experience/cli.html" class="sidebar-link">脚手架</a></li><li><a href="/continuous_learning/job_experience/FileUpload.html" class="sidebar-link">大文件上传</a></li><li><a href="/continuous_learning/job_experience/LowCode.html" class="sidebar-link">低代码</a></li><li><a href="/continuous_learning/job_experience/EchartsHook.html" class="sidebar-link">Echarts图表</a></li><li><a href="/continuous_learning/job_experience/sortable.html" class="sidebar-link">可排序的</a></li><li><a href="/continuous_learning/job_experience/sdk.html" class="sidebar-link">sdk前端埋点</a></li><li><a href="/continuous_learning/job_experience/CICD.html" class="sidebar-link">持续集成持续部署</a></li><li><a href="/continuous_learning/job_experience/ConfigProvider.html" class="sidebar-link">配置式Provider</a></li><li><a href="/continuous_learning/job_experience/VirtualScrolling.html" class="sidebar-link">虚拟滚动</a></li><li><a href="/continuous_learning/job_experience/ThousandSeparatorAmoutInput.html" class="sidebar-link">千分符金额文本框组件</a></li><li><a href="/continuous_learning/job_experience/WebSocket.html" class="sidebar-link">WebSocket</a></li><li><a href="/continuous_learning/job_experience/seo.html" class="sidebar-link">SEO</a></li><li><a href="/continuous_learning/job_experience/largeScreen.html" class="sidebar-link">大屏</a></li><li><a href="/continuous_learning/job_experience/safe.html" class="sidebar-link">前端安全</a></li><li><a href="/continuous_learning/job_experience/singleSignOn.html" class="sidebar-link">单点登录</a></li><li><a href="/continuous_learning/job_experience/video_merger.html" class="sidebar-link">视频合成</a></li><li><a href="/continuous_learning/job_experience/music_soft.html" class="sidebar-link">音乐软件</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="性能优化"><a href="#性能优化" class="header-anchor">#</a> 性能优化</h1> <h2 id="q-a"><a href="#q-a" class="header-anchor">#</a> Q &amp; A</h2> <p>前端开发，说一下你的性能优化是怎么做的？你们公司性能优化的衡量指标有哪些？是否有真实用户的衡量指标？</p> <h2 id="设备"><a href="#设备" class="header-anchor">#</a> 设备</h2> <p>Android 版本， Android 5.0及以上
+IOS版本，IOS9.0及以上
+屏幕兼容性：自适应屏幕</p> <h2 id="性能需求"><a href="#性能需求" class="header-anchor">#</a> 性能需求</h2> <ol><li>在 95%的情况下，一般时段响应事件不超过1.5秒，高峰时段不超过3秒。
+打开功能菜单从点击到 第一个界面显示出来所需要的时间 不得超过 300毫秒。</li> <li>在推荐配置环境下：登录响应时间在2 秒内，刷新页面响应时间在 2秒内，
+刷新页面列表响应时间 2秒内，打开信息条目响应时间1秒内。</li> <li>每天手机登录用户数 为1000左右。</li></ol> <h2 id="原理"><a href="#原理" class="header-anchor">#</a> 原理</h2> <h3 id="从浏览器地址栏输入url到显示⻚面的步骤"><a href="#从浏览器地址栏输入url到显示⻚面的步骤" class="header-anchor">#</a> 从浏览器地址栏输⼊url到显示⻚⾯的步骤</h3> <ol><li>url 解析</li></ol> <h4 id="浏览器渲染过程"><a href="#浏览器渲染过程" class="header-anchor">#</a> 浏览器渲染过程</h4> <p>解析：script:async、defer  link:prefetch、repload</p> <p>最初是加载和构建阶段。加载阶段：这个阶段中，浏览器会从上到下加载一个HTML页面，并解析文档中的内容。
+如果它遇到外部资源，比如CSS文件、图片或者JS文件，那么浏览器会发起额外的HTTP请求来获取它们，当浏览器
+加载到JS文件时，默认情况下，浏览器会暂停HTML解析。等待JS加载并执行完成后，才继续处理后续的内容。除非
+脚本使用了async /defer 属性 ，否则JS会阻塞页面的解析。这是因为JS 可能会修改 DOM结构。浏览器需要
+确保解析和执行的顺序一致。当HTML解析逐步完成，并且关键的资源（如CSS）已加载后，浏览器就会开始构建
+页面的渲染结构。
+构建阶段：
+它会将HTML构建成一个DOM树，CSS文件则会被解析成CSSOM树，即CSS对象模型树。DOM树和CSSOM树会进一步合并，
+形成渲染树。渲染树只包含可见元素。如果一个元素的display:none被应用，它就不会进入渲染树。
+（（DOM 树仍然包含该节点）（渲染树 = DOM 树 + CSSOM 树，但 display: none 的节点会被过滤掉））
+而像opacity: 0;或者visibility:hidden这类的元素，仍然会在渲染树中，但不会被绘制。
+最终我们进入到了渲染阶段。根据渲染树，浏览器会计算每个节点的布局（Layout：计算节点尺寸/位置）信息，比如
+大小、位置等，然后根据计算好的信息，将页面绘制(Paint：像素填充到屏幕)到屏幕上，将最终的网页展示给我们。</p> <p>浏览器的渲染是单线程的。
+也就是说JS执行、布局、绘制，这些任务都在主线程上完成。如果任务过多或者过于耗时，就会导致页面卡顿。
+这里就有几个优化主线程性能的技巧，第一是尽量减少DOM操作。我们可以使用浏览器的批量更新机制，即让
+浏览器对多次DOM操作进行合并，避免频繁触发重排和重绘。我们可以使用DocumentFragment或者
+requestAnimationFrame()</p> <h5 id="补充"><a href="#补充" class="header-anchor">#</a> 补充</h5> <p>DocumentFragment，文档片段接口，表示一个没有父对象的最小文档对象。</p> <p>它被作为一个轻量版的 Document 使用，就像标准的 document 一样，存储由节点（nodes）组成的文档结构。与 document 相比，最大的区别是它不是真实 DOM 树的一部分，它的变化不会触发 DOM 树的重新渲染，且不会对性能产生影响。</p> <p>GPU 加速</p> <p>transform 和 opacity 不会触发重排/重绘，而是走 GPU 合成层（Compositing），性能更高。</p> <p>Visibility :占用空间（在渲染树，不会绘制）， display:none 不占用空间（不在渲染树）</p> <p>v-if 和 v-show</p> <table><thead><tr><th>指令</th> <th>渲染方式</th> <th>DOM 是否存在？</th></tr></thead> <tbody><tr><td>v-if</td> <td>条件性渲染：当条件为 false 时，元素完全从 DOM 中移除。</td> <td>不存在（条件为 false 时）</td></tr> <tr><td>v-show</td> <td>显示/隐藏切换：通过 CSS display: none 控制，元素始终保留在 DOM 中。</td> <td>存在（仅视觉隐藏）</td></tr></tbody></table> <p>script defer 告诉浏览器立即下载，但延迟执行，只对外部的脚本有效
+script async  可以和页面加载一起执行，可以和其他脚本一起执行，所以不应在加载中修改DOM.</p> <h2 id="首屏加载"><a href="#首屏加载" class="header-anchor">#</a> 首屏加载</h2> <h3 id="首屏加载慢原因"><a href="#首屏加载慢原因" class="header-anchor">#</a> 首屏加载慢原因</h3> <ul><li>网络原因：F12 Network 网络 切换 网速:快速4G</li></ul> <h3 id="性能指标"><a href="#性能指标" class="header-anchor">#</a> 性能指标</h3> <ul><li>FP: First Paint：白屏时间</li> <li>FCP: First Conent Paint (/peɪnt/)：首屏时间</li> <li>LCP: Large Content(kɑːntent) Paint：最大内容绘制时间</li> <li>TTI： time to interactive 可交互时间</li> <li>TTFB：time to first byte 首字节时间 网络性能 服务器响应能力</li></ul> <h3 id="如何收集"><a href="#如何收集" class="header-anchor">#</a> 如何收集</h3> <p>p95</p> <p>其他性能优化手段：网络请求、资源预处理、资源压缩、资源的延后处理</p> <ul><li>dns 解析: <code>timing.domainLookupEnd - timing.domainLookupStart</code></li> <li>TTI 可交互时间：<code>timing.domInteractive - timing.navigationStart</code></li></ul> <h3 id="优化首屏加载"><a href="#优化首屏加载" class="header-anchor">#</a> 优化首屏加载</h3> <h4 id="静态资源处理"><a href="#静态资源处理" class="header-anchor">#</a> 静态资源处理</h4> <p>包体积优化 tree shaking，eg: lodash</p> <h4 id="vue3的异步组件"><a href="#vue3的异步组件" class="header-anchor">#</a> vue3的异步组件</h4> <p>首屏的组件需要某个条件才会显示在页面。（v-if，仍然加载组件资源）</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Vue3中的异步组件</span>
+<span class="token comment">// import cropDialog from './cropDialog.vue';</span>
+
+<span class="token comment">// 异步组件</span>
+<span class="token keyword">const</span> cropDialog <span class="token operator">=</span> <span class="token function">defineAsyncComponent</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./cropDialog.vue'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h4 id="图片治理"><a href="#图片治理" class="header-anchor">#</a> 图片治理</h4> <p>base64图片，方案：图片占位+使用网络图片（cdn）(5s -&gt; 3s)
+对于资源较小的文件，设置成base64,既可以减少请求，也不会影响到页面的加载性能。</p> <h4 id="脚本治理"><a href="#脚本治理" class="header-anchor">#</a> 脚本治理</h4> <h4 id="css治理"><a href="#css治理" class="header-anchor">#</a> css治理</h4> <p>unocss（原子化 css, 最小化 css 类为单位，实现高度可复用性，css文件尽可能小）</p> <h4 id="减少http请求"><a href="#减少http请求" class="header-anchor">#</a> 减少HTTP请求</h4> <ul><li>合并CSS和JavaScript文件，减少HTTP请求数量。（跟自定义插件InlineChunkWebpackPlugin）</li></ul> <h4 id="白屏时间"><a href="#白屏时间" class="header-anchor">#</a> 白屏时间</h4> <p>骨架屏（有内容，让用户感觉快），Vue框架执行之前</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>app<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>优化视觉体验，白屏看起来不那么难受<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h4 id="代码分割"><a href="#代码分割" class="header-anchor">#</a> 代码分割</h4> <p>按需加载 或者 并行加载文件。（通过roolup-plugin-visualizer）</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">loadlazy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./lazy.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="路由懒加载与组件懒加载"><a href="#路由懒加载与组件懒加载" class="header-anchor">#</a> 路由懒加载与组件懒加载</h4> <ul><li>路由懒加载：使用Vue Router的 import() 语法 动态加载路由组件，减少首屏加载的代码量。</li> <li>组件懒加载：对于非首屏的组件，可以使用import() 语法进行懒加载。（tab页面）</li></ul> <h4 id="按需引入ui组件库"><a href="#按需引入ui组件库" class="header-anchor">#</a> 按需引入UI组件库</h4> <h5 id="推荐使用按需引入-自动导入"><a href="#推荐使用按需引入-自动导入" class="header-anchor">#</a> 推荐使用按需引入 + 自动导入</h5> <ol><li>pnpm add -D unplugin-vue-components unplugin-auto-import</li> <li>结合构建工具，进行打包配置</li></ol> <h3 id="如何计算首屏加载时间-分析性能瓶颈"><a href="#如何计算首屏加载时间-分析性能瓶颈" class="header-anchor">#</a> 如何计算首屏加载时间/分析性能瓶颈</h3> <h4 id="性能监控与分析"><a href="#性能监控与分析" class="header-anchor">#</a> 性能监控与分析</h4> <p>使用工具（如Lighthouse、WebPageTest）分析应用性能，找出瓶颈并进行针对性优化。</p> <h4 id="使用performance"><a href="#使用performance" class="header-anchor">#</a> 使用Performance</h4> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Vue项目</span>
+window<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// MDN：timing即将废弃的属性</span>
+    <span class="token keyword">const</span> timing <span class="token operator">=</span> performance<span class="token punctuation">.</span>timing<span class="token punctuation">.</span>domComplete <span class="token operator">-</span> performance<span class="token punctuation">.</span>timing<span class="token punctuation">.</span>navigationStart<span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;🚀 ~ timing:&quot;</span><span class="token punctuation">,</span> timing<span class="token punctuation">)</span>
+    <span class="token comment">//改写</span>
+    <span class="token comment">// 观察的性能事件被记录时将调用 PerformanceObserverCallback 回调。调用回调时，其第一个参数是 性能观察条目列表，第二个参数是 观察者 对象。</span>
+    <span class="token keyword">const</span> observer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PerformanceObserver</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">list<span class="token punctuation">,</span> obj</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        list<span class="token punctuation">.</span><span class="token function">getEntries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">entry</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>entry<span class="token punctuation">.</span>domComplete<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    observer<span class="token punctuation">.</span><span class="token function">observe</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">entryTypes</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;navigation&quot;</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>navigationStart: 页面导航开始的时间戳</li> <li>unloadEventStart: 卸载前一个页面的事件开始时间</li> <li>unloadEventEnd: 卸载前一个页面的事件结束时间</li> <li>redirectStart: 第一个重定向开始的时间</li> <li>redirectEnd: 最后一个重定向结束的时间</li> <li>fetchStart: 浏览器开始获取文档的时间</li> <li>domainLookupStart: DNS 查询开始的时间</li> <li>domainLookupEnd: DNS 查询结束的时间</li> <li>connectStart: TCP 连接开始的时间</li> <li>connectEnd: TCP 连接结束的时间</li> <li>sourceConnectionStart: 安全连接开始的时间（仅HTTPS）</li> <li>requestStart: 浏览器向服务器发送请求的时间</li> <li>responseStart: 浏览器从服务器接收第一个字节的时间</li> <li>responseEnd: 浏览器从服务器接收最后一个字节的时间</li> <li>domLoading: 解析器开始解析 DOM 的时间</li> <li>domInteractive: DOM 解析完成，但资源（如图片、样式表）可能仍在加载的时间</li> <li>domContentLoadedEventStart: DOMContentLoaded 事件开始的时间</li> <li>domContentLoadedEventEnd: DOMContentLoaded 事件结束的时间</li> <li>domComplete: DOM 和所有子资源都已完全加载的时间</li> <li>loadEventStart: load 事件开始的时间</li> <li>loadEventEnd: load 事件结束的时间</li></ul> <h4 id="f12"><a href="#f12" class="header-anchor">#</a> F12</h4> <p>NetWork网络 右下角有个加载时间load：453毫秒，这就是首屏加载时间</p> <h2 id="更新优化"><a href="#更新优化" class="header-anchor">#</a> 更新优化</h2> <h3 id="使用指令"><a href="#使用指令" class="header-anchor">#</a> 使用指令</h3> <ul><li>v-once</li> <li>v-memo</li></ul> <h3 id="通用的优化"><a href="#通用的优化" class="header-anchor">#</a> 通用的优化</h3> <p>长列表 - 虚拟滚动</p> <h3 id="减少大型不可变数据的响应性的开销"><a href="#减少大型不可变数据的响应性的开销" class="header-anchor">#</a> 减少大型不可变数据的响应性的开销</h3> <ul><li>shallowRef</li></ul> <h3 id="避免不必要组件抽象"><a href="#避免不必要组件抽象" class="header-anchor">#</a> 避免不必要组件抽象</h3> <p>无内容的template。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/continuous_learning/job_experience/permission.html" class="prev">
+        权限控制
+      </a></span> <span class="next"><a href="/continuous_learning/job_experience/I18n.html">
+        国际化
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/continuous_learning/assets/js/app.a36e4480.js" defer></script><script src="/continuous_learning/assets/js/2.37a86b2d.js" defer></script><script src="/continuous_learning/assets/js/1.f80ffb5b.js" defer></script><script src="/continuous_learning/assets/js/50.be4ffec3.js" defer></script>
+  </body>
+</html>

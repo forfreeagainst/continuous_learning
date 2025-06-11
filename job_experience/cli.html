@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>自定义脚手架 | 时空随笔</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/continuous_learning/img/logo.png">
+    <meta name="description" content="用时间换空间，用空间换时间">
+    <meta name="keywords" content="修炼笔记静态资源站点">
+    
+    <link rel="preload" href="/continuous_learning/assets/css/0.styles.6479703d.css" as="style"><link rel="preload" href="/continuous_learning/assets/js/app.a36e4480.js" as="script"><link rel="preload" href="/continuous_learning/assets/js/2.37a86b2d.js" as="script"><link rel="preload" href="/continuous_learning/assets/js/1.f80ffb5b.js" as="script"><link rel="preload" href="/continuous_learning/assets/js/59.c4205278.js" as="script"><link rel="prefetch" href="/continuous_learning/assets/js/10.c7f0ff39.js"><link rel="prefetch" href="/continuous_learning/assets/js/11.b9626a80.js"><link rel="prefetch" href="/continuous_learning/assets/js/12.3c9cf08f.js"><link rel="prefetch" href="/continuous_learning/assets/js/13.e652a34a.js"><link rel="prefetch" href="/continuous_learning/assets/js/14.35d86c22.js"><link rel="prefetch" href="/continuous_learning/assets/js/15.2a05c459.js"><link rel="prefetch" href="/continuous_learning/assets/js/16.eac0ba20.js"><link rel="prefetch" href="/continuous_learning/assets/js/17.5e08e882.js"><link rel="prefetch" href="/continuous_learning/assets/js/18.72fa03b1.js"><link rel="prefetch" href="/continuous_learning/assets/js/19.2dc1dc0c.js"><link rel="prefetch" href="/continuous_learning/assets/js/20.4294c7a5.js"><link rel="prefetch" href="/continuous_learning/assets/js/21.819cdda0.js"><link rel="prefetch" href="/continuous_learning/assets/js/22.5c21a410.js"><link rel="prefetch" href="/continuous_learning/assets/js/23.44f46fee.js"><link rel="prefetch" href="/continuous_learning/assets/js/24.8ee95c2d.js"><link rel="prefetch" href="/continuous_learning/assets/js/25.1f29eb41.js"><link rel="prefetch" href="/continuous_learning/assets/js/26.310db4f9.js"><link rel="prefetch" href="/continuous_learning/assets/js/27.8db0389d.js"><link rel="prefetch" href="/continuous_learning/assets/js/28.4ebae037.js"><link rel="prefetch" href="/continuous_learning/assets/js/29.b98a7475.js"><link rel="prefetch" href="/continuous_learning/assets/js/3.9d2c09c2.js"><link rel="prefetch" href="/continuous_learning/assets/js/30.054bb0af.js"><link rel="prefetch" href="/continuous_learning/assets/js/31.04abd7a6.js"><link rel="prefetch" href="/continuous_learning/assets/js/32.3af01b1a.js"><link rel="prefetch" href="/continuous_learning/assets/js/33.cc1c2b5e.js"><link rel="prefetch" href="/continuous_learning/assets/js/34.505c830d.js"><link rel="prefetch" href="/continuous_learning/assets/js/35.b13d6d1b.js"><link rel="prefetch" href="/continuous_learning/assets/js/36.5e26b1a9.js"><link rel="prefetch" href="/continuous_learning/assets/js/37.4d62416f.js"><link rel="prefetch" href="/continuous_learning/assets/js/38.798af47a.js"><link rel="prefetch" href="/continuous_learning/assets/js/39.e832d8f9.js"><link rel="prefetch" href="/continuous_learning/assets/js/4.80d1ecbf.js"><link rel="prefetch" href="/continuous_learning/assets/js/40.a116f5f6.js"><link rel="prefetch" href="/continuous_learning/assets/js/41.81f443ef.js"><link rel="prefetch" href="/continuous_learning/assets/js/42.dab33553.js"><link rel="prefetch" href="/continuous_learning/assets/js/43.f7aa12a1.js"><link rel="prefetch" href="/continuous_learning/assets/js/44.38ae6c2c.js"><link rel="prefetch" href="/continuous_learning/assets/js/45.18144b73.js"><link rel="prefetch" href="/continuous_learning/assets/js/46.a67e028e.js"><link rel="prefetch" href="/continuous_learning/assets/js/47.e7dff58c.js"><link rel="prefetch" href="/continuous_learning/assets/js/48.a28d7bbe.js"><link rel="prefetch" href="/continuous_learning/assets/js/49.e35e8fd8.js"><link rel="prefetch" href="/continuous_learning/assets/js/5.10d702a2.js"><link rel="prefetch" href="/continuous_learning/assets/js/50.be4ffec3.js"><link rel="prefetch" href="/continuous_learning/assets/js/51.401ca435.js"><link rel="prefetch" href="/continuous_learning/assets/js/52.991e3791.js"><link rel="prefetch" href="/continuous_learning/assets/js/53.6c378e84.js"><link rel="prefetch" href="/continuous_learning/assets/js/54.afd3b835.js"><link rel="prefetch" href="/continuous_learning/assets/js/55.e6e8b14a.js"><link rel="prefetch" href="/continuous_learning/assets/js/56.6999b1e2.js"><link rel="prefetch" href="/continuous_learning/assets/js/57.906f930f.js"><link rel="prefetch" href="/continuous_learning/assets/js/58.17474ef6.js"><link rel="prefetch" href="/continuous_learning/assets/js/6.4e1b404c.js"><link rel="prefetch" href="/continuous_learning/assets/js/60.365fc4b1.js"><link rel="prefetch" href="/continuous_learning/assets/js/61.9199b6ad.js"><link rel="prefetch" href="/continuous_learning/assets/js/62.c2e31630.js"><link rel="prefetch" href="/continuous_learning/assets/js/63.fde82eaf.js"><link rel="prefetch" href="/continuous_learning/assets/js/64.b3167bde.js"><link rel="prefetch" href="/continuous_learning/assets/js/65.840325b4.js"><link rel="prefetch" href="/continuous_learning/assets/js/66.06121a45.js"><link rel="prefetch" href="/continuous_learning/assets/js/67.9e4fea73.js"><link rel="prefetch" href="/continuous_learning/assets/js/68.a7170c34.js"><link rel="prefetch" href="/continuous_learning/assets/js/69.3c0af0df.js"><link rel="prefetch" href="/continuous_learning/assets/js/7.c4b094c5.js"><link rel="prefetch" href="/continuous_learning/assets/js/70.a3292e1c.js"><link rel="prefetch" href="/continuous_learning/assets/js/71.648ff042.js"><link rel="prefetch" href="/continuous_learning/assets/js/72.f509ed4f.js"><link rel="prefetch" href="/continuous_learning/assets/js/73.94b10fa6.js"><link rel="prefetch" href="/continuous_learning/assets/js/74.a34a5838.js"><link rel="prefetch" href="/continuous_learning/assets/js/75.29cd3ddd.js"><link rel="prefetch" href="/continuous_learning/assets/js/76.80dfd8aa.js"><link rel="prefetch" href="/continuous_learning/assets/js/77.61272f4f.js"><link rel="prefetch" href="/continuous_learning/assets/js/78.18964c2c.js"><link rel="prefetch" href="/continuous_learning/assets/js/79.a9e33c5e.js"><link rel="prefetch" href="/continuous_learning/assets/js/80.e8ad302b.js"><link rel="prefetch" href="/continuous_learning/assets/js/vendors~docsearch.bd0b093a.js">
+    <link rel="stylesheet" href="/continuous_learning/assets/css/0.styles.6479703d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/continuous_learning/" class="home-link router-link-active"><img src="/continuous_learning/img/logo.png" alt="时空随笔" class="logo"> <span class="site-name can-hide">时空随笔</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/continuous_learning/index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/HTMLAndCSS.html" class="nav-link">
+  HTML和CSS
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/javascript.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/typescript.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/node.js.html" class="nav-link">
+  node.js
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/solid.html" class="nav-link">
+  设计模式与数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/variable.html" class="nav-link">
+  EnglishVariable
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/English.html" class="nav-link">
+  EnglishArticle
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="轮子" class="dropdown-title"><span class="title">轮子</span> <span class="arrow down"></span></button> <button type="button" aria-label="轮子" class="mobile-dropdown-title"><span class="title">轮子</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue.html" class="nav-link">
+  vue语法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_source.html" class="nav-link">
+  vue源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_ecology.html" class="nav-link">
+  Vue生态
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/react.html" class="nav-link">
+  react语法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/React_source.html" class="nav-link">
+  React源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vueInfrastructure.html" class="nav-link">
+  vue基建
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/esbuild.html" class="nav-link">
+  esbuild
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/webpack.html" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vite.html" class="nav-link">
+  vite
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/rollup.html" class="nav-link">
+  rollup
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/test_tool.html" class="nav-link">
+  测试工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow down"></span></button> <button type="button" aria-label="面试" class="mobile-dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/EssenceSummary.html" class="nav-link">
+  精华
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/technologyOne.html" class="nav-link">
+  技术类1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/chat.html" class="nav-link">
+  闲谈
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/handwriting.html" class="nav-link">
+  手写题
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithm.html" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmOne.html" class="nav-link">
+  算法题1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmTwo.html" class="nav-link">
+  算法题2
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/QA.html" class="nav-link">
+  AI问答
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/other.html" class="nav-link">
+  AI随便问问
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工作经历" class="dropdown-title"><span class="title">工作经历</span> <span class="arrow down"></span></button> <button type="button" aria-label="工作经历" class="mobile-dropdown-title"><span class="title">工作经历</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/MigratingFromVue2ToVue3.html" class="nav-link">
+  从Vue2迁移到Vue3
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/PromiseDialog.html" class="nav-link">
+  基于Promise调用子组件弹窗
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/permission.html" class="nav-link">
+  权限控制
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/PerformanceOptimization.html" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/I18n.html" class="nav-link">
+  国际化
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/DynamicForm.html" class="nav-link">
+  动态表单
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/cli.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  脚手架
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/FileUpload.html" class="nav-link">
+  大文件上传
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/LowCode.html" class="nav-link">
+  低代码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/EchartsHook.html" class="nav-link">
+  Echarts图表
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/sortable.html" class="nav-link">
+  可排序的
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/sdk.html" class="nav-link">
+  sdk前端埋点
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/CICD.html" class="nav-link">
+  持续集成持续部署
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ConfigProvider.html" class="nav-link">
+  配置式Provider
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/VirtualScrolling.html" class="nav-link">
+  虚拟滚动
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ThousandSeparatorAmoutInput.html" class="nav-link">
+  千分符金额文本框组件
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/WebSocket.html" class="nav-link">
+  WebSocket
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/seo.html" class="nav-link">
+  SEO
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/largeScreen.html" class="nav-link">
+  大屏
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/safe.html" class="nav-link">
+  前端安全
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/singleSignOn.html" class="nav-link">
+  单点登录
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/video_merger.html" class="nav-link">
+  视频合成
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/music_soft.html" class="nav-link">
+  音乐软件
+</a></li></ul></div></div> <a href="https://github.com/forfreeagainst/continuous_learning" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/continuous_learning/index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/HTMLAndCSS.html" class="nav-link">
+  HTML和CSS
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/javascript.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/typescript.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/node.js.html" class="nav-link">
+  node.js
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/solid.html" class="nav-link">
+  设计模式与数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/variable.html" class="nav-link">
+  EnglishVariable
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/English.html" class="nav-link">
+  EnglishArticle
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="轮子" class="dropdown-title"><span class="title">轮子</span> <span class="arrow down"></span></button> <button type="button" aria-label="轮子" class="mobile-dropdown-title"><span class="title">轮子</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue.html" class="nav-link">
+  vue语法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_source.html" class="nav-link">
+  vue源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_ecology.html" class="nav-link">
+  Vue生态
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/react.html" class="nav-link">
+  react语法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/React_source.html" class="nav-link">
+  React源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vueInfrastructure.html" class="nav-link">
+  vue基建
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/esbuild.html" class="nav-link">
+  esbuild
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/webpack.html" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vite.html" class="nav-link">
+  vite
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/rollup.html" class="nav-link">
+  rollup
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/test_tool.html" class="nav-link">
+  测试工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow down"></span></button> <button type="button" aria-label="面试" class="mobile-dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/EssenceSummary.html" class="nav-link">
+  精华
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/technologyOne.html" class="nav-link">
+  技术类1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/chat.html" class="nav-link">
+  闲谈
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/handwriting.html" class="nav-link">
+  手写题
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithm.html" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmOne.html" class="nav-link">
+  算法题1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmTwo.html" class="nav-link">
+  算法题2
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/QA.html" class="nav-link">
+  AI问答
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/other.html" class="nav-link">
+  AI随便问问
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工作经历" class="dropdown-title"><span class="title">工作经历</span> <span class="arrow down"></span></button> <button type="button" aria-label="工作经历" class="mobile-dropdown-title"><span class="title">工作经历</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/MigratingFromVue2ToVue3.html" class="nav-link">
+  从Vue2迁移到Vue3
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/PromiseDialog.html" class="nav-link">
+  基于Promise调用子组件弹窗
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/permission.html" class="nav-link">
+  权限控制
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/PerformanceOptimization.html" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/I18n.html" class="nav-link">
+  国际化
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/DynamicForm.html" class="nav-link">
+  动态表单
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/cli.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  脚手架
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/FileUpload.html" class="nav-link">
+  大文件上传
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/LowCode.html" class="nav-link">
+  低代码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/EchartsHook.html" class="nav-link">
+  Echarts图表
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/sortable.html" class="nav-link">
+  可排序的
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/sdk.html" class="nav-link">
+  sdk前端埋点
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/CICD.html" class="nav-link">
+  持续集成持续部署
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ConfigProvider.html" class="nav-link">
+  配置式Provider
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/VirtualScrolling.html" class="nav-link">
+  虚拟滚动
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ThousandSeparatorAmoutInput.html" class="nav-link">
+  千分符金额文本框组件
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/WebSocket.html" class="nav-link">
+  WebSocket
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/seo.html" class="nav-link">
+  SEO
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/largeScreen.html" class="nav-link">
+  大屏
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/safe.html" class="nav-link">
+  前端安全
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/singleSignOn.html" class="nav-link">
+  单点登录
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/video_merger.html" class="nav-link">
+  视频合成
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/music_soft.html" class="nav-link">
+  音乐软件
+</a></li></ul></div></div> <a href="https://github.com/forfreeagainst/continuous_learning" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>轮子</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>面试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>工作经历</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/continuous_learning/job_experience/MigratingFromVue2ToVue3.html" class="sidebar-link">从Vue2迁移到Vue3</a></li><li><a href="/continuous_learning/job_experience/PromiseDialog.html" class="sidebar-link">基于Promise调用子组件弹窗</a></li><li><a href="/continuous_learning/job_experience/permission.html" class="sidebar-link">权限控制</a></li><li><a href="/continuous_learning/job_experience/PerformanceOptimization.html" class="sidebar-link">性能优化</a></li><li><a href="/continuous_learning/job_experience/I18n.html" class="sidebar-link">国际化</a></li><li><a href="/continuous_learning/job_experience/DynamicForm.html" class="sidebar-link">动态表单</a></li><li><a href="/continuous_learning/job_experience/cli.html" aria-current="page" class="active sidebar-link">脚手架</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/cli.html#bin的使用" class="sidebar-link">bin的使用</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/cli.html#monorepo工具" class="sidebar-link">monorepo工具</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/cli.html#本地开发子包" class="sidebar-link">本地开发子包</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/cli.html#git规范" class="sidebar-link">Git规范</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/cli.html#lint工具" class="sidebar-link">lint工具</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/cli.html#cli" class="sidebar-link">cli</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/cli.html#测试工具" class="sidebar-link">测试工具</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/cli.html#静态资源站点" class="sidebar-link">静态资源站点</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/cli.html#lint扩展" class="sidebar-link">lint扩展</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/job_experience/cli.html#最佳实践" class="sidebar-link">最佳实践</a></li></ul></li><li><a href="/continuous_learning/job_experience/FileUpload.html" class="sidebar-link">大文件上传</a></li><li><a href="/continuous_learning/job_experience/LowCode.html" class="sidebar-link">低代码</a></li><li><a href="/continuous_learning/job_experience/EchartsHook.html" class="sidebar-link">Echarts图表</a></li><li><a href="/continuous_learning/job_experience/sortable.html" class="sidebar-link">可排序的</a></li><li><a href="/continuous_learning/job_experience/sdk.html" class="sidebar-link">sdk前端埋点</a></li><li><a href="/continuous_learning/job_experience/CICD.html" class="sidebar-link">持续集成持续部署</a></li><li><a href="/continuous_learning/job_experience/ConfigProvider.html" class="sidebar-link">配置式Provider</a></li><li><a href="/continuous_learning/job_experience/VirtualScrolling.html" class="sidebar-link">虚拟滚动</a></li><li><a href="/continuous_learning/job_experience/ThousandSeparatorAmoutInput.html" class="sidebar-link">千分符金额文本框组件</a></li><li><a href="/continuous_learning/job_experience/WebSocket.html" class="sidebar-link">WebSocket</a></li><li><a href="/continuous_learning/job_experience/seo.html" class="sidebar-link">SEO</a></li><li><a href="/continuous_learning/job_experience/largeScreen.html" class="sidebar-link">大屏</a></li><li><a href="/continuous_learning/job_experience/safe.html" class="sidebar-link">前端安全</a></li><li><a href="/continuous_learning/job_experience/singleSignOn.html" class="sidebar-link">单点登录</a></li><li><a href="/continuous_learning/job_experience/video_merger.html" class="sidebar-link">视频合成</a></li><li><a href="/continuous_learning/job_experience/music_soft.html" class="sidebar-link">音乐软件</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="自定义脚手架"><a href="#自定义脚手架" class="header-anchor">#</a> 自定义脚手架</h1> <p>init 初始化Vue定制的模板工程
+补充更多功能
+upload image：上传图片到 cdn,base64（多少转base64）
+CICD脚本</p> <p>脚手架就是快速帮你搭建项目架构的工具</p> <h2 id="bin的使用"><a href="#bin的使用" class="header-anchor">#</a> bin的使用</h2> <h3 id="创建package-json"><a href="#创建package-json" class="header-anchor">#</a> 创建package.json</h3> <p><code>npm init -y</code></p> <h3 id="配置package-json的bin字段"><a href="#配置package-json的bin字段" class="header-anchor">#</a> 配置package.json的bin字段</h3> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// script的tsc等命令，也是到依赖的.bin去操作的</span>
+<span class="token property">&quot;bin&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">&quot;kdvip&quot;</span><span class="token operator">:</span> <span class="token string">&quot;./bin/index.js&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><h3 id="在bin文件夹下-书写index-js"><a href="#在bin文件夹下-书写index-js" class="header-anchor">#</a> 在bin文件夹下，书写index.js</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token hashbang comment">#!/usr/bin/env node</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello world'</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="上传包到本地"><a href="#上传包到本地" class="header-anchor">#</a> 上传包到本地</h3> <p><code>npm link</code></p> <h3 id="执行bin脚本命令"><a href="#执行bin脚本命令" class="header-anchor">#</a> 执行bin脚本命令</h3> <p><code>kdvip</code></p> <h2 id="monorepo工具"><a href="#monorepo工具" class="header-anchor">#</a> monorepo工具</h2> <h3 id="pnpm"><a href="#pnpm" class="header-anchor">#</a> pnpm</h3> <h4 id="安装依赖"><a href="#安装依赖" class="header-anchor">#</a> 安装依赖</h4> <p>在 bash 终端运行: <code>pnpm i</code></p> <ul><li>⭐️ 节省磁盘空间场景</li></ul> <p>在一个项目中有大量的依赖包，尤其是在多个项目或工作空间存在相同依赖时，pnpm能够共享这些相同的依赖包，
+从而大大节省磁盘空间。</p> <ul><li>⭐️ 高效安装场景</li></ul> <p>在同时开发多个项目且项目存在重复依赖的工作场景下，pnpm安装依赖的速度更快。它采用了一种独特的链接方式来管理依赖，相比传统的npm或yarn,在安装大量依赖包时可以减少文件的复制操作，加快安装过程。</p> <h3 id="lerna"><a href="#lerna" class="header-anchor">#</a> lerna</h3> <ul><li>⭐️ 版本管理场景</li></ul> <p>如果这些软件包之间相互依赖，并且需要统一管理版本发布，Lerna可以轻松处理。它能确保所有相互依赖的包
+在版本升级时保持同步，避免因为版本不一致导致的兼容问题。换言之，复杂的大型项目中有多个内部包需要
+协同开发、发布，lerna是一个不错的选择。</p> <h4 id="常见命令"><a href="#常见命令" class="header-anchor">#</a> 常见命令</h4> <ul><li>npm install lerna</li> <li>⭐️ npx lerna init 初始化lerna</li> <li>⭐️ lerna run test 运行子包的script/脚本命令</li> <li>⭐️ lerna clean 删除子包的依赖，注：不会删除项目所在根的依赖</li> <li>lerna create shared 创建子包</li> <li>⭐️ lerna publish 发布包</li></ul> <p>lerna publish 运行的是lerna.json的command的配制。registry也可以选择私有网址</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;version&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1.0.0&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;npmClient&quot;</span><span class="token operator">:</span> <span class="token string">&quot;pnpm&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;useWorkspaces&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;command&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;publish&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;npmClient&quot;</span><span class="token operator">:</span> <span class="token string">&quot;npm&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;chore(release): publish %s&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;registry&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://registry.npmjs.org&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;packages&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;packages/*&quot;</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="入门"><a href="#入门" class="header-anchor">#</a> 入门</h4> <ul><li>安装指定版本的lerna</li> <li>编写lerna.json</li> <li>书写LICENSE，发布时需要协议证书（github新建仓库的时候，可以选择证书）</li></ul> <h4 id="lerna和pnpm一起使用-详见官网"><a href="#lerna和pnpm一起使用-详见官网" class="header-anchor">#</a> lerna和pnpm一起使用，详见官网</h4> <p><a href="https://lerna.nodejs.cn/docs/recipes/using-pnpm-with-lerna" target="_blank" rel="noopener noreferrer">lerna秘诀<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h4 id="lerna发包精要"><a href="#lerna发包精要" class="header-anchor">#</a> ⭐️ lerna发包精要</h4> <div class="language-md extra-class"><pre class="language-md"><code>npm config get registry
+npm config set registry=https://registry.npmjs.org
+npm login 
+用户名：durant123
+密码：SJQ***<span class="token bold"><span class="token punctuation">**</span><span class="token content"><span class="token italic"><span class="token punctuation">*</span><span class="token content">.(</span><span class="token punctuation">*</span></span></span><span class="token punctuation">**</span></span>***是手机密码)
+
+npm config set proxy null
+npm cache clean --force
+npm config set registry=https://registry.npmjs.org
+提完代码，lerna publish
+</code></pre></div><ul><li>代理问题，多次使用被视为翻墙。npm config set proxy null &amp;&amp; npm cache clean --force</li> <li>lerna发包，一定要有改动并提交的代码</li> <li>如果要one-time-password, 手机设备的软件AUthenticator，有一次性验证码</li> <li>ECONNRESET可能网络问题，稍后重试。解决代理问题，继续重试lerna发布。eg: lerna ERR! lerna The &quot;code&quot; argument must be of type number. Received type string ('ECONNRESET')</li> <li>书写LICENSE，发布时需要协议证书（github新建仓库的时候，可以选择证书）</li></ul> <h2 id="本地开发子包"><a href="#本地开发子包" class="header-anchor">#</a> 本地开发子包</h2> <ul><li>pnpm init 或者npm init -y</li></ul> <h2 id="git规范"><a href="#git规范" class="header-anchor">#</a> Git规范</h2> <h3 id="常用的钩子"><a href="#常用的钩子" class="header-anchor">#</a> 常用的钩子</h3> <ul><li>pre-commit：在<code>git commit</code> 之前触发，常用于对提交的代码文件进行规范校验</li> <li>commit-msg：在<code>git commit</code>后触发，用于提交消息的格式校验</li></ul> <h3 id="husky-更好使用git钩子管理项目"><a href="#husky-更好使用git钩子管理项目" class="header-anchor">#</a> husky：更好使用git钩子管理项目</h3> <ul><li><code>npx husky install</code>或<code>husky install</code></li></ul> <h3 id="changelog-维护git更新日志"><a href="#changelog-维护git更新日志" class="header-anchor">#</a> changelog：维护Git更新日志</h3> <p>参考vue源码等</p> <p>脚本命令changelog：<code>conventional-changelog -p angular -i CHANGELOG.md -s</code></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token property">&quot;dependencies&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">&quot;conventional-changelog-conventionalcommits&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^4.5.0&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="lint工具"><a href="#lint工具" class="header-anchor">#</a> lint工具</h2> <h3 id="commitlint"><a href="#commitlint" class="header-anchor">#</a> commitlint</h3> <h4 id="开发子包"><a href="#开发子包" class="header-anchor">#</a> 开发子包</h4> <ul><li>pnpm init，生成package.json</li> <li>该包名有特殊命名规范：commitlint-config-包名。</li></ul> <p><code>Install @commitlint/cli and a @commitlint/config-* / commitlint-config-* of your choice as devDependency and configure commitlint to use it.</code></p> <ul><li>安装依赖</li></ul> <div class="language-json extra-class"><pre class="language-json"><code><span class="token property">&quot;dependencies&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">&quot;conventional-changelog-conventionalcommits&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^4.5.0&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>入口文件</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//官方文档的cli说明中的parserPreset，用于解析提交消息的解析器预设</span>
+<span class="token literal-property property">parserPreset</span><span class="token operator">:</span> <span class="token string">'conventional-changelog-conventionalcommits'</span><span class="token punctuation">,</span>
+<span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span>规则<span class="token operator">...</span><span class="token punctuation">}</span>
+</code></pre></div><h4 id="commit-msg的类型"><a href="#commit-msg的类型" class="header-anchor">#</a> commit-msg的类型</h4> <ul><li>ci: ci 配置文件和脚本的变动;</li> <li>chore: 构建系统或辅助工具的变动;</li> <li>fix: 代码 BUG 修复;</li> <li>feat: 新功能;</li> <li>perf: 性能优化和提升;</li> <li>refactor: 仅仅是代码变动，既不是修复 BUG 也不是引入新功能;</li> <li>style: 代码格式调整，可能是空格、分号、缩进等等;</li> <li>docs: 文档变动;</li> <li>test: 补充缺失的测试用例或者修正现有的测试用例;</li> <li>revert: 回滚操作;</li></ul> <h4 id="扩展"><a href="#扩展" class="header-anchor">#</a> 扩展</h4> <ul><li>cz-git结合cz-commitlint</li></ul> <h3 id="eslint"><a href="#eslint" class="header-anchor">#</a> eslint</h3> <p>在运行代码前就发现语法错误和潜在的bug,非常适合用于制定团队代码规范</p> <h4 id="子包的脚本命令"><a href="#子包的脚本命令" class="header-anchor">#</a> 子包的脚本命令</h4> <div class="language-json extra-class"><pre class="language-json"><code><span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">&quot;lint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;eslint ./&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;test&quot;</span><span class="token operator">:</span> <span class="token string">&quot;mocha ./__tests__/*.test.js --timeout 5000&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;print-config&quot;</span><span class="token operator">:</span> <span class="token string">&quot;eslint --print-config ./index.js &gt; ./print-config.json&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="prettier"><a href="#prettier" class="header-anchor">#</a> prettier</h3> <p>代码格式化工具。</p> <h3 id="markdownlint"><a href="#markdownlint" class="header-anchor">#</a> markdownlint</h3> <h4 id="参考"><a href="#参考" class="header-anchor">#</a> 参考</h4> <ul><li><a href="https://github.com/DavidAnson/markdownlint" target="_blank" rel="noopener noreferrer">markdownlint<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://github.com/igorshubovych/markdownlint-cli" target="_blank" rel="noopener noreferrer">markdownlint-cli<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <p><code>MarkdownLint CLI 是一个用于检查 Markdown 文档语法错误的命令行工具</code></p> <h4 id="pre-commit可校验markdown文件"><a href="#pre-commit可校验markdown文件" class="header-anchor">#</a> pre-commit可校验markdown文件</h4> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># !/usr/bin/env sh</span>
+<span class="token builtin class-name">.</span> <span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token function">dirname</span> <span class="token string">&quot;<span class="token variable">$0</span>&quot;</span><span class="token variable">)</span></span>/_/husky.sh&quot;</span>
+
+<span class="token function">pnpm</span> run mdlint
+</code></pre></div><p>脚本命令<code>&quot;mdlint&quot;: &quot;markdownlint **/*.md --ignore node_modules&quot;</code></p> <h3 id="stylelint"><a href="#stylelint" class="header-anchor">#</a> stylelint</h3> <h4 id="平时项目开发-不用脚手架的能力-如何使用"><a href="#平时项目开发-不用脚手架的能力-如何使用" class="header-anchor">#</a> 平时项目开发，不用脚手架的能力，如何使用</h4> <ul><li>配制规则</li> <li>安装所需依赖stylelint和配制规则用到的依赖</li> <li>配制脚本命令<code>&quot;lint&quot;: &quot;stylelint \&quot;**/*.scss\&quot;&quot;&quot;</code></li></ul> <h4 id="配制规则参考官网"><a href="#配制规则参考官网" class="header-anchor">#</a> 配制规则参考官网</h4> <p><a href="https://stylelint.nodejs.cn/user-guide/rules" target="_blank" rel="noopener noreferrer">用户指南的规则<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h4 id="开发子包需注意"><a href="#开发子包需注意" class="header-anchor">#</a> 开发子包需注意</h4> <ul><li>scss,less写测试用例，</li></ul> <h2 id="cli"><a href="#cli" class="header-anchor">#</a> cli</h2> <h3 id="init"><a href="#init" class="header-anchor">#</a> init</h3> <ol><li>检查cli包版本更新</li> <li>是否使用对应的lint工具（默认使用eslint,只要选择eslint类型）</li> <li>检测到项目中存在可能与 cli包 冲突的依赖和配置</li> <li>注入script（包名-scan: 包名 scan, 包名-fix: 包名 fix），添加git hooks。（pre-commit:包名 commit-file-scan, commit-msg:包名 commit-msg-scan）。触发的都是bin目录下的脚本命令。</li> <li>更新package.json文件，生成所有的配制文件</li></ol> <p>关键代码：</p> <div class="language-ts extra-class"><pre class="language-ts"><code>pkg<span class="token punctuation">.</span>husky<span class="token punctuation">.</span>hooks<span class="token punctuation">[</span><span class="token string">'pre-commit'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token constant">PKG_NAME</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> commit-file-scan</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+pkg<span class="token punctuation">.</span>husky<span class="token punctuation">.</span>hooks<span class="token punctuation">[</span><span class="token string">'commit-msg'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token constant">PKG_NAME</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> commit-msg-scan</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+program
+  <span class="token punctuation">.</span><span class="token function">command</span><span class="token punctuation">(</span><span class="token string">'commit-file-scan'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">description</span><span class="token punctuation">(</span><span class="token string">'代码提交检查: git commit 时对提交代码进行规范问题扫描'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">option</span><span class="token punctuation">(</span><span class="token string">'-s, --strict'</span><span class="token punctuation">,</span> <span class="token string">'严格模式，对 warn 和 error 问题都卡口，默认仅对 error 问题卡口'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">action</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span>cmd<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">//...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+program
+  <span class="token punctuation">.</span><span class="token function">command</span><span class="token punctuation">(</span><span class="token string">'commit-msg-scan'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">description</span><span class="token punctuation">(</span><span class="token string">'commit message 检查: git commit 时对 commit message 进行检查'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">//...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="scan"><a href="#scan" class="header-anchor">#</a> scan</h3> <ol><li>使用lint工具，却没有安装依赖。</li> <li>比较package.json和包名.config.js的区别，通过脚本命令的可选参数，调用lint工具的API能力，
+获取对应的scan信息。</li> <li>在控制台打印扫描报告</li></ol> <h3 id="fix"><a href="#fix" class="header-anchor">#</a> fix</h3> <ol><li>使用lint工具，却没有安装依赖。</li> <li>使用prettier格式化代码</li> <li>比较package.json和包名.config.js的区别，通过脚本命令的可选参数，调用lint工具的API能力，
+获取对应的scan信息。</li> <li>在控制台打印扫描报告</li></ol> <h3 id="commit-file-scan"><a href="#commit-file-scan" class="header-anchor">#</a> commit-file-scan</h3> <ol><li>使用lint工具，却没有安装依赖。</li> <li>获取未 add 的修改文件数量，比较工作区与暂存区的代码，提示是否有暂存的代码想要提交。</li> <li>获取此次 commit 修改的文件列表</li> <li>比较package.json和包名.config.js的区别，通过脚本命令的可选参数，调用lint工具的API能力，
+获取对应的scan信息。</li> <li>在控制台打印扫描报告</li></ol> <h3 id="commit-msg-scan"><a href="#commit-msg-scan" class="header-anchor">#</a> commit-msg-scan</h3> <ol><li>使用commitlint 对 git commit 的 commit message 进行检查</li></ol> <h3 id="update"><a href="#update" class="header-anchor">#</a> update</h3> <ol><li>检查当前版本与最新版本，看是否安装最新的脚手架的包。</li></ol> <h3 id="package-json"><a href="#package-json" class="header-anchor">#</a> package.json</h3> <div class="language-md extra-class"><pre class="language-md"><code>  // ???
+  &quot;dev&quot;: &quot;npm run copyfiles &amp;&amp; tsc -w&quot;,
+  // tsc编译src下的源代码
+  &quot;build&quot;: &quot;rm -rf lib &amp;&amp; npm run copyfiles &amp;&amp; tsc&quot;,
+  // 拷贝config下的ejs文件到lib目录下。
+  &quot;copyfiles&quot;: &quot;copyfiles -a -u 1 \&quot;src/config/**\&quot; lib&quot;,
+  // 编译后，检测代码
+  &quot;test&quot;: &quot;npm run build &amp;&amp; jest&quot;,
+  // 测试代码覆盖率
+  &quot;coverage&quot;: &quot;nyc jest --silent --forceExit&quot;,
+  // prepublishOnly: 在npm publish命令前执行
+  &quot;prepublishOnly&quot;: &quot;npm run test&quot;
+</code></pre></div><h2 id="测试工具"><a href="#测试工具" class="header-anchor">#</a> 测试工具</h2> <h3 id="jest"><a href="#jest" class="header-anchor">#</a> jest</h3> <h4 id="官方使用指南"><a href="#官方使用指南" class="header-anchor">#</a> 官方使用指南</h4> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// ES6 Class Mocks</span>
+<span class="token comment">// Using with puppeteer操作木偶的人</span>
+<span class="token comment">// 写法类似，有什么区别</span>
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'Google'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">beforeAll</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">await</span> page<span class="token punctuation">.</span><span class="token function">goto</span><span class="token punctuation">(</span><span class="token string">'https://google.com'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'should be titled &quot;Google&quot;'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">await</span> <span class="token function">expect</span><span class="token punctuation">(</span>page<span class="token punctuation">.</span><span class="token function">title</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>resolves<span class="token punctuation">.</span><span class="token function">toMatch</span><span class="token punctuation">(</span><span class="token string">'Google'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="项目案例"><a href="#项目案例" class="header-anchor">#</a> 项目案例</h4> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> assert <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'assert'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> stylelint <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'stylelint'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'test/rules-validate.test.js'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'Validate default'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> filePaths <span class="token operator">=</span> <span class="token punctuation">[</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./fixtures/index.css'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> stylelint<span class="token punctuation">.</span><span class="token function">lint</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">configFile</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../index.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">files</span><span class="token operator">:</span> filePaths<span class="token punctuation">,</span>
+      <span class="token literal-property property">fix</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>result <span class="token operator">&amp;&amp;</span> result<span class="token punctuation">.</span>errored<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> filesResult <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>output <span class="token operator">||</span> <span class="token string">'[]'</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+      filesResult<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">fileResult</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">========= </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>filePaths<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> ==========</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fileResult<span class="token punctuation">.</span>warnings<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      assert<span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span>filesResult<span class="token punctuation">.</span>length <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="静态资源站点"><a href="#静态资源站点" class="header-anchor">#</a> 静态资源站点</h2> <h3 id="vuepress"><a href="#vuepress" class="header-anchor">#</a> VuePress</h3> <p>我们把代码提交到github,actions上可以看到部署信息。</p> <div class="language-md extra-class"><pre class="language-md"><code>.github
+    workflows
+        docs.yml(git actions方案一, 看官网配制)
+docs
+    .vuepress
+        config.js
+    README.md
+.gitignore
+deploy.sh(git actions 方案二，看官网配制)
+package.json
+    scripts
+        &quot;docs:dev&quot;: &quot;vuepress dev docs&quot;,
+        &quot;docs:build&quot;: &quot;vuepress build docs&quot;,
+        &quot;deploy&quot;: &quot;bash deploy.sh&quot;,
+</code></pre></div><h2 id="lint扩展"><a href="#lint扩展" class="header-anchor">#</a> lint扩展</h2> <h3 id="为什么使用lint-stage-ai"><a href="#为什么使用lint-stage-ai" class="header-anchor">#</a> 为什么使用lint-stage（AI）</h3> <h4 id="性能问题-全量校验-vs-增量校验"><a href="#性能问题-全量校验-vs-增量校验" class="header-anchor">#</a> 性能问题：全量校验 vs 增量校验</h4> <p>lint-staged 的优化：只针对 Git 暂存区（Staged Changes） 中的文件（即本次提交的改动）运行校验，避免不必要的检查。</p> <h4 id="避免-污染-提交历史"><a href="#避免-污染-提交历史" class="header-anchor">#</a> 避免“污染”提交历史</h4> <p>全量校验的问题：</p> <p>如果直接运行 prettier --write . 或 eslint --fix .，可能会意外修改大量无关文件（如格式化整个项目）。这些改动会被混入本次提交，导致：</p> <ul><li>提交历史难以追溯（例如修复 Bug 的提交中混入了格式化的改动）。</li> <li>代码 Review 时干扰核心变更。</li></ul> <p>lint-staged 的精准性：</p> <ul><li>仅对 本次提交的文件 自动修复（如 --fix 或 --write），确保提交历史的清晰性。</li></ul> <h4 id="团队协作的强制性规范"><a href="#团队协作的强制性规范" class="header-anchor">#</a> 团队协作的强制性规范</h4> <p>全量校验的局限性：</p> <ul><li>即使配置了 ESLint/Prettier，开发者仍可能跳过校验（例如忘记手动运行命令），导致不规范代码被提交。</li></ul> <p>lint-staged + Git Hooks 的强制约束：</p> <ul><li>通过 husky 在 pre-commit 钩子中触发 lint-staged，每次提交前自动校验，避免遗漏。</li></ul> <table><thead><tr><th>工具</th> <th>校验范围</th> <th>适合场景</th> <th>缺点</th></tr></thead> <tbody><tr><td>Eslint/Prettier/Stylelint</td> <td>全项目</td> <td>本地开发时手动运行</td> <td>慢、可能误改无关文件</td></tr> <tr><td>lint-stage</td> <td>暂存区（增量）</td> <td>提交前的自动校验</td> <td>精准、搞笑、强制规范</td></tr></tbody></table> <h3 id="lint-staged"><a href="#lint-staged" class="header-anchor">#</a> lint-staged</h3> <p><code>lint-staged</code> 是一个用于在 Git 暂存区（staged files）上运行指定工具的工具。它通常用于在提交代码前自动对修改的文件进行代码格式化、静态检查等操作，确保代码质量</p> <p>主要功能：</p> <ul><li>仅处理暂存区文件：只对即将提交的文件运行指定的命令，避免处理整个项目。</li> <li>支持多种工具：可与 ESLint、Prettier、Stylelint 等工具结合使用。</li> <li>自动化流程：在提交代码前自动执行格式化或检查，确保代码符合规范。</li></ul> <p>使用场景：</p> <ul><li>代码格式化：在提交前使用 Prettier 自动格式化代码。</li> <li>静态检查：使用 ESLint 检查 JavaScript/TypeScript 代码，确保符合规范。</li> <li>样式检查：使用 Stylelint 检查 CSS/SCSS 文件。</li> <li>单元测试：对修改的代码运行相关单元测试。</li></ul> <p>总结：lint-staged 是一个高效的工具，帮助开发者在提交代码前自动执行代码检查和格式化，提升代码质量和一致性。</p> <p>1.安装依赖（详见官网）</p> <p>2.packjson.json 配置（详见官网，待测）</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token property">&quot;lint-staged&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">&quot;*&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prettier --write&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;*.{vue,ts}&quot;</span><span class="token operator">:</span> <span class="token string">&quot;eslint --fix&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;*.{html,vue,css,sass,scss}&quot;</span><span class="token operator">:</span> <span class="token string">&quot;stylelint --fix&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><p>3.结合 husky 在提交前自动运行（详见官网，待测）</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;husky&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;hooks&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;pre-commit&quot;</span><span class="token operator">:</span> <span class="token string">&quot;lint-staged&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="最佳实践"><a href="#最佳实践" class="header-anchor">#</a> 最佳实践</h2> <p>脚手架有什么难以实现的？网银平台（iframe），中台，手机端辅助项目（查询），统一代码规范。
+开辟新项目的时候，要复制一套lint规范，就很费劲。修改lint规则，不好同步到每个项目。</p> <ul><li><p>commit-msg: feat: 需求号-需求名，通过自动化脚本，进行代码提交。</p></li> <li><p>pre-commit: prettier(代码格式化问题)</p></li> <li><p>list-stage: 只针对提交代码，如果整个项目，不好回溯</p></li> <li><p>list-stage, husky, prettier,</p></li> <li><p>暂时用sass, sass-loader过渡， 想使用 UnoCss</p></li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">pnpm</span> <span class="token function">add</span> --save-dev husky lint-staged
+<span class="token function">pnpm</span> <span class="token builtin class-name">exec</span> husky init
+<span class="token function">npm</span> pkg <span class="token builtin class-name">set</span> <span class="token assign-left variable">scripts.prepare</span><span class="token operator">=</span><span class="token string">&quot;husky install&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;pnpm lint-staged&quot;</span> <span class="token operator">&gt;</span> .husky/pre-commit
+</code></pre></div><ul><li>配置Prettier规则和忽略文件</li> <li>配置 添加脚本命令：&quot;format&quot;: &quot;prettier . --write&quot;</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/continuous_learning/job_experience/DynamicForm.html" class="prev">
+        动态表单
+      </a></span> <span class="next"><a href="/continuous_learning/job_experience/FileUpload.html">
+        大文件上传
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/continuous_learning/assets/js/app.a36e4480.js" defer></script><script src="/continuous_learning/assets/js/2.37a86b2d.js" defer></script><script src="/continuous_learning/assets/js/1.f80ffb5b.js" defer></script><script src="/continuous_learning/assets/js/59.c4205278.js" defer></script>
+  </body>
+</html>

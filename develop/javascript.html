@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JavaScript | 时空随笔</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/continuous_learning/img/logo.png">
+    <meta name="description" content="用时间换空间，用空间换时间">
+    <meta name="keywords" content="修炼笔记静态资源站点">
+    
+    <link rel="preload" href="/continuous_learning/assets/css/0.styles.6479703d.css" as="style"><link rel="preload" href="/continuous_learning/assets/js/app.a36e4480.js" as="script"><link rel="preload" href="/continuous_learning/assets/js/2.37a86b2d.js" as="script"><link rel="preload" href="/continuous_learning/assets/js/1.f80ffb5b.js" as="script"><link rel="preload" href="/continuous_learning/assets/js/25.1f29eb41.js" as="script"><link rel="prefetch" href="/continuous_learning/assets/js/10.c7f0ff39.js"><link rel="prefetch" href="/continuous_learning/assets/js/11.b9626a80.js"><link rel="prefetch" href="/continuous_learning/assets/js/12.3c9cf08f.js"><link rel="prefetch" href="/continuous_learning/assets/js/13.e652a34a.js"><link rel="prefetch" href="/continuous_learning/assets/js/14.35d86c22.js"><link rel="prefetch" href="/continuous_learning/assets/js/15.2a05c459.js"><link rel="prefetch" href="/continuous_learning/assets/js/16.eac0ba20.js"><link rel="prefetch" href="/continuous_learning/assets/js/17.5e08e882.js"><link rel="prefetch" href="/continuous_learning/assets/js/18.72fa03b1.js"><link rel="prefetch" href="/continuous_learning/assets/js/19.2dc1dc0c.js"><link rel="prefetch" href="/continuous_learning/assets/js/20.4294c7a5.js"><link rel="prefetch" href="/continuous_learning/assets/js/21.819cdda0.js"><link rel="prefetch" href="/continuous_learning/assets/js/22.5c21a410.js"><link rel="prefetch" href="/continuous_learning/assets/js/23.44f46fee.js"><link rel="prefetch" href="/continuous_learning/assets/js/24.8ee95c2d.js"><link rel="prefetch" href="/continuous_learning/assets/js/26.310db4f9.js"><link rel="prefetch" href="/continuous_learning/assets/js/27.8db0389d.js"><link rel="prefetch" href="/continuous_learning/assets/js/28.4ebae037.js"><link rel="prefetch" href="/continuous_learning/assets/js/29.b98a7475.js"><link rel="prefetch" href="/continuous_learning/assets/js/3.9d2c09c2.js"><link rel="prefetch" href="/continuous_learning/assets/js/30.054bb0af.js"><link rel="prefetch" href="/continuous_learning/assets/js/31.04abd7a6.js"><link rel="prefetch" href="/continuous_learning/assets/js/32.3af01b1a.js"><link rel="prefetch" href="/continuous_learning/assets/js/33.cc1c2b5e.js"><link rel="prefetch" href="/continuous_learning/assets/js/34.505c830d.js"><link rel="prefetch" href="/continuous_learning/assets/js/35.b13d6d1b.js"><link rel="prefetch" href="/continuous_learning/assets/js/36.5e26b1a9.js"><link rel="prefetch" href="/continuous_learning/assets/js/37.4d62416f.js"><link rel="prefetch" href="/continuous_learning/assets/js/38.798af47a.js"><link rel="prefetch" href="/continuous_learning/assets/js/39.e832d8f9.js"><link rel="prefetch" href="/continuous_learning/assets/js/4.80d1ecbf.js"><link rel="prefetch" href="/continuous_learning/assets/js/40.a116f5f6.js"><link rel="prefetch" href="/continuous_learning/assets/js/41.81f443ef.js"><link rel="prefetch" href="/continuous_learning/assets/js/42.dab33553.js"><link rel="prefetch" href="/continuous_learning/assets/js/43.f7aa12a1.js"><link rel="prefetch" href="/continuous_learning/assets/js/44.38ae6c2c.js"><link rel="prefetch" href="/continuous_learning/assets/js/45.18144b73.js"><link rel="prefetch" href="/continuous_learning/assets/js/46.a67e028e.js"><link rel="prefetch" href="/continuous_learning/assets/js/47.e7dff58c.js"><link rel="prefetch" href="/continuous_learning/assets/js/48.a28d7bbe.js"><link rel="prefetch" href="/continuous_learning/assets/js/49.e35e8fd8.js"><link rel="prefetch" href="/continuous_learning/assets/js/5.10d702a2.js"><link rel="prefetch" href="/continuous_learning/assets/js/50.be4ffec3.js"><link rel="prefetch" href="/continuous_learning/assets/js/51.401ca435.js"><link rel="prefetch" href="/continuous_learning/assets/js/52.991e3791.js"><link rel="prefetch" href="/continuous_learning/assets/js/53.6c378e84.js"><link rel="prefetch" href="/continuous_learning/assets/js/54.afd3b835.js"><link rel="prefetch" href="/continuous_learning/assets/js/55.e6e8b14a.js"><link rel="prefetch" href="/continuous_learning/assets/js/56.6999b1e2.js"><link rel="prefetch" href="/continuous_learning/assets/js/57.906f930f.js"><link rel="prefetch" href="/continuous_learning/assets/js/58.17474ef6.js"><link rel="prefetch" href="/continuous_learning/assets/js/59.c4205278.js"><link rel="prefetch" href="/continuous_learning/assets/js/6.4e1b404c.js"><link rel="prefetch" href="/continuous_learning/assets/js/60.365fc4b1.js"><link rel="prefetch" href="/continuous_learning/assets/js/61.9199b6ad.js"><link rel="prefetch" href="/continuous_learning/assets/js/62.c2e31630.js"><link rel="prefetch" href="/continuous_learning/assets/js/63.fde82eaf.js"><link rel="prefetch" href="/continuous_learning/assets/js/64.b3167bde.js"><link rel="prefetch" href="/continuous_learning/assets/js/65.840325b4.js"><link rel="prefetch" href="/continuous_learning/assets/js/66.06121a45.js"><link rel="prefetch" href="/continuous_learning/assets/js/67.9e4fea73.js"><link rel="prefetch" href="/continuous_learning/assets/js/68.a7170c34.js"><link rel="prefetch" href="/continuous_learning/assets/js/69.3c0af0df.js"><link rel="prefetch" href="/continuous_learning/assets/js/7.c4b094c5.js"><link rel="prefetch" href="/continuous_learning/assets/js/70.a3292e1c.js"><link rel="prefetch" href="/continuous_learning/assets/js/71.648ff042.js"><link rel="prefetch" href="/continuous_learning/assets/js/72.f509ed4f.js"><link rel="prefetch" href="/continuous_learning/assets/js/73.94b10fa6.js"><link rel="prefetch" href="/continuous_learning/assets/js/74.a34a5838.js"><link rel="prefetch" href="/continuous_learning/assets/js/75.29cd3ddd.js"><link rel="prefetch" href="/continuous_learning/assets/js/76.80dfd8aa.js"><link rel="prefetch" href="/continuous_learning/assets/js/77.61272f4f.js"><link rel="prefetch" href="/continuous_learning/assets/js/78.18964c2c.js"><link rel="prefetch" href="/continuous_learning/assets/js/79.a9e33c5e.js"><link rel="prefetch" href="/continuous_learning/assets/js/80.e8ad302b.js"><link rel="prefetch" href="/continuous_learning/assets/js/vendors~docsearch.bd0b093a.js">
+    <link rel="stylesheet" href="/continuous_learning/assets/css/0.styles.6479703d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/continuous_learning/" class="home-link router-link-active"><img src="/continuous_learning/img/logo.png" alt="时空随笔" class="logo"> <span class="site-name can-hide">时空随笔</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/continuous_learning/index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/HTMLAndCSS.html" class="nav-link">
+  HTML和CSS
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/javascript.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/typescript.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/node.js.html" class="nav-link">
+  node.js
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/solid.html" class="nav-link">
+  设计模式与数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/variable.html" class="nav-link">
+  EnglishVariable
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/English.html" class="nav-link">
+  EnglishArticle
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="轮子" class="dropdown-title"><span class="title">轮子</span> <span class="arrow down"></span></button> <button type="button" aria-label="轮子" class="mobile-dropdown-title"><span class="title">轮子</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue.html" class="nav-link">
+  vue语法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_source.html" class="nav-link">
+  vue源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_ecology.html" class="nav-link">
+  Vue生态
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/react.html" class="nav-link">
+  react语法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/React_source.html" class="nav-link">
+  React源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vueInfrastructure.html" class="nav-link">
+  vue基建
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/esbuild.html" class="nav-link">
+  esbuild
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/webpack.html" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vite.html" class="nav-link">
+  vite
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/rollup.html" class="nav-link">
+  rollup
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/test_tool.html" class="nav-link">
+  测试工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow down"></span></button> <button type="button" aria-label="面试" class="mobile-dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/EssenceSummary.html" class="nav-link">
+  精华
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/technologyOne.html" class="nav-link">
+  技术类1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/chat.html" class="nav-link">
+  闲谈
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/handwriting.html" class="nav-link">
+  手写题
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithm.html" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmOne.html" class="nav-link">
+  算法题1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmTwo.html" class="nav-link">
+  算法题2
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/QA.html" class="nav-link">
+  AI问答
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/other.html" class="nav-link">
+  AI随便问问
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工作经历" class="dropdown-title"><span class="title">工作经历</span> <span class="arrow down"></span></button> <button type="button" aria-label="工作经历" class="mobile-dropdown-title"><span class="title">工作经历</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/MigratingFromVue2ToVue3.html" class="nav-link">
+  从Vue2迁移到Vue3
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/PromiseDialog.html" class="nav-link">
+  基于Promise调用子组件弹窗
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/permission.html" class="nav-link">
+  权限控制
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/PerformanceOptimization.html" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/I18n.html" class="nav-link">
+  国际化
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/DynamicForm.html" class="nav-link">
+  动态表单
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/cli.html" class="nav-link">
+  脚手架
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/FileUpload.html" class="nav-link">
+  大文件上传
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/LowCode.html" class="nav-link">
+  低代码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/EchartsHook.html" class="nav-link">
+  Echarts图表
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/sortable.html" class="nav-link">
+  可排序的
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/sdk.html" class="nav-link">
+  sdk前端埋点
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/CICD.html" class="nav-link">
+  持续集成持续部署
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ConfigProvider.html" class="nav-link">
+  配置式Provider
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/VirtualScrolling.html" class="nav-link">
+  虚拟滚动
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ThousandSeparatorAmoutInput.html" class="nav-link">
+  千分符金额文本框组件
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/WebSocket.html" class="nav-link">
+  WebSocket
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/seo.html" class="nav-link">
+  SEO
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/largeScreen.html" class="nav-link">
+  大屏
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/safe.html" class="nav-link">
+  前端安全
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/singleSignOn.html" class="nav-link">
+  单点登录
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/video_merger.html" class="nav-link">
+  视频合成
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/music_soft.html" class="nav-link">
+  音乐软件
+</a></li></ul></div></div> <a href="https://github.com/forfreeagainst/continuous_learning" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/continuous_learning/index.html" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/HTMLAndCSS.html" class="nav-link">
+  HTML和CSS
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/javascript.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/typescript.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/node.js.html" class="nav-link">
+  node.js
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/solid.html" class="nav-link">
+  设计模式与数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/variable.html" class="nav-link">
+  EnglishVariable
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/develop/English.html" class="nav-link">
+  EnglishArticle
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="轮子" class="dropdown-title"><span class="title">轮子</span> <span class="arrow down"></span></button> <button type="button" aria-label="轮子" class="mobile-dropdown-title"><span class="title">轮子</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue.html" class="nav-link">
+  vue语法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_source.html" class="nav-link">
+  vue源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vue_ecology.html" class="nav-link">
+  Vue生态
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/react.html" class="nav-link">
+  react语法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/React_source.html" class="nav-link">
+  React源码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vueInfrastructure.html" class="nav-link">
+  vue基建
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/esbuild.html" class="nav-link">
+  esbuild
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/webpack.html" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/vite.html" class="nav-link">
+  vite
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/rollup.html" class="nav-link">
+  rollup
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/wheel/test_tool.html" class="nav-link">
+  测试工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow down"></span></button> <button type="button" aria-label="面试" class="mobile-dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/EssenceSummary.html" class="nav-link">
+  精华
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/technologyOne.html" class="nav-link">
+  技术类1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/chat.html" class="nav-link">
+  闲谈
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/handwriting.html" class="nav-link">
+  手写题
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithm.html" class="nav-link">
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmOne.html" class="nav-link">
+  算法题1
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/algorithmTwo.html" class="nav-link">
+  算法题2
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/QA.html" class="nav-link">
+  AI问答
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/interview/other.html" class="nav-link">
+  AI随便问问
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工作经历" class="dropdown-title"><span class="title">工作经历</span> <span class="arrow down"></span></button> <button type="button" aria-label="工作经历" class="mobile-dropdown-title"><span class="title">工作经历</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/MigratingFromVue2ToVue3.html" class="nav-link">
+  从Vue2迁移到Vue3
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/PromiseDialog.html" class="nav-link">
+  基于Promise调用子组件弹窗
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/permission.html" class="nav-link">
+  权限控制
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/PerformanceOptimization.html" class="nav-link">
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/I18n.html" class="nav-link">
+  国际化
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/DynamicForm.html" class="nav-link">
+  动态表单
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/cli.html" class="nav-link">
+  脚手架
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/FileUpload.html" class="nav-link">
+  大文件上传
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/LowCode.html" class="nav-link">
+  低代码
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/EchartsHook.html" class="nav-link">
+  Echarts图表
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/sortable.html" class="nav-link">
+  可排序的
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/sdk.html" class="nav-link">
+  sdk前端埋点
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/CICD.html" class="nav-link">
+  持续集成持续部署
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ConfigProvider.html" class="nav-link">
+  配置式Provider
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/VirtualScrolling.html" class="nav-link">
+  虚拟滚动
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/ThousandSeparatorAmoutInput.html" class="nav-link">
+  千分符金额文本框组件
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/WebSocket.html" class="nav-link">
+  WebSocket
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/seo.html" class="nav-link">
+  SEO
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/largeScreen.html" class="nav-link">
+  大屏
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/safe.html" class="nav-link">
+  前端安全
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/singleSignOn.html" class="nav-link">
+  单点登录
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/video_merger.html" class="nav-link">
+  视频合成
+</a></li><li class="dropdown-item"><!----> <a href="/continuous_learning/job_experience/music_soft.html" class="nav-link">
+  音乐软件
+</a></li></ul></div></div> <a href="https://github.com/forfreeagainst/continuous_learning" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>开发</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/continuous_learning/develop/HTMLAndCSS.html" class="sidebar-link">HTML和CSS</a></li><li><a href="/continuous_learning/develop/javascript.html" aria-current="page" class="active sidebar-link">JavaScript</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/continuous_learning/develop/javascript.html#原型与原型链" class="sidebar-link">原型与原型链</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/develop/javascript.html#静态作用域与动态作用域的定义" class="sidebar-link">静态作用域与动态作用域的定义</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/develop/javascript.html#js作用域" class="sidebar-link">Js作用域</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/develop/javascript.html#执行上下文" class="sidebar-link">执行上下文</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/develop/javascript.html#作用域链" class="sidebar-link">作用域链</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/develop/javascript.html#闭包" class="sidebar-link">闭包</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/develop/javascript.html#this指向-重点中的重点" class="sidebar-link">this指向（重点中的重点）</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/develop/javascript.html#按值传递" class="sidebar-link">按值传递</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/develop/javascript.html#垃圾回收机制" class="sidebar-link">垃圾回收机制</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/develop/javascript.html#js运行机制" class="sidebar-link">js运行机制</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/develop/javascript.html#事件循环" class="sidebar-link">事件循环</a></li><li class="sidebar-sub-header"><a href="/continuous_learning/develop/javascript.html#框架常见api应用" class="sidebar-link">框架常见API应用</a></li></ul></li><li><a href="/continuous_learning/develop/typescript.html" class="sidebar-link">TypeScript</a></li><li><a href="/continuous_learning/develop/node.js.html" class="sidebar-link">node.js</a></li><li><a href="/continuous_learning/develop/solid.html" class="sidebar-link">设计模式与数据结构</a></li><li><a href="/continuous_learning/develop/variable.html" class="sidebar-link">EnglishVariable</a></li><li><a href="/continuous_learning/develop/English.html" class="sidebar-link">EnglishArticle</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>轮子</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>面试</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>工作经历</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="javascript"><a href="#javascript" class="header-anchor">#</a> JavaScript</h1> <h2 id="原型与原型链"><a href="#原型与原型链" class="header-anchor">#</a> 原型与原型链</h2> <ul><li>对象的原型__proto__会永远指向它的构造函数的属性prototype。</li> <li>构造函数的属性prototype可以通过constructor指向构造函数本身。</li> <li>(Object.getPrototypeOf(实例化对象) === 实例化对象的__proto。)</li> <li>(构造函数的属性prototype也可称为构造函数实例化的对象的原型)</li> <li>(对象都有__proto__,函数都有属性prototype,构造函数的属性prototype也是对象)</li> <li>(keywords: 构造函数1个，实例化对象可多个)</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> <span class="token class-name">Person</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token class-name">Person</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor <span class="token operator">===</span> Person<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">getPrototypeOf</span><span class="token punctuation">(</span>p1<span class="token punctuation">)</span> <span class="token operator">===</span> p1<span class="token punctuation">.</span>__proto__<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>constructor <span class="token operator">===</span> Person<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//true：p1没有constructor,从Person.prototype去找</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//Object.create()静态方法以一个现有对象作为原型，创建一个新对象。</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">isHuman</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">printIntroduction</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">My name is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">. Am I human? </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>isHuman<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> me <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+me<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Matthew'</span><span class="token punctuation">;</span> <span class="token comment">// &quot;name&quot; is a property set on &quot;me&quot;, but not on &quot;person&quot;</span>
+me<span class="token punctuation">.</span>isHuman <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// Inherited properties can be overwritten</span>
+
+me<span class="token punctuation">.</span><span class="token function">printIntroduction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Expected output: &quot;My name is Matthew. Am I human? true&quot;</span>
+<span class="token keyword">delete</span> me<span class="token punctuation">.</span>isHuman<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>me<span class="token punctuation">.</span>isHuman<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//false</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// instanceof</span>
+<span class="token comment">// 用于检测构造函数的prototype属性是否出现在某个实例对象的原型链上。</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">a</span><span class="token operator">:</span><span class="token number">33</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj <span class="token keyword">instanceof</span> <span class="token class-name">Object</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Object.prototype.toString.call(***)</span>
+<span class="token keyword">const</span> <span class="token function-variable function">isEmptyArr3</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">&quot;[object Array]&quot;</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>data<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-answer extra-class"><pre class="language-text"><code>(1)为什么要有原型？对象共享属性和方法
+(2)函数就会自带一个prototype(func();)
+对象拥有__proto__(const obj = new func();//实例对象)
+对象和函数都拥有原型（对象__proto__,函数prototype）
+(3)对象查找属性和方法的顺序：对象本身=》构造函数=》对象的原型(构造函数的原型)=》当前原型的原型
+(4)原型链就是把原型串联起来，原型链的顶端是null
+
+注：对象的隐式原型（__proto__）永远指向构造函数的显式原型(prototype)。
+</code></pre></div><ul><li>ES3 (1999)：正式确立了原型继承模型。</li> <li>ES5 (2009)：增加了 Object.create() 方法，提供了更直接的原型继承方式。</li> <li>ES6 (2015)：引入了 class 语法糖，底层仍然是基于原型的继承。</li></ul> <h3 id="给对象属性赋值和从-prototype添加属性区别"><a href="#给对象属性赋值和从-prototype添加属性区别" class="header-anchor">#</a> 给对象属性赋值和从 <code>prototype</code>添加属性区别</h3> <ul><li>作用对象不同，一个是当前对象，一个是原型对象。</li> <li>访问优先级不同，一个是对象属性优先级高于原型属性，一个是如果对象没有该属性，则从原型链查找</li> <li>影响范围不同，一个是仅影响当前对象，一个是影响所有继承该原型的对象。</li></ul> <h2 id="静态作用域与动态作用域的定义"><a href="#静态作用域与动态作用域的定义" class="header-anchor">#</a> 静态作用域与动态作用域的定义</h2> <ul><li>作用域：源代码定义变量的区域</li> <li>分为静态作用域（词法作用域）和动态作用域</li> <li><code>js是静态作用域</code>，bash是动态作用域</li> <li>静态作用域：函数定义时决定的；动态作用域：函数调用时决定的。</li></ul> <h2 id="js作用域"><a href="#js作用域" class="header-anchor">#</a> Js作用域</h2> <div class="language-md extra-class"><pre class="language-md"><code>作用域：变量和函数生效的区域
+作用域有哪些？
+全局作用域，函数作用域，块级作用域
+模块作用域，脚本作用域，Closure作用域（闭包作用域）
+Eval作用域，catch作用域，with作用域
+</code></pre></div><h2 id="执行上下文"><a href="#执行上下文" class="header-anchor">#</a> 执行上下文</h2> <ul><li>（可执行代码有哪些类型？就三种全局代码，函数代码，eval代码）</li> <li>（全局执行上下文：只有一个）</li> <li>（函数执行上下文：每次调用函数都会创建一个新的执行上下文）</li> <li>（Eval函数执行上下文：指的是运行在eval函数中的代码，很少用而且不建议使用。）</li> <li>当JavaScript代码执行一段可执行代码（executable code）时，会创建对应的执行上下文（executation context）。对于每个上下文，都有三个重要属性。</li></ul> <p><code>1. 变量对象（Variable Object，VO）（存储变量和函数的声明） 2. 作用域链（scope chain） 3. this</code></p> <ul><li>JavaScript引擎创建了执行上下文栈（Excution context stack,ECS）来管理执行上下文</li></ul> <div class="language-md extra-class"><pre class="language-md"><code>1.全局对象（VO）：window
+2.函数对象 (activation object，活动对象AO)
+
+跟JS的执行机制有关，先执行所有AO,再执行VO
+
+AO {
+  1.函数本身的形参arguments
+  2.函数本身的声明
+  3.变量的声明
+}
+
+赋值是VO;var 变量是AO;
+function 函数名() {};也是AO
+
+read();//read
+function read() {
+  console.log('read');
+}
+
+console.log(write);//undefined
+write();//write is not a function
+var write = function () {//使用const则不会变量提升，为什么
+  console.log('write')
+}
+
+function use() {
+  //访问不存在的变量会报错，访问对象中不存在的属性是undefined;
+  console.log(a);//全局变量没有a,会报错，不能看成window的属性a。
+  a = 1;//等价于window.a = 1; 没有var,不是AO,是VO
+}
+use();
+
+console.log(sss);
+function a() {
+  var sss = 1;
+}
+a();
+
+function foo() {
+  function fun() {};//reference to function fun(){}
+  var play = function () {};//reference to FunctionExpression play
+}
+</code></pre></div><h2 id="作用域链"><a href="#作用域链" class="header-anchor">#</a> 作用域链</h2> <p>作用域链是JavaScript中查找变量和函数的一种机制。作用域链是有当前执行环境（Execution Context）
+中的变量对象（Variable Object）以及父级执行环境的变量对象组成的。当代码在一个执行环境中执行时，
+如果访问一个变量或者函数，JavaScript引擎会首先在当前执行环境的变量对象中查找，如果找不到，它会
+沿着作用域链向上一级的执行环境中查找，直到找到对应的变量或者函数，或者达到全局执行环境为止。
+<code>作用域链的形成是函数定义时的位置来决定的。</code>作用域链决定了变量和函数的访问权限。一个变量或者函数
+能否在当前执行环境中被访问到，取决于它是否在当前执行环境的作用域链上。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">fun3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'func3'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">fun2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">fun3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">fun1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> abc <span class="token operator">=</span> <span class="token number">333</span><span class="token punctuation">;</span>
+  <span class="token function">fun2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">fun1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="闭包"><a href="#闭包" class="header-anchor">#</a> 闭包</h2> <ul><li>定义：能够访问到自由变量的函数</li> <li>（自由变量：能够在函数中使用，但不是函数的参数，也不是内部的局部变量）</li> <li>（沿着作用域链，访问别人的变量对象）</li> <li>执行上下文的两大概念： 作用域链和变量对象</li> <li>优点：属性获取方式便捷</li> <li>缺点：太便捷</li> <li>为什么会有闭包这种现象？作用域链的现象</li></ul> <div class="language-md extra-class"><pre class="language-md"><code>闭包是能够访问自由变量的函数
+当我们访问到闭包的时候，其实会涉及到执行上下文的两大概念：作用域链和变量对象。
+因为作用域链和变量对象的关系，我们能够在当前函数执行中，沿着作用域链访问到外部的变量对象。
+因为能沿着作用域链访问外部的变量对象，让我们属性获取方式便捷。但由于获取方式便捷，js垃圾回收
+不能将其回收。 
+</code></pre></div><h2 id="this指向-重点中的重点"><a href="#this指向-重点中的重点" class="header-anchor">#</a> this指向（重点中的重点）</h2> <div class="language-md extra-class"><pre class="language-md"><code>绑定规则：
+(1). 默认绑定：严格模式下，this会绑定到undefined。非严格模式下，this会绑定到window。
+(2). 隐式绑定：this永远指向最后调用它的对象
+(3). 显示绑定：call,apply,bind
+(4). new绑定
+优先级：new绑定优先级&gt;显示绑定优先级&gt; 隐式绑定优先级&gt;默认绑定优先级。
+（箭头函数没有this,它是基于闭包，闭包基于词法作用域，而词法作用域是在编译时确定的）
+</code></pre></div><h2 id="按值传递"><a href="#按值传递" class="header-anchor">#</a> 按值传递</h2> <ul><li>（ES中说，所有的参数都是按值传递的。）</li> <li>按值传递，按共享传递</li> <li>基本类型：数据存储在栈中；引用类型：地址指针在栈中，真实数据在堆中。</li> <li>当我们的函数，传递的是基本类型，会重新生成一个新的内存空间，拷贝新的值。传递的是引用类型，
+如果也要把堆中的真实数据拷贝，很消耗内存空间，影响性能，所以这里拷贝的是指栈中指向真实数据
+的地址指针。</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'durant'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">o</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  o<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'james'</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//durant</span>
+<span class="token function">foo</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//james</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//james</span>
+
+
+<span class="token keyword">function</span> <span class="token function">bb</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>self <span class="token operator">===</span> window<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">bb</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre></div><h2 id="垃圾回收机制"><a href="#垃圾回收机制" class="header-anchor">#</a> 垃圾回收机制</h2> <div class="language-md extra-class"><pre class="language-md"><code>什么是垃圾回收机制？
+GC即Garbage Collection，程序工作过程中会产生很多垃圾，这些垃圾是程序不用的内存或者之前用过了，
+以后不会再用的内存空间，而垃圾回收机制就是用来查找和删除那些不再被其他对象引用的对象的过程。
+
+
+垃圾是怎样产生的？
+举个例子，我们先声明了一个变量 test，它引用了对象 {name: 'isboyjc'}，接着我们把这个变量
+重新赋值了一个数组对象，也就变成了该变量引用了一个数组，那么之前的对象引用关系就没有了，
+这时我们所谓的垃圾就产生了。
+
+
+为什么要进行垃圾回收？
+因为操作系统提供的内存是有限的，程序的运行是需要内存的，随着我们的使用，所需的内存越来越多，
+如果不释放不再使用的内存，内存占用就会越来越高，轻则影响系统性能，重则导致进程崩溃。
+
+
+垃圾回收是怎么样进行的？
+在 JavaScript 内存管理中有一个概念叫做 可达性，就是那些以某种方式可访问或者说可用的值，
+它们被保证存储在内存中，反之不可访问则需回收。我们可以通过标记清除法，引用计数法等去发现
+不可达的对象，然后定期进行清理。
+<span class="token list punctuation">1.</span> 标记清除法 mark sweep
+标记清除法的过程：垃圾收集器在运行时会给内存中的所有变量都加上一个标记，假设内存中
+所有对象都是垃圾，全标记为0
+然后从各个根对象开始遍历，把不是垃圾的节点改成1
+清理所有标记为0的垃圾，销毁并回收它们所占用的内存空间
+最后，把所有内存中对象标记修改为0，等待下一轮垃圾回收
+优点：使用一位二进制0或1就可以为其标记，实现比较简单。
+产生问题：
+清除之后，剩余的对象内存位置是不变的，也会导致空闲内存空间是不连续的，出现了 内存碎片。
+由于剩余空闲内存不是一整块，它是由不同大小内存组成的内存列表，这就牵扯出了内存分配的问题。
+假设我们新建对象分配内存时需要大小为 size，由于空闲内存是间断的、不连续的，则需要对空闲内存
+列表进行一次单向遍历找出大于等于 size 的块才能为其分配。为了找到合适的块，我们可以采取三种
+分配策略。
+First-fit，遍历整个空闲列表，找到大于等于 size 的块就立即返回
+Best-fit，遍历整个空闲列表，找到最接近并且拥有足够 size 的分块
+Worst-fit，遍历整个空闲列表，找到最大的分块，然后切成两部分，一部分 size 大小，并将该部分返回
+这三种策略里面 Worst-fit 的空间利用率看起来是最合理，但实际上切分之后会造成更多的小块，
+形成内存碎片，所以不推荐使用，对于 First-fit 和 Best-fit 来说，考虑到分配的速度和效率
+，First-fit 是更为明智的选择
+缺点：
+内存碎片化，空闲内存块是不连续的，容易出现很多空闲内存块，还可能会出现分配所需内存过大的对象时
+找不到合适的块
+分配速度慢，因为即便是使用 First-fit 策略，其操作仍是一个 O(n) 的操作，最坏情况是每次都要遍历
+到最后，同时因为碎片化，大对象的分配效率会更慢
+2.标记整理法mark compact（解决了标记清除法清除后，内存空间不连续的问题）
+compact:把...紧压在一起或压实
+它的标记过程和标记算法没有什么不同，只是在清理完所有标记为0的垃圾，会把不需要的清理的对象
+（即活着的对象）向内存的一段移动，让已经使用的内存空间可以连续起来，未使用的内存空间
+也可以连续起来。
+3.引用计数法
+自己语言（可能不准确）：通过跟踪，记录每个变量的被引用数。其他变量引用它了加1，
+不再引用它了就减1。如果该变量引用数为0，就进行回收。
+它的策略是跟踪记录每个变量值被使用的次数
+（1）当声明了一个变量并且将一个引用类型赋值给该变量的时候这个值的引用次数就为 1
+（2）如果同一个值又被赋给另一个变量，那么引用数加 1
+（3）如果该变量的值被其他的值覆盖了，则引用次数减 1
+（4）当这个值的引用次数变为 0 的时候，说明没有变量在使用，这个值没法被访问了，回收空间，
+  垃圾回收器会在运行的时候清理掉引用次数为 0 的值占用的内存
+eg:
+let a = new Object()  // 此对象的引用计数为 1（a引用）
+let b = a   // 此对象的引用计数是 2（a,b引用）
+a = null    // 此对象的引用计数为 1（b引用）
+b = null    // 此对象的引用计数为 0（无引用）
+...   // GC 回收此对象
+但也存在严重问题-循环使用
+eg:
+function test(){
+  let A = new Object()
+  let B = new Object()
+  
+  A.b = B
+  B.a = A
+}
+如上所示，对象 A 和 B 通过各自的属性相互引用着，按照上文的引用计数策略，它们的引用数量
+都是 2，但是，在函数 test 执行完成之后，对象 A 和 B 是要被清理的，但使用引用计数则
+不会被清理，因为它们的引用数量不会变成 0，假如此函数在程序中被多次调用，那么就会造成
+大量的内存不会被释放
+我们再用标记清除的角度看一下，当函数结束后，两个对象都不在作用域中，A 和 B 都会被当作
+非活动对象来清除掉，相比之下，引用计数则不会释放，也就会造成大量无用内存占用，
+这也是后来放弃引用计数，使用标记清除的原因之一
+优点
+引用计数算法的优点我们对比标记清除来看就会清晰很多，首先引用计数在引用值为 0 时，也就是在
+变成垃圾的那一刻就会被回收，所以它可以立即回收垃圾
+而标记清除算法需要每隔一段时间进行一次，那在应用程序（JS脚本）运行过程中线程就必须要暂停去执行
+一段时间的 GC，另外，标记清除算法需要遍历堆里的活动以及非活动对象来清除，而引用计数则只需要
+在引用时计数就可以了
+缺点
+引用计数的缺点想必大家也都很明朗了，首先它需要一个计数器，而此计数器需要占很大的位置，因为我们
+也不知道被引用数量的上限，还有就是无法解决循环引用无法回收的问题，这也是最严重的
+
+
+V8引擎对垃圾回收进行了哪些优化？
+分代式垃圾回收。
+将堆内存分为新生代和老生代两区域，采用不同的策略管理垃圾回收
+我们把存活时间较短的对象或者新产生的对象，称为新生代的对象，通常只支持1~8M的容量。
+而把存活时间较长或者经过多次新生代垃圾回收还能存活下来的对象，称为老生代的对象，它的容量
+要相对大很多。
+
+新生代垃圾回收
+新生代是通过一个名为Scavenge(拾荒)的算法进行垃圾回收。在scavenge算法的具体实现中，
+主要采用了一种复制式的方法即Cheney算法。它会将堆内存一分为二，将使用状态的空间称为
+使用区，将处于闲置状态的空间称为空闲区。
+新加入的对象都会存放到使用区，当使用区快被写满时，就需要执行一次垃圾清理操作
+当开始进行垃圾回收时，新生代垃圾回收器会对使用区中的活动对象做标记，标记完成之后将使用区
+的活动对象复制进空闲区并进行排序，随后进入垃圾清理阶段，即将非活动对象占用的空间清理掉。
+最后进行角色互换，把原来的使用区变成空闲区，把原来的空闲区变成使用区
+当一个对象经过多次复制后依然存活，它将会被认为是生命周期较长的对象，随后会被移动到老生代中，
+采用老生代的垃圾回收策略进行管理
+另外还有一种情况，如果复制一个对象到空闲区时，空闲区空间占用超过了 25%，那么这个对象会被
+直接晋升到老生代空间中，设置为 25% 的比例的原因是，当完成 Scavenge 回收后，空闲区将翻转成
+使用区，继续进行对象内存的分配，若占比过大，将会影响后续内存分配。
+移到老生代的特点：新生代多次GC存活、占用空间大的
+
+老生代垃圾回收
+因为新生代把进行GC存活的和占用空间大的对象，都放在老生代里。而大的对象不适合，像新生代进行
+分区、复制、GC,复制大对象本身就耗时。所以我们采用了标记清除算法。
+首先是标记阶段，从一组根元素开始，递归遍历这组根元素，遍历过程中能到达的元素称为活动对象，
+没有到达的元素就可以判断为非活动对象
+清除阶段老生代垃圾回收器会直接将非活动对象（即数据）清理掉。
+标记清除算法在清除后会产生大量不连续的内存碎片，过多的碎片会导致大对象无法分配到足够的连续内存
+，而 V8 中就采用了我们上文中说的标记整理算法来解决这一问题来优化空间。
+分代式其实是v8对GC的优化，灵活设置了新老生代的回收机制和频率，来提高了垃圾回收机制的效率。
+将一些新、小、存活时间短的对象作为新生代，采用一小块内存频率较高的快速清理，而一些大、老、
+存活时间长的对象作为老生代，使其很少接受检查
+
+并行回收
+众所周知，js是一门单线程语言。它是运行在主线程上的，那在进行垃圾回收时就会阻塞 JavaScript 
+脚本的执行，需等待垃圾回收完毕后再恢复脚本执行，我们把这种行为叫做 全停顿
+比如一次 GC 需要 60ms ，那我们的应用逻辑就得暂停 60ms ，假如一次 GC 的时间过长，对用户来说
+就可能造成页面卡顿等问题。因此v8团队引入了并行回收机制，在主线程上执行的过程中，开启多个辅助
+线程，同时执行同样的回收工作
+新生代对象空间就采用并行策略，在执行垃圾回收的过程中，会启动了多个线程来负责新生代中的垃圾
+清理操作，这些线程同时将对象空间中的数据移动到空闲区域，这个过程中由于数据地址会发生改变，
+所以还需要同步更新引用这些对象的指针，此即并行回收
+并行策略虽然可以增加垃圾回收的效率，对于新生代垃圾回收器能够有很好的优化，但是其实它还是一种
+全停顿式的垃圾回收方式，对于老生代来说，它的内部存放的都是一些比较大的对象，对于这些
+大的对象 GC 时哪怕我们使用并行策略依然可能会消耗大量时间
+所以为了减少全停顿的时间，在 2011 年，V8 对老生代的标记进行了优化，从全停顿标记切换到增量标记
+
+增量标记
+增量就是将一次 GC 标记的过程，分成了很多小步，每执行完一小步就让应用逻辑执行一会儿，这样交替
+多次后完成一轮 GC 标记。
+试想一下，将一次完整的 GC 标记分次执行，那在每一小次 GC 标记执行完之后如何暂停下来去执行任务
+程序，而后又怎么恢复呢？那假如我们在一次完整的 GC 标记分块暂停后，执行任务程序时内存中标记好
+的对象引用关系被修改了又怎么办呢？V8 对这两个问题对应的解决方案分别是三色标记法与写屏障
+三色标记法：
+如果采用非黑即白的标记策略，那在垃圾回收器执行了一段增量回收后，暂停后启用主线程去执行了
+应用程序中的一段 JavaScript 代码，随后当垃圾回收器再次被启动，这时候内存中黑白色都有，我们
+无法得知下一步走到哪里了
+三色标记法即使用每个对象的两个标记位和一个标记工作表来实现标记，两个标记位编码三种颜色：
+白、灰、黑
+白色指的是未被标记的对象
+灰色指自身被标记，成员变量（该对象的引用对象）未被标记
+黑色指自身和成员变量皆被标记
+最初所有的对象都是白色，意味着回收器没有标记它们，从一组根对象开始，先将这组根对象标记
+为灰色并推入到标记工作表中，当回收器从标记工作表中弹出对象并访问它的引用对象时，将其自身
+由灰色转变成黑色，并将自身的下一个引用对象转为灰色
+就这样一直往下走，直到没有可标记灰色的对象时，也就是无可达（无引用到）的对象了，那么剩下的
+所有白色对象都是无法到达的，即等待回收（如上图中的 C、E 将要等待回收）
+采用三色标记法后我们在恢复执行时就好办多了，可以直接通过当前内存中有没有灰色节点来判断整个
+标记是否完成，如没有灰色节点，直接进入清理阶段，如还有灰色标记，恢复时直接从灰色的节点开始
+继续执行就可以
+三色标记法的 mark 操作可以渐进执行的而不需每次都扫描整个内存空间，可以很好的配合增量回收
+进行暂停恢复的一些操作，从而减少 全停顿 的时间
+写屏障(增量中修改引用)
+一次完整的 GC 标记分块暂停后，执行任务程序时内存中标记好的对象引用关系被修改了，增量中修改
+引用，可能不太好理解
+假如我们有 A、B、C 三个对象依次引用，在第一次增量分段中全部标记为黑色（活动对象），而后暂停
+开始执行应用程序也就是 JavaScript 脚本，在脚本中我们将对象 B 的指向由对象 C 改为了对象 D 
+，接着恢复执行下一次增量分段
+这时其实对象 C 已经无引用关系了，但是目前它是黑色（代表活动对象）此一整轮 GC 是不会清理 C 的
+，不过我们可以不考虑这个，因为就算此轮不清理等下一轮 GC 也会清理，这对我们程序运行并没有太大
+影响
+我们再看新的对象 D 是初始的白色，按照我们上面所说，已经没有灰色对象了，也就是全部标记完毕
+接下来要进行清理了，新修改的白色对象 D 将在次轮 GC 的清理阶段被回收，还有引用关系就被回收，
+后面我们程序里可能还会用到对象 D 呢，这肯定是不对的
+为了解决这个问题，V8 增量回收使用 写屏障 (Write-barrier) 机制，即一旦有黑色对象引用白色对象，
+该机制会强制将引用的白色对象改为灰色，从而保证下一次增量 GC 标记阶段可以正确标记，这个机制
+也被称作 强三色不变性
+那在我们上图的例子中，将对象 B 的指向由对象 C 改为对象 D 后，白色对象 D 会被强制改为灰色
+懒性清理
+增量标记其实只是对活动对象和非活动对象进行标记，对于真正的清理释放内存 V8 采用的是惰性清理
+(Lazy Sweeping)
+增量标记完成后，惰性清理就开始了。当增量标记完成后，假如当前的可用内存足以让我们快速的执行
+代码，其实我们是没必要立即清理内存的，可以将清理过程稍微延迟一下，让 JavaScript 脚本代码
+先执行，也无需一次性清理完所有非活动对象内存，可以按需逐一进行清理直到所有的非活动对象内存
+都清理完毕，后面再接着执行增量标记
+增量标记与惰性清理的优缺？
+增量标记与惰性清理的出现，使得主线程的停顿时间大大减少了，让用户与浏览器交互的过程变得更加
+流畅。但是由于每个小的增量标记之间执行了 JavaScript 代码，堆中的对象指针可能发生了变化，
+需要使用写屏障技术来记录这些引用关系的变化，所以增量标记缺点也很明显：
+首先是并没有减少主线程的总暂停的时间，甚至会略微增加，其次由于写屏障机制的成本，增量标记
+可能会降低应用程序的吞吐量
+并发回收
+并发回收其实是更进一步的切片，几乎完全不阻塞主进程
+</code></pre></div><ul><li>怎么理解内存泄露？</li></ul> <div class="language-md extra-class"><pre class="language-md"><code></code></pre></div><ul><li>怎么解决内存泄漏，代码层面如何优化？</li></ul> <div class="language-md extra-class"><pre class="language-md"><code>使用 Performance + Memory 分析内存与性能
+（1）.减少查找
+（2）.减少变量声明
+</code></pre></div><h2 id="js运行机制"><a href="#js运行机制" class="header-anchor">#</a> js运行机制</h2> <div class="language-md extra-class"><pre class="language-md"><code><span class="token list punctuation">1.</span> 浏览器进程
+（1）协调控制其他子进程的创建、销毁等
+（2）浏览器界面显示，用户交互（前进、后退、收藏）
+（3）将渲染进程得到的内存中的Bitmap,绘制到用户界面上
+（4）存储功能等
+
+
+<span class="token list punctuation">2.</span> GPU进程
+用户3D绘制等
+
+
+<span class="token list punctuation">3.</span> 第三方插件进程
+每种类型的插件对应一个进程，仅当使用该插件时才创建
+
+
+<span class="token list punctuation">4.</span> 渲染（render）进程
+排版引擎Blink和JavaScript引擎v8都是运行在该进程中,将HTML、CSS、JavaScript转换为
+用户可以与之交互的网页
+负责页面渲染，脚本执行，事件处理等
+每个tab页一个渲染进程
+出于安全考虑，渲染进程都是运行在沙箱模式下
+（1）GUI渲染线程
+（2）JS引擎线程
+（3）事件触发线程
+（4）定时器触发线程 eg:setTimeout, setInterval
+（5）异步http请求线程 eg:XMLHttpRequest
+
+
+<span class="token list punctuation">5.</span> 网络进程
+负责页面的网络资源加载
+</code></pre></div><h2 id="事件循环"><a href="#事件循环" class="header-anchor">#</a> 事件循环</h2> <div class="language-md extra-class"><pre class="language-md"><code>宏任务：I/O、setTimeout、setInterval、setImmediate、requestAnimationFrame
+微任务(时间不会很长，见缝插针)：process.nextTick、MutationObserver、Promise then/catchfinally
+宏任务-&gt;当前产生的所有微任务-&gt;GUI渲染-&gt;宏任务
+</code></pre></div><h3 id="题目"><a href="#题目" class="header-anchor">#</a> 题目</h3> <div class="language-js extra-class"><pre class="language-js"><code>document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>style <span class="token operator">=</span> <span class="token string">&quot;background:yellow&quot;</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>style <span class="token operator">=</span> <span class="token string">&quot;background:pink&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// result: 1,3,2, 直接变成粉色的。</span>
+<span class="token comment">// 解析：微任务：promise.then</span>
+<span class="token comment">// 除了微任务就是宏任务。</span>
+<span class="token comment">// 宏任务-&gt;执行所有的微任务-&gt;GUI渲染-&gt;宏任务</span>
+</code></pre></div><h2 id="框架常见api应用"><a href="#框架常见api应用" class="header-anchor">#</a> 框架常见API应用</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//Object.assign() 静态方法将一个或者多个源对象中所有可枚举的自有属性复制到目标对象，</span>
+<span class="token comment">//并返回修改后的目标对象。</span>
+Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> source<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//假如源对象是一个对象的引用，它仅仅会复制其引用值。</span>
+
+Object<span class="token punctuation">.</span><span class="token function">fromEntries</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 静态方法将键值对列表转换为一个对象。
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/continuous_learning/develop/HTMLAndCSS.html" class="prev">
+        HTML和CSS
+      </a></span> <span class="next"><a href="/continuous_learning/develop/typescript.html">
+        TypeScript
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/continuous_learning/assets/js/app.a36e4480.js" defer></script><script src="/continuous_learning/assets/js/2.37a86b2d.js" defer></script><script src="/continuous_learning/assets/js/1.f80ffb5b.js" defer></script><script src="/continuous_learning/assets/js/25.1f29eb41.js" defer></script>
+  </body>
+</html>
