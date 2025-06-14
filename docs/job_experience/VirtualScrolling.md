@@ -180,3 +180,156 @@ onMounted(() => {
 }
 </style>
 ```
+
+## 其他思路
+
+### 分堆渲染
+
+缺点：把没有在可视区的内容都渲染出来。
+
+* 把所有数据进行切割，
+* 通过递归 和 requestAnimationFrame，逐渐增加DOM
+
+```js
+<script setup lang="ts">
+interface ListItem {
+  id: string,
+  name: string
+}
+import {onMounted, ref} from 'vue';
+const allListData = ref<ListItem[]>([]); // 所有的数据，比如这个数组存放了十万条数据
+const itemHeight =  ref(50) // 每一条（项）的高度，比如40像素
+const count =  ref(10); // 一屏展示几条数据
+const loading = ref(false);
+
+function averageFn(arr: ListItem[]){
+  let i = 0;
+  let res = []
+  while(i<arr.length){
+    res.push(arr.slice(i,i+10))
+    i = i+10
+  }
+  return res
+};
+
+onMounted(() => {
+    loading.value = true
+
+    let temp: any[] = [];
+    for(let i = 0; i < 1000; i++ ) {
+        temp.push({name: `durant${i}${i}${i}${i}${i}`, id: Math.random()})
+    }
+    const resArr = averageFn(temp)
+    console.log("🚀 ~ onMounted ~ resArr:", resArr, resArr.length)
+    const useArr = (page:number)=>{
+      if(page > resArr.length -1){
+        return 
+      }
+      requestAnimationFrame(()=>{
+        // console.log(resArr, page)
+        allListData.value = [...allListData.value,...resArr[page]]
+        // console.log("🚀 ~ requestAnimationFrame ~ allListData.value:", allListData.value)
+        page = page+1
+        useArr(page)
+      })
+    }
+    useArr(0)
+    loading.value = false
+})
+</script>
+
+<template>
+      <div
+    class="virtualListWrap"
+    ref="virtualListWrap"
+    :style="{ height: itemHeight * count + 'px' }"
+  >
+    <!--可弄骨架屏-->
+    <div
+      class="placeholderDom"
+      :style="{ height: allListData.length * itemHeight + 'px' }"
+    >
+      骨架屏
+    </div>
+    <div class="contentList">
+      <!-- 每一条（项）数据 -->
+      <div
+        v-for="(item, index) in allListData"
+        :key="item.id"
+        class="itemClass"
+        :style="{ height: itemHeight + 'px' }"
+      >
+        {{ item.name }}
+      </div>
+    </div>
+    <div class="loadingBox" v-show="loading">
+      <i class="el-icon-loading"></i>
+      &nbsp;&nbsp;<span>loading...</span>
+    </div>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+// 虚拟列表容器盒子
+.virtualListWrap {
+  box-sizing: border-box;
+  width: 240px;
+  border: solid 1px #000000;
+  // 开启滚动条
+  overflow-y: auto;
+  // 开启相对定位
+  position: relative;
+  .contentList {
+    width: 100%;
+    // height: auto;
+    // 搭配使用绝对定位
+    position: absolute;
+    top: 0;
+    left: 0;
+    .itemClass {
+      box-sizing: border-box;
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+    }
+    // 奇偶行改一个颜色
+    .itemClass:nth-child(even) {
+      background: #c7edcc;
+    }
+    .itemClass:nth-child(odd) {
+      background: pink;
+    }
+  }
+  .loadingBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.64);
+    color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+</style>
+```
+
+## 所有方案对比
+
+维度	分块渲染（当前代码）	虚拟滚动（之前实现）
+数据加载	分批次加载数据（如每次10条）	仅加载可视区域数据 + 少量缓冲
+DOM 数量	累计加载的所有数据都会渲染成DOM	只渲染可视区域附近的DOM（固定数量）
+滚动行为	依赖浏览器原生滚动	通过 translateY 模拟滚动，动态更新DOM内容
+内存占用	随数据加载线性增长	恒定（与数据总量无关）
+适用数据量	中小型数据集（< 1万条）	大型数据集（> 1万条）
+
+指标	分块渲染	虚拟滚动
+首次渲染时间	50ms	20ms
+滚动流畅度	60 FPS	60 FPS
+内存占用	较高（逐步增长）	低（稳定）
+极限数据量支持	≤ 5000条	≥ 10万条
